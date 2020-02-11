@@ -28,7 +28,7 @@ public class NatGrid
 
 
         colliderList = GameObject.FindGameObjectsWithTag("Obstacle");
-        Debug.Log(colliderList.Length);
+
         for (int x1 = 0; x1 < listNode.GetLength(0); x1++)
         {
             for (int y2 = 0; y2 < listNode.GetLength(1); y2++)
@@ -76,16 +76,6 @@ public class NatGrid
         x = Mathf.FloorToInt((position.x / dimCell) - origine.x);
         y = Mathf.FloorToInt((position.y / dimCell) - origine.y);
     }
-
-    //  public void setPosJ(Vector3 posJ)
-    // {
-    //     positionJoueur = posJ;
-    // }
-
-    // public Vector3 getPosJ()
-    // {
-    //     return positionJoueur;
-    //}
 
     public void SetGridObject(Vector3 worldPosition, NatNode value)
     {

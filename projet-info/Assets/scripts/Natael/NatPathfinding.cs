@@ -104,7 +104,6 @@ public class NatPathfinding : MonoBehaviour
         start.Gcost = 0;
         start.Hcost = CalculerLaDistanceEntreNode(start, goal);
         start.CalculerFcost();
-        //start.Fcost = CalculerHCost(start, goal);
 
 
         // l'algorithme principale
@@ -113,7 +112,7 @@ public class NatPathfinding : MonoBehaviour
             // On regarde au début la node qui à le
             // coût estimé le plus bas pour rejoindre
             // l'objectif
-            NatNode current = CalculerLowerFcost(openList);
+            NatNode current = CalculerLePlusBasF(openList);
 
 
             // On regarde si l'objectif est atteint
@@ -158,7 +157,6 @@ public class NatPathfinding : MonoBehaviour
                     neighbour.Hcost = CalculerLaDistanceEntreNode(current, goal);
                     neighbour.cameFromNode = current;
                     neighbour.CalculerFcost();
-                    //neighbour.Fcost = neighbour.Gcost + CalculerHCost(neighbour, goal);
 
                     if (!openList.Contains(neighbour))
                     {
@@ -175,19 +173,20 @@ public class NatPathfinding : MonoBehaviour
         return null;
     }
 
-    private NatNode CalculerLowerFcost(List<NatNode> listNode)
+    private NatNode CalculerLePlusBasF(List<NatNode> node)
     {
-        NatNode lowerFCostNode = listNode[0];
-        for (int i = 0; i < listNode.Count; i++)
+        NatNode fPlusBas = node[0];
+
+        for (int i = 0; i < node.Count; i++)
         {
-            if (listNode[i].Fcost < lowerFCostNode.Fcost)
+            if (node[i].Fcost < fPlusBas.Fcost)
             {
-                lowerFCostNode = listNode[i];
+                fPlusBas = node[i];
             }
 
         }
 
-        return lowerFCostNode;
+        return fPlusBas;
     }
 
     // Permet d'aller cherhcher toute les nodes 
@@ -259,26 +258,28 @@ public class NatPathfinding : MonoBehaviour
     private List<NatNode> BuilPath(NatNode node)
     {
         List<NatNode> path = new List<NatNode>() { node };
-        //path.Add(node);
-        //Node nodeActuelle = node;
 
         while (node.cameFromNode != null)
         {
-            node = node.cameFromNode;
+
             path.Add(node.cameFromNode);
+            node = node.cameFromNode;
         }
-        //path.Reverse();
+        path.Reverse();
         return path;
     }
 
-    private int CalculerLaDistanceEntreNode(NatNode a, NatNode b)
+    // Permet de calculer la distance entre deux node pour calculé 
+    // sont coût de déplacement d'une node à une autre.
+    private int CalculerLaDistanceEntreNode(NatNode nodeA, NatNode nodeB)
     {
-        int DistanceX = Mathf.Abs(a.x - b.x);
-        int DistanceY = Mathf.Abs(a.y - b.y);
+        int DistanceX = Mathf.Abs(nodeA.x - nodeB.x);
+        int DistanceY = Mathf.Abs(nodeA.y - nodeB.y);
         int restant = Mathf.Abs(DistanceX - DistanceY);
         return COUT_MOUVEMENT_DIAGONAL * Mathf.Min(DistanceX, DistanceY) + COUT_MOUVEMENT_DROIT * restant;
     }
 
+    //Permet de routourner la grid construite
     public NatGrid getGrid()
     {
         return grid;
