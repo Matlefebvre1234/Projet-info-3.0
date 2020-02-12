@@ -8,6 +8,7 @@ TagManager:
   - Mur
   - murTransparent
   - Obstacle
+  - Enemy
   layers:
   - Default
   - TransparentFX
