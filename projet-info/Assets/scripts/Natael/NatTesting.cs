@@ -7,16 +7,21 @@ public class NatTesting : MonoBehaviour
     // Start is called before the first frame update
     public int hauteur = 14;
     public int largeur = 22;
-    float origineMap_X = 2.5f;
-    float origineMap_Y = 3.25f;
-    private NatPathfinding pathfinding;
-    private NatGrid grid;
+
     public GameObject player;
     public GameObject enemy;
+
+    float origineMap_X = 2.5f;
+    float origineMap_Y = 3.25f;
+
+    private NatPathfinding pathfinding;
+    private Vector3 origine = new Vector3(8, 1);
+    private NatGrid grid;
 
     void Start()
     {
         pathfinding = new NatPathfinding(largeur, hauteur);
+        grid = new NatGrid(largeur, hauteur, 0.5f, origine);
     }
 
     private void Update()
@@ -24,19 +29,19 @@ public class NatTesting : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            pathfinding.getGrid().GetXY(positionSouris, out int x, out int y);
+            //pathfinding.getGrid().GetXY(positionSouris, out int x, out int y);
 
             Vector3 positionPlayer = new Vector3(player.transform.position.x, player.transform.position.y);
-            //Vector3 positionEnemy = new Vector3(enemy.transform.position.x, enemy.transform.position.y);
+            Vector3 positionEnemy = new Vector3(enemy.transform.position.x, enemy.transform.position.y);
 
             Debug.Log("Player is on : x, " + positionPlayer.x + ", y : " + positionPlayer.y);
 
             //Ça pète ici !!!!!
-            //grid.GetXY(positionPlayer, out int z, out int w);
-            //grid.GetXY(positionEnemy, out int c, out int v);
+            grid.GetXY(positionPlayer, out int z, out int w);
+            grid.GetXY(positionEnemy, out int x, out int y);
 
 
-            List<NatNode> path = pathfinding.FindPath(0, 0, x, y);
+            List<NatNode> path = pathfinding.FindPath(z, w, x, y);
             
             if (path != null)
             {
