@@ -24,11 +24,11 @@ public class MatGrid
         dimCell = n_dimCell;
         origine = n_origine;
         listNode = new MatNode[largeur, hauteur];
-        bool iscollide;
+    
 
         
         colliderList = GameObject.FindGameObjectsWithTag("Obstacle");
-        Debug.Log(colliderList.Length);
+
         for (int x1 = 0; x1 < listNode.GetLength(0); x1++)
         {
             for (int y2 = 0; y2 < listNode.GetLength(1); y2++)
@@ -75,6 +75,11 @@ public class MatGrid
     {
         x = Mathf.FloorToInt((position.x / dimCell) - origine.x);
         y = Mathf.FloorToInt((position.y / dimCell) - origine.y);
+    }
+    public void GetWorldXY(Vector3 position, out int x, out int y)
+    {
+        x = Mathf.FloorToInt((position.x * dimCell) + origine.x);
+        y = Mathf.FloorToInt((position.y * dimCell) + origine.y);
     }
 
     //  public void setPosJ(Vector3 posJ)

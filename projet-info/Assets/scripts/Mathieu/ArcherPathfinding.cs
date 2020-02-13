@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class matPathfinding 
+public class ArcherPathfinding
 {
     private const int COUT_MOUVEMENT_DROIT = 10;
     private const int COUT_MOUVEMENT_DIAGONAL = 14;
@@ -13,15 +13,18 @@ public class matPathfinding
     private MatGrid grid;
     private List<MatNode> openList;
     private List<MatNode> closeList;
+   // private bool atteintCasePLusEloigné = false;
+    public int limiteDistance = 0;
+    
 
 
-    public matPathfinding(int largueur , int hauteur)
+    public ArcherPathfinding(int largueur, int hauteur)
     {
         grid = new MatGrid(largueur, hauteur, dimCell, origine);
 
     }
 
-    public List<MatNode> FindPath(int startX,int startY,int endX,int endY)
+    public List<MatNode> FindPath(int startX, int startY, int endX, int endY)
     {
         MatNode startNode = grid.GetGridObject(startX, startY);
         MatNode endNode = grid.GetGridObject(endX, endY);
@@ -29,12 +32,13 @@ public class matPathfinding
         openList = new List<MatNode> { startNode };
         closeList = new List<MatNode>();
 
-        for(int x =0;x < grid.GetLargueur();x++)
+        for (int x = 0; x < grid.GetLargueur(); x++)
         {
-            for(int y =0;y<grid.GetHauteur(); y++)
+            for (int y = 0; y < grid.GetHauteur(); y++)
             {
                 MatNode node = grid.GetGridObject(x, y);
                 node.Gcost = int.MaxValue;
+                node.Hcost = 0;
                 node.cameFromNode = null;
                 node.CalculerFcost();
 
@@ -45,41 +49,44 @@ public class matPathfinding
         startNode.Hcost = CalculerLaDistanceEntreNode(startNode, endNode);
         startNode.CalculerFcost();
 
-        while(openList.Count > 0)
+        while (openList.Count > 0)
         {
-            MatNode NodeActuelle = CalculerLowerFcost(openList);
+            MatNode NodeActuelle = CalculerPlusGrandFcost(openList);
+            limiteDistance++;
 
-            if (NodeActuelle == endNode) return CalculerPathNode(endNode); //fin de la recherche
+            if ( limiteDistance >= 50) return CalculerPathNode(NodeActuelle); //fin de la recherche
 
-          
-            
-                openList.Remove(NodeActuelle);
-                closeList.Add(NodeActuelle);
 
-            foreach(MatNode nodeVoisine in GetNodeVoisin(NodeActuelle))
+
+            openList.Remove(NodeActuelle);
+            closeList.Add(NodeActuelle);
+
+            foreach (MatNode nodeVoisine in GetNodeVoisin(NodeActuelle))
             {
                 if (closeList.Contains(nodeVoisine)) continue;
-                if(nodeVoisine.obstacle == true)
+                if (nodeVoisine.obstacle == true)
                 {
                     closeList.Add(nodeVoisine);
                     continue;
                 }
 
-                int tempGcost = NodeActuelle.Gcost + CalculerLaDistanceEntreNode(NodeActuelle, nodeVoisine);
-                if (tempGcost < nodeVoisine.Gcost)
-                {
-                    nodeVoisine.Gcost = tempGcost;
-                    nodeVoisine.Hcost = CalculerLaDistanceEntreNode(nodeVoisine, endNode);
+
+                 int tempGcost = NodeActuelle.Gcost + CalculerLaDistanceEntreNode(NodeActuelle, nodeVoisine);
+                  if (tempGcost < nodeVoisine.Gcost)
+                 {
+                     nodeVoisine.Gcost = tempGcost;
+                     nodeVoisine.Hcost = CalculerLaDistanceEntreNode(nodeVoisine, endNode);
                     nodeVoisine.cameFromNode = NodeActuelle;
                     nodeVoisine.CalculerFcost();
 
                     if (!openList.Contains(nodeVoisine))
                     {
                         openList.Add(nodeVoisine);
-                    
+
                     }
 
-                }
+                   }
+               
             }
         }
         //lorsque que la openlist est vide
@@ -131,7 +138,7 @@ public class matPathfinding
         }
         chemin.Reverse();
         return chemin;
-    
+
     }
 
     private int CalculerLaDistanceEntreNode(MatNode a, MatNode b)
@@ -142,19 +149,37 @@ public class matPathfinding
         return COUT_MOUVEMENT_DIAGONAL * Mathf.Min(DistanceX, DistanceY) + COUT_MOUVEMENT_DROIT * restant;
     }
 
-    private MatNode CalculerLowerFcost(List<MatNode> listNode)
+    //private MatNode CalculerLowerFcost(List<MatNode> listNode)
+    //{
+    //    MatNode lowerFCostNode = listNode[0];
+     ////   for (int i = 0; i < listNode.Count; i++)
+     //   {
+     //       if (listNode[i].Fcost < lowerFCostNode.Fcost)
+     //       {
+     //           lowerFCostNode = listNode[i];
+    //        }
+
+    //    }
+
+    //    return lowerFCostNode;
+  //  }
+
+    private MatNode CalculerPlusGrandFcost(List<MatNode> listNode)
     {
-        MatNode lowerFCostNode = listNode[0];
+      //  bool plusGrandeDistanceAtteinte = true;
+        MatNode plusGrandFCostNode = listNode[0];
         for (int i = 0; i < listNode.Count; i++)
         {
-            if (listNode[i].Fcost < lowerFCostNode.Fcost)
+            if ( listNode[i].Hcost >= plusGrandFCostNode.Hcost)
             {
-                lowerFCostNode = listNode[i];
-            }
-        
-        }
+                plusGrandFCostNode = listNode[i];
+              //  plusGrandeDistanceAtteinte = false;
 
-        return lowerFCostNode;
+            }
+
+        }
+      //  if (plusGrandeDistanceAtteinte == true) atteintCasePLusEloigné = true;
+        return plusGrandFCostNode;
     }
 
 

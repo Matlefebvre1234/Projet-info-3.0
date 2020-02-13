@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1694528729}
   m_Layer: 0
   m_Name: TriggerTransparence
-  m_TagString: Untagged
+  m_TagString: murTransparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10774,7 +10774,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 9.514465, y: 8.044342}
+  m_Offset: {x: 9.514465, y: 7.970393}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10785,7 +10785,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.784673, y: 0.49115372}
+  m_Size: {x: 10.784672, y: 0.63905144}
   m_EdgeRadius: 0
 --- !u!50 &39168026101233262
 Rigidbody2D:
@@ -25206,6 +25206,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2907184589684052780}
+  - component: {fileID: 399064237}
+  - component: {fileID: 399064238}
+  - component: {fileID: 399064239}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -25232,6 +25235,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &399064237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848764985584261738}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c0e92b53e255d42abec9c5ba210605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hauteur: 14
+  largeur: 22
+  dimCell: 0.5
+  sousPosJ: {fileID: 0}
+--- !u!114 &399064238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848764985584261738}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcb837b07080c34cadb100a0b6f89b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hauteur: 14
+  largeur: 22
+  player: {fileID: 0}
+  enemy: {fileID: 0}
+--- !u!114 &399064239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848764985584261738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f4814e4761a2f41be8c1ab9f7cd88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hauteur: 14
+  largeur: 22
 --- !u!1 &6851135676441971086
 GameObject:
   m_ObjectHideFlags: 0

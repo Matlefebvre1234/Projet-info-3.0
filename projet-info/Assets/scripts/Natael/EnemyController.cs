@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour
             RaycastHit2D hit = CheckRaycast(direction);
             if (hit.collider)
             {
-                Debug.Log("Hit the collidable object " + hit.collider.name);
+             //   Debug.Log("Hit the collidable object " + hit.collider.name);
 
                 Debug.DrawRay(transform.position, hit.point, Color.red, 3f);
             }

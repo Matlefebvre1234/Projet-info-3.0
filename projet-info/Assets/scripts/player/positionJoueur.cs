@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class positionJoueur : MonoBehaviour
+public class positionJoueur
 {
     private Transform transforme;
     private Vector3 position = new Vector3();
@@ -13,7 +13,7 @@ public class positionJoueur : MonoBehaviour
         position.x = transforme.position.x;
         position.y = transforme.position.y;
     }
-
+    
     public Vector3 EnvoyerPos()
     {
         return position;
