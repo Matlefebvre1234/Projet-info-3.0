@@ -18,9 +18,6 @@ public class Tirer : MonoBehaviour
         {
             
             tirer();
-
-
-
         }
     }
 
