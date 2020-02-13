@@ -76,10 +76,10 @@ public class MatGrid
         x = Mathf.FloorToInt((position.x / dimCell) - origine.x);
         y = Mathf.FloorToInt((position.y / dimCell) - origine.y);
     }
-    public void GetWorldXY(Vector3 position, out int x, out int y)
+    public void GetWorldXY(Vector3 position, out float x, out float y)
     {
-        x = Mathf.FloorToInt((position.x * dimCell) + origine.x);
-        y = Mathf.FloorToInt((position.y * dimCell) + origine.y);
+        x =position.x * dimCell + 4.25f;
+        y =position.y * dimCell + 0.75f;
     }
 
     //  public void setPosJ(Vector3 posJ)
