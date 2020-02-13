@@ -8,35 +8,56 @@ public class ArcherTesting : MonoBehaviour
     // Start is called before the first frame update
     public int hauteur = 14;
     public int largeur = 22;
+    public float dimCell = 0.5f;
+    public float nbCaseDistance = 8f;
     private ArcherPathfinding pathfinding;
     List<MatNode> chemin;
     int index = 0;
     Vector3 positionSouris;
     public float speed = 5f;
+    GameObject player;
+    bool cheminAtteint = false;
+
     void Start()
     {
         pathfinding = new ArcherPathfinding(largeur, hauteur);
         speed = speed * Time.deltaTime;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
+        /* if (Input.GetMouseButtonDown(0))
+         {
+             pathfinding.limiteDistance = 0;
+             positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+             pathfinding.getGrid().GetXY(player.transform.position, out int x2, out int y2);
+             pathfinding.getGrid().GetXY(transform.position, out int x1, out int y1);
+             index = 0;
+             chemin = pathfinding.FindPath(x1, y1, x2, y2);
+             // chemin = pathfinding.FindPath(0, 0, x2, y2);
+             SuivreChemin();
+         }*/
+
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        Debug.Log("distance : "+distance);
+        Debug.Log("case : "+ (nbCaseDistance * dimCell));
+          if (distance <= (nbCaseDistance * dimCell))
+            {
+            
+            cheminAtteint = false;
             pathfinding.limiteDistance = 0;
-            positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            pathfinding.getGrid().GetXY(positionSouris, out int x2, out int y2);
             pathfinding.getGrid().GetXY(transform.position, out int x1, out int y1);
-
+            pathfinding.getGrid().GetXY(player.transform.position, out int x2, out int y2);
+            index = 0;
             chemin = pathfinding.FindPath(x1, y1, x2, y2);
-            // chemin = pathfinding.FindPath(0, 0, x2, y2);
             SuivreChemin();
-        }
-       
-           
-            SuivreChemin();
-        
 
+            }
+            if(cheminAtteint != true ) SuivreChemin();
+
+
+            SuivreChemin();
 
 
         if (chemin != null)
@@ -61,10 +82,10 @@ public class ArcherTesting : MonoBehaviour
     {
         if (chemin != null)
         {
-            Debug.Log (chemin[index].x + " " + chemin[index].y);
+            
             pathfinding.getGrid().GetWorldXY(new Vector2(chemin[index].x, chemin[index].y), out float x, out float y);
             Vector2 targetPosition = new Vector2(x, y);
-            Debug.Log(targetPosition);
+
             if (Vector2.Distance(transform.position, targetPosition) > 0.0001f)
             {
 
@@ -77,6 +98,7 @@ public class ArcherTesting : MonoBehaviour
                 {
                     chemin = null;
                     index = 0;
+                    cheminAtteint = true;
                 }
             }
 

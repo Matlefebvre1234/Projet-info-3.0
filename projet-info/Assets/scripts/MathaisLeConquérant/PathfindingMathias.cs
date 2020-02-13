@@ -13,7 +13,7 @@ public class PathfindingMathias
         grille = new Grid<CheminMathias>(largeur, hauteur, 10f, Vector2.zero, (Grid<CheminMathias> grille, int x, int y) => new CheminMathias(grille, x, y));
     }
 
-    private List<CheminMathias> Chemin(int debutX, int debutY, int finX, int finY)
+    /*private List<CheminMathias> Chemin(int debutX, int debutY, int finX, int finY)
     {
         CheminMathias caseDebut = grille.GetGridObject(debutX, debutY);
 
@@ -28,5 +28,5 @@ public class PathfindingMathias
                 case.g = int.MaxValue;
             }
         }
-    }
+    }*/
 }
