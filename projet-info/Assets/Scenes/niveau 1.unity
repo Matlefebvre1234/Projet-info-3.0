@@ -870,9 +870,10 @@ MonoBehaviour:
   largeur: 22
   dimCell: 0.5
   nbCaseDistance: 8
+  speed: 3
   projectile: {fileID: 4927659453865764854, guid: 54d16eafbed308a46945d809881fabe9,
     type: 3}
-  speed: 3
+  reloadTime: 0.5
 --- !u!1 &2016651969 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2568601779054897030, guid: c99d7fb6d3f65974898e72911ecf96e4,
@@ -1456,6 +1457,9 @@ MonoBehaviour:
   hauteur: 14
   largeur: 22
   raycastMaxDistance: 10
+  player: {fileID: 2016651969}
+  IA: {fileID: 2568601779959560498}
+  rangeIA: 3
 --- !u!1001 &8732243758088306895
 PrefabInstance:
   m_ObjectHideFlags: 0
