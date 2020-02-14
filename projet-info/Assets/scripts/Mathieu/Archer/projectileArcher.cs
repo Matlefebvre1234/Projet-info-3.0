@@ -20,6 +20,10 @@ public class projectileArcher : MonoBehaviour
         moncollider = GetComponent<BoxCollider2D>();
 
         MonRigidBody.AddForce(VecteurUnitaire * speed, ForceMode2D.Impulse);
+
+        Vector2 direction = player.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg ;
+        MonRigidBody.rotation = angle;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
