@@ -744,7 +744,7 @@ PrefabInstance:
     - target: {fileID: 2568601779054897031, guid: c99d7fb6d3f65974898e72911ecf96e4,
         type: 3}
       propertyPath: vitesseJoueur
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2568601779054897032, guid: c99d7fb6d3f65974898e72911ecf96e4,
         type: 3}
@@ -1027,6 +1027,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4255280500610496366, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_Enabled
@@ -1261,7 +1266,7 @@ PrefabInstance:
     - target: {fileID: 221698896216993326, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 221698896216993326, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
@@ -1433,6 +1438,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AngularDrag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817404474003105652, guid: 3783175fadc0b484387027c6fd0f5ff9,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3783175fadc0b484387027c6fd0f5ff9, type: 3}
