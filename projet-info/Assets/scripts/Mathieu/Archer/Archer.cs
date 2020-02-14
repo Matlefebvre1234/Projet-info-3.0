@@ -76,11 +76,11 @@ public class Archer : MonoBehaviour
         //VecteurUnitaire = VecteurUnitaire.normalized;
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, VecteurUnitaire);
 
-        Debug.DrawRay(transform.position,VecteurUnitaire,Color.green,5f);
+        //Debug.DrawRay(transform.position,VecteurUnitaire,Color.green,5f);
        for(int i =0;i<hit.Length;i++)
         {
-            Debug.Log(hit[i].collider.gameObject.name);
-            Debug.Log(hit.Length);
+            //Debug.Log(hit[i].collider.gameObject.name);
+           // Debug.Log(hit.Length);
             if (hit[i].collider.gameObject.tag == "Obstacle")
             {
                 obstacle = true;
