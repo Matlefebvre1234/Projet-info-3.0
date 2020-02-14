@@ -1506,7 +1506,7 @@ PrefabInstance:
     - target: {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4255280500610496366, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
@@ -1954,6 +1954,8 @@ MonoBehaviour:
   player: {fileID: 2016651969}
   IA: {fileID: 2568601779959560498}
   rangeIA: 3
+  randomTime: 2
+  rangeAttaquePlayer: 4
 --- !u!1001 &8732243758088306895
 PrefabInstance:
   m_ObjectHideFlags: 0

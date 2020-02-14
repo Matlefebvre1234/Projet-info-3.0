@@ -31,6 +31,16 @@ public class projectileArcher : MonoBehaviour
         if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "murTransparent")
         {
 
+            if(collision.gameObject.tag == "Player")
+            {
+                player.GetComponent<Santé>().attaque(5);
+
+            }
+
+
+
+
+
              Destroy(gameObject);
         }
 

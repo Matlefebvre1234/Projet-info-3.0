@@ -24,7 +24,7 @@ public class Santé : MonoBehaviour
         }
     }
 
-    void attaque(int qteAttaque)
+    public void attaque(int qteAttaque)
     {
         santee = santee - qteAttaque;
         barreSante.SetSantee(santee);
