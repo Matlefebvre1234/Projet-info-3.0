@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     //public GameObject player;
     //public GameObject IA;
     public int rangeIAMax = 3;
-    public int rangeIAMin = -3;
+    public int rangeIAMin = -3;    
     public int rangeAttaquePlayer = 4;
     public float speed = 0.02f;
 
@@ -22,9 +22,9 @@ public class EnemyController : MonoBehaviour
     private Vector3 origine = new Vector3(8, 1);
     private List<NatNode> path;
     private int node = 0;
-    private float elapseTime = 0;
+    private float elapseTime= 0;
     private float dimensionCellule = 0.5f;
-    private int randomTime = 0;
+    private int randomTime= 0;
 
     GameObject player;
 
@@ -51,8 +51,8 @@ public class EnemyController : MonoBehaviour
 
         elapseTime += 1 * Time.deltaTime;
         //tirerIA();
-
-        suivrePath();
+        
+        suivrePath();        
     }
 
     public void tirerIA()
@@ -68,7 +68,7 @@ public class EnemyController : MonoBehaviour
     {
         //float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
 
-        pathfinding.getGrid().GetXY(transform.position, out int x, out int y);
+            pathfinding.getGrid().GetXY(transform.position, out int x, out int y);
 
 
         int randomx = Random.Range(rangeIAMin, rangeIAMax);
@@ -76,14 +76,14 @@ public class EnemyController : MonoBehaviour
 
 
         while ((x + randomx) >= largeur || ((x + randomx) <= 0))
-        {
-            randomx = Random.Range(rangeIAMin, rangeIAMax);
-        }
+            {
+                randomx = Random.Range(rangeIAMin, rangeIAMax);
+            }
 
         while ((y + randomy) >= hauteur || (y + randomy) <= 0)
-        {
-            randomx = Random.Range(rangeIAMin, rangeIAMax);
-        }
+            {
+                randomx = Random.Range(rangeIAMin, rangeIAMax);
+            }
 
         path = pathfinding.FindPath(x, y, x + randomx, y + randomy);
 
@@ -98,14 +98,14 @@ public class EnemyController : MonoBehaviour
             pathfinding.getGrid().GetWorldXY(new Vector2(path[node].x, path[node].y), out float z, out float w);
             Vector2 targetPosition = new Vector2(z, w);
 
-            if (Vector2.Distance(transform.position, targetPosition) > 0.0001f)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
-            }
-            else
-            {
+           if (Vector2.Distance(transform.position, targetPosition) > 0.0001f)
+           {
+             transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
+           }
+           else
+           {
                 node++;
-                if (node >= path.Count)
+            if (node >= path.Count)
                 {
                     node = 0;
                     path = null;
