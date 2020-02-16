@@ -11,10 +11,16 @@ public class Archer : MonoBehaviour
     public float dimCell = 0.5f;
     public float nbCaseDistance = 8.0f;
     public float speed = 5f;
+    private bool rapprochement = false;
     private ArcherPathfinding pathfinding;
+    private matPathfinding pathfingRapprochement;
     public GameObject projectile;
     public float reloadTime = 0.5f;
     private float timeBeforeReaload = 0;
+    private int nbTireManquer = 0;
+    private bool tireEffectuer = false;
+
+
     List<MatNode> chemin;
     int index = 1;
     Vector3 positionSouris;
@@ -25,68 +31,48 @@ public class Archer : MonoBehaviour
     void Start()
     {
         pathfinding = new ArcherPathfinding(largeur, hauteur);
+        pathfingRapprochement = new matPathfinding(largeur, hauteur);
         speed = speed * Time.deltaTime;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
+        Debug.Log(rapprochement);
+      
         timeBeforeReaload = timeBeforeReaload + 1 * Time.deltaTime;
-        /* if (Input.GetMouseButtonDown(0))
-         {
-             pathfinding.limiteDistance = 0;
-             positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-             pathfinding.getGrid().GetXY(player.transform.position, out int x2, out int y2);
-             pathfinding.getGrid().GetXY(transform.position, out int x1, out int y1);
-             index = 0;
-             chemin = pathfinding.FindPath(x1, y1, x2, y2);
-             // chemin = pathfinding.FindPath(0, 0, x2, y2);
-             SuivreChemin();
-         }*/
-        EloignerPlayer();
+        if(rapprochement != true)EloignerPlayer();
         if (timeBeforeReaload >= reloadTime)
         {
-            TireArcher();
+            tireEffectuer = TireArcher();
+           if (tireEffectuer == false) nbTireManquer++;
+
+          if (nbTireManquer >= 3) rapprochement = true;
+            
             timeBeforeReaload = 0;
         }
-       
+      if (rapprochement == true) RapprochementPlayer();
+
     }
 
-
-
-
-    /*if (chemin != null)
+    private void RapprochementPlayer()
     {
-        for (int i = 0; i < chemin.Count - 1; i++)
-        {
 
-            Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 100f);
-        }
-    }*/
-
-
-
-
-
-
-    private bool TireArcher()
-    {
         bool obstacle = false;
 
         Vector2 VecteurUnitaire = (Vector2)player.transform.position - (Vector2)transform.position;
-        //VecteurUnitaire = VecteurUnitaire.normalized;
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, VecteurUnitaire);
         RaycastHit2D playerhit = new RaycastHit2D();
         List<RaycastHit2D> obstacleHit = new List<RaycastHit2D>();
 
-        Debug.DrawRay(transform.position, VecteurUnitaire, Color.green, 5f);
+       // Debug.DrawRay(transform.position, VecteurUnitaire, Color.green, 5f);
 
         for (int i = 0; i < hit.Length; i++)
         {
 
             if (hit[i].collider.gameObject.tag == "Obstacle")
             {
-                //  Debug.Log("hit obstacles");
+
                 obstacleHit.Add(hit[i]);
 
             }
@@ -94,7 +80,7 @@ public class Archer : MonoBehaviour
 
             if (hit[i].collider.gameObject.tag == "Player")
             {
-                //  Debug.Log("hit player");
+
                 playerhit = hit[i];
 
             }
@@ -107,10 +93,90 @@ public class Archer : MonoBehaviour
 
             for (int k = 0; k < obstacleHit.Count; k++)
             {
-                // Debug.Log("playerdistance " + playerhit.distance);
-                // Debug.Log("obstacleHit " + obstacleHit[k].distance);
-                // Debug.Log("obstacleHit " + obstacleHit[k].collider.gameObject.name);
 
+
+
+                if (playerhit.distance < obstacleHit[k].distance)
+                {
+
+                    obstacle = true;
+                    rapprochement = false;
+                }
+
+            }
+
+        }
+        else
+        {
+
+            obstacle = true;
+            rapprochement = false;
+
+        }
+
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        
+        if ( obstacle != true)
+        {
+           
+                cheminAtteint = false;
+                pathfingRapprochement.getGrid().GetXY(transform.position, out int x1, out int y1);
+                pathfingRapprochement.getGrid().GetXY(player.transform.position, out int x2, out int y2);
+                index = 1;
+                chemin = pathfingRapprochement.FindPath(x1, y1, x2, y2);
+                SuivreChemin();
+
+            
+
+            SuivreChemin();
+        }
+        else {
+            chemin = null;
+            nbTireManquer = 0;
+            rapprochement = false;
+            Debug.Log("arret"); }
+
+     
+    }
+
+    private bool TireArcher()
+    {
+        bool obstacle = false;
+
+        Vector2 VecteurUnitaire = (Vector2)player.transform.position - (Vector2)transform.position;
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, VecteurUnitaire);
+        RaycastHit2D playerhit = new RaycastHit2D();
+        List<RaycastHit2D> obstacleHit = new List<RaycastHit2D>();
+
+       Debug.DrawRay(transform.position, VecteurUnitaire, Color.red, 5f);
+
+        for (int i = 0; i < hit.Length; i++)
+        {
+
+            if (hit[i].collider.gameObject.tag == "Obstacle")
+            {
+                
+                obstacleHit.Add(hit[i]);
+
+            }
+
+
+            if (hit[i].collider.gameObject.tag == "Player")
+            {
+               
+                playerhit = hit[i];
+
+            }
+
+        }
+
+
+        if (obstacleHit.Count != 0)
+        {
+
+            for (int k = 0; k < obstacleHit.Count; k++)
+            {
+                
 
 
                 if (playerhit.distance < obstacleHit[k].distance)
@@ -157,7 +223,7 @@ public class Archer : MonoBehaviour
             pathfinding.getGrid().GetXY(player.transform.position, out int x2, out int y2);
             index = 1;
             chemin = pathfinding.FindPath(x1, y1, x2, y2);
-            SuivreChemin();
+           
 
         }
 
@@ -185,6 +251,8 @@ public class Archer : MonoBehaviour
                     chemin = null;
                     index = 0;
                     cheminAtteint = true;
+                    rapprochement = false;
+                    nbTireManquer = 0;
                 }
             }
 

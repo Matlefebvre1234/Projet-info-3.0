@@ -7,6 +7,7 @@ public class projectileArcher : MonoBehaviour
     Rigidbody2D MonRigidBody;
     BoxCollider2D moncollider;
     GameObject player;
+    float tempApresSpawn = 0f;
     Vector2 VecteurUnitaire;
     public float speed = 200;
 
@@ -26,9 +27,14 @@ public class projectileArcher : MonoBehaviour
         MonRigidBody.rotation = angle;
     }
 
+    private void Update()
+    {
+        tempApresSpawn += 1 * Time.deltaTime;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "murTransparent")
+        if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "murTransparent" && tempApresSpawn >= 0.1f) 
         {
 
             if(collision.gameObject.tag == "Player")
