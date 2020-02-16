@@ -73,8 +73,8 @@ public class NatGrid
 
     public void GetXY(Vector3 position, out int x, out int y)
     {
-        x = Mathf.FloorToInt((position.x / dimCell) - origine.x);
-        y = Mathf.FloorToInt((position.y / dimCell) - origine.y);
+        x = Mathf.FloorToInt(((position.x / dimCell) - origine.x));
+        y = Mathf.FloorToInt(((position.y / dimCell) - origine.y));
     }
 
     public void GetWorldXY(Vector3 position, out float x, out float y)
