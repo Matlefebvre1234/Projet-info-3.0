@@ -52,51 +52,97 @@ public class Archer : MonoBehaviour
        
     }
 
-   
 
-  
-        /*if (chemin != null)
+
+
+    /*if (chemin != null)
+    {
+        for (int i = 0; i < chemin.Count - 1; i++)
         {
-            for (int i = 0; i < chemin.Count - 1; i++)
-            {
 
-                Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 100f);
-            }
-        }*/
+            Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 100f);
+        }
+    }*/
 
 
 
 
-    
 
-    private void TireArcher()
+
+    private bool TireArcher()
     {
         bool obstacle = false;
-       Vector2 VecteurUnitaire = (Vector2)player.transform.position - (Vector2)transform.position;
+
+        Vector2 VecteurUnitaire = (Vector2)player.transform.position - (Vector2)transform.position;
         //VecteurUnitaire = VecteurUnitaire.normalized;
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, VecteurUnitaire);
+        RaycastHit2D playerhit = new RaycastHit2D();
+        List<RaycastHit2D> obstacleHit = new List<RaycastHit2D>();
 
-        //Debug.DrawRay(transform.position,VecteurUnitaire,Color.green,5f);
-       for(int i =0;i<hit.Length;i++)
+        Debug.DrawRay(transform.position, VecteurUnitaire, Color.green, 5f);
+
+        for (int i = 0; i < hit.Length; i++)
         {
-            //Debug.Log(hit[i].collider.gameObject.name);
-           // Debug.Log(hit.Length);
+
             if (hit[i].collider.gameObject.tag == "Obstacle")
             {
-                obstacle = true;
+                //  Debug.Log("hit obstacles");
+                obstacleHit.Add(hit[i]);
 
             }
-                
-            
+
+
+            if (hit[i].collider.gameObject.tag == "Player")
+            {
+                //  Debug.Log("hit player");
+                playerhit = hit[i];
+
+            }
 
         }
 
-       if(obstacle == false)
+
+        if (obstacleHit.Count != 0)
         {
 
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            for (int k = 0; k < obstacleHit.Count; k++)
+            {
+                // Debug.Log("playerdistance " + playerhit.distance);
+                // Debug.Log("obstacleHit " + obstacleHit[k].distance);
+                // Debug.Log("obstacleHit " + obstacleHit[k].collider.gameObject.name);
+
+
+
+                if (playerhit.distance < obstacleHit[k].distance)
+                {
+
+                    obstacle = true;
+                }
+
+            }
+
         }
-        
+        else
+        {
+
+            obstacle = true;
+
+        }
+
+
+
+        if (obstacle == true)
+        {
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            return true;
+        }
+
+        else
+        {
+            return false;
+
+        }
+
     }
 
     private void EloignerPlayer()
