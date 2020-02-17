@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Node 
 {
-    private Grid<Node> grid;
+    private Grid grid;
     public int x;
     public int y;
 
@@ -13,7 +13,7 @@ public class Node
     public int Hcost;
 
     public Node cameFromNode;
-    public Node(Grid<Node> grid1,int x1,int y1)
+    public Node(Grid grid1,int x1,int y1)
     {
         grid = grid1;
         x = x1;

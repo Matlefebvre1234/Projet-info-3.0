@@ -1630,7 +1630,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 399064237, guid: 79a324b92ae38444dbd171f5ae55a605, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 399064238, guid: 79a324b92ae38444dbd171f5ae55a605, type: 3}
       propertyPath: player
