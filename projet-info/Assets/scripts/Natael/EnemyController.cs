@@ -6,13 +6,17 @@ public class EnemyController : MonoBehaviour
 {
     public int hauteur = 14;
     public int largeur = 22;
-    public float raycastMaxDistance = 10f;
     public int rangeIAMax = 3;
     public int rangeIAMin = -3;
     public int rangeAttaquePlayer = 4;
     public int rangeMouvement = 5;
+
+    public float raycastMaxDistance = 10f;
     public float speed = 0.02f;
-    public GameObject munitionSniper;
+
+    public GameObject barricade;
+    public GameObject Mine;
+    public GameObject explosion;
 
     private NatPathfinding pathfinding;
     private const int OBSTACLE_LAYER = 1;
@@ -22,15 +26,18 @@ public class EnemyController : MonoBehaviour
     private Vector3 origine = new Vector3(8, 1);
     private List<NatNode> path;
     private NatNode[,] arrayGrid;
-    private int node = 0;
+
     private float elapseTime = 0;
     private float dimensionCellule = 0.5f;
+
+    private int node = 0;
     private int randomTime = 0;
     private int randomx;
     private int randomy;
+    private int conteur = 0;
+
     private bool bougerConstruit = false;
     private bool pathIsEnd = false;
-    private int conteur = 0;
     private GameObject[] colliderList;
 
     GameObject player;
@@ -110,6 +117,7 @@ public class EnemyController : MonoBehaviour
         else 
         {
             //Explosion du bonhomme
+            Instantiate(explosion, transform.position, Quaternion.identity);
             transform.gameObject.SetActive(false);
         }
     }
@@ -135,6 +143,18 @@ public class EnemyController : MonoBehaviour
                     elapseTime = 0;
                     pathIsEnd = true;
                     bougerConstruit = false;
+                    int x = Random.Range(0,10);
+                    if (x < 3 || x > 7)
+                    {
+                        if (x == 0)
+                        {
+                            Instantiate(Mine, transform.position, Quaternion.identity);
+                        }
+                        else
+                        {
+                            Instantiate(barricade, transform.position, Quaternion.identity);
+                        }
+                    }
                 }
             }
         }

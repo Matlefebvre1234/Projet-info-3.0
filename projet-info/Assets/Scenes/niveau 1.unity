@@ -1173,11 +1173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 570340325, guid: c99d7fb6d3f65974898e72911ecf96e4, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.16
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 570340325, guid: c99d7fb6d3f65974898e72911ecf96e4, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.28
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2568601779054897030, guid: c99d7fb6d3f65974898e72911ecf96e4,
         type: 3}
@@ -1755,37 +1755,37 @@ PrefabInstance:
     - target: {fileID: 221698896216993326, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 221698896216993326, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.2
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 221698896216993326, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.2
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 221698896216993326, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.0026979893
+      value: -0.0012201071
       objectReference: {fileID: 0}
     - target: {fileID: 221698896216993326, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.17841724
+      value: 0.16757989
       objectReference: {fileID: 0}
     - target: {fileID: 221698896216993326, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.00070390105
+      value: -0.005698204
       objectReference: {fileID: 0}
     - target: {fileID: 221698896216993326, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.17889929
+      value: 0.116846085
       objectReference: {fileID: 0}
     - target: {fileID: 2357106970460322370, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
@@ -1845,22 +1845,28 @@ PrefabInstance:
     - target: {fileID: 2357106970460322370, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2357106970460322370, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357106970460322370, guid: 3783175fadc0b484387027c6fd0f5ff9,
+        type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2357106970460322371, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: 827889238bae2e14fbec7fa3ee22784a,
+        type: 3}
     - target: {fileID: 2357106970460322371, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.019820213
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2357106970460322371, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
@@ -1870,7 +1876,7 @@ PrefabInstance:
     - target: {fileID: 2357106970460322371, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2357106970460322380, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
@@ -1961,13 +1967,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hauteur: 14
   largeur: 22
-  raycastMaxDistance: 10
   rangeIAMax: 5
   rangeIAMin: -5
   rangeAttaquePlayer: 4
   rangeMouvement: 5
+  raycastMaxDistance: 10
   speed: 0.01
-  munitionSniper: {fileID: 6287767585139705379, guid: fe5e1387e8ad7a840b71457461d246a4,
+  barricade: {fileID: 2777253171143086055, guid: 28ea0d96a37622b428ed623b5d54e4e2,
+    type: 3}
+  Mine: {fileID: 4219315139489888049, guid: 96e390fee440350489eb1cc369578238, type: 3}
+  explosion: {fileID: 5592682594587263658, guid: cd27879454146064c8a0ec74fdc8a740,
     type: 3}
 --- !u!1001 &8732243758088306895
 PrefabInstance:
