@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
     private bool bougerConstruit = false;
     private bool pathIsEnd = false;
     private int conteur = 0;
+    private GameObject[] colliderList;
 
     GameObject player;
 
@@ -48,8 +49,6 @@ public class EnemyController : MonoBehaviour
     {
         if (pathIsEnd == false)
         {
-            Debug.Log("time = " + elapseTime);
-
             if (elapseTime == randomTime)
             {
                 bougerRadom();
@@ -79,27 +78,40 @@ public class EnemyController : MonoBehaviour
 
     public void bougerRadom()
     {
-        //float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
+        colliderList = GameObject.FindGameObjectsWithTag("Obstacle");
 
-        pathfinding.getGrid().GetXY(transform.position, out int x, out int y);
+        
 
-        randomx = Random.Range(rangeIAMin, rangeIAMax);
-        randomy = Random.Range(rangeIAMin, rangeIAMax);
-
-        while ((x+randomx) >= largeur || (x+randomx) < 0)
+        float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
+        if (rangeAttaque > 1.5f)
         {
-            randomx = Random.Range(rangeIAMin, rangeIAMax);
+            pathfinding.getGrid().GetXY(transform.position, out int x, out int y);
+
+            do
+            {
+                randomx = Random.Range(rangeIAMin, rangeIAMax);
+                randomy = Random.Range(rangeIAMin, rangeIAMax);
+
+                while ((x + randomx) >= largeur || (x + randomx) < 0)
+                {
+                    randomx = Random.Range(rangeIAMin, rangeIAMax);
+                }
+                while ((y + randomy) >= hauteur || (y + randomy) < 0)
+                {
+                    randomy = Random.Range(rangeIAMin, rangeIAMax);
+                }
+
+                path = pathfinding.FindPath(x, y, x + randomx, y + randomy);
+
+            }while (path == null) ;
+
+            bougerConstruit = true;
         }
-        while ((y + randomy) >= hauteur || (y + randomy) < 0)
+        else 
         {
-            randomy = Random.Range(rangeIAMin, rangeIAMax);
+            //Explosion du bonhomme
+            transform.gameObject.SetActive(false);
         }
-
-        path = pathfinding.FindPath(x, y, x+randomx, y+randomy);
-
-        bougerConstruit = true;
-
-        Debug.Log("path = true");
     }
 
     public void suivrePath()
@@ -121,8 +133,6 @@ public class EnemyController : MonoBehaviour
                     node = 0;
                     path = null;
                     elapseTime = 0;
-                    Debug.Log("path fini !");
-                    //System.Threading.Thread.Sleep(1500);
                     pathIsEnd = true;
                     bougerConstruit = false;
                 }
