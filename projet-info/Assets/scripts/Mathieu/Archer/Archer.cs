@@ -18,6 +18,7 @@ public class Archer : MonoBehaviour
     public float reloadTime = 0.5f;
     private float timeBeforeReaload = 0;
     private int nbTireManquer = 0;
+    private float tempRapprochement = 0f;
     private bool tireEffectuer = false;
 
 
@@ -38,6 +39,7 @@ public class Archer : MonoBehaviour
 
     private void Update()
     {
+       
         Debug.Log(rapprochement);
       
         timeBeforeReaload = timeBeforeReaload + 1 * Time.deltaTime;
@@ -47,7 +49,7 @@ public class Archer : MonoBehaviour
             tireEffectuer = TireArcher();
            if (tireEffectuer == false) nbTireManquer++;
 
-          if (nbTireManquer >= 3) rapprochement = true;
+          if (nbTireManquer >= 7) rapprochement = true;
             
             timeBeforeReaload = 0;
         }
@@ -100,7 +102,12 @@ public class Archer : MonoBehaviour
                 {
 
                     obstacle = true;
-                    rapprochement = false;
+                    tempRapprochement += 1 * Time.deltaTime;
+                    if (tempRapprochement >= 3f)
+                    {
+                        rapprochement = false;
+                        tempRapprochement = 0f;
+                    }
                 }
 
             }
@@ -110,7 +117,12 @@ public class Archer : MonoBehaviour
         {
 
             obstacle = true;
-            rapprochement = false;
+            tempRapprochement += 1 * Time.deltaTime;
+            if (tempRapprochement >= 3f)
+            {
+                rapprochement = false;
+                tempRapprochement = 0f;
+            } 
 
         }
 
@@ -120,11 +132,12 @@ public class Archer : MonoBehaviour
         {
            
                 cheminAtteint = false;
+            
                 pathfingRapprochement.getGrid().GetXY(transform.position, out int x1, out int y1);
                 pathfingRapprochement.getGrid().GetXY(player.transform.position, out int x2, out int y2);
                 index = 1;
                 chemin = pathfingRapprochement.FindPath(x1, y1, x2, y2);
-                SuivreChemin();
+              
 
             
 
@@ -133,7 +146,13 @@ public class Archer : MonoBehaviour
         else {
             chemin = null;
             nbTireManquer = 0;
-            rapprochement = false;
+            tempRapprochement += 1 * Time.deltaTime;
+            if (tempRapprochement >= 3f)
+            {
+                rapprochement = false;
+                tempRapprochement = 0f;
+            }
+
             Debug.Log("arret"); }
 
      
@@ -213,6 +232,8 @@ public class Archer : MonoBehaviour
 
     private void EloignerPlayer()
     {
+        
+        
         float distance = Vector2.Distance(transform.position, player.transform.position);
         if (distance <= (nbCaseDistance * dimCell))
         {
@@ -251,7 +272,10 @@ public class Archer : MonoBehaviour
                     chemin = null;
                     index = 0;
                     cheminAtteint = true;
-                    rapprochement = false;
+
+                    tempRapprochement += 1 * Time.deltaTime;
+                    if (tempRapprochement >= 3f) rapprochement = false;
+                    tempRapprochement = 0;
                     nbTireManquer = 0;
                 }
             }
