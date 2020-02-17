@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NatPathfinding : MonoBehaviour
+public class NatPathfinding
 {
     // Variables public
     public float dimCell = 0.5f;
@@ -102,7 +102,6 @@ public class NatPathfinding : MonoBehaviour
 
         // Permet d'initialiser la node initiale
         start.Gcost = 0;
-        Debug.Log("start  = " + start);
         start.Hcost = CalculerLaDistanceEntreNode(start, goal);
         start.CalculerFcost();
 
@@ -147,7 +146,6 @@ public class NatPathfinding : MonoBehaviour
 
                 // On calcule une nouvelle valeur pour g et on vérifie
                 // si elle est meilleur que la précédente.
-                Debug.Log("current  = " + current);
                 int candidateG = current.Gcost + CalculerLaDistanceEntreNode(current, neighbour);
 
                 //int candidateG = current.Gcost + 1;
