@@ -83,20 +83,20 @@ public class NatGrid
         y = position.y * dimCell + 0.75f;
     }
 
-    public void SetGridObject(Vector3 worldPosition, NatNode value)
+    public void SetGrid(Vector3 worldPosition, NatNode value)
     {
         int x, y;
         GetXY(worldPosition, out x, out y);
-        SetGridObject(x, y, value);
+        SetGrid(x, y, value);
     }
-    public void SetGridObject(int x, int y, NatNode value)
+    public void SetGrid(int x, int y, NatNode value)
     {
         if (x >= 0 && y > 0 && x < largeur && y < hauteur)
         {
             listNode[x, y] = value;
         }
     }
-    public NatNode GetGridObject(int x, int y)
+    public NatNode GetGrid(int x, int y)
     {
         if (x >= 0 && y >= 0 && x < largeur && y < hauteur)
         {
@@ -104,11 +104,11 @@ public class NatGrid
         }
         else return default(NatNode);
     }
-    public NatNode GetGridObject(Vector3 worldPosition)
+    public NatNode GetGrid(Vector3 worldPosition)
     {
         int x, y;
         GetXY(worldPosition, out x, out y);
-        return GetGridObject(x, y);
+        return GetGrid(x, y);
     }
     public void ValeurArrondie(Vector3 pos)
     {

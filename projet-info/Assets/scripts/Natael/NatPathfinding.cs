@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NatPathfinding : MonoBehaviour
+public class NatPathfinding
 {
     // Variables public
     public float dimCell = 0.5f;
@@ -30,14 +30,14 @@ public class NatPathfinding : MonoBehaviour
     {
         // Analyser la map
         //nodeMap = new Node[grid.GetLargueur(), grid.GetHauteur()];
-        NatNode start = grid.GetGridObject(startX, startY);
-        NatNode goal = grid.GetGridObject(endX, endY);
+        NatNode start = grid.GetGrid(startX, startY);
+        NatNode goal = grid.GetGrid(endX, endY);
 
         for (int x = 0; x < grid.GetLargueur(); x++)
         {
             for (int y = 0; y < grid.GetHauteur(); y++)
             {
-                NatNode node = grid.GetGridObject(x, y);
+                NatNode node = grid.GetGrid(x, y);
                 node.Gcost = int.MaxValue;
                 node.cameFromNode = null;
                 node.CalculerFcost();
@@ -102,7 +102,6 @@ public class NatPathfinding : MonoBehaviour
 
         // Permet d'initialiser la node initiale
         start.Gcost = 0;
-        Debug.Log("start  = " + start);
         start.Hcost = CalculerLaDistanceEntreNode(start, goal);
         start.CalculerFcost();
 
@@ -147,7 +146,6 @@ public class NatPathfinding : MonoBehaviour
 
                 // On calcule une nouvelle valeur pour g et on vérifie
                 // si elle est meilleur que la précédente.
-                Debug.Log("current  = " + current);
                 int candidateG = current.Gcost + CalculerLaDistanceEntreNode(current, neighbour);
 
                 //int candidateG = current.Gcost + 1;
@@ -202,18 +200,18 @@ public class NatPathfinding : MonoBehaviour
         if (node.x - 1 >= 0)
         {
             // Ouest
-            neighbours.Add(grid.GetGridObject(node.x - 1, node.y));
+            neighbours.Add(grid.GetGrid(node.x - 1, node.y));
 
             if (node.y - 1 >= 0)
             {
                 // Sud-Ouest
-                neighbours.Add(grid.GetGridObject(node.x - 1, node.y - 1));
+                neighbours.Add(grid.GetGrid(node.x - 1, node.y - 1));
             }
 
             if (node.y + 1 < grid.GetHauteur())
             {
                 // Nord-Ouest
-                neighbours.Add(grid.GetGridObject(node.x - 1, node.y + 1));
+                neighbours.Add(grid.GetGrid(node.x - 1, node.y + 1));
             }
         }
 
@@ -221,18 +219,18 @@ public class NatPathfinding : MonoBehaviour
         if (node.x + 1 < grid.GetLargueur())
         {
             // Est
-            neighbours.Add(grid.GetGridObject(node.x + 1, node.y));
+            neighbours.Add(grid.GetGrid(node.x + 1, node.y));
 
             //Sud-Est
             if (node.y - 1 >= 0)
             {
-                neighbours.Add(grid.GetGridObject(node.x + 1, node.y - 1));
+                neighbours.Add(grid.GetGrid(node.x + 1, node.y - 1));
             }
 
             // Nord-Est
             if (node.y + 1 < grid.GetHauteur())
             {
-                neighbours.Add(grid.GetGridObject(node.x + 1, node.y + 1));
+                neighbours.Add(grid.GetGrid(node.x + 1, node.y + 1));
             }
         }
 
@@ -240,14 +238,14 @@ public class NatPathfinding : MonoBehaviour
         if (node.y - 1 >= 0)
         {
             // Sud
-            neighbours.Add(grid.GetGridObject(node.x, node.y - 1));
+            neighbours.Add(grid.GetGrid(node.x, node.y - 1));
         }
 
         // Vérification du haut (Nord)
         if (node.y + 1 < grid.GetHauteur())
         {
             // Nord
-            neighbours.Add(grid.GetGridObject(node.x, node.y + 1));
+            neighbours.Add(grid.GetGrid(node.x, node.y + 1));
         }
 
         return neighbours;

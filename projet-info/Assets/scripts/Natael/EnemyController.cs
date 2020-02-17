@@ -7,11 +7,12 @@ public class EnemyController : MonoBehaviour
     public int hauteur = 14;
     public int largeur = 22;
     public float raycastMaxDistance = 10f;
-    public GameObject player;
-    public GameObject IA;
-    public int rangeIA = 6;
-    public int randomTime = 2;
+    public int rangeIAMax = 3;
+    public int rangeIAMin = -3;
     public int rangeAttaquePlayer = 4;
+    public int rangeMouvement = 5;
+    public float speed = 0.02f;
+    public GameObject munitionSniper;
 
     private NatPathfinding pathfinding;
     private const int OBSTACLE_LAYER = 1;
@@ -20,89 +21,112 @@ public class EnemyController : MonoBehaviour
     private NatGrid grid;
     private Vector3 origine = new Vector3(8, 1);
     private List<NatNode> path;
+    private NatNode[,] arrayGrid;
     private int node = 0;
-    private float elapseTime;
+    private float elapseTime = 0;
     private float dimensionCellule = 0.5f;
+    private int randomTime = 0;
+    private int randomx;
+    private int randomy;
+    private bool bougerConstruit = false;
+    private bool pathIsEnd = false;
+    private int conteur = 0;
 
+    GameObject player;
 
     void Start()
     {
         pathfinding = new NatPathfinding(largeur, hauteur);
         body = GetComponent<Rigidbody2D>();
         grid = new NatGrid(largeur, hauteur, 0.5f, origine);
+        grid.GetXY(transform.position, out int x, out int y);
+        //arrayGrid = grid.GetGrid(22,14);
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        elapseTime += 1 * Time.deltaTime;
-        tirerIA();
-
-        if (elapseTime >= randomTime)
+        if (pathIsEnd == false)
         {
-            bougerRadom();
-            elapseTime = 0;
+            Debug.Log("time = " + elapseTime);
+
+            if (elapseTime == randomTime)
+            {
+                bougerRadom();
+            }
+
+            elapseTime += 1 * Time.deltaTime;
+
+            if (bougerConstruit == true)
+            {
+                suivrePath();
+            }
         }
-
-    }
-
-    public void tirerIA()
-    {
-        Vector2 VecteurUnitaire = (Vector2)player.transform.position - (Vector2)transform.position;
-        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, VecteurUnitaire);
-
-        Debug.DrawRay(transform.position, VecteurUnitaire, Color.green, 0.5f);
+        else
+        {
+            if (conteur < 300)
+            {
+                conteur++;
+                return;
+            }
+            else
+            {
+                pathIsEnd = false;
+                conteur = 0;
+            }
+        }
     }
 
     public void bougerRadom()
     {
-        float rangeAttaque = Vector2.Distance(IA.transform.position, player.transform.position);
-        if (rangeAttaque <= (rangeAttaquePlayer * dimensionCellule))
+        //float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
+
+        pathfinding.getGrid().GetXY(transform.position, out int x, out int y);
+
+        randomx = Random.Range(rangeIAMin, rangeIAMax);
+        randomy = Random.Range(rangeIAMin, rangeIAMax);
+
+        while ((x+randomx) >= largeur || (x+randomx) < 0)
         {
-            //Tirer plus vite et animation de IA faché !
+            randomx = Random.Range(rangeIAMin, rangeIAMax);
         }
-        else
+        while ((y + randomy) >= hauteur || (y + randomy) < 0)
         {
-            Vector3 positionIA = new Vector3(IA.transform.position.x, IA.transform.position.y);
-            grid.GetXY(positionIA, out int x, out int y);
-
-            int randomx = Random.Range(2, rangeIA);
-            int randomy = Random.Range(2, rangeIA);
-
-            while ((x + randomx) >= largeur)
-            {
-                randomx = Random.Range(2, rangeIA);
-            }
-
-            while (Mathf.Abs (y + randomy) >= hauteur)
-            {
-                randomx = Random.Range(2, rangeIA);
-            }
-
-            Debug.Log("x" + (x +randomx));
-            Debug.Log("y" + (y + randomy));
-
-            path = pathfinding.FindPath(x, y, x + randomx, y + randomy);
-
-            suivrePath();
+            randomy = Random.Range(rangeIAMin, rangeIAMax);
         }
+
+        path = pathfinding.FindPath(x, y, x+randomx, y+randomy);
+
+        bougerConstruit = true;
+
+        Debug.Log("path = true");
     }
 
     public void suivrePath()
     {
-        pathfinding.getGrid().GetWorldXY(new Vector2(path[node].x, path[node].y), out float z, out float w);
-        Vector2 targetPosition = new Vector2(z, w);
-
-        if (Vector2.Distance(IA.transform.position, targetPosition) > 0.000001f)
+        if (path != null)
         {
-            IA.transform.position = Vector2.MoveTowards(transform.position, targetPosition, 0.1f);
-        }
+            pathfinding.getGrid().GetWorldXY(new Vector2(path[node].x, path[node].y), out float z, out float w);
+            Vector2 targetPosition = new Vector2(z, w);
 
-        node++;
-
-        if(node >= path.Count)
-        {
-            path = null;
-            node = 0;
+            if (Vector2.Distance(transform.position, targetPosition) > 0.0001f)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
+            }
+            else
+            {
+                node++;
+                if (node >= path.Count)
+                {
+                    node = 0;
+                    path = null;
+                    elapseTime = 0;
+                    Debug.Log("path fini !");
+                    //System.Threading.Thread.Sleep(1500);
+                    pathIsEnd = true;
+                    bougerConstruit = false;
+                }
+            }
         }
     }
 }

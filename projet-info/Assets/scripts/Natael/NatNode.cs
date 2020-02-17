@@ -5,9 +5,9 @@ using UnityEngine;
 public class NatNode
 {
     private NatGrid grid;
+
     public int x;
     public int y;
-
     public int Gcost;
     public int Fcost;
     public int Hcost;
