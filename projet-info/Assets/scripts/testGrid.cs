@@ -18,7 +18,6 @@ public class testGrid : MonoBehaviour
     void Start()
     {
         grid = new Grid<Node>(largeur, hauteur, dimCell, origine, (Grid<Node> g ,int x ,int y) => new Node(g,x,y));
-        joueur = GameObject.FindGameObjectWithTag("Player").transform;
         samPathfinding = new SamPathfinding(largeur, hauteur, dimCell, origine);
     }
 

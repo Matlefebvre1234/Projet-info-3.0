@@ -80,18 +80,76 @@ public class SamPathfinding
 
     private List<SamNode> GetListVoisin(SamNode currentNode)
     {
-        List<SamNode> listVoisin = new List<SamNode>();
+        List<SamNode> listeVoisin = new List<SamNode>();
 
         if(currentNode.x - 1 >= 0)
         {
-            
+            //gauche
+            listeVoisin.Add(GetCase(currentNode.x - 1, currentNode.y));
+
+            //gauche haut
+            if(currentNode.y + 1 < grid.GetHauteur())
+            {
+                listeVoisin.Add(GetCase(currentNode.x - 1, currentNode.y + 1));
+            }
+
+            //gauche bas
+            if(currentNode.y - 1 >= 0)
+            {
+                listeVoisin.Add(GetCase(currentNode.x - 1, currentNode.y - 1));
+            }
         }
-        return listVoisin;
+
+        if(currentNode.x + 1 < grid.GetLargueur())
+        {
+            //droite
+            listeVoisin.Add(GetCase(currentNode.x + 1, currentNode.y));
+
+            //droite haut
+            if(currentNode.y + 1 < grid.GetHauteur())
+            {
+                listeVoisin.Add(GetCase(currentNode.x + 1, currentNode.y + 1));
+            }
+
+            //droite bas
+            if(currentNode.y - 1 >= 0)
+            {
+                listeVoisin.Add(GetCase(currentNode.x + 1, currentNode.y - 1));
+            }
+        }
+
+        //haut
+        if(currentNode.y + 1 < grid.GetHauteur())
+        {
+            listeVoisin.Add(GetCase(currentNode.x, currentNode.y + 1));
+        }
+
+        //bas
+        if(currentNode.y - 1 >= 0)
+        {
+            listeVoisin.Add(GetCase(currentNode.x, currentNode.y - 1));
+        }
+
+        return listeVoisin;
+    }
+
+    private SamNode GetCase(int x, int y)
+    {
+        return grid.GetGridObject(x, y);
     }
 
     private List<SamNode> CalculerChemin(SamNode caseFin)
     {
-        return null;
+        List<SamNode> chemin = new List<SamNode>();
+        chemin.Add(caseFin);
+        SamNode currentNode = caseFin;
+        while(currentNode.derniereCase != null)
+        {
+            chemin.Add(currentNode.derniereCase);
+            currentNode = currentNode.derniereCase;
+        }
+        chemin.Reverse();
+        return chemin;
     }
     
     private int CalculDistance(SamNode a, SamNode b)
