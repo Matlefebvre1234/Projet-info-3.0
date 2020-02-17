@@ -9,21 +9,21 @@ public class SamPathfinding
     private const int MOUVEMENT_DIAGONAL = 14;
 
     private Grid<SamNode> grid;
-    private List<SamNode> listOuverte;
-    private List<SamNode> listFerme;
+    private List<SamNode> listeOuverte;
+    private List<SamNode> listeFerme;
 
     public SamPathfinding(int largeur, int hauteur, float dimCell, Vector3 origine)
     {
         grid = new Grid<SamNode>(largeur, hauteur, dimCell, origine,(Grid<SamNode> g, int x, int y) => new SamNode(g, x, y));
     }
 
-    private List<SamNode> TrouverChemin(int debutX, int debutY, int finX, int finY)
+    public List<SamNode> TrouverChemin(int debutX, int debutY, int finX, int finY)
     {
         SamNode caseDebut = grid.GetGridObject(debutX, debutY);
         SamNode caseFin = grid.GetGridObject(finX, finY);
 
-        listOuverte = new List<SamNode> { caseDebut };
-        listFerme = new List<SamNode>();
+        listeOuverte = new List<SamNode> { caseDebut };
+        listeFerme = new List<SamNode>();
 
         for (int x = 0; x < grid.GetLargueur(); x++)
         {
@@ -40,20 +40,42 @@ public class SamPathfinding
         caseDebut.hCost = CalculDistance(caseDebut, caseFin);
         caseDebut.calculFCost();
 
-        while(listOuverte.Count > 0)
+        while(listeOuverte.Count > 0)
         {
-            SamNode currentNode = GetMinFCostNode(listOuverte);
+            SamNode currentNode = GetMinFCostNode(listeOuverte);
             if(currentNode == caseFin)
             {
                 //si on a atteint la derniere case
                 return CalculerChemin(caseFin);
             }
 
-            listOuverte.Remove(currentNode);
-            listFerme.Add(currentNode);
+            listeOuverte.Remove(currentNode);
+            listeFerme.Add(currentNode);
 
+        foreach(SamNode caseVoisin in GetListVoisin(currentNode))
+            {
+                if (listeFerme.Contains(caseVoisin))
+                {
+                    continue;
+                }
+
+                int essaieGCost = currentNode.gCost + CalculDistance(currentNode, caseVoisin);
+                if(essaieGCost < caseVoisin.gCost)
+                {
+                    caseVoisin.derniereCase = currentNode;
+                    caseVoisin.gCost = essaieGCost;
+                    caseVoisin.hCost = CalculDistance(caseVoisin, caseFin);
+                    caseVoisin.calculFCost();
+
+                    if (!listeOuverte.Contains(caseVoisin))
+                    {
+                        listeOuverte.Add(caseVoisin);
+
+                    }
+                }
+            }
         }
-        return listFerme; //pas rapport
+        return null;
     }
 
     private List<SamNode> GetListVoisin(SamNode currentNode)
