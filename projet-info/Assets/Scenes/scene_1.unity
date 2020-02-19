@@ -1309,6 +1309,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63807a52e85b06743bf97af37f038673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  largeur: 0
+  hauteur: 0
+--- !u!114 &1971455108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971455102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53544304afc0d494f8fc6a5165a48220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  largeur: 22
+  hauteur: 14
 --- !u!1 &1981558418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9,
@@ -1322,7 +1338,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981558418}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c578e11b2502a5439acca68096e1859, type: 3}
   m_Name: 
@@ -1956,11 +1972,10 @@ MonoBehaviour:
   hauteur: 14
   largeur: 22
   raycastMaxDistance: 10
-  player: {fileID: 2016651969}
-  IA: {fileID: 2568601779959560498}
-  rangeIA: 3
-  randomTime: 2
+  rangeIAMax: 3
+  rangeIAMin: -3
   rangeAttaquePlayer: 4
+  speed: 0.02
 --- !u!1001 &8732243758088306895
 PrefabInstance:
   m_ObjectHideFlags: 0

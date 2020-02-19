@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GridMathias<CheminMathias>
+public class GridMathias
 {
 
     private int largeur;
@@ -15,13 +15,15 @@ public class GridMathias<CheminMathias>
     private positionJoueur posJ = new positionJoueur();
     private CheminMathias[,] listNode;
 
-    public GridMathias(int n_largeur, int n_hauteur, float n_dimCell, Vector3 n_origine, Func<GridMathias<CheminMathias>, int, int, CheminMathias> createGridObjet)
+    public GridMathias(int n_largeur, int n_hauteur, float n_dimCell, Vector3 n_origine, Func<GridMathias, int, int, CheminMathias> createGridObjet)
     {
+        
         largeur = n_largeur;
         hauteur = n_hauteur;
         dimCell = n_dimCell;
         origine = n_origine;
         listNode = new CheminMathias[largeur, hauteur];
+        Debug.Log(largeur + (" ") +hauteur);
 
 
         for (int x = 0; x < listNode.GetLength(0); x++)
@@ -58,16 +60,6 @@ public class GridMathias<CheminMathias>
         x = Mathf.FloorToInt((position.x / dimCell) - origine.x);
         y = Mathf.FloorToInt((position.y / dimCell) - origine.y);
     }
-
-    //  public void setPosJ(Vector3 posJ)
-    // {
-    //     positionJoueur = posJ;
-    // }
-
-    // public Vector3 getPosJ()
-    // {
-    //     return positionJoueur;
-    //}
 
     public void SetGridObject(Vector3 worldPosition, CheminMathias value)
     {

@@ -6,22 +6,25 @@ public class PathfindingMathias
 {
     private const int MOUVEMENT_SUR_AXE = 10;
     private const int MOUVEMENT_DIAGONAL = 14;
-    private GridMathias<CheminMathias> grille;
+    private GridMathias grille;
     private List<CheminMathias> listeOuverte;
     private List<CheminMathias> listeFermee;
+    private Vector3 Origine = new Vector3(8, 1);
 
     public PathfindingMathias(int largeur, int hauteur)
     {
-        grille = new GridMathias<CheminMathias>(largeur, hauteur, 10f, Vector2.zero, (GridMathias<CheminMathias> grille, int x, int y) => new CheminMathias(grille, x, y));
+        grille = new GridMathias(largeur, hauteur, 0.5f, Origine, (GridMathias grille, int x, int y) => new CheminMathias(grille, x, y));
     }
 
-    public GridMathias<CheminMathias> GetGrid()
+    public GridMathias GetGrid()
     {
         return grille;
     }
 
     public List<CheminMathias> Chemin(int debutX, int debutY, int finX, int finY)
     {
+        //Debug.Log(finX);
+        //Debug.Log(finY);
         CheminMathias caseDebut = grille.GetGridObject(debutX, debutY);
         CheminMathias caseFin = grille.GetGridObject(finX, finY);
 
@@ -47,7 +50,7 @@ public class PathfindingMathias
         {
             CheminMathias caseActuelle = FPlusBas(listeOuverte);
 
-            if(caseActuelle == caseFin)
+            if (caseActuelle == caseFin)
             {
                 return CalculerChemin(caseFin);
             }
@@ -55,12 +58,17 @@ public class PathfindingMathias
             listeOuverte.Remove(caseActuelle);
             listeFermee.Add(caseActuelle);
 
+            
+
             foreach (CheminMathias caseVoisine in GetListeVoisins(caseActuelle))
             {
-                if(listeFermee.Contains(caseVoisine))
+
+                if (listeFermee.Contains(caseVoisine))
                 {
                     continue;
                 }
+
+                //Debug.Log(caseVoisine);
 
                 int gTemp = caseActuelle.g + CalculerH(caseActuelle, caseVoisine);
 
@@ -82,11 +90,13 @@ public class PathfindingMathias
         return null;
     }
 
+    //Vérification des cases autour de la case sélectionnée
     private List<CheminMathias> GetListeVoisins(CheminMathias caseActuelle)
     {
 
         List<CheminMathias> listeVoisins = new List<CheminMathias>();
 
+        //Case de gauche
         if (caseActuelle.x - 1 >= 0)
         {
             listeVoisins.Add(GetCase(caseActuelle.x - 1, caseActuelle.y));
@@ -102,13 +112,15 @@ public class PathfindingMathias
             }
         }
 
+        //À droite
         if (caseActuelle.x + 1 < grille.GetLargueur())
         {
+
             listeVoisins.Add(GetCase(caseActuelle.x + 1, caseActuelle.y));
 
             if (caseActuelle.y - 1 >= 0)
             {
-                listeVoisins.Add(GetCase(caseActuelle.x + 1, caseActuelle.y + 1));
+                listeVoisins.Add(GetCase(caseActuelle.x + 1, caseActuelle.y - 1));
             }
 
             if (caseActuelle.y + 1 < grille.GetHauteur())
@@ -122,7 +134,7 @@ public class PathfindingMathias
             listeVoisins.Add(GetCase(caseActuelle.x, caseActuelle.x - 1));
         }
 
-        if (caseActuelle.y + 1 >= 0)
+        if (caseActuelle.y + 1 >= grille.GetHauteur())
         {
             listeVoisins.Add(GetCase(caseActuelle.x, caseActuelle.x + 1));
         }
@@ -155,6 +167,7 @@ public class PathfindingMathias
 
     private int CalculerH(CheminMathias pt1, CheminMathias pt2)
     {
+
         int d_x = Mathf.Abs(pt1.x - pt2.x);
         int d_y = Mathf.Abs(pt1.y - pt2.y);
         int reste = Mathf.Abs(d_x - d_y);
@@ -165,7 +178,7 @@ public class PathfindingMathias
 
     private CheminMathias FPlusBas(List<CheminMathias> listeChemin)
     {
-        CheminMathias f_bas = listeChemin[0];
+        /*CheminMathias f_bas = listeChemin[0];
         for(int i = 1; i < listeChemin.Count; i++)
         {
             if(listeChemin[i].f < f_bas.f)
@@ -174,6 +187,25 @@ public class PathfindingMathias
             }
         }
 
-        return f_bas;
+        //Debug.Log(f_bas.x);
+       Debug.Log(f_bas.y);
+       Debug.Log(f_bas.x);
+
+        return f_bas;*/
+
+        CheminMathias lowerFCostNode = listeChemin[0];
+        for (int i = 0; i < listeChemin.Count; i++)
+        {
+            if (listeChemin[i].f < lowerFCostNode.f)
+            {
+                lowerFCostNode = listeChemin[i];
+            }
+
+        }
+
+        Debug.Log(lowerFCostNode.y);
+        Debug.Log(lowerFCostNode.x);
+
+        return lowerFCostNode;
     }
 }

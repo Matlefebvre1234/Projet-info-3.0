@@ -8,17 +8,17 @@ public class TestMathias : MonoBehaviour
     private PathfindingMathias pathfinding;
     private int x;
     private int y;
+    public int largeur;
+    public int hauteur;
 
     // Start is called before the first frame update
     void Start()
     {
         pathfinding = new PathfindingMathias(14, 22);
-        Debug.Log("allo");
     }
 
     private void update()
     {
-        Debug.Log("allo");
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -28,6 +28,7 @@ public class TestMathias : MonoBehaviour
             Debug.Log("allo");
 
             pathfinding.GetGrid().GetXY(positionSouris, out x, out y);
+            
             List<CheminMathias> chemin = pathfinding.Chemin(0, 0, x, y);
 
             if(chemin != null)

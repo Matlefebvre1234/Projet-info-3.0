@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CheminMathias
 {
-    private GridMathias<CheminMathias> grille;
+    private GridMathias grille;
     public int x;
     public int y;
 
@@ -15,9 +15,16 @@ public class CheminMathias
 
     public CheminMathias casePrecedente;
 
-    public CheminMathias(GridMathias<CheminMathias> n_grille, int n_x, int n_y)
+    public CheminMathias(GridMathias n_grille, int n_x, int n_y)
     {
         grille = n_grille;
+        x = n_x;
+        y = n_y;
+    }
+
+    public CheminMathias(int n_x, int n_y)
+    {
+        grille = null;
         x = n_x;
         y = n_y;
     }
