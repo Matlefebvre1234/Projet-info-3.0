@@ -305,6 +305,7 @@ MonoBehaviour:
   vitesse: 2
   targetPosition: {x: 0, y: 0}
   posJoueur: {x: 0, y: 0, z: 0}
+  compteur: 0
 --- !u!1001 &397184072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1576,7 +1577,7 @@ PrefabInstance:
     - target: {fileID: 6493255480799159727, guid: dc3dbd1e9ddb8bc41847d727dcfd5061,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3dbd1e9ddb8bc41847d727dcfd5061, type: 3}
