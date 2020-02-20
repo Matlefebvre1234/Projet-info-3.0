@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class MineScript : MonoBehaviour
 {
-    public float rangeExplosion = 0.5f;
+    public float rangeExplosion = 0.2f;
 
     private float distance;
-    private float elapseTime = 0;
-    private int time;
-    private bool explosion = false;
 
     GameObject player;
 
@@ -24,13 +21,17 @@ public class MineScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        elapseTime += Time.deltaTime;
         distance = Vector2.Distance(transform.position, player.transform.position);
 
-        if (distance < rangeExplosion)
+        if (distance < rangeExplosion && animator.GetBool("collision") == false)
         {
             //Explosion et dégats
             animator.SetBool("collision", true);
+            player.GetComponent<Santé>().attaque(15);
+        }
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Mine Animation"))
+        {
+            ExplosionIsEnd();
         }
     }
 
@@ -38,6 +39,5 @@ public class MineScript : MonoBehaviour
     {
         animator.SetBool("collision", false);
         Destroy(transform.gameObject);
-        explosion = false;
     }
 }

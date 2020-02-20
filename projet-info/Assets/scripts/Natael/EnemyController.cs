@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     public float raycastMaxDistance = 10f;
     public float speed = 0.02f;
 
+    public Animator animator;
+
     public GameObject barricade;
     public GameObject Mine;
     public GameObject explosion;
@@ -38,7 +40,7 @@ public class EnemyController : MonoBehaviour
 
     private bool bougerConstruit = false;
     private bool pathIsEnd = false;
-    private GameObject[] colliderList;
+    //private GameObject[] colliderList;
 
     GameObject player;
 
@@ -85,7 +87,7 @@ public class EnemyController : MonoBehaviour
 
     public void bougerRadom()
     {
-        colliderList = GameObject.FindGameObjectsWithTag("Obstacle");
+        //colliderList = GameObject.FindGameObjectsWithTag("Obstacle");
 
         
 
@@ -118,7 +120,14 @@ public class EnemyController : MonoBehaviour
         {
             //Explosion du bonhomme
             Instantiate(explosion, transform.position, Quaternion.identity);
-            transform.gameObject.SetActive(false);
+            player.GetComponent<Santé>().attaque(15);
+            //transform.gameObject.SetActive(false);
+
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Mine Animation"))
+            {
+                transform.gameObject.SetActive(false);
+            }
+            
         }
     }
 
