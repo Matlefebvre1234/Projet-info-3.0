@@ -16,6 +16,7 @@ public class AIMouvement : MonoBehaviour
     public int index;
     public float vitesse = 5f;
     public Vector2 targetPosition;
+    public Vector3 posJoueur;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,8 @@ public class AIMouvement : MonoBehaviour
         cheminVecteur = new List<Vector3>();
         index = 1;
         cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
+        posJoueur = new Vector3();
+        posJoueur = joueur.transform.position;
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class AIMouvement : MonoBehaviour
     {
         grid.GetXY(demon.transform.position, out int x, out int y);
         grid.GetXY(joueur.transform.position, out int x1, out int y1);
+        
 
         List<SamNode> chemin = samPathfinding.TrouverChemin(x, y, x1, y1);
         if (chemin != null)
@@ -46,11 +50,18 @@ public class AIMouvement : MonoBehaviour
             }
         }
 
+        if (grid.GetVector(posJoueur) != grid.GetVector(joueur.transform.position))
+        {
+            cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
+            posJoueur = joueur.transform.position;
+            index = 0;
+        }
+
         Mouvement();
     }
     private void Mouvement()
     {
-        grid.GetPositionMap(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
+        grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
         targetPosition = new Vector2(x, y);
         if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
         {
@@ -65,6 +76,7 @@ public class AIMouvement : MonoBehaviour
             {
                 cheminVecteur = null;
                 index = 0;
+                Debug.Log("Hello");
             }
         }
             
