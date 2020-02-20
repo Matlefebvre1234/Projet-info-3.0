@@ -21,16 +21,11 @@ public class EnemyController : MonoBehaviour
     public GameObject explosion;
 
     private NatPathfinding pathfinding;
-    private const int OBSTACLE_LAYER = 1;
-    private Rigidbody2D body;
-    private float originOffset = 0.5f;
     private NatGrid grid;
     private Vector3 origine = new Vector3(8, 1);
     private List<NatNode> path;
-    private NatNode[,] arrayGrid;
 
     private float elapseTime = 0;
-    private float dimensionCellule = 0.5f;
 
     private int node = 0;
     private int randomTime = 0;
@@ -40,25 +35,37 @@ public class EnemyController : MonoBehaviour
 
     private bool bougerConstruit = false;
     private bool pathIsEnd = false;
-    //private GameObject[] colliderList;
+    private bool obstacle = false;
 
     GameObject player;
 
     void Start()
     {
         pathfinding = new NatPathfinding(largeur, hauteur);
-        body = GetComponent<Rigidbody2D>();
-        grid = new NatGrid(largeur, hauteur, 0.5f, origine);
-        grid.GetXY(transform.position, out int x, out int y);
-        //arrayGrid = grid.GetGrid(22,14);
+        //grid = new NatGrid(largeur, hauteur, 0.5f, origine);
+        //grid.GetXY(transform.position, out int x, out int y);
         player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+    
+        if (collision.gameObject.tag == "Barricade" || collision.gameObject.tag == "Mine")
+        {
+            Debug.Log("obstacle");
+            obstacle = true;
+        }
+        else
+        {
+            obstacle = false;
+        }
     }
 
     void Update()
     {
         if (pathIsEnd == false)
         {
-            if (elapseTime == randomTime)
+            if (elapseTime == randomTime && animator.GetBool("collision_Joueur") == false)
             {
                 bougerRadom();
             }
@@ -83,17 +90,43 @@ public class EnemyController : MonoBehaviour
                 conteur = 0;
             }
         }
+
+        //if (pathIsEnd == true)
+        //{
+        //    if (elapseTime == randomTime && animator.GetBool("collision_Joueur") == false)
+        //    {
+        //        bougerRadom();
+        //    }
+        //
+        //    elapseTime += 1 * Time.deltaTime;
+        //    
+        //    pathIsEnd = false;
+        //}
+        //
+        //if (bougerConstruit == true)
+        //{
+        //    suivrePath();
+        //}
+
+
+
+        float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
+        if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
+        {
+            //Explosion du bonhomme
+            animator.SetBool("collision_Joueur", true);
+            player.GetComponent<Santé>().attaque(15);
+        }
+
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
+        {
+            animator.SetBool("collision_Joueur", false);
+            transform.gameObject.SetActive(false);
+        }
     }
 
     public void bougerRadom()
     {
-        //colliderList = GameObject.FindGameObjectsWithTag("Obstacle");
-
-        
-
-        float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
-        if (rangeAttaque > 1.5f)
-        {
             pathfinding.getGrid().GetXY(transform.position, out int x, out int y);
 
             do
@@ -112,23 +145,9 @@ public class EnemyController : MonoBehaviour
 
                 path = pathfinding.FindPath(x, y, x + randomx, y + randomy);
 
-            }while (path == null) ;
+            } while (path == null);
 
             bougerConstruit = true;
-        }
-        else 
-        {
-            //Explosion du bonhomme
-            Instantiate(explosion, transform.position, Quaternion.identity);
-            player.GetComponent<Santé>().attaque(15);
-            //transform.gameObject.SetActive(false);
-
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Mine Animation"))
-            {
-                transform.gameObject.SetActive(false);
-            }
-            
-        }
     }
 
     public void suivrePath()
