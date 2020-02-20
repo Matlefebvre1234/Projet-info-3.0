@@ -35,6 +35,7 @@ public class EnemyController : MonoBehaviour
 
     private bool bougerConstruit = false;
     private bool pathIsEnd = false;
+    private bool obstacle = false;
 
     GameObject player;
 
@@ -44,6 +45,20 @@ public class EnemyController : MonoBehaviour
         //grid = new NatGrid(largeur, hauteur, 0.5f, origine);
         //grid.GetXY(transform.position, out int x, out int y);
         player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+    
+        if (collision.gameObject.tag == "Barricade" || collision.gameObject.tag == "Mine")
+        {
+            Debug.Log("obstacle");
+            obstacle = true;
+        }
+        else
+        {
+            obstacle = false;
+        }
     }
 
     void Update()
@@ -62,6 +77,38 @@ public class EnemyController : MonoBehaviour
                 suivrePath();
             }
         }
+        else
+        {
+            if (conteur < 300)
+            {
+                conteur++;
+                return;
+            }
+            else
+            {
+                pathIsEnd = false;
+                conteur = 0;
+            }
+        }
+
+        //if (pathIsEnd == true)
+        //{
+        //    if (elapseTime == randomTime && animator.GetBool("collision_Joueur") == false)
+        //    {
+        //        bougerRadom();
+        //    }
+        //
+        //    elapseTime += 1 * Time.deltaTime;
+        //    
+        //    pathIsEnd = false;
+        //}
+        //
+        //if (bougerConstruit == true)
+        //{
+        //    suivrePath();
+        //}
+
+
 
         float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
         if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
