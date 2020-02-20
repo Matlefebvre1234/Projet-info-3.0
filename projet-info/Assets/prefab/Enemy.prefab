@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 2568601779959560499}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Enemy
+  m_TagString: C4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -419,9 +419,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2357106970460322381}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62864a06dc0ea3d44912b7032f24081a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7e005ec6df3fb5c48a91550772612d6e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -450,8 +450,7 @@ MonoBehaviour:
   rangeMouvement: 5
   raycastMaxDistance: 10
   speed: 0.01
-  animator: {fileID: 6620822687385252240, guid: 96e390fee440350489eb1cc369578238,
-    type: 3}
+  animator: {fileID: 2568601779959560500}
   barricade: {fileID: 2777253171143086055, guid: 28ea0d96a37622b428ed623b5d54e4e2,
     type: 3}
   Mine: {fileID: 4219315139489888049, guid: 96e390fee440350489eb1cc369578238, type: 3}
