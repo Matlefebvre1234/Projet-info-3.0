@@ -83,6 +83,27 @@ public class SamPathfinding
         return null;
     }
 
+    public List<Vector3> TrouverChemin(Vector3 positionDebut, Vector3 positionFin)
+    {
+        grid.GetXY(positionDebut, out int x, out int y);
+        grid.GetXY(positionFin, out int x1, out int y1);
+
+        List<SamNode> chemin = TrouverChemin(x, y, x1, y1);
+        if(chemin == null)
+        {
+            return null;
+        }
+        else
+        {
+            List<Vector3> cheminVecteur = new List<Vector3>();
+            foreach(SamNode pathNode in chemin) {
+                cheminVecteur.Add(new Vector3(pathNode.x, pathNode.y));
+                //Debug.Log(pathNode.y);
+            }
+            return cheminVecteur;
+        }
+    }
+
     private List<SamNode> GetListVoisin(SamNode currentNode)
     {
         List<SamNode> listeVoisin = new List<SamNode>();

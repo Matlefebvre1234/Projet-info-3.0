@@ -74,15 +74,11 @@ public class Grid
         y = Mathf.FloorToInt((position.y / dimCell) - origine.y);
     }
 
-    //  public void setPosJ(Vector3 posJ)
-    // {
-    //     positionJoueur = posJ;
-    // }
-
-    // public Vector3 getPosJ()
-    // {
-    //     return positionJoueur;
-    //}
+    public void GetPositionMap(Vector3 position, out float x, out float y)
+    {
+        x = position.x * dimCell + 4.25f;
+        y = position.y * dimCell + 0.75f;
+    }
 
     public void SetGridObject(Vector3 worldPosition, SamNode value)
     {

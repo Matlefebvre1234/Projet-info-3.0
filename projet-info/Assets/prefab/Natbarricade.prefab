@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4303043636969794373}
   - component: {fileID: -6521419698526975496}
   - component: {fileID: 8059977338946512448}
-  - component: {fileID: 5458410684969106585}
   m_Layer: 0
   m_Name: Natbarricade
   m_TagString: Barricade
@@ -131,15 +130,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56, y: 0.56}
   m_EdgeRadius: 0
---- !u!114 &5458410684969106585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2777253171143086055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6ed0186ff5b444092758fe2f2ea937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

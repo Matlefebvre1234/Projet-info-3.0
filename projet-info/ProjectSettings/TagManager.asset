@@ -9,6 +9,7 @@ TagManager:
   - murTransparent
   - Obstacle
   - Enemy
+  - Demon
   - Mine
   - Barricade
   layers:
