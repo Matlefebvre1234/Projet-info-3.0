@@ -18,6 +18,12 @@ public class SceneLoader : MonoBehaviour
         Application.Quit();
     }
 
+    public void MenuOption()
+    {
+
+
+    }
+
 
 
 }

@@ -16,8 +16,9 @@ public class AIMouvement : MonoBehaviour
     public int index;
     public float vitesse = 5f;
     public Vector2 targetPosition;
-    public Vector3 posJoueur;
 
+    public Vector3 posJoueur;
+    public int compteur = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,12 +53,22 @@ public class AIMouvement : MonoBehaviour
 
         if (grid.GetVector(posJoueur) != grid.GetVector(joueur.transform.position))
         {
+
             cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
             posJoueur = joueur.transform.position;
-            index = 0;
+            if(compteur == 5)
+            {
+                index = 0;
+                compteur = 0;
+            }
+            compteur++;
+            Mouvement();
         }
-
-        Mouvement();
+        else
+        {
+            Mouvement();
+        }
+        
     }
     private void Mouvement()
     {
@@ -74,7 +85,7 @@ public class AIMouvement : MonoBehaviour
             Debug.Log(cheminVecteur.Count);
             if(index >= cheminVecteur.Count)
             {
-                cheminVecteur = null;
+                //cheminVecteur = null;
                 index = 0;
                 Debug.Log("Hello");
             }
