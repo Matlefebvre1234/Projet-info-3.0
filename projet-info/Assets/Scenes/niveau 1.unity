@@ -304,6 +304,7 @@ MonoBehaviour:
   index: 0
   vitesse: 2
   targetPosition: {x: 0, y: 0}
+  posJoueur: {x: 0, y: 0, z: 0}
 --- !u!1001 &397184072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2039,7 +2040,7 @@ PrefabInstance:
     - target: {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4255280500610496366, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}

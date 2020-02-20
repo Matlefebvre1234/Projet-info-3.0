@@ -74,10 +74,18 @@ public class Grid
         y = Mathf.FloorToInt((position.y / dimCell) - origine.y);
     }
 
-    public void GetPositionMap(Vector3 position, out float x, out float y)
+    public void GetPositionMapXY(Vector3 position, out float x, out float y)
     {
         x = position.x * dimCell + 4.25f;
         y = position.y * dimCell + 0.75f;
+    }
+
+    public Vector3 GetVector(Vector3 position)
+    {
+        int x = Mathf.FloorToInt((position.x / dimCell) - origine.x);
+        int y = Mathf.FloorToInt((position.y / dimCell) - origine.y);
+        Vector3 positionCase = new Vector3(x, y);
+        return positionCase;
     }
 
     public void SetGridObject(Vector3 worldPosition, SamNode value)
