@@ -12,6 +12,7 @@ TagManager:
   - Demon
   - Mine
   - Barricade
+  - C4
   layers:
   - Default
   - TransparentFX

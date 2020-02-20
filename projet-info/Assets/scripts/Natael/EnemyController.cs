@@ -21,16 +21,11 @@ public class EnemyController : MonoBehaviour
     public GameObject explosion;
 
     private NatPathfinding pathfinding;
-    private const int OBSTACLE_LAYER = 1;
-    private Rigidbody2D body;
-    private float originOffset = 0.5f;
     private NatGrid grid;
     private Vector3 origine = new Vector3(8, 1);
     private List<NatNode> path;
-    private NatNode[,] arrayGrid;
 
     private float elapseTime = 0;
-    private float dimensionCellule = 0.5f;
 
     private int node = 0;
     private int randomTime = 0;
@@ -40,17 +35,14 @@ public class EnemyController : MonoBehaviour
 
     private bool bougerConstruit = false;
     private bool pathIsEnd = false;
-    //private GameObject[] colliderList;
 
     GameObject player;
 
     void Start()
     {
         pathfinding = new NatPathfinding(largeur, hauteur);
-        body = GetComponent<Rigidbody2D>();
-        grid = new NatGrid(largeur, hauteur, 0.5f, origine);
-        grid.GetXY(transform.position, out int x, out int y);
-        //arrayGrid = grid.GetGrid(22,14);
+        //grid = new NatGrid(largeur, hauteur, 0.5f, origine);
+        //grid.GetXY(transform.position, out int x, out int y);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -58,7 +50,7 @@ public class EnemyController : MonoBehaviour
     {
         if (pathIsEnd == false)
         {
-            if (elapseTime == randomTime)
+            if (elapseTime == randomTime && animator.GetBool("collision_Joueur") == false)
             {
                 bougerRadom();
             }
@@ -70,30 +62,24 @@ public class EnemyController : MonoBehaviour
                 suivrePath();
             }
         }
-        else
+
+        float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
+        if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
         {
-            if (conteur < 300)
-            {
-                conteur++;
-                return;
-            }
-            else
-            {
-                pathIsEnd = false;
-                conteur = 0;
-            }
+            //Explosion du bonhomme
+            animator.SetBool("collision_Joueur", true);
+            player.GetComponent<Santé>().attaque(15);
+        }
+
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
+        {
+            animator.SetBool("collision_Joueur", false);
+            transform.gameObject.SetActive(false);
         }
     }
 
     public void bougerRadom()
     {
-        //colliderList = GameObject.FindGameObjectsWithTag("Obstacle");
-
-        
-
-        float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
-        if (rangeAttaque > 1.5f)
-        {
             pathfinding.getGrid().GetXY(transform.position, out int x, out int y);
 
             do
@@ -112,23 +98,9 @@ public class EnemyController : MonoBehaviour
 
                 path = pathfinding.FindPath(x, y, x + randomx, y + randomy);
 
-            }while (path == null) ;
+            } while (path == null);
 
             bougerConstruit = true;
-        }
-        else 
-        {
-            //Explosion du bonhomme
-            Instantiate(explosion, transform.position, Quaternion.identity);
-            player.GetComponent<Santé>().attaque(15);
-            //transform.gameObject.SetActive(false);
-
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Mine Animation"))
-            {
-                transform.gameObject.SetActive(false);
-            }
-            
-        }
     }
 
     public void suivrePath()
