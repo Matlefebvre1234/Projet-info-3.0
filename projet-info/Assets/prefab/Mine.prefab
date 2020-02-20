@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4643267787836511539}
   - component: {fileID: 6620822687385252240}
   - component: {fileID: 1099111813}
+  - component: {fileID: 473356716}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Mine
@@ -116,3 +117,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeExplosion: 1
   animator: {fileID: 6620822687385252240}
+--- !u!135 &473356716
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4219315139489888049}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.19196773
+  m_Center: {x: 0, y: 0.0086939335, z: 0}

@@ -23,16 +23,28 @@ public class MineScript : MonoBehaviour
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
 
-        if (distance < rangeExplosion && animator.GetBool("collision") == false)
+        //if (distance < rangeExplosion && animator.GetBool("collision") == false)
+        //{
+        //    //Explosion et dégats
+        //    animator.SetBool("collision", true);
+        //    player.GetComponent<Santé>().attaque(15);
+        //}
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Mine Animation"))
+        {
+            ExplosionIsEnd();
+        }
+    }
+
+    private void  OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
         {
             //Explosion et dégats
             animator.SetBool("collision", true);
             player.GetComponent<Santé>().attaque(15);
         }
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Mine Animation"))
-        {
-            ExplosionIsEnd();
-        }
+
     }
 
     public void ExplosionIsEnd()
