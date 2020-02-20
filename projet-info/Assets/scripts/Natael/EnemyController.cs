@@ -34,38 +34,21 @@ public class EnemyController : MonoBehaviour
     private int conteur = 0;
 
     private bool bougerConstruit = false;
-    private bool pathIsEnd = true;
-    private bool obstacle = false;
+    private bool pathIsEnd = false;
 
     GameObject player;
 
     void Start()
     {
         pathfinding = new NatPathfinding(largeur, hauteur);
+        //grid = new NatGrid(largeur, hauteur, 0.5f, origine);
+        //grid.GetXY(transform.position, out int x, out int y);
         player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (collision.gameObject.tag == "Barricade" || collision.gameObject.tag == "Mine")
-        {
-            Debug.Log("obstacle");
-            obstacle = true;
-        }
-        else
-        {
-            obstacle = false;
-        }
-
-
     }
 
     void Update()
     {
-        Debug.Log("update");
-
-        if (pathIsEnd == true)
+        if (pathIsEnd == false)
         {
             if (elapseTime == randomTime && animator.GetBool("collision_Joueur") == false)
             {
@@ -78,8 +61,6 @@ public class EnemyController : MonoBehaviour
             {
                 suivrePath();
             }
-
-            pathIsEnd = false;
         }
 
         float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
@@ -143,20 +124,16 @@ public class EnemyController : MonoBehaviour
                     elapseTime = 0;
                     pathIsEnd = true;
                     bougerConstruit = false;
-
-                    if(obstacle == false)
+                    int x = Random.Range(0,10);
+                    if (x < 3 || x > 7)
                     {
-                        int x = Random.Range(0, 10);
-                        if (x < 3 || x > 7)
+                        if (x == 0)
                         {
-                            if (x == 0)
-                            {
-                                Instantiate(Mine, transform.position, Quaternion.identity);
-                            }
-                            else
-                            {
-                                Instantiate(barricade, transform.position, Quaternion.identity);
-                            }
+                            Instantiate(Mine, transform.position, Quaternion.identity);
+                        }
+                        else
+                        {
+                            Instantiate(barricade, transform.position, Quaternion.identity);
                         }
                     }
                 }
