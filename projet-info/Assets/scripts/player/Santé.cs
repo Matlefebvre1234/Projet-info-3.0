@@ -29,4 +29,18 @@ public class Santé : MonoBehaviour
         santee = santee - qteAttaque;
         barreSante.SetSantee(santee);
     }
+
+    public bool IsDead (bool b)
+    {
+        if (santee == 0)
+        {
+            b = true;
+        }
+        else 
+        {
+            b = false;
+        }
+
+        return b;
+    }
 }
