@@ -10,7 +10,7 @@ public class BarreSantee : MonoBehaviour
     public Gradient gradient;
     public Image couleur;
 
-    public void SetSanteeMax(int santee)
+    public void SetSanteeMax(float santee)
     {
         slider.maxValue = santee;
         slider.value = santee;
@@ -18,7 +18,7 @@ public class BarreSantee : MonoBehaviour
         couleur.color = gradient.Evaluate(1f);
     }
 
-    public void SetSantee(int santee)
+    public void SetSantee(float santee)
     {
         slider.value = santee;
         couleur.color = gradient.Evaluate(slider.normalizedValue);

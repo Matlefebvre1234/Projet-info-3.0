@@ -45,9 +45,13 @@ public class matPathfinding
         startNode.Hcost = CalculerLaDistanceEntreNode(startNode, endNode);
         startNode.CalculerFcost();
 
-        while(openList.Count > 0)
+        while (openList.Count > 0)
         {
+            //Debug.Log(openList.Count);
+
             MatNode NodeActuelle = CalculerLowerFcost(openList);
+
+            //Debug.Log(NodeActuelle.x + ", " + NodeActuelle.y);
 
             if (NodeActuelle == endNode) return CalculerPathNode(endNode); //fin de la recherche
 
@@ -56,8 +60,11 @@ public class matPathfinding
                 openList.Remove(NodeActuelle);
                 closeList.Add(NodeActuelle);
 
-            foreach(MatNode nodeVoisine in GetNodeVoisin(NodeActuelle))
+            foreach (MatNode nodeVoisine in GetNodeVoisin(NodeActuelle))
             {
+
+                
+
                 if (closeList.Contains(nodeVoisine)) continue;
                 if(nodeVoisine.obstacle == true)
                 {
@@ -145,14 +152,20 @@ public class matPathfinding
     private MatNode CalculerLowerFcost(List<MatNode> listNode)
     {
         MatNode lowerFCostNode = listNode[0];
+        //Debug.Log(lowerFCostNode.Fcost);
+
         for (int i = 0; i < listNode.Count; i++)
         {
             if (listNode[i].Fcost < lowerFCostNode.Fcost)
             {
+                //Debug.Log(listNode[i].Fcost);
+                //Debug.Log(lowerFCostNode.Fcost);
                 lowerFCostNode = listNode[i];
             }
         
         }
+
+        //Debug.Log(lowerFCostNode.x + ", " + lowerFCostNode.y);
 
         return lowerFCostNode;
     }

@@ -21,14 +21,6 @@ public class MineScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector2.Distance(transform.position, player.transform.position);
-
-        //if (distance < rangeExplosion && animator.GetBool("collision") == false)
-        //{
-        //    //Explosion et dégats
-        //    animator.SetBool("collision", true);
-        //    player.GetComponent<Santé>().attaque(15);
-        //}
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Mine Animation"))
         {
             ExplosionIsEnd();
@@ -42,7 +34,6 @@ public class MineScript : MonoBehaviour
         {
             //Explosion et dégats
             animator.SetBool("collision", true);
-            player.GetComponent<Santé>().attaque(15);
         }
 
     }
@@ -50,6 +41,7 @@ public class MineScript : MonoBehaviour
     public void ExplosionIsEnd()
     {
         animator.SetBool("collision", false);
+        player.GetComponent<Santé>().attaque(15);
         Destroy(transform.gameObject);
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 299168497}
   - component: {fileID: 299168499}
   - component: {fileID: 299168498}
-  m_Layer: 5
+  m_Layer: 1
   m_Name: BarreSante IA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 8817404474003105652}
   - component: {fileID: 2568601779959560500}
   - component: {fileID: 2568601779959560499}
+  - component: {fileID: 2568601779959560505}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: C4
@@ -449,10 +450,25 @@ MonoBehaviour:
   rangeAttaquePlayer: 4
   rangeMouvement: 5
   raycastMaxDistance: 10
-  speed: 0.01
+  speed: 0.009
   animator: {fileID: 2568601779959560500}
   barricade: {fileID: 2777253171143086055, guid: 28ea0d96a37622b428ed623b5d54e4e2,
     type: 3}
   Mine: {fileID: 4219315139489888049, guid: 96e390fee440350489eb1cc369578238, type: 3}
   explosion: {fileID: 5592682594587263658, guid: cd27879454146064c8a0ec74fdc8a740,
     type: 3}
+--- !u!114 &2568601779959560505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2357106970460322381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd6d66df7f0181419bbc4e107e21910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  santeeMax: 50
+  santee: 0
+  barreSante: {fileID: 299168498}

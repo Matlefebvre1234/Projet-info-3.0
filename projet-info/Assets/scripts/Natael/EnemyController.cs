@@ -31,28 +31,38 @@ public class EnemyController : MonoBehaviour
     private int randomTime = 0;
     private int randomx;
     private int randomy;
-    private int conteur = 0;
+    private float conteur = 0f;
 
     private bool bougerConstruit = false;
     private bool pathIsEnd = false;
     private bool obstacle = false;
+    private bool JoueurMort = false;
 
     GameObject player;
 
     void Start()
     {
         pathfinding = new NatPathfinding(largeur, hauteur);
-        //grid = new NatGrid(largeur, hauteur, 0.5f, origine);
-        //grid.GetXY(transform.position, out int x, out int y);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
     
+        if(collision.gameObject.tag == "Projectile")
+        {
+            transform.GetComponent<Santé>().attaque(5);
+
+            JoueurMort = transform.GetComponent<Santé>().IsDead(JoueurMort);
+
+            if (JoueurMort == true)
+            {
+                transform.gameObject.SetActive(false);
+            }
+        }
+
         if (collision.gameObject.tag == "Barricade" || collision.gameObject.tag == "Mine")
         {
-            Debug.Log("obstacle");
             obstacle = true;
         }
         else
@@ -63,6 +73,22 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+       
+        float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
+        if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
+        {
+            //Explosion du bonhomme
+            animator.SetBool("collision_Joueur", true);
+        }
+
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
+        {
+            Debug.Log("fini !");
+            animator.SetBool("collision_Joueur", false);
+            player.GetComponent<Santé>().attaque(15);
+            transform.gameObject.SetActive(false);
+        }
+
         if (pathIsEnd == false)
         {
             if (elapseTime == randomTime && animator.GetBool("collision_Joueur") == false)
@@ -79,9 +105,9 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            if (conteur < 300)
+            if (conteur < 2f)
             {
-                conteur++;
+                conteur += Time.deltaTime;
                 return;
             }
             else
@@ -89,39 +115,6 @@ public class EnemyController : MonoBehaviour
                 pathIsEnd = false;
                 conteur = 0;
             }
-        }
-
-        //if (pathIsEnd == true)
-        //{
-        //    if (elapseTime == randomTime && animator.GetBool("collision_Joueur") == false)
-        //    {
-        //        bougerRadom();
-        //    }
-        //
-        //    elapseTime += 1 * Time.deltaTime;
-        //    
-        //    pathIsEnd = false;
-        //}
-        //
-        //if (bougerConstruit == true)
-        //{
-        //    suivrePath();
-        //}
-
-
-
-        float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
-        if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
-        {
-            //Explosion du bonhomme
-            animator.SetBool("collision_Joueur", true);
-            player.GetComponent<Santé>().attaque(15);
-        }
-
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
-        {
-            animator.SetBool("collision_Joueur", false);
-            transform.gameObject.SetActive(false);
         }
     }
 
@@ -171,16 +164,24 @@ public class EnemyController : MonoBehaviour
                     elapseTime = 0;
                     pathIsEnd = true;
                     bougerConstruit = false;
-                    int x = Random.Range(0,10);
-                    if (x < 3 || x > 7)
+
+                    if (obstacle == false)
                     {
-                        if (x == 0)
+                        int x = Random.Range(0, 10);
+                        if (x < 3 || x > 7)
                         {
-                            Instantiate(Mine, transform.position, Quaternion.identity);
-                        }
-                        else
-                        {
-                            Instantiate(barricade, transform.position, Quaternion.identity);
+                            if (x == 0)
+                            {
+                                Instantiate(Mine, transform.position, Quaternion.identity);
+
+                                //Instantiate(barricade, transform.position, Quaternion.identity);
+                            }
+                            else
+                            {
+                                Instantiate(barricade, transform.position, Quaternion.identity);
+
+                                //Instantiate(Mine, transform.position, Quaternion.identity);
+                            }
                         }
                     }
                 }
