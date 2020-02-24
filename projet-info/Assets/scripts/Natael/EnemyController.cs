@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
     private int randomTime = 0;
     private int randomx;
     private int randomy;
-    private int conteur = 0;
+    private float conteur = 0f;
 
     private bool bougerConstruit = false;
     private bool pathIsEnd = false;
@@ -73,6 +73,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+       
         float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
         if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
         {
@@ -104,9 +105,9 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            if (conteur < 300)
+            if (conteur < 2f)
             {
-                conteur++;
+                conteur += Time.deltaTime;
                 return;
             }
             else
