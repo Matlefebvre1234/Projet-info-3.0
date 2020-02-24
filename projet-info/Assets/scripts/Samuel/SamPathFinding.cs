@@ -24,6 +24,7 @@ public class SamPathfinding
 
         listeOuverte = new List<SamNode> { caseDebut };
         listeFerme = new List<SamNode>();
+        
 
         for (int x = 0; x < grid.GetLargueur(); x++)
         {
