@@ -293,7 +293,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167192483}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe68a91d06418684cbe0529689d9900a, type: 3}
   m_Name: 
@@ -305,6 +305,7 @@ MonoBehaviour:
   vitesse: 2
   targetPosition: {x: 0, y: 0}
   posJoueur: {x: 0, y: 0, z: 0}
+  compteur: 0
 --- !u!1001 &397184072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1700,7 +1701,7 @@ PrefabInstance:
     - target: {fileID: -482422410674980161, guid: c99d7fb6d3f65974898e72911ecf96e4,
         type: 3}
       propertyPath: m_SleepingMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -482422410674980161, guid: c99d7fb6d3f65974898e72911ecf96e4,
         type: 3}

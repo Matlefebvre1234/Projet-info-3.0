@@ -19,6 +19,10 @@ public class AIMouvement : MonoBehaviour
 
     public Vector3 posJoueur;
     public int compteur = 0;
+    private float temps;
+    private bool prendreDomage;
+
+    private Santé domage;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,8 @@ public class AIMouvement : MonoBehaviour
         cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
         posJoueur = new Vector3();
         posJoueur = joueur.transform.position;
+        domage = joueur.GetComponent<Santé>();
+        prendreDomage = true;
     }
 
     // Update is called once per frame
@@ -50,18 +56,12 @@ public class AIMouvement : MonoBehaviour
                 Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * dimCell + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 5f);
             }
         }
-
+        
         if (grid.GetVector(posJoueur) != grid.GetVector(joueur.transform.position))
         {
-
             cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
             posJoueur = joueur.transform.position;
-            if(compteur == 5)
-            {
-                index = 0;
-                compteur = 0;
-            }
-            compteur++;
+            index = 1;
             Mouvement();
         }
         else
@@ -72,25 +72,43 @@ public class AIMouvement : MonoBehaviour
     }
     private void Mouvement()
     {
-        grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
-        targetPosition = new Vector2(x, y);
-        if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
+        if (cheminVecteur != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
-            Debug.Log(index);
-        }
-        else
-        {
-            index++;
-            Debug.Log(cheminVecteur.Count);
-            if(index >= cheminVecteur.Count)
+            grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
+            targetPosition = new Vector2(x, y);
+            if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
             {
-                //cheminVecteur = null;
-                index = 0;
-                Debug.Log("Hello");
+                transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
+                //Debug.Log(index);
+            }
+            else
+            {
+                index++;
+                //Debug.Log(cheminVecteur.Count);
+               /* if (index >= cheminVecteur.Count)
+                {
+                    cheminVecteur = null;
+                    index = 0;
+                }*/
             }
         }
             
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.name.Equals("player")){
+            cheminVecteur = null;
+            index = 0;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.name.Equals("player"))
+        {
+            domage.attaque(10);
+        }
     }
 
 }
