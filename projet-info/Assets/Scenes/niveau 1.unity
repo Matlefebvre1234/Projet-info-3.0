@@ -1161,6 +1161,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archer
       objectReference: {fileID: 0}
+    - target: {fileID: 2357106970460322381, guid: 5e6b92a3eabfcda41903497c6f2388ce,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e6b92a3eabfcda41903497c6f2388ce, type: 3}
 --- !u!1001 &925843150
@@ -2570,7 +2575,7 @@ PrefabInstance:
     - target: {fileID: -482422410674980161, guid: c99d7fb6d3f65974898e72911ecf96e4,
         type: 3}
       propertyPath: m_SleepingMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -482422410674980161, guid: c99d7fb6d3f65974898e72911ecf96e4,
         type: 3}

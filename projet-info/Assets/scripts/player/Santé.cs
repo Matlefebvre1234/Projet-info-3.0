@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Santé : MonoBehaviour
 {
-    public int santeeMax = 100;
-    public int santee;
+    public float santeeMax = 100;
+    public float santee;
     public BarreSantee barreSante;
     //MyData dataSaved = new MyData();
 
@@ -53,7 +53,7 @@ public class Santé : MonoBehaviour
         }
     }
 
-    public void attaque(int qteAttaque)
+    public void attaque(float qteAttaque)
     {
         santee = santee - qteAttaque;
         barreSante.SetSantee(santee);

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6488036553066983521}
   - component: {fileID: 7529237719538101616}
   - component: {fileID: 7529237719538101617}
+  - component: {fileID: 6941061662487497263}
   m_Layer: 0
   m_Name: Obstacle Lave
   m_TagString: Obstacle
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32107967, y: 0.32318676}
   m_EdgeRadius: 0
+--- !u!114 &6941061662487497263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197009857954531005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1057245d6375ffd409874ac35e6e4cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
