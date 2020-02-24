@@ -107,7 +107,7 @@ public class AIMouvement : MonoBehaviour
     {
         if (collision.collider.name.Equals("player"))
         {
-            domage.attaque(10);
+            domage.attaque(20 * Time.deltaTime);
         }
     }
 
