@@ -532,7 +532,6 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 197, y: -25.01}
-  m_AnchoredPosition: {x: 232.44, y: -34.21}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460576223
@@ -1020,6 +1019,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3850973003291966774, guid: cce2f16c5db3f224fbe4d2c528e17175,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850973003291966775, guid: cce2f16c5db3f224fbe4d2c528e17175,
+        type: 3}
+      propertyPath: m_Name
+      value: Archer
+      objectReference: {fileID: 0}
     - target: {fileID: 2357106970460322370, guid: 5e6b92a3eabfcda41903497c6f2388ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1080,20 +1089,10 @@ PrefabInstance:
       propertyPath: speed
       value: 0.01
       objectReference: {fileID: 0}
-    - target: {fileID: 3850973003291966774, guid: cce2f16c5db3f224fbe4d2c528e17175,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3850973003291966775, guid: cce2f16c5db3f224fbe4d2c528e17175,
-        type: 3}
-      propertyPath: m_Name
-      value: Archer
-      objectReference: {fileID: 0}
     - target: {fileID: 2357106970460322381, guid: 5e6b92a3eabfcda41903497c6f2388ce,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e6b92a3eabfcda41903497c6f2388ce, type: 3}
