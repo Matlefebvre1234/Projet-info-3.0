@@ -19,7 +19,14 @@ public class SceneLoader : MonoBehaviour
         Application.Quit();
     }
 
-  
+    public void RetourMenu()
+    {
+        
+        SceneManager.LoadScene(0);
+
+    }
+
+
 
 
 
