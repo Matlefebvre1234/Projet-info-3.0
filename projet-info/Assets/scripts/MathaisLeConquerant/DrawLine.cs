@@ -15,6 +15,7 @@ public class DrawLine : MonoBehaviour
     void Start()
     {
         pathfinding = new PathfindingMathias(largeur, hauteur);
+        Debug.Log("fuckou");
     }
 
     // Update is called once per frame
