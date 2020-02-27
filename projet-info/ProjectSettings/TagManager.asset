@@ -13,6 +13,7 @@ TagManager:
   - Mine
   - Barricade
   - C4
+  - Goblin
   layers:
   - Default
   - TransparentFX
