@@ -14,12 +14,15 @@ public class Archer : MonoBehaviour
     private bool rapprochement = false;
     private ArcherPathfinding pathfinding;
     private matPathfinding pathfingRapprochement;
+    private SpriteRenderer spriterenderer;
+    private Animator animator;
     public GameObject projectile;
     public float reloadTime = 0.5f;
     private float timeBeforeReaload = 0;
     private int nbTireManquer = 0;
     private float tempRapprochement = 0f;
     private bool tireEffectuer = false;
+
 
 
     List<MatNode> chemin;
@@ -33,14 +36,18 @@ public class Archer : MonoBehaviour
     {
         pathfinding = new ArcherPathfinding(largeur, hauteur);
         pathfingRapprochement = new matPathfinding(largeur, hauteur);
+        spriterenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        animator.SetBool("isWalking", false);
         speed = speed * Time.deltaTime;
         player = GameObject.FindGameObjectWithTag("Player");
+   
     }
 
     private void Update()
     {
-       
-        Debug.Log(rapprochement);
+
+        flipSprite();
       
         timeBeforeReaload = timeBeforeReaload + 1 * Time.deltaTime;
         if(rapprochement != true)EloignerPlayer();
@@ -61,7 +68,7 @@ public class Archer : MonoBehaviour
     {
 
         bool obstacle = false;
-
+        animator.SetBool("isWalking", true);
         Vector2 VecteurUnitaire = (Vector2)player.transform.position - (Vector2)transform.position;
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, VecteurUnitaire);
         RaycastHit2D playerhit = new RaycastHit2D();
@@ -237,7 +244,7 @@ public class Archer : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.transform.position);
         if (distance <= (nbCaseDistance * dimCell))
         {
-
+            animator.SetBool("isWalking", true);
             cheminAtteint = false;
             pathfinding.limiteDistance = 0;
             pathfinding.getGrid().GetXY(transform.position, out int x1, out int y1);
@@ -253,6 +260,7 @@ public class Archer : MonoBehaviour
 
     private void SuivreChemin()
     {
+        
         if (chemin != null)
         {
             
@@ -270,6 +278,7 @@ public class Archer : MonoBehaviour
                 if (index >= chemin.Count)
                 {
                     chemin = null;
+                    animator.SetBool("isWalking", false);
                     index = 0;
                     cheminAtteint = true;
 
@@ -277,6 +286,7 @@ public class Archer : MonoBehaviour
                     if (tempRapprochement >= 3f) rapprochement = false;
                     tempRapprochement = 0;
                     nbTireManquer = 0;
+                    
                 }
             }
 
@@ -286,4 +296,28 @@ public class Archer : MonoBehaviour
         
 
     } 
+
+
+    public void flipSprite()
+    {
+
+        Vector2 direction = player.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Debug.Log(angle);
+         
+        if((angle < 90  && angle >= 0) || ( angle < -90 && angle < 0) )
+        {
+            spriterenderer.flipX = false;
+
+        }
+
+        if ((angle > 90 && angle < 180) || (angle > -180 && angle < -90))
+        {
+            spriterenderer.flipX = true;
+
+        }
+
+
+    }
+
 }
