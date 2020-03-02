@@ -13,12 +13,15 @@ public class matPathfinding
     private MatGrid grid;
     private List<MatNode> openList;
     private List<MatNode> closeList;
+    private int n_largeur = 22;
+    private int n_hauteur = 14;
+    
 
 
     public matPathfinding()
     {
 
-        grid = GameObject.FindObjectOfType<GrilleMonstresMat>().getGrid();
+        grid = new MatGrid(n_largeur, n_hauteur, dimCell, origine);
 
     }
 

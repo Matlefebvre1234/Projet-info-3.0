@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 4b3f8e54b5a91e24fa288e6cb459eba3
+guid: 084f6ecc77135a0429c96f8177b0e7a3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5017877167305534716
-    second: bloob_0
+      213: -2182469576685961252
+    second: bloob (1)_0
   - first:
-      213: 2491949683175685242
-    second: bloob_1
+      213: -6336017364829328441
+    second: bloob (1)_1
   - first:
-      213: 7763854386774974739
-    second: bloob_2
+      213: -7050998903983156828
+    second: bloob (1)_2
+  - first:
+      213: 6418376564193404113
+    second: bloob (1)_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -95,7 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bloob_0
+      name: bloob (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -109,14 +112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfc2ac3a2b413a540800000000000000
-      internalID: 5017877167305534716
+      spriteID: cdf3984bb7f46b1e0800000000000000
+      internalID: -2182469576685961252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bloob_1
+      name: bloob (1)_1
       rect:
         serializedVersion: 2
         x: 32
@@ -130,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c75dfa80f259220800000000000000
-      internalID: 2491949683175685242
+      spriteID: 7cb24aeb6c1f118a0800000000000000
+      internalID: -6336017364829328441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bloob_2
+      name: bloob (1)_2
       rect:
         serializedVersion: 2
         x: 0
@@ -151,8 +154,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 311a49b1e60cebb60800000000000000
-      internalID: 7763854386774974739
+      spriteID: 4a15a68cad1d52e90800000000000000
+      internalID: -7050998903983156828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bloob (1)_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d4a077aa77a21950800000000000000
+      internalID: 6418376564193404113
       vertices: []
       indices: 
       edges: []

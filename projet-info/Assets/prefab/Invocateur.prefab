@@ -100,6 +100,7 @@ MonoBehaviour:
   speed: 5
   projectile: {fileID: 0}
   reloadTime: 0.5
+  bloob: {fileID: 4259053965317939124, guid: 2bbc642a8db449d4eb5334ab79ed6b2b, type: 3}
 --- !u!95 &4736680147268650909
 Animator:
   serializedVersion: 3

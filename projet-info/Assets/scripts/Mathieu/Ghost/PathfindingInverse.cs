@@ -19,7 +19,7 @@ public class PathfindingInverse
 
     public PathfindingInverse()
     {
-        grid = GameObject.FindObjectOfType<GrilleMonstresMat>().getGrid();
+        grid = new MatGrid(22, 14, dimCell, origine);
 
     }
 

@@ -12,8 +12,9 @@ public class Invocateur : MonoBehaviour
     private SpriteRenderer spriterenderer;
     private Animator animator;
     public GameObject projectile;
-    public float reloadTime = 0.5f;
+    public float reloadTime = 20f;
     private float timeBeforeReaload = 0;
+    public GameObject bloob;
   
 
 
@@ -52,6 +53,13 @@ public class Invocateur : MonoBehaviour
 
         timeBeforeReaload = timeBeforeReaload + 1 * Time.deltaTime;
         EloignerPlayer();
+
+        if(timeBeforeReaload >= reloadTime)
+        {
+
+            Invoquer();
+            timeBeforeReaload = 0;
+        }
  
 
     }
@@ -60,12 +68,15 @@ public class Invocateur : MonoBehaviour
     public void Invoquer()
     { 
         animator.SetBool("attack", true);
-       
+        
+        
+
     }
 
     private void stopAttackAnimation()
     {
         animator.SetBool("attack", false);
+        Instantiate(bloob, transform.position, Quaternion.identity);
     }
 
     private void EloignerPlayer()
