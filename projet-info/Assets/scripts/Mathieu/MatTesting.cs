@@ -10,7 +10,7 @@ public class MatTesting : MonoBehaviour
     private matPathfinding pathfinding;
     void Start()
     {
-         pathfinding = new matPathfinding(largeur, hauteur);
+         pathfinding = new matPathfinding();
     }
 
     private void Update()

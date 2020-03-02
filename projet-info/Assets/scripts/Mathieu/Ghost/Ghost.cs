@@ -3,16 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Archer : MonoBehaviour
+public class Ghost : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int hauteur = 14;
-    public int largeur = 22;
-    public float dimCell = 0.5f;
+   
+    
     public float nbCaseDistance = 8.0f;
     public float speed = 5f;
     private bool rapprochement = false;
-    private ArcherPathfinding pathfinding;
+    private PathfindingInverse pathfinding;
     private matPathfinding pathfingRapprochement;
     private SpriteRenderer spriterenderer;
     private Animator animator;
@@ -34,8 +33,8 @@ public class Archer : MonoBehaviour
 
     void Start()
     {
-        pathfinding = new ArcherPathfinding(largeur, hauteur);
-        pathfingRapprochement = new matPathfinding(largeur, hauteur);
+        pathfinding = new PathfindingInverse();
+        pathfingRapprochement = new matPathfinding();
         spriterenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         animator.SetBool("isWalking", false);
@@ -122,8 +121,6 @@ public class Archer : MonoBehaviour
             for (int k = 0; k < obstacleHit.Count; k++)
             {
 
-
-
                 if (playerhit.distance < obstacleHit[k].distance)
                 {
 
@@ -163,9 +160,6 @@ public class Archer : MonoBehaviour
                 pathfingRapprochement.getGrid().GetXY(player.transform.position, out int x2, out int y2);
                 index = 1;
                 chemin = pathfingRapprochement.FindPath(x1, y1, x2, y2);
-              
-
-            
 
             SuivreChemin();
         }
@@ -193,75 +187,72 @@ public class Archer : MonoBehaviour
         RaycastHit2D playerhit = new RaycastHit2D();
         List<RaycastHit2D> obstacleHit = new List<RaycastHit2D>();
 
-       Debug.DrawRay(transform.position, VecteurUnitaire, Color.red, 5f);
+        Debug.DrawRay(transform.position, VecteurUnitaire, Color.red, 5f);
 
-        for (int i = 0; i < hit.Length; i++)
-        {
-
-            if (hit[i].collider.gameObject.tag == "Obstacle")
-            {
-                
-                obstacleHit.Add(hit[i]);
-
-            }
-
-
-            if (hit[i].collider.gameObject.tag == "Player")
-            {
-               
-                playerhit = hit[i];
-
-            }
-
-        }
-
-
-        if (obstacleHit.Count != 0)
-        {
-
-            for (int k = 0; k < obstacleHit.Count; k++)
-            {
-                
-
-
-                if (playerhit.distance < obstacleHit[k].distance)
-                {
-
-                    obstacle = true;
-                }
-
-            }
-
-        }
-        else
-        {
-
-            obstacle = true;
-
-        }
-
-
+        obstacle = DetecterLigneDeMire(ref obstacle, hit, ref playerhit, obstacleHit);
 
         if (obstacle == true)
         {
+            animator.SetBool("attack", true);
             Instantiate(projectile, transform.position, Quaternion.identity);
+            
             return true;
         }
 
         else
         {
             return false;
-
         }
 
     }
 
+    private  bool DetecterLigneDeMire(ref bool obstacle, RaycastHit2D[] hit, ref RaycastHit2D playerhit, List<RaycastHit2D> obstacleHit)
+    {
+        for (int i = 0; i < hit.Length; i++)
+        {
+
+            if (hit[i].collider.gameObject.tag == "Obstacle")
+            {
+
+                obstacleHit.Add(hit[i]);
+
+            }
+
+            if (hit[i].collider.gameObject.tag == "Player")
+            {
+
+                playerhit = hit[i];
+
+            }
+
+        }
+
+        if (obstacleHit.Count != 0)
+        {
+
+            for (int k = 0; k < obstacleHit.Count; k++)
+            {
+                if (playerhit.distance < obstacleHit[k].distance)
+                {
+                    obstacle = true; 
+                }
+            }
+
+        }
+        else
+        {
+            obstacle = true;
+        }
+
+        if (obstacle == true) return true;
+        else return false;
+    }
+
     private void EloignerPlayer()
     {
-        
-        
+
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance <= (nbCaseDistance * dimCell))
+        if (distance <= (nbCaseDistance * GrilleMonstresMat.getdimCell()))
         {
             animator.SetBool("isWalking", true);
             cheminAtteint = false;
@@ -322,7 +313,7 @@ public class Archer : MonoBehaviour
 
         Vector2 direction = player.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Debug.Log(angle);
+
          
         if((angle < 90  && angle >= 0) || ( angle < -90 && angle < 0) )
         {
@@ -337,6 +328,11 @@ public class Archer : MonoBehaviour
         }
 
 
+    }
+
+    private void stopAttackAnimation()
+    {
+        animator.SetBool("attack", false);
     }
 
 }
