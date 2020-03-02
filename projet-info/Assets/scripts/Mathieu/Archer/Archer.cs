@@ -47,7 +47,7 @@ public class Archer : MonoBehaviour
     private void Update()
     {
 
-        flipSprite();
+       /* flipSprite();
       
         timeBeforeReaload = timeBeforeReaload + 1 * Time.deltaTime;
         if(rapprochement != true)EloignerPlayer();
@@ -60,7 +60,26 @@ public class Archer : MonoBehaviour
             
             timeBeforeReaload = 0;
         }
-      if (rapprochement == true) RapprochementPlayer();
+      if (rapprochement == true) RapprochementPlayer();*/
+
+    }
+
+    private void FixedUpdate()
+    {
+        flipSprite();
+
+        timeBeforeReaload = timeBeforeReaload + 1 * Time.deltaTime;
+        if (rapprochement != true) EloignerPlayer();
+        if (timeBeforeReaload >= reloadTime)
+        {
+            tireEffectuer = TireArcher();
+            if (tireEffectuer == false) nbTireManquer++;
+
+            if (nbTireManquer >= 7) rapprochement = true;
+
+            timeBeforeReaload = 0;
+        }
+        if (rapprochement == true) RapprochementPlayer();
 
     }
 
