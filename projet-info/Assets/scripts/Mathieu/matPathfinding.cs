@@ -15,9 +15,10 @@ public class matPathfinding
     private List<MatNode> closeList;
 
 
-    public matPathfinding(int largueur , int hauteur)
+    public matPathfinding()
     {
-        grid = new MatGrid(largueur, hauteur, dimCell, origine);
+
+        grid = GameObject.FindObjectOfType<GrilleMonstresMat>().getGrid();
 
     }
 
