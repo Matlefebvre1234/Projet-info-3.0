@@ -12175,7 +12175,7 @@ PrefabInstance:
     - target: {fileID: 2357106970460322371, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_FlipX
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
@@ -12207,7 +12207,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5eba0fffc1e12a7478d9e08302ff6832, type: 2}
+      objectReference: {fileID: 9100000, guid: 7e005ec6df3fb5c48a91550772612d6e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3783175fadc0b484387027c6fd0f5ff9, type: 3}
 --- !u!1 &2568601779959560498 stripped
