@@ -21,9 +21,9 @@ public class EnemyController : MonoBehaviour
     public GameObject explosion;
 
     private NatPathfinding pathfinding;
-    private NatGrid grid;
-    private Vector3 origine = new Vector3(8, 1);
-    private List<NatNode> path;
+    //private GrilleNatael grid;
+    //private Vector3 origine = new Vector3(8, 1);
+    private List<PointsNatael> path;
 
     private float elapseTime = 0;
 
@@ -136,7 +136,7 @@ public class EnemyController : MonoBehaviour
                     randomy = Random.Range(rangeIAMin, rangeIAMax);
                 }
 
-                path = pathfinding.FindPath(x, y, x + randomx, y + randomy);
+                path = pathfinding.TrouverLeChemin(x, y, x + randomx, y + randomy);
 
             } while (path == null);
 
@@ -173,14 +173,10 @@ public class EnemyController : MonoBehaviour
                             if (x == 0)
                             {
                                 Instantiate(Mine, transform.position, Quaternion.identity);
-
-                                //Instantiate(barricade, transform.position, Quaternion.identity);
                             }
                             else
                             {
                                 Instantiate(barricade, transform.position, Quaternion.identity);
-
-                                //Instantiate(Mine, transform.position, Quaternion.identity);
                             }
                         }
                     }
