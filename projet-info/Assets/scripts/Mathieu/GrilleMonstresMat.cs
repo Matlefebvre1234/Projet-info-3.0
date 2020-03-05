@@ -19,7 +19,8 @@ public class GrilleMonstresMat : MonoBehaviour
     
     public static MatGrid getGrid()
     {
-        grid = new MatGrid(largeur, hauteur, dimCell, origine);
+        if(grid ==null) grid = new MatGrid(largeur, hauteur, dimCell, origine);
+
         return grid;
 
     }
