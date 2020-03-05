@@ -6,7 +6,8 @@ using UnityEngine;
 public class Invocateur : MonoBehaviour
 {
     public float nbCaseDistance = 8.0f;
-    public float speed = 5f;
+    public float speedInitial = 5f;
+    private float speed;
     private PathfindingInverse pathfinding;
     private matPathfinding pathfingRapprochement;
     private SpriteRenderer spriterenderer;
@@ -14,7 +15,10 @@ public class Invocateur : MonoBehaviour
     public GameObject projectile;
     public float reloadTime = 20f;
     private float timeBeforeReaload = 0;
+    private bool isMoving = false;
     public GameObject bloob;
+    public int  nombreMaxBloobs = 5;
+    public int nombreBloobPresent = 0;
   
 
 
@@ -28,6 +32,7 @@ public class Invocateur : MonoBehaviour
 
     void Start()
     {
+        speed = speedInitial;
         pathfinding = new PathfindingInverse();
         pathfingRapprochement = new matPathfinding();
         spriterenderer = GetComponent<SpriteRenderer>();
@@ -38,29 +43,23 @@ public class Invocateur : MonoBehaviour
     }
 
 
+
     private void Update()
-    {
-        if(Input.GetKeyDown("space"))
-        {
-
-            Invoquer();
-
-        }
-    }
-    private void FixedUpdate()
     {
         flipSprite();
 
         timeBeforeReaload = timeBeforeReaload + 1 * Time.deltaTime;
+        speed = speedInitial;
+        speed = speed * Time.deltaTime;
         EloignerPlayer();
 
-        if(timeBeforeReaload >= reloadTime)
+        if (timeBeforeReaload >= reloadTime && isMoving == false && nombreBloobPresent < nombreMaxBloobs)
         {
 
             Invoquer();
             timeBeforeReaload = 0;
         }
- 
+
 
     }
 
@@ -76,7 +75,11 @@ public class Invocateur : MonoBehaviour
     private void stopAttackAnimation()
     {
         animator.SetBool("attack", false);
-        Instantiate(bloob, transform.position, Quaternion.identity);
+       GameObject bloob2 =  Instantiate(bloob, transform.position, Quaternion.identity);
+        Bloob2 scriptBloob2 = bloob2.GetComponent<Bloob2>();
+        scriptBloob2.setInvocateur(gameObject);
+       
+        nombreBloobPresent++;
     }
 
     private void EloignerPlayer()
@@ -112,6 +115,7 @@ public class Invocateur : MonoBehaviour
             {
 
                 transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
+                isMoving = true;
             }
             else
             {
@@ -119,6 +123,7 @@ public class Invocateur : MonoBehaviour
                 if (index >= chemin.Count)
                 {
                     chemin = null;
+                    isMoving = false;
                     animator.SetBool("isWalking", false);
                     index = 0;
                     cheminAtteint = true;
@@ -138,7 +143,7 @@ public class Invocateur : MonoBehaviour
 
         Vector2 direction = player.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Debug.Log(angle);
+
 
         if ((angle < 90 && angle >= 0) || (angle < -90 && angle < 0))
         {
@@ -152,6 +157,12 @@ public class Invocateur : MonoBehaviour
 
         }
 
+
+    }
+
+    public void BloobMeure()
+    {
+        nombreBloobPresent  -= 1;
 
     }
 

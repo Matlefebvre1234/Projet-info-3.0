@@ -102,7 +102,7 @@ public class PathfindingInverse
             MatNode NodeActuelle = CalculerPlusGrandHcost(openList);
             limiteDistance++;
 
-            if (limiteDistance >= 50) return CalculerCheminDeNode(NodeActuelle); //fin de la recherche
+            if (limiteDistance >= Random.Range(35f,50f)) return CalculerCheminDeNode(NodeActuelle); //fin de la recherche
 
 
 

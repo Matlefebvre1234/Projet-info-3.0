@@ -9,7 +9,8 @@ public class Ghost : MonoBehaviour
    
     
     public float nbCaseDistance = 8.0f;
-    public float speed = 5f;
+    private float speed = 5f;
+    public float speedInitial = 5f;
     private bool rapprochement = false;
     private PathfindingInverse pathfinding;
     private matPathfinding pathfingRapprochement;
@@ -38,35 +39,15 @@ public class Ghost : MonoBehaviour
         spriterenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         animator.SetBool("isWalking", false);
-        speed = speed * Time.deltaTime;
         player = GameObject.FindGameObjectWithTag("Player");
    
     }
 
     private void Update()
     {
-
-       /* flipSprite();
-      
-        timeBeforeReaload = timeBeforeReaload + 1 * Time.deltaTime;
-        if(rapprochement != true)EloignerPlayer();
-        if (timeBeforeReaload >= reloadTime)
-        {
-            tireEffectuer = TireArcher();
-           if (tireEffectuer == false) nbTireManquer++;
-
-          if (nbTireManquer >= 7) rapprochement = true;
-            
-            timeBeforeReaload = 0;
-        }
-      if (rapprochement == true) RapprochementPlayer();*/
-
-    }
-
-    private void FixedUpdate()
-    {
         flipSprite();
-
+        speed = speedInitial;
+        speed = speed * Time.deltaTime;
         timeBeforeReaload = timeBeforeReaload + 1 * Time.deltaTime;
         if (rapprochement != true) EloignerPlayer();
         if (timeBeforeReaload >= reloadTime)
@@ -80,7 +61,10 @@ public class Ghost : MonoBehaviour
         }
         if (rapprochement == true) RapprochementPlayer();
 
+
     }
+
+    
 
     private void RapprochementPlayer()
     {

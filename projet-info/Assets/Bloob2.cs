@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Bloob2 : MonoBehaviour
 {
-    public float speed = 5f;
-
+    private float speed = 5f;
+    public float speedInitial = 5f;
     private matPathfinding pathfingRapprochement;
     private SpriteRenderer spriterenderer;
     private Animator animator;
-
-
+    private Invocateur invocateur;
+     
+    
 
 
     List<MatNode> chemin;
@@ -22,12 +23,12 @@ public class Bloob2 : MonoBehaviour
 
     void Start()
     {
-      
+        
         pathfingRapprochement = new matPathfinding();
         spriterenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        
-        speed = speed * Time.deltaTime;
+
+
 
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -35,34 +36,19 @@ public class Bloob2 : MonoBehaviour
     private void Update()
     {
 
-        /* flipSprite();
-
-         timeBeforeReaload = timeBeforeReaload + 1 * Time.deltaTime;
-         if(rapprochement != true)EloignerPlayer();
-         if (timeBeforeReaload >= reloadTime)
-         {
-             tireEffectuer = TireArcher();
-            if (tireEffectuer == false) nbTireManquer++;
-
-           if (nbTireManquer >= 7) rapprochement = true;
-
-             timeBeforeReaload = 0;
-         }
-       if (rapprochement == true) RapprochementPlayer();*/
-
-    }
-
-    private void FixedUpdate()
-    {
         flipSprite();
-
+        speed = speedInitial;
+        speed = speed * Time.deltaTime;
         RapprochementPlayer();
     }
 
+    
+
     private void RapprochementPlayer()
     {
+        float distance = Vector2.Distance(transform.position, player.transform.position);
 
-            if(transform.position != player.transform.position)
+            if(transform.position != player.transform.position && distance > 0.5f )
         {
 
 
@@ -87,30 +73,38 @@ public class Bloob2 : MonoBehaviour
 
     private void SuivreChemin()
     {
-
-        if (chemin != null)
+        Debug.Log(index);
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        if (chemin != null && distance > 0.55f)
         {
 
-            pathfingRapprochement.getGrid().GetWorldXY(new Vector2(chemin[index].x, chemin[index].y), out float x, out float y);
-            Vector2 targetPosition = new Vector2(x, y);
-
-            if (Vector2.Distance(transform.position, targetPosition) > 0f)
+            if (index >=1 && index <= chemin.Count )
             {
+                pathfingRapprochement.getGrid().GetWorldXY(new Vector2(chemin[index].x, chemin[index].y), out float x, out float y);
+                Vector2 targetPosition = new Vector2(x, y);
 
-                transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
-            }
-            else
-            {
-                index++;
-                if (index >= chemin.Count)
+                if (Vector2.Distance(transform.position, targetPosition) > 0.25f)
                 {
-                    chemin = null;
-                
-                    index = 0;
-                    cheminAtteint = true;
 
-
+                    transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
                 }
+                else
+                {
+                    index++;
+                   
+                    
+                        chemin = null;
+
+                        index = 1;
+                        cheminAtteint = true;
+
+
+                    
+                }
+
+
+
+
             }
 
 
@@ -143,13 +137,26 @@ public class Bloob2 : MonoBehaviour
 
     }
 
-    private void stopAttackAnimation()
-    {
-        
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         chemin = null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Projectile")
+        {
+            invocateur.nombreBloobPresent -= 1;
+            Destroy(gameObject, 0);
+        
+        }
+    }
+
+    public void setInvocateur(GameObject idInvocateur)
+    {
+
+        invocateur = idInvocateur.GetComponent<Invocateur>();
+
     }
 }
