@@ -19,7 +19,7 @@ public class PathfindingInverse
 
     public PathfindingInverse()
     {
-        grid = new MatGrid(22, 14, dimCell, origine);
+        grid = GrilleMonstresMat.getGrid();
 
     }
 

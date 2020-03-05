@@ -21,7 +21,7 @@ public class matPathfinding
     public matPathfinding()
     {
 
-        grid = new MatGrid(n_largeur, n_hauteur, dimCell, origine);
+        grid = GrilleMonstresMat.getGrid();
 
     }
 
