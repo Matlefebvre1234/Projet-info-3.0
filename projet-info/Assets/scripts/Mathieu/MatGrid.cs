@@ -83,13 +83,7 @@ public class MatGrid
         x =position.x * dimCell + 4.25f;
         y =position.y * dimCell + 0.75f;
     }
-    public PointXY GetWorldXY(Vector3 position)
-    {
-        PointXY pointXY = new PointXY();
-        pointXY.x = position.x * dimCell + 4.25f;
-        pointXY.y = position.y * dimCell + 0.75f;
-        return pointXY;
-    }
+   
     //  public void setPosJ(Vector3 posJ)
     // {
     //     positionJoueur = posJ;

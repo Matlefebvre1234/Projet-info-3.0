@@ -140,10 +140,10 @@ public class Ghost : MonoBehaviour
            
                 cheminAtteint = false;
 
-            PointXY p1 = pathfingRapprochement.getGrid().GetXY(transform.position);
-            PointXY p2 = pathfingRapprochement.getGrid().GetXY(player.transform.position);
+            pathfingRapprochement.getGrid().GetXY(transform.position, out int x1 ,out int y1);
+            pathfingRapprochement.getGrid().GetXY(player.transform.position ,out int x2, out int y2);
             index = 1;
-            chemin = pathfingRapprochement.FindPath((int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y);
+            chemin = pathfingRapprochement.FindPath(x1,y1,x2, y2);
 
             SuivreChemin();
         }
@@ -241,11 +241,10 @@ public class Ghost : MonoBehaviour
             animator.SetBool("isWalking", true);
             cheminAtteint = false;
             pathfinding.limiteDistance = 0;
-            PointXY p1 = pathfinding.getGrid().GetXY(transform.position);
-            PointXY p2 = pathfinding.getGrid().GetXY(player.transform.position);
+            pathfinding.getGrid().GetXY(transform.position, out int x1, out int y1);
+            pathfinding.getGrid().GetXY(player.transform.position, out int x2, out int y2);
             index = 1;
-            chemin = pathfinding.FindPath((int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y);
-
+            chemin = pathfinding.FindPath(x1, y1, x2, y2);
 
         }
 
