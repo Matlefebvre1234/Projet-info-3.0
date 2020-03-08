@@ -14,6 +14,7 @@ TagManager:
   - Barricade
   - C4
   - Goblin
+  - Orc
   - Lave
   layers:
   - Default
@@ -24,8 +25,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Obstacle
+  - projectile
   - 
   - 
   - 
