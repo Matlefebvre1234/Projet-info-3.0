@@ -1,34 +1,22 @@
 fileFormatVersion: 2
-guid: 5eb594d340e9b2041b6066d47f0a3802
+guid: c7e43b98c2fb3ca408117fc0bcbe4177
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5716191321726558363
-    second: invocateur (2)_0
+      213: -8920102618368541984
+    second: ghostIde (2)_0
   - first:
-      213: -7226968226363907550
-    second: invocateur (2)_1
+      213: -8566895518617593098
+    second: ghostIde (2)_1
   - first:
-      213: -4893729243566105878
-    second: invocateur (2)_2
+      213: -6383284446554952369
+    second: ghostIde (2)_2
   - first:
-      213: -3874497411818897385
-    second: invocateur (2)_3
+      213: -1284797225280991932
+    second: ghostIde (2)_3
   - first:
-      213: -8176513494977332714
-    second: invocateur (2)_4
-  - first:
-      213: 8280106052978131358
-    second: invocateur (2)_5
-  - first:
-      213: 6627416152931669910
-    second: invocateur (2)_6
-  - first:
-      213: -2989589987650068286
-    second: invocateur (2)_7
-  - first:
-      213: -2084988548788087507
-    second: invocateur (2)_8
+      213: -6554400410181027033
+    second: ghostIde (2)_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -113,7 +101,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: invocateur (2)_0
+      name: ghostIde (2)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,14 +115,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b90aeafa8bdf35f40800000000000000
-      internalID: 5716191321726558363
+      spriteID: 0ea7c18eded653480800000000000000
+      internalID: -8920102618368541984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: invocateur (2)_1
+      name: ghostIde (2)_1
       rect:
         serializedVersion: 2
         x: 32
@@ -148,35 +136,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2226b8030b6a4bb90800000000000000
-      internalID: -7226968226363907550
+      spriteID: 6fa99e84ae54c1980800000000000000
+      internalID: -8566895518617593098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: invocateur (2)_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aea1d4a5e2bf51cb0800000000000000
-      internalID: -4893729243566105878
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invocateur (2)_3
+      name: ghostIde (2)_2
       rect:
         serializedVersion: 2
         x: 0
@@ -190,14 +157,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7104d55c1250b3ac0800000000000000
-      internalID: -3874497411818897385
+      spriteID: f4de0dead940a67a0800000000000000
+      internalID: -6383284446554952369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: invocateur (2)_4
+      name: ghostIde (2)_3
       rect:
         serializedVersion: 2
         x: 32
@@ -211,35 +178,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61a30be1c40378e80800000000000000
-      internalID: -8176513494977332714
+      spriteID: 44d08b21bbb7b2ee0800000000000000
+      internalID: -1284797225280991932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: invocateur (2)_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e91c256d598d8e270800000000000000
-      internalID: 8280106052978131358
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invocateur (2)_6
+      name: ghostIde (2)_4
       rect:
         serializedVersion: 2
         x: 0
@@ -253,50 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6979d26a0ef49fb50800000000000000
-      internalID: 6627416152931669910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invocateur (2)_7
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c0ad0aeeb7d286d0800000000000000
-      internalID: -2989589987650068286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invocateur (2)_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d259abc26f1a013e0800000000000000
-      internalID: -2084988548788087507
+      spriteID: 72b3c7bbd871a05a0800000000000000
+      internalID: -6554400410181027033
       vertices: []
       indices: 
       edges: []

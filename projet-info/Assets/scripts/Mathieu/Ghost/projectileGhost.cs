@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class projectileArcher : MonoBehaviour
+public class projectileGhost : MonoBehaviour
 {
     Rigidbody2D MonRigidBody;
     BoxCollider2D moncollider;
@@ -34,7 +34,7 @@ public class projectileArcher : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "murTransparent" && tempApresSpawn >= 0.1f) 
+        if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "murTransparent" && tempApresSpawn >= 0.1f && collision.gameObject.tag != "Lave") 
         {
 
             if(collision.gameObject.tag == "Player")
