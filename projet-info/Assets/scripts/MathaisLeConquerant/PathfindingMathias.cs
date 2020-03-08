@@ -11,8 +11,11 @@ public class PathfindingMathias
     private List<CheminMathias> listeFermee;
     private Vector3 Origine = new Vector3(8, 1);
 
+    public static PathfindingMathias Instance { get; private set; }
+
     public PathfindingMathias(int largeur, int hauteur)
     {
+        Instance = this;
         grille = new GridMathias(largeur, hauteur, 0.5f, Origine);
     }
 
@@ -66,8 +69,6 @@ public class PathfindingMathias
                 {
                     continue;
                 }
-
-                Debug.Log(caseVoisine);
 
                 int gTemp = caseActuelle.g + CalculerH(caseActuelle, caseVoisine);
 
@@ -185,11 +186,43 @@ public class PathfindingMathias
 
             if (listeChemin[i].f < fBas.f)
             {
-                Debug.Log("allo");
                 fBas = listeChemin[i];
             }
         }
 
         return fBas;
+    }
+
+    public List<Vector3> TrouverChemin(Vector3 debut, Vector3 fin)
+    {
+        int debutX;
+        int debutY;
+
+        int finX;
+        int finY;
+
+        grille.GetXY(debut, out debutX, out debutY);
+        grille.GetXY(fin, out finX, out finY);
+
+        List<CheminMathias> chemin = Chemin(debutX, debutY, finX, finY);
+
+        if(chemin == null)
+        {
+            return null;
+        }
+
+        else
+        {
+            List<Vector3> cheminVectors = new List<Vector3>();
+
+            foreach (CheminMathias pathnode in chemin)
+            {
+                Vector3 ajout = new Vector3(pathnode.x, pathnode.y);
+                Vector3 ajout2 = new Vector3(4, 0.5f);
+                cheminVectors.Add(ajout * grille.GetDimCell() + Vector3.one * 0.25f + ajout2);
+            }
+
+            return cheminVectors;
+        }
     }
 }

@@ -16,12 +16,12 @@ public class NatTesting : MonoBehaviour
 
     private NatPathfinding pathfinding;
     private Vector3 origine = new Vector3(8, 1);
-    private NatGrid grid;
+    private GrilleNatael grid;
 
     void Start()
     {
         pathfinding = new NatPathfinding(largeur, hauteur);
-        grid = new NatGrid(largeur, hauteur, 0.5f, origine);
+        grid = new GrilleNatael(largeur, hauteur, 0.5f, origine);
     }
 
     private void Update()
@@ -41,7 +41,7 @@ public class NatTesting : MonoBehaviour
             grid.GetXY(positionEnemy, out int x, out int y);
 
 
-            List<NatNode> path = pathfinding.FindPath(z, w, x, y);
+            List<PointsNatael> path = pathfinding.TrouverLeChemin(z, w, x, y);
             
             if (path != null)
             {
