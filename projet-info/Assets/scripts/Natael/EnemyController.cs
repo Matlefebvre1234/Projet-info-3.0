@@ -70,11 +70,31 @@ public class EnemyController : MonoBehaviour
             obstacle = false;
         }
     }
+    Vector3 prevLocation = Vector3.zero;
 
     void Update()
     {
-       
-        float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
+        float position = transform.position.x;
+
+        if (position < prevLocation.x)
+        {
+            //vers la gauche
+            Quaternion quat = new Quaternion(0, 180, 0, 0);
+
+            this.gameObject.transform.rotation = quat;
+        }
+        else
+        {
+            // vers la droite
+            Quaternion quat = new Quaternion(0, 0, 0, 0);
+
+            this.gameObject.transform.rotation = quat;
+        }
+
+
+        prevLocation = transform.position;
+    
+    float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
         if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
         {
             //Explosion du bonhomme
@@ -100,6 +120,7 @@ public class EnemyController : MonoBehaviour
 
             if (bougerConstruit == true)
             {
+                animator.SetBool("courir", true);
                 suivrePath();
             }
         }
@@ -107,6 +128,7 @@ public class EnemyController : MonoBehaviour
         {
             if (conteur < 2f)
             {
+                
                 conteur += Time.deltaTime;
                 return;
             }
@@ -140,7 +162,8 @@ public class EnemyController : MonoBehaviour
 
             } while (path == null);
 
-            bougerConstruit = true;
+        //animator.SetBool("courir", true);
+        bougerConstruit = true;
     }
 
     public void suivrePath()
@@ -152,6 +175,7 @@ public class EnemyController : MonoBehaviour
 
             if (Vector2.Distance(transform.position, targetPosition) > 0.0001f)
             {
+                //animator.SetBool("courir", true);
                 transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
             }
             else
@@ -159,6 +183,7 @@ public class EnemyController : MonoBehaviour
                 node++;
                 if (node >= path.Count)
                 {
+                    animator.SetBool("courir", false);
                     node = 0;
                     path = null;
                     elapseTime = 0;
