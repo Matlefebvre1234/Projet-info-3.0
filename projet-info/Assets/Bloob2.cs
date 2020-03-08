@@ -78,7 +78,7 @@ public class Bloob2 : MonoBehaviour
         if (chemin != null && distance > 0.55f)
         {
 
-            if (index >=1 && index <= chemin.Count )
+            if (index >=1 && index < chemin.Count )
             {
                 pathfingRapprochement.getGrid().GetWorldXY(new Vector2(chemin[index].x, chemin[index].y), out float x, out float y);
                 Vector2 targetPosition = new Vector2(x, y);

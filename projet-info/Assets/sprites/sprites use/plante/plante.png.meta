@@ -1,22 +1,25 @@
 fileFormatVersion: 2
-guid: c7e43b98c2fb3ca408117fc0bcbe4177
+guid: 62ab901a4a602b04bba4f35b26f490b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8920102618368541984
-    second: ghostIde (2)_0
+      213: -9031027573037896040
+    second: plante_0
   - first:
-      213: -8566895518617593098
-    second: ghostIde (2)_1
+      213: 2035307302578676558
+    second: plante_1
   - first:
-      213: -6383284446554952369
-    second: ghostIde (2)_2
+      213: 1360128732828544726
+    second: plante_2
   - first:
-      213: -1284797225280991932
-    second: ghostIde (2)_3
+      213: -8986235202793863060
+    second: plante_3
   - first:
-      213: -6554400410181027033
-    second: ghostIde (2)_4
+      213: -8033612784417414815
+    second: plante_4
+  - first:
+      213: 8101496576222051106
+    second: plante_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -60,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 42
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -90,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ghostIde (2)_0
+      name: plante_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ea7c18eded653480800000000000000
-      internalID: -8920102618368541984
+      spriteID: 89e615055485ba280800000000000000
+      internalID: -9031027573037896040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghostIde (2)_1
+      name: plante_1
       rect:
         serializedVersion: 2
         x: 32
@@ -136,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fa99e84ae54c1980800000000000000
-      internalID: -8566895518617593098
+      spriteID: e43e5fa453dde3c10800000000000000
+      internalID: 2035307302578676558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghostIde (2)_2
+      name: plante_2
       rect:
         serializedVersion: 2
         x: 0
@@ -157,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4de0dead940a67a0800000000000000
-      internalID: -6383284446554952369
+      spriteID: 6de2c0150e520e210800000000000000
+      internalID: 1360128732828544726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghostIde (2)_3
+      name: plante_3
       rect:
         serializedVersion: 2
         x: 32
@@ -178,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44d08b21bbb7b2ee0800000000000000
-      internalID: -1284797225280991932
+      spriteID: c688c55b1ba7a4380800000000000000
+      internalID: -8986235202793863060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghostIde (2)_4
+      name: plante_4
       rect:
         serializedVersion: 2
         x: 0
@@ -199,8 +202,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72b3c7bbd871a05a0800000000000000
-      internalID: -6554400410181027033
+      spriteID: 16163c98cbfd28090800000000000000
+      internalID: -8033612784417414815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plante_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b32c6663c4e6070800000000000000
+      internalID: 8101496576222051106
       vertices: []
       indices: 
       edges: []

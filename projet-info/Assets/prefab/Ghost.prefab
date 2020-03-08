@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCaseDistance: 8
-  speed: 6
-  projectile: {fileID: 4927659453865764854, guid: 54d16eafbed308a46945d809881fabe9,
+  speedInitial: 5
+  projectile: {fileID: 4927659453865764854, guid: bdd13c8f5de96434db534f3eea1256f1,
     type: 3}
   reloadTime: 1
 --- !u!95 &9202632832561759413

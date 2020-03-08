@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6941061662487497263}
   m_Layer: 0
   m_Name: Lave
-  m_TagString: Obstacle
+  m_TagString: Lave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

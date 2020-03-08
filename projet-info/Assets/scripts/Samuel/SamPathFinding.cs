@@ -98,8 +98,8 @@ public class SamPathfinding
         {
             List<Vector3> cheminVecteur = new List<Vector3>();
             foreach(SamNode pathNode in chemin) {
+
                 cheminVecteur.Add(new Vector3(pathNode.x, pathNode.y));
-                //Debug.Log(pathNode.y);
             }
             return cheminVecteur;
         }
