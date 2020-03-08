@@ -89,8 +89,6 @@ public class GridMathias : MonoBehaviour
     public CheminMathias GetGridObject(int x, int y)
     {
 
-
-        Debug.Log(x + " " + y);
             return listNode[x, y];
         
         // return default(CheminMathias);
@@ -119,5 +117,14 @@ public class GridMathias : MonoBehaviour
         return hauteur;
     }
 
+    public float GetDimCell()
+    {
+        return dimCell;
+    }
 
+    public void GetWorldXY(Vector3 position, out float x, out float y)
+    {
+        x = position.x * dimCell + 4.25f;
+        y = position.y * dimCell + 0.75f;
+    }
 }

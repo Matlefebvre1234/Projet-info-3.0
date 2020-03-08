@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4133248435234718479}
   - component: {fileID: 2989818522396219158}
   m_Layer: 0
-  m_Name: New Sprite
-  m_TagString: Untagged
+  m_Name: MechantTresMechant
+  m_TagString: Orc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
