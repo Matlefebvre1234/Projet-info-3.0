@@ -12,6 +12,8 @@ public class MineScript : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class MineScript : MonoBehaviour
         {
             //Explosion et dégats
             animator.SetBool("collision", true);
+            explosion.Play();
         }
 
     }

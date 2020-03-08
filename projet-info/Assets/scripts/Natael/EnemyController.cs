@@ -16,9 +16,11 @@ public class EnemyController : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource explosion;
+
     public GameObject barricade;
     public GameObject Mine;
-    public GameObject explosion;
+    //public GameObject explosion;
 
     private NatPathfinding pathfinding;
     //private GrilleNatael grid;
@@ -97,13 +99,15 @@ public class EnemyController : MonoBehaviour
     float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
         if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
         {
+            explosion.PlayDelayed(0.3f);
             //Explosion du bonhomme
             animator.SetBool("collision_Joueur", true);
+            //explosion.Play();
+           
         }
 
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur") )
         {
-            Debug.Log("fini !");
             animator.SetBool("collision_Joueur", false);
             player.GetComponent<Santé>().attaque(15);
             transform.gameObject.SetActive(false);
