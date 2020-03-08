@@ -11,10 +11,7 @@ public class Grid
     private int hauteur;
     private Vector3 origine;
     private float dimCell;
-    private Vector3 positionJoueur;
-    private positionJoueur posJ = new positionJoueur();
     private SamNode[,] listNode;
-    private global::SamNode[,] listeCase;
     private GameObject[] obstacle;
 
     public Grid(int n_largeur, int n_hauteur, float n_dimCell, Vector3 n_origine)
@@ -45,6 +42,7 @@ public class Grid
                     }
                 }
 
+                
             }
 
         }
@@ -53,14 +51,14 @@ public class Grid
         {
             for (int y = 0; y < hauteur; y++)
             {
-                Debug.DrawLine(Position(x, y), Position(x + 1, y), Color.white, 100f);
-                Debug.DrawLine(Position(x, y), Position(x, y + 1), Color.white, 100f);
+                //Debug.DrawLine(Position(x, y), Position(x + 1, y), Color.white, 100f);
+                //Debug.DrawLine(Position(x, y), Position(x, y + 1), Color.white, 100f);
 
             }
 
         }
-        Debug.DrawLine(Position(0, hauteur), Position(largeur, hauteur), Color.white, 100f);
-        Debug.DrawLine(Position(largeur, 0), Position(largeur, hauteur), Color.white, 100f);
+        //Debug.DrawLine(Position(0, hauteur), Position(largeur, hauteur), Color.white, 100f);
+        //Debug.DrawLine(Position(largeur, 0), Position(largeur, hauteur), Color.white, 100f);
     }
 
     private Vector3 Position(int x, int y)

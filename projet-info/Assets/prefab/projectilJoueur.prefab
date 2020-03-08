@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7711450229899859535}
   - component: {fileID: -2311914656413302338}
   - component: {fileID: -7792511390484804844}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: projectilJoueur
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd12a0a90793bff4da9dde9989cbab45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 3
 --- !u!61 &-7792511390484804844
 BoxCollider2D:
   m_ObjectHideFlags: 0
