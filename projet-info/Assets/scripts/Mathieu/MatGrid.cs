@@ -15,7 +15,7 @@ public class MatGrid
     private positionJoueur posJ = new positionJoueur();
     private MatNode[,] listNode;
  
-    private GameObject[] colliderList;
+    private List<GameObject>colliderList;
 
     public MatGrid(int n_largeur, int n_hauteur, float n_dimCell, Vector3 n_origine)
     {
@@ -24,10 +24,13 @@ public class MatGrid
         dimCell = n_dimCell;
         origine = n_origine;
         listNode = new MatNode[largeur, hauteur];
-    
 
-        
-        colliderList = GameObject.FindGameObjectsWithTag("Obstacle");
+
+
+        colliderList = new List<GameObject>();
+        colliderList.AddRange(GameObject.FindGameObjectsWithTag("Obstacle"));
+        colliderList.AddRange(GameObject.FindGameObjectsWithTag("Lave"));
+
 
         for (int x1 = 0; x1 < listNode.GetLength(0); x1++)
         {
@@ -36,7 +39,7 @@ public class MatGrid
 
                 listNode[x1, y2] = new MatNode(x1, y2);
                 
-               for(int i =0;i<colliderList.Length;i++)
+               for(int i =0;i<colliderList.Count;i++)
                 {
                     GetXY(colliderList[i].transform.position, out int x, out int y);
                     if(x1 == x & y2 == y)
@@ -76,12 +79,14 @@ public class MatGrid
         x = Mathf.FloorToInt((position.x / dimCell) - origine.x);
         y = Mathf.FloorToInt((position.y / dimCell) - origine.y);
     }
+
+    
     public void GetWorldXY(Vector3 position, out float x, out float y)
     {
         x =position.x * dimCell + 4.25f;
         y =position.y * dimCell + 0.75f;
     }
-
+   
     //  public void setPosJ(Vector3 posJ)
     // {
     //     positionJoueur = posJ;

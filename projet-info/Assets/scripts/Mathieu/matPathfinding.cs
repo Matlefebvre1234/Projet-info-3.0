@@ -13,11 +13,15 @@ public class matPathfinding
     private MatGrid grid;
     private List<MatNode> openList;
     private List<MatNode> closeList;
+    private int n_largeur = 22;
+    private int n_hauteur = 14;
+    
 
 
-    public matPathfinding(int largueur , int hauteur)
+    public matPathfinding()
     {
-        grid = new MatGrid(largueur, hauteur, dimCell, origine);
+
+        grid = GrilleMonstresMat.getGrid();
 
     }
 

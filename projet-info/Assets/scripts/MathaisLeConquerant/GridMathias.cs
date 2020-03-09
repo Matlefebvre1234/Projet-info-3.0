@@ -40,8 +40,10 @@ public class GridMathias : MonoBehaviour
 
         for(int i = 0; i < listeObstacles.Length; i++)
         {
+       
             GetXY(listeObstacles[i].transform.position, out positionXObs, out positionYObs);
             CheminMathias obstacles = GetGridObject(positionXObs, positionYObs);
+            if (obstacles == null) Debug.Log("null");
             obstacles.SetObstacleTrue();
 
         }
@@ -86,11 +88,10 @@ public class GridMathias : MonoBehaviour
     }
     public CheminMathias GetGridObject(int x, int y)
     {
-        if (x >= 0 && y >= 0 && x < largeur && y < hauteur)
-        {
+
             return listNode[x, y];
-        }
-        else return default(CheminMathias);
+        
+        // return default(CheminMathias);
     }
     public CheminMathias GetGridObject(Vector3 worldPosition)
     {
@@ -116,5 +117,14 @@ public class GridMathias : MonoBehaviour
         return hauteur;
     }
 
+    public float GetDimCell()
+    {
+        return dimCell;
+    }
 
+    public void GetWorldXY(Vector3 position, out float x, out float y)
+    {
+        x = position.x * dimCell + 4.25f;
+        y = position.y * dimCell + 0.75f;
+    }
 }

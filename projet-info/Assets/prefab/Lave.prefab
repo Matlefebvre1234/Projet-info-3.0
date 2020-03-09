@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7529237719538101617}
   - component: {fileID: 6941061662487497263}
   m_Layer: 0
-  m_Name: Obstacle Lave
-  m_TagString: Obstacle
+  m_Name: Lave
+  m_TagString: Lave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1057245d6375ffd409874ac35e6e4cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dommage: 2

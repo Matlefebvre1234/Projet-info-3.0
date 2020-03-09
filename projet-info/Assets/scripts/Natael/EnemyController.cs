@@ -16,14 +16,16 @@ public class EnemyController : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource explosion;
+
     public GameObject barricade;
     public GameObject Mine;
-    public GameObject explosion;
+    //public GameObject explosion;
 
     private NatPathfinding pathfinding;
-    private NatGrid grid;
-    private Vector3 origine = new Vector3(8, 1);
-    private List<NatNode> path;
+    //private GrilleNatael grid;
+    //private Vector3 origine = new Vector3(8, 1);
+    private List<PointsNatael> path;
 
     private float elapseTime = 0;
 
@@ -70,20 +72,42 @@ public class EnemyController : MonoBehaviour
             obstacle = false;
         }
     }
+    Vector3 prevLocation = Vector3.zero;
 
     void Update()
     {
-       
-        float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
-        if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
+        float position = transform.position.x;
+
+        if (position < prevLocation.x)
         {
-            //Explosion du bonhomme
-            animator.SetBool("collision_Joueur", true);
+            //vers la gauche
+            Quaternion quat = new Quaternion(0, 180, 0, 0);
+
+            this.gameObject.transform.rotation = quat;
+        }
+        else
+        {
+            // vers la droite
+            Quaternion quat = new Quaternion(0, 0, 0, 0);
+
+            this.gameObject.transform.rotation = quat;
         }
 
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
+
+        prevLocation = transform.position;
+    
+    float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
+        if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
         {
-            Debug.Log("fini !");
+            explosion.PlayDelayed(0.3f);
+            //Explosion du bonhomme
+            animator.SetBool("collision_Joueur", true);
+            //explosion.Play();
+           
+        }
+
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur") )
+        {
             animator.SetBool("collision_Joueur", false);
             player.GetComponent<Santé>().attaque(15);
             transform.gameObject.SetActive(false);
@@ -100,6 +124,7 @@ public class EnemyController : MonoBehaviour
 
             if (bougerConstruit == true)
             {
+                animator.SetBool("courir", true);
                 suivrePath();
             }
         }
@@ -107,6 +132,7 @@ public class EnemyController : MonoBehaviour
         {
             if (conteur < 2f)
             {
+                
                 conteur += Time.deltaTime;
                 return;
             }
@@ -136,11 +162,12 @@ public class EnemyController : MonoBehaviour
                     randomy = Random.Range(rangeIAMin, rangeIAMax);
                 }
 
-                path = pathfinding.FindPath(x, y, x + randomx, y + randomy);
+                path = pathfinding.TrouverLeChemin(x, y, x + randomx, y + randomy);
 
             } while (path == null);
 
-            bougerConstruit = true;
+        //animator.SetBool("courir", true);
+        bougerConstruit = true;
     }
 
     public void suivrePath()
@@ -152,6 +179,7 @@ public class EnemyController : MonoBehaviour
 
             if (Vector2.Distance(transform.position, targetPosition) > 0.0001f)
             {
+                //animator.SetBool("courir", true);
                 transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
             }
             else
@@ -159,6 +187,7 @@ public class EnemyController : MonoBehaviour
                 node++;
                 if (node >= path.Count)
                 {
+                    animator.SetBool("courir", false);
                     node = 0;
                     path = null;
                     elapseTime = 0;
@@ -173,14 +202,10 @@ public class EnemyController : MonoBehaviour
                             if (x == 0)
                             {
                                 Instantiate(Mine, transform.position, Quaternion.identity);
-
-                                //Instantiate(barricade, transform.position, Quaternion.identity);
                             }
                             else
                             {
                                 Instantiate(barricade, transform.position, Quaternion.identity);
-
-                                //Instantiate(Mine, transform.position, Quaternion.identity);
                             }
                         }
                     }

@@ -18,9 +18,9 @@ public class AIMouvement : MonoBehaviour
     public Vector2 targetPosition;
 
     public Vector3 posJoueur;
-    public int compteur = 0;
-    private float temps;
-    private bool prendreDomage;
+    private Vector3 lastPosDemon;
+
+    private GameObject[] projectile;
 
     private Santé domage;
 
@@ -33,17 +33,15 @@ public class AIMouvement : MonoBehaviour
     {
         grid = new Grid(largeur, hauteur, dimCell, origine);
         samPathfinding = new SamPathfinding(largeur, hauteur, dimCell, origine);
-        demon = new GameObject();
-        joueur = new GameObject();
         demon = GameObject.FindGameObjectWithTag("Demon");
         joueur = GameObject.FindGameObjectWithTag("Player");
         cheminVecteur = new List<Vector3>();
-        index = 1;
+        index = 0;
         cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
         posJoueur = new Vector3();
         posJoueur = joueur.transform.position;
         domage = joueur.GetComponent<Santé>();
-        prendreDomage = true;
+        lastPosDemon = transform.position;
     }
 
     // Update is called once per frame
@@ -61,7 +59,9 @@ public class AIMouvement : MonoBehaviour
                 //Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * dimCell + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 5f);
             }
         }
+
         
+
         if (grid.GetVector(posJoueur) != grid.GetVector(joueur.transform.position))
         {
             cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
@@ -73,10 +73,55 @@ public class AIMouvement : MonoBehaviour
         {
             Mouvement();
         }
-        
+
+        //Direction de la vu
+        if(transform.position.x >= lastPosDemon.x && transform.position.y == lastPosDemon.y)
+        {
+            AngleDir = 90;
+            lastPosDemon = transform.position;
+        }
+        else if(transform.position.x > lastPosDemon.x && transform.position.y > lastPosDemon.y)
+        {
+            AngleDir = 45;
+            lastPosDemon = transform.position;
+        }
+        else if (transform.position.x == lastPosDemon.x && transform.position.y > lastPosDemon.y)
+        {
+            AngleDir = 0;
+            lastPosDemon = transform.position;
+        }
+        else if (transform.position.x < lastPosDemon.x && transform.position.y > lastPosDemon.y)
+        {
+            AngleDir = -45;
+            lastPosDemon = transform.position;
+        }
+
+        else if (transform.position.x < lastPosDemon.x && transform.position.y == lastPosDemon.y)
+        {
+            AngleDir = -90;
+            lastPosDemon = transform.position;
+        }
+        else if (transform.position.x < lastPosDemon.x && transform.position.y < lastPosDemon.y)
+        {
+            AngleDir = -135;
+            lastPosDemon = transform.position;
+        }
+        else if (transform.position.x == lastPosDemon.x && transform.position.y < lastPosDemon.y)
+        {
+            AngleDir = -180;
+            lastPosDemon = transform.position;
+        }
+        else if (transform.position.x > lastPosDemon.x && transform.position.y < lastPosDemon.y)
+        {
+            AngleDir = 135;
+            lastPosDemon = transform.position;
+        }
+        //TrouverProjectileVisibles();
     }
     private void Mouvement()
     {
+        esquiveX = 0f;
+        esquiveY = 0f;
         if (cheminVecteur != null)
         {
             if (!projectile.Length.Equals(0))
@@ -152,6 +197,7 @@ public class AIMouvement : MonoBehaviour
             
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.name.Equals("player")){
@@ -168,4 +214,38 @@ public class AIMouvement : MonoBehaviour
         }
     }
 
+    void TrouverProjectileVisibles()
+    {
+        cibleVisisble.Clear();
+        
+        Collider[] projectileEnVu = Physics.OverlapSphere(transform.position, vuRad, targetMask);
+
+        for(int i = 0; i < projectileEnVu.Length; i++)
+        {
+            
+            Transform target = projectileEnVu[i].transform;
+            Vector2 dirToTarget = (target.position - transform.position).normalized;
+            Debug.Log("hello");
+
+            if (Vector3.Angle(transform.forward, dirToTarget) < vuAngle / 2)
+            {
+                
+                float dstToTarget = Vector3.Distance(transform.position, target.position);
+
+                if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                {
+                    cibleVisisble.Add(target);
+                }
+            }
+        }
+    }
+
+    public Vector2 DirAngle(float angleDegre, bool angleEstGlobal)
+    {
+        if (!angleEstGlobal)
+        {
+            angleDegre += transform.eulerAngles.y + AngleDir;
+        }
+        return new Vector2(Mathf.Sin(angleDegre * Mathf.Deg2Rad), Mathf.Cos(angleDegre * Mathf.Deg2Rad));
+    }
 }
