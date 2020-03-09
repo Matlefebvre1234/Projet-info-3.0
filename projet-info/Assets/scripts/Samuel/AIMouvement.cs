@@ -23,6 +23,11 @@ public class AIMouvement : MonoBehaviour
     private bool prendreDomage;
 
     private Santé domage;
+
+    private GameObject[] projectile;
+    private float angle;
+    private float distanceX;
+    private float distanceY;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,14 +51,14 @@ public class AIMouvement : MonoBehaviour
     {
         grid.GetXY(demon.transform.position, out int x, out int y);
         grid.GetXY(joueur.transform.position, out int x1, out int y1);
-        
+        projectile = GameObject.FindGameObjectsWithTag("Projectile");
 
         List<SamNode> chemin = samPathfinding.TrouverChemin(x, y, x1, y1);
         if (chemin != null)
         {
             for (int i = 0; i < chemin.Count - 1; i++)
             {
-                Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * dimCell + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 5f);
+                //Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * dimCell + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 5f);
             }
         }
         
@@ -74,22 +79,74 @@ public class AIMouvement : MonoBehaviour
     {
         if (cheminVecteur != null)
         {
-            grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
-            targetPosition = new Vector2(x, y);
-            if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
+            if (!projectile.Length.Equals(0))
             {
-                transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
-                //Debug.Log(index);
+                for (int i = 0; i < projectile.Length; i++)
+                {
+                    distanceX = Mathf.Abs(transform.position.x - projectile[i].transform.position.x);
+                    distanceY = Mathf.Abs(transform.position.y - projectile[i].transform.position.y);
+                    if (distanceX <= 2 && distanceY <= 2)
+                    {
+                        Vector2 vectorAngle;
+                        vectorAngle = projectile[i].transform.position - transform.position;
+                        angle = Mathf.Atan2(vectorAngle.y, vectorAngle.x);
+                        angle = angle * Mathf.Rad2Deg;
+                        Debug.Log("Angle :" + angle);
+                        grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
+
+                        if ((angle > -20 && angle < 20) || (angle < -160 && angle > 160))
+                        {
+                            targetPosition = new Vector2(x, y + 1);
+                        }
+                        else if(angle >= 20 && angle <= 90)
+                        {
+                            targetPosition = new Vector2(x - 1, y + 1);
+                        }
+                        else if (angle > 90 && angle <= 160)
+                        {
+                            targetPosition = new Vector2(x - 1, y - 1);
+                        }
+                        else if (angle >= -160 && angle <= -90)
+                        {
+                            targetPosition = new Vector2(x - 1, y + 1);
+                        }
+                        else if (angle >= -90 && angle <= -20)
+                        {
+                            targetPosition = new Vector2(x + 1, y + 1);
+                        }
+
+                        transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
+                    }
+                    else
+                    {
+                        grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
+                        targetPosition = new Vector2(x, y);
+                        if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
+
+                        }
+                        else
+                        {
+                            index++;
+                        }
+                    }
+
+                }
             }
             else
             {
-                index++;
-                //Debug.Log(cheminVecteur.Count);
-               /* if (index >= cheminVecteur.Count)
+                grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
+                targetPosition = new Vector2(x, y);
+                if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
                 {
-                    cheminVecteur = null;
-                    index = 0;
-                }*/
+                    transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
+
+                }
+                else
+                {
+                    index++;
+                }
             }
         }
             
