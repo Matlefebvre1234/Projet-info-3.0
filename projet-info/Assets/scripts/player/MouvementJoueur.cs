@@ -39,4 +39,9 @@ public class MouvementJoueur : MonoBehaviour
 
        
     }
+
+    public void PlusVitesse(float plusVitesse)
+    {
+        vitesseJoueur = plusVitesse;
+    }
 }
