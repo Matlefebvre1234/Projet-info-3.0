@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MouvementJoueur : MonoBehaviour
 {
-    [SerializeField] float vitesseJoueur = 1;
+    public float vitesseJoueur = 1;
     Rigidbody2D mrb;
     float deplacementX;
     float deplacementY;
