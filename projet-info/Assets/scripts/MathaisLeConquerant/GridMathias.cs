@@ -13,6 +13,7 @@ public class GridMathias : MonoBehaviour
     private positionJoueur posJ = new positionJoueur();
     private CheminMathias[,] listNode;
     private GameObject[] listeObstacles;
+    private GameObject[] listeLave;
     public List<CheminMathias> positionsObstacles;
     int positionXObs;
     int positionYObs;
@@ -27,6 +28,7 @@ public class GridMathias : MonoBehaviour
         listNode = new CheminMathias[largeur, hauteur];
 
         listeObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        listeLave = GameObject.FindGameObjectsWithTag("Lave");
 
 
         for (int x = 0; x < listNode.GetLength(0); x++)
@@ -43,11 +45,19 @@ public class GridMathias : MonoBehaviour
        
             GetXY(listeObstacles[i].transform.position, out positionXObs, out positionYObs);
             CheminMathias obstacles = GetGridObject(positionXObs, positionYObs);
-            if (obstacles == null) Debug.Log("null");
             obstacles.SetObstacleTrue();
 
         }
-        
+
+        for (int i = 0; i < listeLave.Length; i++)
+        {
+
+            GetXY(listeLave[i].transform.position, out positionXObs, out positionYObs);
+            CheminMathias lave = GetGridObject(positionXObs, positionYObs);
+            lave.SetObstacleTrue();
+
+        }
+
         for (int x = 0; x < largeur; x++)
         {
             for (int y = 0; y < hauteur; y++)

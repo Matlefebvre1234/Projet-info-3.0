@@ -11,7 +11,7 @@ public class MouvementAiMathias : MonoBehaviour
 
     public int largeur = 22;
     public int hauteur = 14;
-    public float vitesse = 0.01f;
+    public float vitesse = 0.001f;
 
     private float distanceMaxParcourue;
 
@@ -70,7 +70,6 @@ public class MouvementAiMathias : MonoBehaviour
         grille.GetXY(positionJoueur, out posX, out posY);
         positionJoueur = joueur.transform.position;
         pathfinding.GetGrid().GetXY(positionJoueur, out x, out y);
-        distanceMaxParcourue = vitesse * Time.deltaTime;
 
         chemin = pathfinding.Chemin(xE, yE, posX, posY);
             if (fin == false)
@@ -80,13 +79,13 @@ public class MouvementAiMathias : MonoBehaviour
             }
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        if (Time.time > tempsProchaineAction)
+        if (collider.gameObject.tag == "Player")
         {
-            tempsProchaineAction += periode;
-            joueur.transform.GetComponent<Santé>().attaque(5);
+            joueur.transform.GetComponent<Santé>().attaque(0.5f);
         }
+        anim.SetFloat("Vitesse", 0);
     }
 
     private void Mouvement()
@@ -94,26 +93,15 @@ public class MouvementAiMathias : MonoBehaviour
 
         if (chemin != null)
         {
-            Debug.Log(index);
-            Vector2 ajout = new Vector2(chemin[index].x, chemin[index].y);
-            pathfinding.GetGrid().GetWorldXY(ajout, out x1, out y1);
-            Vector2 destination = new Vector2(x1, y1);
-
-            if(Vector2.Distance(ennemi.transform.position, destination) > 0.01f)
+            if(index >= 0 && index < chemin.Count)
             {
-                transform.position = Vector2.MoveTowards(transform.position, destination, 0.01f);
-            }
+                Vector2 ajout = new Vector2(chemin[index].x, chemin[index].y);
+                pathfinding.GetGrid().GetWorldXY(ajout, out x1, out y1);
+                Vector2 destination = new Vector2(x1, y1);
 
-            else
-            {
-                index++;
-
-                if(index >= chemin.Count)
+                if (Vector2.Distance(ennemi.transform.position, destination) > 0.01f)
                 {
-                    Debug.Log("allo");
-                    index = 0;
-                    fin = true;
-                    chemin = null;
+                    transform.position = Vector2.MoveTowards(transform.position, destination, 2.0f*Time.deltaTime);
                 }
             }
         }
