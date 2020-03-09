@@ -24,10 +24,25 @@ public class AIMouvement : MonoBehaviour
 
     private Santé domage;
 
-    private GameObject[] projectile;
-    private float angle;
-    private float distanceX;
-    private float distanceY;
+    //Pour eviter les projectiles
+    public float vuRad;
+    [Range(0,360)]
+    public float vuAngle;
+    private int AngleDir;
+    public LayerMask targetMask;
+    public LayerMask obstacleMask;
+    [HideInInspector]
+    public List<Transform> cibleVisisble = new List<Transform>();
+
+
+    private float distanceX = 0f;
+    private float distanceY = 0f;
+    private float esquiveX = 0f;
+    private float esquiveY = 0f;
+    private float angleProj = 0f;
+    private Vector2 distance;
+    private int compteur = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,72 +141,80 @@ public class AIMouvement : MonoBehaviour
         {
             if (!projectile.Length.Equals(0))
             {
-                for (int i = 0; i < projectile.Length; i++)
+                
+                for (int k = 0; k < projectile.Length; k++)
                 {
-                    distanceX = Mathf.Abs(transform.position.x - projectile[i].transform.position.x);
-                    distanceY = Mathf.Abs(transform.position.y - projectile[i].transform.position.y);
-                    if (distanceX <= 2 && distanceY <= 2)
+                    //Physics2D.Raycast(transform.position, projectile[k].transform.position, 1f);
+                    distanceX = projectile[k].transform.position.x - transform.position.x;
+                    distanceY = projectile[k].transform.position.y - transform.position.y;
+                    distance = (projectile[k].transform.position - transform.position).normalized;
+                    angleProj = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg;
+                    Debug.Log(angleProj);
+                    //Debug.Log(k);
+                    if (Mathf.Abs(distanceX) < 1f && Mathf.Abs(distanceY) < 1f)
                     {
-                        Vector2 vectorAngle;
-                        vectorAngle = projectile[i].transform.position - transform.position;
-                        angle = Mathf.Atan2(vectorAngle.y, vectorAngle.x);
-                        angle = angle * Mathf.Rad2Deg;
-                        Debug.Log("Angle :" + angle);
+                        if ((angleProj > -20 && angleProj < 20) || (angleProj > 160 && angleProj < -160))
+                        {
+                            
+                            //esquiveY = 4f;
+                            //esquiveX = 4f;
+                        }
+                        
                         grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
-
-                        if ((angle > -20 && angle < 20) || (angle < -160 && angle > 160))
-                        {
-                            targetPosition = new Vector2(x, y + 1);
-                        }
-                        else if(angle >= 20 && angle <= 90)
-                        {
-                            targetPosition = new Vector2(x - 1, y + 1);
-                        }
-                        else if (angle > 90 && angle <= 160)
-                        {
-                            targetPosition = new Vector2(x - 1, y - 1);
-                        }
-                        else if (angle >= -160 && angle <= -90)
-                        {
-                            targetPosition = new Vector2(x - 1, y + 1);
-                        }
-                        else if (angle >= -90 && angle <= -20)
-                        {
-                            targetPosition = new Vector2(x + 1, y + 1);
-                        }
-
-                        transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
+                        targetPosition = new Vector2(x + esquiveX, y + esquiveY);
                     }
                     else
                     {
                         grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
                         targetPosition = new Vector2(x, y);
-                        if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
-                        {
-                            transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
-
-                        }
-                        else
-                        {
-                            index++;
-                        }
                     }
 
+                    //if (Mathf.Abs(distanceX) < 1f && Mathf.Abs(distanceY) < 1f)
+                    //{
+                    /*if (distanceX < 0)
+                    {
+                        esquiveX = 2f;
+                    }
+                    else if (distanceX > 0)
+                    {
+                        esquiveX = -2f;
+                    }
+                    if (distanceY < 0)
+                    {
+                        esquiveY = 2f;
+                    }
+                    else if (distanceY > 0)
+                    {
+                        esquiveY = 2f;
+                    }
+                    if (distanceX < 1 && distanceY < 1)
+                    {
+                        grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
+                        targetPosition = new Vector2(x + esquiveX, y + esquiveY);
+                    }
+                    else
+                    {
+                        grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
+                        targetPosition = new Vector2(x, y);
+                    }*/
+                    //}
                 }
+                
             }
             else
             {
                 grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
                 targetPosition = new Vector2(x, y);
-                if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
 
-                }
-                else
-                {
-                    index++;
-                }
+            }
+
+            if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
+            }
+            else
+            {
+                index++;
             }
         }
             
