@@ -35,9 +35,8 @@ public class PointsNatael
         Fcost = Gcost + Hcost;
     }
 
-    //public void SetObastacle(bool choix)
-    //{
-    //    obstacle = choix;
-    //
-    //}
+    public void SetObastacle(bool choix)
+    {
+        obstacle = choix;
+    }
 }

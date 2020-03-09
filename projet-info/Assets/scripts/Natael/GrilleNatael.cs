@@ -11,9 +11,10 @@ public class GrilleNatael
     private int hauteurMap;
     private Vector3 origine;
     private float TileDimension;
-    private PointsNatael[,] litseDeNode;
+    private PointsNatael[,] listeDeNode;
 
     private GameObject[] listeObstacle;
+    private GameObject[] listeObstacle2;
 
     // Permet de savoir si une case dans la map n'est pas accesible
     public GrilleNatael(int width, int height, float TileDimension, Vector3 VecteurOrigine)
@@ -22,24 +23,35 @@ public class GrilleNatael
         hauteurMap = height;
         this.TileDimension = TileDimension;
         origine = VecteurOrigine;
-        litseDeNode = new PointsNatael[largeurMap, hauteurMap];
+        listeDeNode = new PointsNatael[largeurMap, hauteurMap];
 
 
         listeObstacle = GameObject.FindGameObjectsWithTag("Obstacle");
+        listeObstacle2 = GameObject.FindGameObjectsWithTag("Lave");
 
-        for (int w = 0; w < litseDeNode.GetLength(0); w++)
+        for (int w = 0; w < listeDeNode.GetLength(0); w++)
         {
-            for (int e = 0; e < litseDeNode.GetLength(1); e++)
+            for (int e = 0; e < listeDeNode.GetLength(1); e++)
             {
-
-                litseDeNode[w, e] = new PointsNatael(w, e);
-
+        
+                listeDeNode[w, e] = new PointsNatael(w, e);
+        
                 for (int i = 0; i < listeObstacle.Length; i++)
                 {
                     GetXY(listeObstacle[i].transform.position, out int x, out int y);
                     if (w == x & e == y)
                     {
-                        litseDeNode[x, y].obstacle = true;
+                        listeDeNode[x, y].obstacle = true;
+        
+                    }
+                }
+
+                for (int i = 0; i < listeObstacle2.Length; i++)
+                {
+                    GetXY(listeObstacle2[i].transform.position, out int x, out int y);
+                    if (w == x & e == y)
+                    {
+                        listeDeNode[x, y].obstacle = true;
 
                     }
                 }
@@ -74,7 +86,7 @@ public class GrilleNatael
     {
         if (x >= 0 && y > 0 && x < largeurMap && y < hauteurMap)
         {
-            litseDeNode[x, y] = value;
+            listeDeNode[x, y] = value;
         }
     }
 
@@ -83,7 +95,7 @@ public class GrilleNatael
     {
         if (x >= 0 && y >= 0 && x < largeurMap && y < hauteurMap)
         {
-            return litseDeNode[x, y];
+            return listeDeNode[x, y];
         }
         else return default;
     }
