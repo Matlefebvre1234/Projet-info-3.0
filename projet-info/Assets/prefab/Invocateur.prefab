@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4736680147268650909}
   - component: {fileID: 92040228}
   - component: {fileID: 92040227}
+  - component: {fileID: -7687723529079166343}
   m_Layer: 0
   m_Name: Invocateur
   m_TagString: Enemy
@@ -99,10 +100,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCaseDistance: 8
-  speed: 5
+  speedInitial: 5
   projectile: {fileID: 0}
   reloadTime: 0.5
   bloob: {fileID: 4259053965317939124, guid: 2bbc642a8db449d4eb5334ab79ed6b2b, type: 3}
+  nombreMaxBloobs: 5
+  nombreBloobPresent: 0
+  santeMax: 100
 --- !u!95 &4736680147268650909
 Animator:
   serializedVersion: 3
@@ -169,3 +173,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4355297, y: 0.8998883}
   m_EdgeRadius: 0
+--- !u!114 &-7687723529079166343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736680147268650905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd6d66df7f0181419bbc4e107e21910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  santeeMax: 70
+  santee: 0
+  barreSante: {fileID: 0}

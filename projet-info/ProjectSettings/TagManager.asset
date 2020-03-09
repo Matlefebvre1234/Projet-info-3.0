@@ -16,6 +16,7 @@ TagManager:
   - Goblin
   - Orc
   - Lave
+  - AttackEnnemies
   layers:
   - Default
   - TransparentFX

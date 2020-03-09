@@ -7,17 +7,22 @@ public class Tirer : MonoBehaviour
 {
     
     public GameObject projectile;
-    Rigidbody2D MonRigidBody;
-    Vector2 mousposition;
-    Vector2 VecteurUnitaire;
-    public float speed = 7;
+    public float reloadTime = 0.5f;
+    private float tempreload = 0f;
+
 
     private void Update()
     {
+        tempreload += 1 * Time.deltaTime;
         if(Input.GetMouseButtonDown(0))
         {
-            
-            tirer();
+            if(tempreload >=reloadTime)
+            {
+
+                tirer();
+                tempreload = 0;
+            }
+          
         }
     }
 

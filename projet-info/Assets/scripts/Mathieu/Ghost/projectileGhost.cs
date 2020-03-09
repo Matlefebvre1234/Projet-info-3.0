@@ -10,6 +10,7 @@ public class projectileGhost : MonoBehaviour
     float tempApresSpawn = 0f;
     Vector2 VecteurUnitaire;
     public float speed = 200;
+    public  int dommage = 5;
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class projectileGhost : MonoBehaviour
 
             if(collision.gameObject.tag == "Player")
             {
-                player.GetComponent<Santé>().attaque(5);
+                player.GetComponent<Santé>().attaque(dommage);
 
             }
 

@@ -19,6 +19,8 @@ public class Invocateur : MonoBehaviour
     public GameObject bloob;
     public int  nombreMaxBloobs = 5;
     public int nombreBloobPresent = 0;
+    public float santeMax = 100f;
+    private float sante;
   
 
 
@@ -32,6 +34,7 @@ public class Invocateur : MonoBehaviour
 
     void Start()
     {
+        sante = santeMax;
         speed = speedInitial;
         pathfinding = new PathfindingInverse();
         pathfingRapprochement = new matPathfinding();
@@ -167,5 +170,9 @@ public class Invocateur : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
 }
 

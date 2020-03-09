@@ -143,15 +143,7 @@ public class Bloob2 : MonoBehaviour
         chemin = null;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Projectile")
-        {
-            invocateur.nombreBloobPresent -= 1;
-            Destroy(gameObject, 0);
-        
-        }
-    }
+   
 
     public void setInvocateur(GameObject idInvocateur)
     {

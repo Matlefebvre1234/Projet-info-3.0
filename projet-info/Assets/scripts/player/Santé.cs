@@ -41,22 +41,27 @@ public class Santé : MonoBehaviour
         //    santee = dataSaved.playerHealth;
         //}
         santee = santeeMax;
+        if(barreSante != null)
         barreSante.SetSanteeMax(santee);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (santee <= 0)
         {
-            attaque(10);
+
+            Destroy(gameObject);
+        
         }
     }
 
     public void attaque(float qteAttaque)
     {
+   
         santee = santee - qteAttaque;
-        barreSante.SetSantee(santee);
+        if (barreSante != null)
+            barreSante.SetSantee(santee);
     }
 
     public bool IsDead (bool b)

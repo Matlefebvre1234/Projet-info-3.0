@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8293639356792837683}
   m_Layer: 0
   m_Name: ProjectilePlante
-  m_TagString: Untagged
+  m_TagString: AttackEnnemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  dommage: 10
 --- !u!50 &7625901895983755265
 Rigidbody2D:
   serializedVersion: 4

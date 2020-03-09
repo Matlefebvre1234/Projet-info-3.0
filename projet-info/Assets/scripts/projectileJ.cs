@@ -9,6 +9,7 @@ public class projectileJ : MonoBehaviour
     Vector2 mousposition;
     Vector2 VecteurUnitaire;
     public float speed = 200;
+    public int dommage = 30;
 
     private void Start()
     {
@@ -24,7 +25,19 @@ public class projectileJ : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        if(collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent")
-        Destroy(gameObject);
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Lave" && collision.gameObject.tag != "AttackEnnemies")
+        {
+            if (collision.gameObject.tag == "Enemy")
+            {
+     
+                Santé sante = collision.gameObject.GetComponent<Santé>();
+                sante.attaque(dommage);          
+            }
+
+            Destroy(gameObject);
+
+
+        }
+       
     }
 }
