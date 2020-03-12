@@ -1587,7 +1587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME OVER
+  m_text: PARTIE TERMINER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa89450c114b5ce4d8e9e57f9060ad41, type: 2}
   m_sharedMaterial: {fileID: 1541824287420325872, guid: fa89450c114b5ce4d8e9e57f9060ad41,
@@ -1658,7 +1658,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -155.15202, w: 0}
   m_textInfo:
     textComponent: {fileID: 2114440843}
-    characterCount: 9
+    characterCount: 15
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
