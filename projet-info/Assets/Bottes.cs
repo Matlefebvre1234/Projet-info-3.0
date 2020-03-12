@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Objets : MonoBehaviour
+public class Bottes : MonoBehaviour
 {
     private Animator animation;
     private GameObject joueur;
@@ -26,7 +26,6 @@ public class Objets : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
-            Debug.Log("vitesse");
             joueur.transform.GetComponent<MouvementJoueur>().PlusVitesse(5);
             animation.SetBool("Obtenu", true);
             Destroy(bottes);

@@ -9,11 +9,14 @@ public class projectileJ : MonoBehaviour
     Vector2 mousposition;
     Vector2 VecteurUnitaire;
     public float speed = 200;
-    public int dommage = 30;
+    private int dommage;
     public AIMouvement dommageDemon;
+    private GameObject joueur;
 
     private void Start()
     {
+        joueur = GameObject.FindGameObjectWithTag("Player");
+        dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
         mousposition = Input.mousePosition;
         mousposition = Camera.main.ScreenToWorldPoint(mousposition);
         VecteurUnitaire = mousposition - (Vector2)transform.position;
@@ -26,6 +29,7 @@ public class projectileJ : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
+        Debug.Log(dommage);
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Lave" && collision.gameObject.tag != "AttackEnnemies")
         {
             if (collision.gameObject.tag == "Enemy")

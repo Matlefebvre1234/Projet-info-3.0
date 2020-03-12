@@ -419,15 +419,7 @@ MonoBehaviour:
   vitesse: 2
   targetPosition: {x: 0, y: 0}
   posJoueur: {x: 0, y: 0, z: 0}
-  vuRad: 0
-  vuAngle: 0
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 0
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
-  cibleVisisble: []
+  sante: 30
 --- !u!1 &213982833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6299573388471159717, guid: 79a324b92ae38444dbd171f5ae55a605,
@@ -1894,7 +1886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 321, y: 528}
+  m_AnchoredPosition: {x: 313, y: 404.8}
   m_SizeDelta: {x: 32.3, y: 32.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1125512950
@@ -1974,7 +1966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 381, y: 530}
+  m_AnchoredPosition: {x: 398, y: 401.95}
   m_SizeDelta: {x: 61.3, y: 53.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182628518
@@ -5397,7 +5389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303, y: 531}
+  m_AnchoredPosition: {x: -803, y: 353.12}
   m_SizeDelta: {x: 116.9, y: 71.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1493160226
@@ -6260,7 +6252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 289, y: 1085}
+  m_AnchoredPosition: {x: 264, y: 838.51}
   m_SizeDelta: {x: -1093.8, y: 31.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1841344016

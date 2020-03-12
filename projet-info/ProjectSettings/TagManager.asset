@@ -18,6 +18,7 @@ TagManager:
   - Lave
   - AttackEnnemies
   - Bottes
+  - Arme++
   layers:
   - Default
   - TransparentFX
