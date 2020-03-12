@@ -10,6 +10,7 @@ public class projectileJ : MonoBehaviour
     Vector2 VecteurUnitaire;
     public float speed = 200;
     public int dommage = 30;
+    public AIMouvement dommageDemon;
 
     private void Start()
     {
@@ -32,6 +33,11 @@ public class projectileJ : MonoBehaviour
      
                 Santé sante = collision.gameObject.GetComponent<Santé>();
                 sante.attaque(dommage);          
+            }
+            if(collision.gameObject.tag == "Demon")
+            {
+                Santé sante = collision.gameObject.GetComponent<Santé>();
+                sante.attaque(dommage);
             }
 
             Destroy(gameObject);
