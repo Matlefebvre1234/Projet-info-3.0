@@ -514,8 +514,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.625557, y: 128.49701}
-  m_SizeDelta: {x: 726.2, y: 308.2}
+  m_AnchoredPosition: {x: 17.4, y: 128.49701}
+  m_SizeDelta: {x: 1648.8, y: 308.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563945882
 MonoBehaviour:
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rogue Like with No Budget
+  m_text: Medieval Dark Dongeon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa89450c114b5ce4d8e9e57f9060ad41, type: 2}
   m_sharedMaterial: {fileID: 1541824287420325872, guid: fa89450c114b5ce4d8e9e57f9060ad41,
@@ -606,12 +606,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -155.15202, w: 0}
   m_textInfo:
     textComponent: {fileID: 563945882}
-    characterCount: 25
+    characterCount: 21
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 5
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
