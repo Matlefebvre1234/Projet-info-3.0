@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "Barricade" || collision.gameObject.tag == "Mine")
+        if (collision.gameObject.tag == "Barricade" || collision.gameObject.tag == "Mine" || collision.gameObject.tag == "Lave")
         {
             obstacle = true;
         }
@@ -166,7 +166,6 @@ public class EnemyController : MonoBehaviour
 
             } while (path == null);
 
-        //animator.SetBool("courir", true);
         bougerConstruit = true;
     }
 
@@ -179,7 +178,6 @@ public class EnemyController : MonoBehaviour
 
             if (Vector2.Distance(transform.position, targetPosition) > 0.0001f)
             {
-                //animator.SetBool("courir", true);
                 transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
             }
             else
@@ -199,7 +197,7 @@ public class EnemyController : MonoBehaviour
                         int x = Random.Range(0, 10);
                         if (x < 3 || x > 7)
                         {
-                            if (x == 0)
+                            if (x == 0 || x == 4 || x == 10)
                             {
                                 Instantiate(Mine, transform.position, Quaternion.identity);
                             }
