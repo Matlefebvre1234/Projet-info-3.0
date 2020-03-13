@@ -19,6 +19,8 @@ TagManager:
   - AttackEnnemies
   - Bottes
   - Arme++
+  - Armure
+  - Anneau
   layers:
   - Default
   - TransparentFX

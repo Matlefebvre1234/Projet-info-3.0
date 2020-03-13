@@ -43,5 +43,10 @@ public class Tirer : MonoBehaviour
         return dommage;
     }
 
+    public void AmeliorationReloadTime(float anneau)
+    {
+        reloadTime = anneau;
+    }
+
 
 }
