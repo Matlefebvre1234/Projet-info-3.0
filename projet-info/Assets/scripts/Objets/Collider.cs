@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coliider : MonoBehaviour
+public class Collider : MonoBehaviour
 {
     public GameObject camera1;
     public GameObject camera2;
