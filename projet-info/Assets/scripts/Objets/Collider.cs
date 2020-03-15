@@ -27,22 +27,11 @@ public class Collider : MonoBehaviour
         }
         else
         {
-            camera1.SetActive(false);
-            camera2.SetActive(true);            
+            if (collision.gameObject.tag == "Player")
+            {
+                camera1.SetActive(false);
+                camera2.SetActive(true);
+            }
         }
     }
-
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player" && camera1.activeSelf == false)
-    //    {
-    //        camera2.SetActive(false);
-    //        camera1.SetActive(true);
-    //    }
-    //    else
-    //    {
-    //        camera1.SetActive(false);
-    //        camera2.SetActive(true);
-    //    }
-    //}
 }

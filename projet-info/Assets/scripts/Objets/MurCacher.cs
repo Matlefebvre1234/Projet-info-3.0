@@ -33,8 +33,6 @@ public class MurCacher : MonoBehaviour
             {
                 floor.SetActive(true);
                 mur_Fog.gameObject.SetActive(false);
-                //camera1.SetActive(false);
-                //camera2.SetActive(true);
             }
         }
     }
