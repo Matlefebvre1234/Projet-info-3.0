@@ -32,6 +32,8 @@ public class AIMouvement : MonoBehaviour
     private Vector2 heading;
     private float distance;
     private Vector2 direction;
+    private Vector2 dir;
+    private Vector3[] lastPos;
 
     public float sante = 30f;
 
@@ -67,8 +69,6 @@ public class AIMouvement : MonoBehaviour
                 }
             }
 
-
-
             if (grid.GetVector(posJoueur) != grid.GetVector(joueur.transform.position))
             {
                 cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
@@ -97,45 +97,47 @@ public class AIMouvement : MonoBehaviour
                     distanceX = projectile[k].transform.position.x - transform.position.x;
                     distanceY = projectile[k].transform.position.y - transform.position.y;
                     heading = (projectile[k].transform.position - transform.position).normalized;
-                    distance = heading.magnitude;
+                    distance = projectile[k].transform.position.normalized.magnitude;
                     direction = heading / distance;
                     angleProj = Mathf.Atan2(heading.y, heading.x) * Mathf.Rad2Deg;
 
-                    Debug.Log(direction);
+                    //Debug.Log(direction);
 
-                    //if (Physics2D.Raycast(projectile[k].transform.position, direction, 2f))
+                    //if (Physics2D.Raycast(projectile[k].transform.position, direction, 1f))
                     {
+                        Debug.Log("Hello");
                         if (Mathf.Abs(distanceX) < 1.5f && Mathf.Abs(distanceY) < 1.5f)
                         {
                             if ((angleProj > -20 && angleProj < 20) || (angleProj > 160 && angleProj < -160))
                             {
                                 esquiveX = 0f;
-                                esquiveY = -1f;
+                                esquiveY = -2f;
                             }
                             else if ((angleProj > 70 && angleProj < 110) || (angleProj > -110 && angleProj < -70))
                             {
-                                esquiveX = 1f;
+                                Debug.Log("bas");
+                                esquiveX = 2f;
                                 esquiveY = 0f;
                             }
                             else if (angleProj >= 20 && angleProj < 70)
                             {
-                                esquiveX = -1f;
-                                esquiveY = -1f;
+                                esquiveX = 2f;
+                                esquiveY = -2f;
                             }
                             else if (angleProj >= 110 && angleProj <= 160)
                             {
-                                esquiveX = 1f;
-                                esquiveY = -1f;
+                                esquiveX = 1.5f;
+                                esquiveY = 1.5f;
                             }
                             else if (angleProj > -160 && angleProj < -110)
                             {
-                                esquiveX = 1f;
-                                esquiveY = -1f;
+                                esquiveX = -1.5f;
+                                esquiveY = 1.5f;
                             }
                             else if (angleProj >= -70 && angleProj < -20)
                             {
-                                esquiveX = 1f;
-                                esquiveY = -1f;
+                                esquiveX = 1.5f;
+                                esquiveY = 1.5f;
                             }
                         }
                     }

@@ -7,6 +7,7 @@ public class Objets : MonoBehaviour
     private Animator animation;
     private GameObject joueur;
     private GameObject bottes;
+    public float vitesse = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,8 @@ public class Objets : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
-            Debug.Log("vitesse");
-            joueur.transform.GetComponent<MouvementJoueur>().PlusVitesse(5);
+           
+            joueur.transform.GetComponent<MouvementJoueur>().PlusVitesse(vitesse);
             animation.SetBool("Obtenu", true);
             Destroy(bottes);
         }
