@@ -18,6 +18,9 @@ TagManager:
   - Lave
   - AttackEnnemies
   - Bottes
+  - Arme++
+  - Armure
+  - Anneau
   layers:
   - Default
   - TransparentFX

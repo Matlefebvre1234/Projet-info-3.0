@@ -6,6 +6,7 @@ public class Santé : MonoBehaviour
 {
     public float santeeMax = 100;
     public float santee;
+    public float armure = 1;
     public BarreSantee barreSante;
     //MyData dataSaved = new MyData();
 
@@ -59,7 +60,7 @@ public class Santé : MonoBehaviour
     public void attaque(float qteAttaque)
     {
    
-        santee = santee - qteAttaque;
+        santee = santee - (qteAttaque/armure);
         if (barreSante != null)
             barreSante.SetSantee(santee);
     }
@@ -76,5 +77,10 @@ public class Santé : MonoBehaviour
         }
 
         return b;
+    }
+
+    public void Armure(float protection)
+    {
+        armure = protection;
     }
 }

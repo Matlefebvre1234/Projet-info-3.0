@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Tirer : MonoBehaviour
 {
-    
+    public int dommage = 30;
     public GameObject projectile;
     public float reloadTime = 0.5f;
     private float tempreload = 0f;
@@ -32,6 +32,21 @@ public class Tirer : MonoBehaviour
        Instantiate(projectile,transform.position,Quaternion.identity);
 
     }
-   
+
+    public void AmeliorationAttaque(int attaque)
+    {
+        dommage = attaque;
+    }
+
+    public int GetDommage()
+    {
+        return dommage;
+    }
+
+    public void AmeliorationReloadTime(float anneau)
+    {
+        reloadTime = anneau;
+    }
+
 
 }

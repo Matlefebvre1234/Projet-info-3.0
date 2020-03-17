@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd6d66df7f0181419bbc4e107e21910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  santeeMax: 100
+  santeeMax: 15
   santee: 0
   barreSante: {fileID: 1722972946857325345}
 --- !u!114 &9090921627269699054
