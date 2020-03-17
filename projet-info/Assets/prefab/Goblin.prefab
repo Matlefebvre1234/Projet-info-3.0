@@ -450,14 +450,16 @@ MonoBehaviour:
   rangeIAMin: -5
   rangeAttaquePlayer: 4
   rangeMouvement: 5
+  argentDonner: 0
   raycastMaxDistance: 10
   speed: 0.01
   animator: {fileID: 2568601779959560500}
-  explosionSons: {fileID: 0}
+  explosion: {fileID: 2357106970460322381}
   barricade: {fileID: 2777253171143086055, guid: 28ea0d96a37622b428ed623b5d54e4e2,
     type: 3}
   Mine: {fileID: 4219315139489888049, guid: 96e390fee440350489eb1cc369578238, type: 3}
-  explosion: {fileID: 2357106970460322381}
+  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
+    type: 3}
 --- !u!114 &2568601779959560505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   santeeMax: 50
   santee: 0
+  armure: 1
   barreSante: {fileID: 299168498}
 --- !u!82 &8227810122539400034
 AudioSource:

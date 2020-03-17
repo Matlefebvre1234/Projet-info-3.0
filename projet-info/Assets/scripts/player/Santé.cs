@@ -8,39 +8,11 @@ public class Santé : MonoBehaviour
     public float santee;
     public float armure = 1;
     public BarreSantee barreSante;
-    //MyData dataSaved = new MyData();
-
-    //public void SaveGame()
-    //{
-    //    MyData data = new MyData();
-    //    data.playerHealth = santee;
-    //    data.playerPosition = Vector3.zero;
-    //
-    //    string serializedObject = JsonUtility.ToJson(data);
-    //
-    //    PlayerPrefs.SetString("playerProgress", serializedObject);
-    //}
-    //
-    //public MyData LoadGame()
-    //{
-    //    string serializedObject = PlayerPrefs.GetString("playerProgress");
-    //
-    //    MyData data = JsonUtility.FromJson<MyData>(serializedObject);
-    //
-    //    return data;
-    //}
 
     // Start is called before the first frame update
     void Start()
     {
-        //if(dataSaved.Equals(null))
-        //{
-        //    santee = santeeMax;
-        //}
-        //else
-        //{
-        //    santee = dataSaved.playerHealth;
-        //}
+        
         santee = santeeMax;
         if(barreSante != null)
         barreSante.SetSanteeMax(santee);
