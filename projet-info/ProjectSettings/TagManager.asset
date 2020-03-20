@@ -21,6 +21,8 @@ TagManager:
   - Arme++
   - Armure
   - Anneau
+  - Fleche
+  - Tour
   layers:
   - Default
   - TransparentFX
