@@ -22,6 +22,7 @@ public class Ghost : MonoBehaviour
     private int nbTireManquer = 0;
     private float tempRapprochement = 0f;
     private bool tireEffectuer = false;
+    private float dimCell;
 
 
 
@@ -34,6 +35,7 @@ public class Ghost : MonoBehaviour
 
     void Start()
     {
+        dimCell = FindObjectOfType<GrilleMonstresMat>().getdimCell();
         pathfinding = new PathfindingInverse();
         pathfingRapprochement = new matPathfinding();
         spriterenderer = GetComponent<SpriteRenderer>();
@@ -236,7 +238,7 @@ public class Ghost : MonoBehaviour
     {
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance <= (nbCaseDistance * GrilleMonstresMat.getdimCell()))
+        if (distance <= (nbCaseDistance * dimCell))
         {
             animator.SetBool("isWalking", true);
             cheminAtteint = false;

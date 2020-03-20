@@ -21,7 +21,7 @@ public class matPathfinding
     public matPathfinding()
     {
 
-        grid = GrilleMonstresMat.getGrid();
+        grid = GameObject.FindObjectOfType<GrilleMonstresMat>().getGrid();
 
     }
 
