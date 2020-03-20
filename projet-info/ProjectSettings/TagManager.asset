@@ -21,6 +21,7 @@ TagManager:
   - Arme++
   - Armure
   - Anneau
+  - KitSoin
   layers:
   - Default
   - TransparentFX
