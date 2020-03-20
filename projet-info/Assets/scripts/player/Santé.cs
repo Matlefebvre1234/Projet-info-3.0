@@ -35,6 +35,7 @@ public class Santé : MonoBehaviour
         santee = santee - (qteAttaque/armure);
         if (barreSante != null)
             barreSante.SetSantee(santee);
+        Debug.Log(santee);
     }
 
     public bool IsDead (bool b)
@@ -54,5 +55,21 @@ public class Santé : MonoBehaviour
     public void Armure(float protection)
     {
         armure = protection;
+    }
+
+    public void KitSoin(float regeneration)
+    {
+        float surplus;
+
+        if(regeneration < santeeMax)
+        {
+            santee += regeneration;
+
+            if(santee > santeeMax)
+            {
+                surplus = santee - santeeMax;
+                santee -= surplus;
+            }
+        }
     }
 }

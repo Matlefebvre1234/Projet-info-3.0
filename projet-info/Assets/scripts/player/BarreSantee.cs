@@ -14,6 +14,7 @@ public class BarreSantee : MonoBehaviour
     {
         slider.maxValue = santee;
         slider.value = santee;
+        Debug.Log(slider.value);
 
         couleur.color = gradient.Evaluate(1f);
     }
