@@ -71,5 +71,6 @@ public class Santé : MonoBehaviour
                 santee -= surplus;
             }
         }
+            barreSante.SetSantee(santee);
     }
 }
