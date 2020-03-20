@@ -976,6 +976,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487534199}
   m_CullTransparentMesh: 0
+--- !u!1 &530996019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1086786618993019752, guid: daf7cc5f7d5a611428e3d40f7d342420,
+    type: 3}
+  m_PrefabInstance: {fileID: 1972640544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &530996020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530996019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd6d66df7f0181419bbc4e107e21910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  santeeMax: 100
+  santee: 0
+  armure: 1
+  barreSante: {fileID: 0}
 --- !u!1 &571630800
 GameObject:
   m_ObjectHideFlags: 0
@@ -5310,7 +5332,12 @@ PrefabInstance:
     - target: {fileID: 1086786618993019752, guid: daf7cc5f7d5a611428e3d40f7d342420,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1086786618993019752, guid: daf7cc5f7d5a611428e3d40f7d342420,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4133248435234718479, guid: daf7cc5f7d5a611428e3d40f7d342420,
         type: 3}
