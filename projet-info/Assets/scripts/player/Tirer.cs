@@ -10,7 +10,6 @@ public class Tirer : MonoBehaviour
     public float reloadTime = 0.5f;
     private float tempreload = 0f;
     private AIMouvement mousePos;
-    private float tempreload = 0f;
     Animator ani;
     SpriteRenderer sprite;
 
@@ -33,7 +32,7 @@ public class Tirer : MonoBehaviour
                 mousePos.setMousePosition(Input.mousePosition);
             }
           
-            }
+            
 
         }
     }
@@ -88,5 +87,4 @@ public class Tirer : MonoBehaviour
 
 
     }
-
 }

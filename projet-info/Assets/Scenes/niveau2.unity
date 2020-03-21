@@ -3827,27 +3827,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4693b4044b20e664b876e05cceb8d549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 322404389}
+  slider: {fileID: 0}
   gradient:
     serializedVersion: 2
-    key0: {r: 0.8018868, g: 0.14751692, b: 0.14751692, a: 1}
-    key1: {r: 0.7169812, g: 0.69242036, b: 0, a: 1}
-    key2: {r: 0.06563723, g: 0.5566038, b: 0.10340392, a: 0}
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 17348
-    ctime1: 35852
-    ctime2: 65535
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
     ctime3: 0
     ctime4: 0
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 28720
+    atime1: 65535
     atime2: 0
     atime3: 0
     atime4: 0
@@ -3855,9 +3855,9 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 3
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  couleur: {fileID: 153110230}
+  couleur: {fileID: 0}
 --- !u!114 &322404389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4947,7 +4947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd6d66df7f0181419bbc4e107e21910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  santeeMax: 60
+  santeeMax: 100
   santee: 0
   armure: 1
   barreSante: {fileID: 0}
@@ -11480,6 +11480,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888762944390445554, guid: a9bb1bf330086d9439c788bf0b4de6f6,
+        type: 3}
+      propertyPath: vitesse
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8946217496486968241, guid: a9bb1bf330086d9439c788bf0b4de6f6,
         type: 3}

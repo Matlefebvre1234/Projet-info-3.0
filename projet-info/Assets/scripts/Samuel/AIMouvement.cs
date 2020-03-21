@@ -100,13 +100,12 @@ public class AIMouvement : MonoBehaviour
                     heading = mousePosition - joueur.transform.position;
                     distance = heading.magnitude;
                     direction = heading / distance;
-                    angleProj = Mathf.Atan2(heading.y, heading.x) * Mathf.Rad2Deg;
+                    angleProj = Mathf.Atan2(distanceY, distanceX) * Mathf.Rad2Deg;
 
                     //Debug.Log(direction);
-                    
+                    Debug.DrawRay(projectile[k].transform.position, direction, Color.green);
                     //if (Physics2D.Raycast(projectile[k].transform.position, direction, 1.5f))
                     {
-                        //Debug.Log("Hello");
                         if (Mathf.Abs(distanceX) < 1.5f && Mathf.Abs(distanceY) < 1.5f)
                         {
                             if ((angleProj > -20 && angleProj < 20) || (angleProj > 160 && angleProj < -160))
@@ -116,7 +115,6 @@ public class AIMouvement : MonoBehaviour
                             }
                             else if ((angleProj > 70 && angleProj < 110) || (angleProj > -110 && angleProj < -70))
                             {
-                                Debug.Log("bas");
                                 esquiveX = 2f;
                                 esquiveY = 0f;
                             }
