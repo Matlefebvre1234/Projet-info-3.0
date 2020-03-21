@@ -93,7 +93,7 @@ public class MouvementAiMathias : MonoBehaviour
         {
             if(index >= 0 && index < chemin.Count)
             {
-                Vector2 ajout = new Vector2(chemin[index].x, chemin[index].y);
+                Vector2 ajout = new Vector2(chemin[index].positionX, chemin[index].positionY);
                 pathfinding.GetGrid().GetWorldXY(ajout, out x1, out y1);
                 Vector2 destination = new Vector2(x1, y1);
 

@@ -13,17 +13,14 @@ public class PathfindingMathias
 
     public static PathfindingMathias Instance { get; private set; }
 
+    //Constructeur
     public PathfindingMathias(int largeur, int hauteur)
     {
         Instance = this;
         grille = new GridMathias(largeur, hauteur, 0.5f, Origine);
     }
 
-    public GridMathias GetGrid()
-    {
-        return grille;
-    }
-
+    //Méthode qui créer le chemin optimal à suivre à l'aide de l'algorithme A*
     public List<CheminMathias> Chemin(int debutX, int debutY, int finX, int finY)
     {
         CheminMathias caseDebut = grille.GetGridObject(debutX, debutY);
@@ -32,51 +29,53 @@ public class PathfindingMathias
         listeOuverte = new List<CheminMathias>() { caseDebut };
         listeFermee = new List<CheminMathias>();
 
+        //Création de toutes les cases présentes dans la grille, on donne une valeur maximum à valeurG afin qu'aucune case ne soit viable pour le chemin
         for (int x = 0; x < grille.GetLargueur(); x++)
         {
             for (int y = 0; y < grille.GetHauteur(); y++)
             {
-                CheminMathias pathNode = grille.GetGridObject(x, y);
-                pathNode.g = int.MaxValue;
-                pathNode.CalculerF();
-                pathNode.casePrecedente = null;
+                CheminMathias casesGrille = grille.GetGridObject(x, y);
+                casesGrille.valeurG = int.MaxValue;
+                casesGrille.CalculerF();
+                casesGrille.casePrecedente = null;
             }
         }
 
-        caseDebut.g = 0;
-        caseDebut.h = CalculerH(caseDebut, caseFin);
+        //On donne une valeur de 0 à la valeurG de la case de départ, car l'ennemi est déjà sur cette case
+        caseDebut.valeurG = 0;
+        caseDebut.valeurH = CalculerH(caseDebut, caseFin);
         caseDebut.CalculerF();
 
+        //On cherche la case qui a la valeurF la plus basse dans la listeOuverte afin de trouver la prochaine casedu chemin
         while (listeOuverte.Count > 0)
         {
             CheminMathias caseActuelle = FPlusBas(listeOuverte);
 
-
+            //Si la case avec la valeurF la plus basse est la dernière, on calcule le chemin avec toutes les cases trouvées
             if (caseActuelle == caseFin)
             {
                 return CalculerChemin(caseFin);
             }
 
+            //Dès qu'une case est analysée, on la retire des cases à considérer
             listeOuverte.Remove(caseActuelle);
             listeFermee.Add(caseActuelle);
 
+            //On cherche les cases voisines à la case trouvée, afin de 
             foreach (CheminMathias caseVoisine in GetListeVoisins(caseActuelle))
             {
-
-                
-
                 if (listeFermee.Contains(caseVoisine))
                 {
                     continue;
                 }
 
-                int gTemp = caseActuelle.g + CalculerH(caseActuelle, caseVoisine);
+                int gTemp = caseActuelle.valeurG + CalculerH(caseActuelle, caseVoisine);
 
-                if (gTemp < caseVoisine.g)
+                if (gTemp < caseVoisine.valeurG)
                 {
                     caseVoisine.casePrecedente = caseActuelle;
-                    caseVoisine.g = gTemp;
-                    caseVoisine.h = CalculerH(caseVoisine, caseFin);
+                    caseVoisine.valeurG = gTemp;
+                    caseVoisine.valeurH = CalculerH(caseVoisine, caseFin);
                     caseVoisine.CalculerF();
 
                     if (!listeOuverte.Contains(caseVoisine))
@@ -96,48 +95,48 @@ public class PathfindingMathias
 
         List<CheminMathias> listeVoisins = new List<CheminMathias>();
 
-        if (caseActuelle.x - 1 >= 0 && grille.GetGridObject(caseActuelle.x-1, caseActuelle.y).GetObstacle() == false)
+        if (caseActuelle.positionX - 1 >= 0 && grille.GetGridObject(caseActuelle.positionX - 1, caseActuelle.positionY).GetObstacle() == false)
         {
             //Gauche
-            listeVoisins.Add(grille.GetGridObject(caseActuelle.x - 1, caseActuelle.y));
+            listeVoisins.Add(grille.GetGridObject(caseActuelle.positionX - 1, caseActuelle.positionY));
 
-            if (caseActuelle.y - 1 >= 0 && grille.GetGridObject(caseActuelle.x - 1, caseActuelle.y - 1).GetObstacle() == false)
+            if (caseActuelle.positionY - 1 >= 0 && grille.GetGridObject(caseActuelle.positionX - 1, caseActuelle.positionY - 1).GetObstacle() == false)
             {
-                listeVoisins.Add(grille.GetGridObject(caseActuelle.x - 1, caseActuelle.y - 1));
+                listeVoisins.Add(grille.GetGridObject(caseActuelle.positionX - 1, caseActuelle.positionY - 1));
             }
 
-            if (caseActuelle.y + 1 < grille.GetHauteur() && grille.GetGridObject(caseActuelle.x - 1, caseActuelle.y + 1).GetObstacle() == false)
+            if (caseActuelle.positionY + 1 < grille.GetHauteur() && grille.GetGridObject(caseActuelle.positionX - 1, caseActuelle.positionY + 1).GetObstacle() == false)
             {
-                listeVoisins.Add(grille.GetGridObject(caseActuelle.x - 1, caseActuelle.y + 1));
+                listeVoisins.Add(grille.GetGridObject(caseActuelle.positionX - 1, caseActuelle.positionY + 1));
             }
 
         }
-        if (caseActuelle.x + 1 < grille.GetLargueur() && grille.GetGridObject(caseActuelle.x + 1, caseActuelle.y).GetObstacle() == false)
+        if (caseActuelle.positionX + 1 < grille.GetLargueur() && grille.GetGridObject(caseActuelle.positionX + 1, caseActuelle.positionY).GetObstacle() == false)
         {
             // Droite
-            listeVoisins.Add(grille.GetGridObject(caseActuelle.x + 1, caseActuelle.y));
+            listeVoisins.Add(grille.GetGridObject(caseActuelle.positionX + 1, caseActuelle.positionY));
 
-            if (caseActuelle.y - 1 >= 0 && grille.GetGridObject(caseActuelle.x + 1, caseActuelle.y - 1).GetObstacle() == false)
+            if (caseActuelle.positionY - 1 >= 0 && grille.GetGridObject(caseActuelle.positionX + 1, caseActuelle.positionY - 1).GetObstacle() == false)
             {
-                listeVoisins.Add(grille.GetGridObject(caseActuelle.x + 1, caseActuelle.y - 1));
+                listeVoisins.Add(grille.GetGridObject(caseActuelle.positionX + 1, caseActuelle.positionY - 1));
             }
 
-            if (caseActuelle.y + 1 < grille.GetHauteur() && grille.GetGridObject(caseActuelle.x + 1, caseActuelle.y + 1).GetObstacle() == false)
+            if (caseActuelle.positionY + 1 < grille.GetHauteur() && grille.GetGridObject(caseActuelle.positionX + 1, caseActuelle.positionY + 1).GetObstacle() == false)
             {
-                listeVoisins.Add(grille.GetGridObject(caseActuelle.x + 1, caseActuelle.y + 1));
+                listeVoisins.Add(grille.GetGridObject(caseActuelle.positionX + 1, caseActuelle.positionY + 1));
             }
 
         }
         // Haut
-        if (caseActuelle.y - 1 >= 0 && grille.GetGridObject(caseActuelle.x, caseActuelle.y - 1).GetObstacle() == false)
+        if (caseActuelle.positionY - 1 >= 0 && grille.GetGridObject(caseActuelle.positionX, caseActuelle.positionY - 1).GetObstacle() == false)
         {
-            listeVoisins.Add(grille.GetGridObject(caseActuelle.x, caseActuelle.y - 1));
+            listeVoisins.Add(grille.GetGridObject(caseActuelle.positionX, caseActuelle.positionY - 1));
         }
 
         // Bas
-        if (caseActuelle.y + 1 < grille.GetHauteur() && grille.GetGridObject(caseActuelle.x, caseActuelle.y + 1).GetObstacle() == false)
+        if (caseActuelle.positionY + 1 < grille.GetHauteur() && grille.GetGridObject(caseActuelle.positionX, caseActuelle.positionY + 1).GetObstacle() == false)
         {
-            listeVoisins.Add(grille.GetGridObject(caseActuelle.x, caseActuelle.y + 1));
+            listeVoisins.Add(grille.GetGridObject(caseActuelle.positionX, caseActuelle.positionY + 1));
         }
 
         return listeVoisins;
@@ -169,8 +168,8 @@ public class PathfindingMathias
     private int CalculerH(CheminMathias pt1, CheminMathias pt2)
     {
 
-        int d_x = Mathf.Abs(pt1.x - pt2.x);
-        int d_y = Mathf.Abs(pt1.y - pt2.y);
+        int d_x = Mathf.Abs(pt1.positionX - pt2.positionX);
+        int d_y = Mathf.Abs(pt1.positionY - pt2.positionY);
         int reste = Mathf.Abs(d_x - d_y);
         int coutFinal = MOUVEMENT_DIAGONAL * Mathf.Min(d_x, d_y) + MOUVEMENT_SUR_AXE * reste;
 
@@ -184,7 +183,7 @@ public class PathfindingMathias
         for(int i = 0; i < listeChemin.Count; i++)
         {
 
-            if (listeChemin[i].f < fBas.f)
+            if (listeChemin[i].valeurF < fBas.valeurF)
             {
                 fBas = listeChemin[i];
             }
@@ -217,12 +216,18 @@ public class PathfindingMathias
 
             foreach (CheminMathias pathnode in chemin)
             {
-                Vector3 ajout = new Vector3(pathnode.x, pathnode.y);
+                Vector3 ajout = new Vector3(pathnode.positionX, pathnode.positionY);
                 Vector3 ajout2 = new Vector3(4, 0.5f);
                 cheminVectors.Add(ajout * grille.GetDimCell() + Vector3.one * 0.25f + ajout2);
             }
 
             return cheminVectors;
         }
+    }
+
+    //Getter qui retourne la grille utilisée
+    public GridMathias GetGrid()
+    {
+        return grille;
     }
 }

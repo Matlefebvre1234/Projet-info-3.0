@@ -11,13 +11,14 @@ public class GridMathias : MonoBehaviour
     private float dimCell;
     private Vector3 positionJoueur;
     private positionJoueur posJ = new positionJoueur();
-    private CheminMathias[,] listNode;
+    private CheminMathias[,] listeCases;
     private GameObject[] listeObstacles;
     private GameObject[] listeLave;
     public List<CheminMathias> positionsObstacles;
     int positionXObs;
     int positionYObs;
 
+    //Constructeur d'une gille qui reçoit une largeur, une hauteur, la dimension de ses différentes cases, ainsi que son origine
     public GridMathias(int n_largeur, int n_hauteur, float n_dimCell, Vector3 n_origine)
     {
 
@@ -25,113 +26,70 @@ public class GridMathias : MonoBehaviour
         hauteur = n_hauteur;
         dimCell = n_dimCell;
         origine = n_origine;
-        listNode = new CheminMathias[largeur, hauteur];
+        listeCases = new CheminMathias[largeur, hauteur];
 
+        //Listes des différentes cases que l'intelligence artificielle ne peut traverser à cause d'obstacles
         listeObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         listeLave = GameObject.FindGameObjectsWithTag("Lave");
 
-
-        for (int x = 0; x < listNode.GetLength(0); x++)
+        //Création de toutes les cases nécessaires pour couvrir toute la grille, il sera ainsi possible de stocker toutes les informations dont nous avons besoin dans chaque case de la grille
+        for (int x = 0; x < listeCases.GetLength(0); x++)
         {
-            for (int y = 0; y < listNode.GetLength(1); y++)
+            for (int y = 0; y < listeCases.GetLength(1); y++)
             {
-                listNode[x, y] = new CheminMathias(x, y);
+                listeCases[x, y] = new CheminMathias(x, y);
             }
 
         }
 
+        //Toutes les cases où il y a un osbtacle que l'intelligence artificielle ne peut pas traverser vont être étiquetées
         for(int i = 0; i < listeObstacles.Length; i++)
         {
-       
             GetXY(listeObstacles[i].transform.position, out positionXObs, out positionYObs);
             CheminMathias obstacles = GetGridObject(positionXObs, positionYObs);
             obstacles.SetObstacleTrue();
-
         }
 
         for (int i = 0; i < listeLave.Length; i++)
         {
-
             GetXY(listeLave[i].transform.position, out positionXObs, out positionYObs);
             CheminMathias lave = GetGridObject(positionXObs, positionYObs);
             lave.SetObstacleTrue();
-
         }
-
-        for (int x = 0; x < largeur; x++)
-        {
-            for (int y = 0; y < hauteur; y++)
-            {
-                Debug.DrawLine(Position(x, y), Position(x + 1, y), Color.white, 100f);
-                Debug.DrawLine(Position(x, y), Position(x, y + 1), Color.white, 100f);
-
-            }
-
-        }
-        Debug.DrawLine(Position(0, hauteur), Position(largeur, hauteur), Color.white, 100f);
-        Debug.DrawLine(Position(largeur, 0), Position(largeur, hauteur), Color.white, 100f);
     }
 
-    private Vector3 Position(int x, int y)
-    {
-        return new Vector3(x + origine.x, y + origine.y) * dimCell;
-    }
-
+    //Méthode qui transforme une position en Vector3 en valeur de x et de y qui correspondent à la grille créée
     public void GetXY(Vector3 position, out int x, out int y)
     {
         x = Mathf.FloorToInt((position.x / dimCell) - origine.x);
         y = Mathf.FloorToInt((position.y / dimCell) - origine.y);
     }
 
-    public void SetGridObject(Vector3 worldPosition, CheminMathias value)
-    {
-        int x, y;
-        GetXY(worldPosition, out x, out y);
-        SetGridObject(x, y, value);
-    }
-    public void SetGridObject(int x, int y, CheminMathias value)
-    {
-        if (x >= 0 && y > 0 && x < largeur && y < hauteur)
-        {
-            listNode[x, y] = value;
-        }
-    }
+    //Getter qui retourne une case selon sa position en x et en y dans la grille
     public CheminMathias GetGridObject(int x, int y)
     {
-
-            return listNode[x, y];
-        
-        // return default(CheminMathias);
+            return listeCases[x, y];
     }
-    public CheminMathias GetGridObject(Vector3 worldPosition)
-    {
-        int x, y;
-        GetXY(worldPosition, out x, out y);
-        return GetGridObject(x, y);
-    }
-    public void ValeurArrondie(Vector3 pos)
-    {
-        int x, y;
-        GetXY(pos, out x, out y);
-
-        Debug.Log("(" + x + ", " + y + ")");
-    }
-
+    
+    //Getter qui retourne la largeur de la grille
     public int GetLargueur()
     {
         return largeur;
     }
 
+    //Getter qui retourne la hauteur de la grille
     public int GetHauteur()
     {
         return hauteur;
     }
 
+    //Getter qui retourne la dimension des cases de la grille
     public float GetDimCell()
     {
         return dimCell;
     }
 
+    //Getter qui retourne une position en x et en y selon sa position en Vector3
     public void GetWorldXY(Vector3 position, out float x, out float y)
     {
         x = position.x * dimCell + 4.25f;
