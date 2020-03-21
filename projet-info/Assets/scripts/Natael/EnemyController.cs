@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
     public GameObject argentTexte;
 
     private NatPathfinding pathfinding;
-    private List<PointsNatael> path;
+    private List<CasesNatael> path;
 
     private float elapseTime = 0;
 

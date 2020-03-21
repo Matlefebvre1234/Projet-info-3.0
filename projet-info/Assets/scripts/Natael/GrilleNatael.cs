@@ -11,7 +11,7 @@ public class GrilleNatael
     private int hauteurMap;
     private Vector3 origine;
     private float TileDimension;
-    private PointsNatael[,] listeDeNode;
+    private CasesNatael[,] listeDeNode;
 
     private GameObject[] listeObstacle;
     private GameObject[] listeObstacle2;
@@ -23,7 +23,7 @@ public class GrilleNatael
         hauteurMap = height;
         this.TileDimension = TileDimension;
         origine = VecteurOrigine;
-        listeDeNode = new PointsNatael[largeurMap, hauteurMap];
+        listeDeNode = new CasesNatael[largeurMap, hauteurMap];
 
 
         listeObstacle = GameObject.FindGameObjectsWithTag("Obstacle");
@@ -34,7 +34,7 @@ public class GrilleNatael
             for (int e = 0; e < listeDeNode.GetLength(1); e++)
             {
         
-                listeDeNode[w, e] = new PointsNatael(w, e);
+                listeDeNode[w, e] = new CasesNatael(w, e);
         
                 for (int i = 0; i < listeObstacle.Length; i++)
                 {
@@ -74,7 +74,7 @@ public class GrilleNatael
     }
 
     // Permet d'avoir ???
-    public void SetGrid(Vector3 worldPosition, PointsNatael value)
+    public void SetGrid(Vector3 worldPosition, CasesNatael value)
     {
         int x, y;
         GetXY(worldPosition, out x, out y);
@@ -82,7 +82,7 @@ public class GrilleNatael
     }
 
     // Permet d'avoir ???
-    public void SetGrid(int x, int y, PointsNatael value)
+    public void SetGrid(int x, int y, CasesNatael value)
     {
         if (x >= 0 && y > 0 && x < largeurMap && y < hauteurMap)
         {
@@ -91,7 +91,7 @@ public class GrilleNatael
     }
 
     // Permet d'avoir la position exacte dans la map créé, puisqu'elle n'est pas centré à (0,0)
-    public PointsNatael GetGrid(int x, int y)
+    public CasesNatael GetGrid(int x, int y)
     {
         if (x >= 0 && y >= 0 && x < largeurMap && y < hauteurMap)
         {
@@ -101,7 +101,7 @@ public class GrilleNatael
     }
 
     // Permet d'avoir ???
-    public PointsNatael GetGrid(Vector3 worldPosition)
+    public CasesNatael GetGrid(Vector3 worldPosition)
     {
         int x, y;
         GetXY(worldPosition, out x, out y);

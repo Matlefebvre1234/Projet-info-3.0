@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PointsNatael
+public class CasesNatael
 {
     private GrilleNatael grid;
 
@@ -13,16 +13,16 @@ public class PointsNatael
     public int Hcost;
     public bool obstacle = false;
 
-    public PointsNatael NodePrecedente;
+    public CasesNatael NodePrecedente;
 
-    public PointsNatael(GrilleNatael grid1, int x1, int y1)
+    public CasesNatael(GrilleNatael grid1, int x1, int y1)
     {
         grid = grid1;
         x = x1;
         y = y1;
 
     }
-    public PointsNatael(int x1, int y1)
+    public CasesNatael(int x1, int y1)
     {
         grid = null;
         x = x1;
