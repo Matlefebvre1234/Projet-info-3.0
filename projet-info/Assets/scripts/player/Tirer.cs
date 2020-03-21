@@ -9,6 +9,7 @@ public class Tirer : MonoBehaviour
     public GameObject projectile;
     public float reloadTime = 0.5f;
     private float tempreload = 0f;
+    private AIMouvement mousePos;
     Animator ani;
     SpriteRenderer sprite;
 
@@ -25,10 +26,13 @@ public class Tirer : MonoBehaviour
         {
             if (tempreload >= reloadTime)
             {
-
+                
                 tirer();
                 tempreload = 0;
+                mousePos.setMousePosition(Input.mousePosition);
             }
+          
+            
 
         }
     }
@@ -83,5 +87,4 @@ public class Tirer : MonoBehaviour
 
 
     }
-
 }

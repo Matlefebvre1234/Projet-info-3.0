@@ -41,7 +41,7 @@ public class NatTesting : MonoBehaviour
             grid.GetXY(positionEnemy, out int x, out int y);
 
 
-            List<PointsNatael> path = pathfinding.TrouverLeChemin(z, w, x, y);
+            List<CasesNatael> path = pathfinding.TrouverLeChemin(z, w, x, y);
             
             if (path != null)
             {

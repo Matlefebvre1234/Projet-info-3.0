@@ -22,6 +22,8 @@ TagManager:
   - Armure
   - Anneau
   - KitSoin
+  - Fleche
+  - Tour
   layers:
   - Default
   - TransparentFX

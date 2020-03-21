@@ -31,9 +31,10 @@ public class AIMouvement : MonoBehaviour
     private float angleProj;
     private Vector2 heading;
     private float distance;
+    private Vector3 mousePosition;
     private Vector2 direction;
-    private Vector2 dir;
-    private Vector3[] lastPos;
+
+    private float timer;
 
     public float sante = 30f;
 
@@ -54,13 +55,13 @@ public class AIMouvement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-            grid.GetXY(demon.transform.position, out int x, out int y);
+            grid.GetXY(transform.position, out int x, out int y);
             grid.GetXY(joueur.transform.position, out int x1, out int y1);
             projectile = GameObject.FindGameObjectsWithTag("Projectile");
 
-            List<SamNode> chemin = samPathfinding.TrouverChemin(x, y, x1, y1);
+        List<SamNode> chemin = samPathfinding.TrouverChemin(x, y, x1, y1);
             if (chemin != null)
             {
                 for (int i = 0; i < chemin.Count - 1; i++)
@@ -96,16 +97,15 @@ public class AIMouvement : MonoBehaviour
                 {
                     distanceX = projectile[k].transform.position.x - transform.position.x;
                     distanceY = projectile[k].transform.position.y - transform.position.y;
-                    heading = (projectile[k].transform.position - transform.position).normalized;
-                    distance = projectile[k].transform.position.normalized.magnitude;
+                    heading = mousePosition - joueur.transform.position;
+                    distance = heading.magnitude;
                     direction = heading / distance;
-                    angleProj = Mathf.Atan2(heading.y, heading.x) * Mathf.Rad2Deg;
+                    angleProj = Mathf.Atan2(distanceY, distanceX) * Mathf.Rad2Deg;
 
                     //Debug.Log(direction);
-
-                    //if (Physics2D.Raycast(projectile[k].transform.position, direction, 1f))
+                    Debug.DrawRay(projectile[k].transform.position, direction, Color.green);
+                    //if (Physics2D.Raycast(projectile[k].transform.position, direction, 1.5f))
                     {
-                        Debug.Log("Hello");
                         if (Mathf.Abs(distanceX) < 1.5f && Mathf.Abs(distanceY) < 1.5f)
                         {
                             if ((angleProj > -20 && angleProj < 20) || (angleProj > 160 && angleProj < -160))
@@ -115,7 +115,6 @@ public class AIMouvement : MonoBehaviour
                             }
                             else if ((angleProj > 70 && angleProj < 110) || (angleProj > -110 && angleProj < -70))
                             {
-                                Debug.Log("bas");
                                 esquiveX = 2f;
                                 esquiveY = 0f;
                             }
@@ -139,19 +138,35 @@ public class AIMouvement : MonoBehaviour
                                 esquiveX = 1.5f;
                                 esquiveY = 1.5f;
                             }
-                        }
-                    }
 
-                    grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
-                    targetPosition = new Vector2(x + esquiveX, y + esquiveY);
-                    if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
+                            grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
+                            targetPosition = new Vector2(x + esquiveX, y + esquiveY);
+                            if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
+                            {
+                                transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * (vitesse + 1));
+                            }
+                            else
+                            {
+                                index++;
+                            }
+                        }
+                        else
+                        {
+                            grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
+                            targetPosition = new Vector2(x, y);
+                            if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
+                            {
+                                transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
+                            }
+                            else
+                            {
+                                index++;
+                            }
+                        }
+
                     }
-                    else
-                    {
-                        index++;
-                    }
+                    
+
 
                 }
                 
@@ -182,7 +197,6 @@ public class AIMouvement : MonoBehaviour
             cheminVecteur = null;
             index = 0;
         }
-        
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -193,5 +207,13 @@ public class AIMouvement : MonoBehaviour
         }
     }
 
-   
+    public void setMousePosition(Vector3 mp)
+    {
+        mousePosition = mp;
+    }
+
+    public Vector2 getMousePosition()
+    {
+        return mousePosition;
+    }
 }

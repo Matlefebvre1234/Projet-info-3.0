@@ -13,6 +13,8 @@ public class Grid
     private float dimCell;
     private SamNode[,] listNode;
     private GameObject[] obstacle;
+    private GameObject[] tour;
+    private GameObject[] lave;
 
     public Grid(int n_largeur, int n_hauteur, float n_dimCell, Vector3 n_origine)
     {
@@ -24,6 +26,8 @@ public class Grid
 
 
         obstacle = GameObject.FindGameObjectsWithTag("Obstacle");
+        tour = GameObject.FindGameObjectsWithTag("Tour");
+        lave = GameObject.FindGameObjectsWithTag("Lave");
 
         for (int x = 0; x < listNode.GetLength(0); x++)
         {
@@ -41,8 +45,25 @@ public class Grid
                         listNode[x, y].SetObstacle(true);
                     }
                 }
+                for (int k = 0; k < tour.Length; k++)
+                {
+                    GetXY(tour[k].transform.position, out int x1, out int y1);
 
-                
+                    if (x1 == x && y1 == y)
+                    {
+                        listNode[x, y].SetObstacle(true);
+                    }
+                }
+                for (int j = 0; j < lave.Length; j++)
+                {
+                    GetXY(lave[j].transform.position, out int x1, out int y1);
+
+                    if (x1 == x && y1 == y)
+                    {
+                        listNode[x, y].SetObstacle(true);
+                    }
+                }
+
             }
 
         }
