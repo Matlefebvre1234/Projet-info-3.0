@@ -17,7 +17,7 @@ public class BarricadeTransparent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "C4")
+        if (collision.gameObject.tag == "Enemy")
         {
             trans.transparenceTrue();
         }
@@ -25,7 +25,7 @@ public class BarricadeTransparent : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "C4")
+        if (collision.gameObject.tag == "Enemy")
         {
             trans.transparenceFalse();
         }

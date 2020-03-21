@@ -70,13 +70,15 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "Barricade" || collision.gameObject.tag == "Mine" || collision.gameObject.tag == "Lave")
+        if (collision.gameObject.tag == "Barricade" && collision.gameObject.tag == "Mine" && collision.gameObject.tag == "Lave")
         {
             obstacle = true;
+            //Debug.Log("obstacle = true");
         }
         else
         {
             obstacle = false;
+            //Debug.Log("obstacle = false");
         }
     }
     Vector3 prevLocation = Vector3.zero;
