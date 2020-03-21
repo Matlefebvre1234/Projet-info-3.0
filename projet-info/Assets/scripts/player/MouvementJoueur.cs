@@ -8,18 +8,28 @@ public class MouvementJoueur : MonoBehaviour
     public float vitesseJoueur = 1;
     Rigidbody2D mrb;
     float deplacementX;
+    Animator ani;
+    SpriteRenderer sprite;
     float deplacementY;
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
+        ani = GetComponent<Animator>();
         mrb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-         deplacementX = Input.GetAxis("Horizontal");
+        deplacementX = Input.GetAxis("Horizontal");
          deplacementY = Input.GetAxis("Vertical");
+        if (deplacementX != 0 || deplacementY != 0) ani.SetBool("isRunning", true);
+        else ani.SetBool("isRunning", false);
+        if (deplacementX > 0) sprite.flipX = true;
+        if (deplacementX < 0) sprite.flipX = false;
+
+
     }
 
     private void FixedUpdate()
@@ -44,4 +54,5 @@ public class MouvementJoueur : MonoBehaviour
     {
         vitesseJoueur = plusVitesse;
     }
+
 }

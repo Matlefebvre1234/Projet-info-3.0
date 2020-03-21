@@ -122,7 +122,7 @@ public class Bloob2 : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
 
-        if ((angle < 90 && angle >= 0) || (angle < -90 && angle < 0))
+        if ((angle < 90 && angle >= 0) || (angle > -90 && angle < 0))
         {
             spriterenderer.flipX = false;
 

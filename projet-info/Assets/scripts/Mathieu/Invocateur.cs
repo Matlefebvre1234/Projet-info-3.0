@@ -21,7 +21,8 @@ public class Invocateur : MonoBehaviour
     public int nombreBloobPresent = 0;
     public float santeMax = 100f;
     private float sante;
-  
+    private float dimCell;
+
 
 
 
@@ -34,6 +35,7 @@ public class Invocateur : MonoBehaviour
 
     void Start()
     {
+        dimCell = FindObjectOfType<GrilleMonstresMat>().getdimCell();
         sante = santeMax;
         speed = speedInitial;
         pathfinding = new PathfindingInverse();
@@ -89,7 +91,7 @@ public class Invocateur : MonoBehaviour
     {
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance <= (nbCaseDistance * GrilleMonstresMat.getdimCell()))
+        if (distance <= (nbCaseDistance * dimCell ))
         {
             
             cheminAtteint = false;
@@ -149,7 +151,7 @@ public class Invocateur : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
 
-        if ((angle < 90 && angle >= 0) || (angle < -90 && angle < 0))
+        if ((angle < 90 && angle >= 0) || (angle > -90 && angle < 0))
         {
             spriterenderer.flipX = false;
 

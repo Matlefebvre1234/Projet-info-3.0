@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -10,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public int rangeIAMin = -3;
     public int rangeAttaquePlayer = 4;
     public int rangeMouvement = 5;
+    public int argentDonner;
 
     public float raycastMaxDistance = 10f;
     public float speed = 0.02f;
@@ -20,11 +22,9 @@ public class EnemyController : MonoBehaviour
 
     public GameObject barricade;
     public GameObject Mine;
-    //public GameObject explosion;
+    public GameObject argentTexte;
 
     private NatPathfinding pathfinding;
-    //private GrilleNatael grid;
-    //private Vector3 origine = new Vector3(8, 1);
     private List<PointsNatael> path;
 
     private float elapseTime = 0;
@@ -59,6 +59,13 @@ public class EnemyController : MonoBehaviour
 
             if (JoueurMort == true)
             {
+                //Donner argent au joueur
+                int argent;
+                argent = (int.Parse(argentTexte.GetComponent<Text>().text.ToString()));
+                argent += 10;
+                argentTexte.GetComponent<Text>().text = (argent.ToString());
+
+
                 transform.gameObject.SetActive(false);
             }
         }

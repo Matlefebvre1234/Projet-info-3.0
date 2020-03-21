@@ -54,8 +54,6 @@ public class MouvementAiMathias : MonoBehaviour
         pathfinding = new PathfindingMathias(largeur, hauteur);
         joueur = new GameObject();
         joueur = GameObject.FindGameObjectWithTag("Player");
-        ennemi = new GameObject();
-        ennemi = GameObject.FindGameObjectWithTag("Orc");
         positionJoueur = joueur.transform.position;
 
         grille = new GridMathias(largeur, hauteur, dimCell, origine);
@@ -66,7 +64,7 @@ public class MouvementAiMathias : MonoBehaviour
 
     void Update()
     {
-        grille.GetXY(ennemi.transform.position, out xE, out yE);
+        grille.GetXY(transform.position, out xE, out yE);
         grille.GetXY(positionJoueur, out posX, out posY);
         positionJoueur = joueur.transform.position;
         pathfinding.GetGrid().GetXY(positionJoueur, out x, out y);
@@ -99,7 +97,7 @@ public class MouvementAiMathias : MonoBehaviour
                 pathfinding.GetGrid().GetWorldXY(ajout, out x1, out y1);
                 Vector2 destination = new Vector2(x1, y1);
 
-                if (Vector2.Distance(ennemi.transform.position, destination) > 0.01f)
+                if (Vector2.Distance(transform.position, destination) > 0.01f)
                 {
                     transform.position = Vector2.MoveTowards(transform.position, destination, 2.0f*Time.deltaTime);
                 }
