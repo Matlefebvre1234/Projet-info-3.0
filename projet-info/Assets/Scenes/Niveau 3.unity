@@ -1502,6 +1502,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4078292620653593400, guid: 0c1e0a4d5493fec48bb5e1841fe21b9a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8766329243810477375, guid: 0c1e0a4d5493fec48bb5e1841fe21b9a,
         type: 3}
       propertyPath: m_IsActive
@@ -14819,6 +14824,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 195640433}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6493255480799159724, guid: dc3dbd1e9ddb8bc41847d727dcfd5061,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20836,11 +20845,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1489098423, guid: 3783175fadc0b484387027c6fd0f5ff9, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1489098423, guid: 3783175fadc0b484387027c6fd0f5ff9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 221698896216993326, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
@@ -20935,12 +20944,12 @@ PrefabInstance:
     - target: {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9,
         type: 3}
@@ -26636,7 +26645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1600192049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 743358047023818203, guid: 0b07c567f82a4de478c09a214a2e3221,
@@ -37504,7 +37513,7 @@ PrefabInstance:
     - target: {fileID: 9202632832561759414, guid: 5e6b92a3eabfcda41903497c6f2388ce,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9202632832561759560, guid: 5e6b92a3eabfcda41903497c6f2388ce,
         type: 3}

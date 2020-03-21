@@ -21,9 +21,7 @@ public class SceneLoader : MonoBehaviour
 
     public void RetourMenu()
     {
-        
-        SceneManager.LoadScene(0);
-
+        SceneManager.LoadScene(1);
     }
 
 

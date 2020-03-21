@@ -12,7 +12,7 @@ public class fleche : MonoBehaviour
     public void Start()
     {
         joueur = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log(transform.rotation.eulerAngles.z);
+        //Debug.Log(transform.rotation.eulerAngles.z);
         rigidbody = GetComponent<Rigidbody2D>();
         dommage = joueur.GetComponent<Santé>();
         if (transform.rotation.eulerAngles.z.Equals(90))

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7118008387085942772}
   - component: {fileID: -5187574939729015490}
   - component: {fileID: -4890891157089987409}
+  - component: {fileID: -1764068231270325054}
   m_Layer: 0
   m_Name: porte
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,3 +131,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &-1764068231270325054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118008387085942773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16c83d4f832f2b438917ea6be359ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

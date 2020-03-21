@@ -35,7 +35,7 @@ public class Santé : MonoBehaviour
         santee = santee - (qteAttaque/armure);
         if (barreSante != null)
             barreSante.SetSantee(santee);
-        Debug.Log(santee);
+        //Debug.Log(santee);
     }
 
     public bool IsDead (bool b)
