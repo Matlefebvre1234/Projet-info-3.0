@@ -22,19 +22,28 @@ public class FloorSpike : MonoBehaviour
     {
         if(ouvert)
         {
-
-            santecomp.attaque(dommage);
+            if (collision.gameObject.tag == "PlayerFoots")
+            {
+                santecomp.attaque(dommage);
+            }
+                
 
 
         }
     }
-  
+
+   
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (ouvert)
         {
 
-            santecomp.attaque(dommage);
+            if (collision.gameObject.tag == "PlayerFoots")
+            {
+                santecomp.attaque(dommage);
+            }
+
 
 
         }

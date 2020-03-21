@@ -24,6 +24,7 @@ TagManager:
   - KitSoin
   - Fleche
   - Tour
+  - PlayerFoots
   layers:
   - Default
   - TransparentFX

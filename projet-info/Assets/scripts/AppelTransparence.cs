@@ -14,7 +14,7 @@ public class AppelTransparence : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
        
-        if(collision.gameObject.tag != "Mur" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Projectile")
+        if(collision.gameObject.tag != "Mur" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Lave")
         {
             for (int i = 0; i < mur.Length; i++)
             {

@@ -13,7 +13,7 @@ public class Lave : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "PlayerFoots")
         {
             player.GetComponent<Santé>().attaque(dommage * Time.deltaTime);
 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9202632832561759563}
   - component: {fileID: 9202632832561759412}
   - component: {fileID: 9202632832561759413}
+  - component: {fileID: 674690663}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
@@ -169,3 +170,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &674690663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202632832561759414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd6d66df7f0181419bbc4e107e21910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  santeeMax: 100
+  santee: 0
+  armure: 1
+  barreSante: {fileID: 0}
