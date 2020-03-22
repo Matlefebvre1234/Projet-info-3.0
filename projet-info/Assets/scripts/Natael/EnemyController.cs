@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject barricade;
     public GameObject Mine;
-    public GameObject argentTexte;
+    //public GameObject argentTexte;
 
     private NatPathfinding pathfinding;
     private List<CasesNatael> path;
@@ -50,24 +50,11 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-    
         if(collision.gameObject.tag == "Projectile")
         {
             transform.GetComponent<Santé>().attaque(5);
 
             JoueurMort = transform.GetComponent<Santé>().IsDead(JoueurMort);
-
-            if (JoueurMort == true)
-            {
-                //Donner argent au joueur
-                int argent;
-                argent = (int.Parse(argentTexte.GetComponent<Text>().text.ToString()));
-                argent += 10;
-                argentTexte.GetComponent<Text>().text = (argent.ToString());
-
-
-                transform.gameObject.SetActive(false);
-            }
         }
 
         if (collision.gameObject.tag == "Barricade" && collision.gameObject.tag == "Mine" && collision.gameObject.tag == "Lave")
@@ -86,6 +73,14 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         float position = transform.position.x;
+
+        if (JoueurMort == true)
+        {
+            transform.GetComponent<Santé>().santee = 0;
+            
+            transform.gameObject.SetActive(false);
+            
+        }
 
         if (position < prevLocation.x)
         {
@@ -106,13 +101,15 @@ public class EnemyController : MonoBehaviour
         prevLocation = transform.position;
     
     float rangeAttaque = Vector2.Distance(transform.position, player.transform.position);
+
         if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
         {
+            transform.GetComponent<Santé>().santee = 0;
+
             explosion.PlayDelayed(0.3f);
             //Explosion du bonhomme
             animator.SetBool("collision_Joueur", true);
             //explosion.Play();
-           
         }
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur") )
