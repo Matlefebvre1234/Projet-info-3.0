@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9202632832561759412}
   - component: {fileID: 9202632832561759413}
   - component: {fileID: 674690663}
+  - component: {fileID: 6418289577092652543}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
@@ -186,3 +187,12 @@ MonoBehaviour:
   santee: 0
   armure: 1
   barreSante: {fileID: 0}
+--- !u!45 &6418289577092652543
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202632832561759414}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
