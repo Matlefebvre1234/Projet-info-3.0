@@ -21,6 +21,7 @@ TagManager:
   - Objet
   - Goblin
   - PiegeAuSol
+  - SceneLoader
   layers:
   - Default
   - TransparentFX

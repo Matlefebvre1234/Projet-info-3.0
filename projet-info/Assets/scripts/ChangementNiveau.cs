@@ -6,20 +6,23 @@ using UnityEngine.SceneManagement;
 public class ChangementNiveau : MonoBehaviour
 {
     private GameObject[] listeEnnemis;
+    private GameObject SceneLoader;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        SceneLoader = GameObject.FindGameObjectWithTag("SceneLoader");
+    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         listeEnnemis = GameObject.FindGameObjectsWithTag("Enemy");
 
-        Debug.Log("ao");
-
         if (collider.gameObject.tag == "Player")
         {
-            Debug.Log("alo");
             if (listeEnnemis.Length == 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                Debug.Log("allo");
+                SceneLoader.transform.GetComponent<SceneLoader>().ChargerprochaineScene();
             }
         }
     }

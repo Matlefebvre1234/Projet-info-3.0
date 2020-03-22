@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-
+    public Animator transition;
   
     public void ChargerprochaineScene()
     {
         int sceneActuelle = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(sceneActuelle + 1);
 
+        StartCoroutine(LoadNiveau(sceneActuelle));
     }
 
     public void QuitterJeu()
@@ -24,7 +24,14 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    IEnumerator LoadNiveau(int levelIndex)
+    {
+        transition.SetTrigger("Commencer");
 
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene(levelIndex + 1);
+    }
 
 
 
