@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3756485723673694639}
   m_Layer: 0
   m_Name: KitSoin
-  m_TagString: KitSoin
+  m_TagString: Objet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

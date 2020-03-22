@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KitSoin : MonoBehaviour
 {
-    private GameObject kitSoin;
     private GameObject joueur;
     public float regeneration = 20f;
 
@@ -12,7 +11,6 @@ public class KitSoin : MonoBehaviour
     void Start()
     {
        joueur = GameObject.FindGameObjectWithTag("Player");
-        kitSoin = GameObject.FindGameObjectWithTag("KitSoin");
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -20,7 +18,7 @@ public class KitSoin : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             joueur.transform.GetComponent<Santé>().KitSoin(regeneration);
-            Destroy(kitSoin);
+            Destroy(gameObject);
         }
     }
 }

@@ -14,13 +14,14 @@ GameObject:
   - component: {fileID: 969266162}
   - component: {fileID: 969266163}
   - component: {fileID: 969266161}
+  - component: {fileID: 7801568822903415215}
   m_Layer: 0
   m_Name: MechantTresMechant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4133248435234718479
 Transform:
   m_ObjectHideFlags: 0
@@ -168,3 +169,19 @@ MonoBehaviour:
   hauteur: 14
   vitesse: 20
   periode: 1
+--- !u!114 &7801568822903415215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086786618993019752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd6d66df7f0181419bbc4e107e21910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  santeeMax: 100
+  santee: 0
+  armure: 1
+  barreSante: {fileID: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5145619308826306364}
   m_Layer: 0
   m_Name: Anneau
-  m_TagString: Anneau
+  m_TagString: Objet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

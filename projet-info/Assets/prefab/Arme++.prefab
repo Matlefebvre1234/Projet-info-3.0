@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 698538182}
   m_Layer: 0
   m_Name: Arme++
-  m_TagString: Arme++
+  m_TagString: Objet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

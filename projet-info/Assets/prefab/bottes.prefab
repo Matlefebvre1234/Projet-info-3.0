@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4217989569628776263}
   m_Layer: 0
   m_Name: bottes
-  m_TagString: Bottes
+  m_TagString: Objet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -12,17 +12,13 @@ TagManager:
   - Demon
   - Mine
   - Barricade
-  - Orc
   - Lave
   - AttackEnnemies
-  - Bottes
-  - Arme++
-  - Armure
-  - Anneau
-  - KitSoin
   - Fleche
   - Tour
   - PlayerFoots
+  - Goblin
+  - Objet
   layers:
   - Default
   - TransparentFX

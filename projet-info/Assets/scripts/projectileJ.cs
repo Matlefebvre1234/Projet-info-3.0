@@ -9,7 +9,7 @@ public class projectileJ : MonoBehaviour
     Vector2 mousposition;
     Vector2 VecteurUnitaire;
     public float speed = 200;
-    private int dommage;
+    private int dommage = 30;
     public AIMouvement dommageDemon;
     private GameObject joueur;
 
@@ -29,7 +29,7 @@ public class projectileJ : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        //Debug.Log(dommage);
+        Debug.Log(dommage);
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Lave" && collision.gameObject.tag != "AttackEnnemies" && collision.gameObject.tag != "PlayerFoots")
         {
             if (collision.gameObject.tag == "Enemy")
