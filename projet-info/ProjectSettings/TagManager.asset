@@ -23,6 +23,8 @@ TagManager:
   - Fleche
   - Tour
   - PlayerFoots
+  - Goblin
+  - PiegeAuSol
   layers:
   - Default
   - TransparentFX
