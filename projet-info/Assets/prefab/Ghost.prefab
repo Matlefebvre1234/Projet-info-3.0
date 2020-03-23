@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9202632832561759413}
   - component: {fileID: 674690663}
   - component: {fileID: 6418289577092652543}
+  - component: {fileID: 1401356491545266469}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
@@ -196,3 +197,16 @@ Skybox:
   m_GameObject: {fileID: 9202632832561759414}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 0}
+--- !u!114 &1401356491545266469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202632832561759414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8d71308364b647b5cdec8c41df80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulte: 3

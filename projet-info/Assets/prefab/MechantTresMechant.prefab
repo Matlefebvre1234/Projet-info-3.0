@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 969266163}
   - component: {fileID: 969266161}
   - component: {fileID: 7801568822903415215}
+  - component: {fileID: 6515057856953768733}
   m_Layer: 0
   m_Name: MechantTresMechant
   m_TagString: Enemy
@@ -185,3 +186,16 @@ MonoBehaviour:
   santee: 0
   armure: 1
   barreSante: {fileID: 0}
+--- !u!114 &6515057856953768733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086786618993019752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8d71308364b647b5cdec8c41df80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulte: 1

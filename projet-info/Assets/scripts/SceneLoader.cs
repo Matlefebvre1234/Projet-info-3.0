@@ -33,6 +33,12 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(levelIndex + 1);
     }
 
+    public int GetNumeroSalle()
+    {
+        return SceneManager.GetActiveScene().buildIndex - 1;
+
+    }
+
 
 
 }
