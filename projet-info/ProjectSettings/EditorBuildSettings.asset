@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/niveau1.unity
     guid: c80e7b9a52bcfc641960eab153074c6e
   - enabled: 1
+    path: Assets/Scenes/MachinesDistributrices.unity
+    guid: 007316a0eb3e63949ac059e5726a379d
+  - enabled: 1
     path: Assets/Scenes/niveau2.unity
     guid: 433df49237e7e3741935bf028ac6eba4
   - enabled: 1

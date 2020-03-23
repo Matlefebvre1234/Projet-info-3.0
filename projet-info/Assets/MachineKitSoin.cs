@@ -7,18 +7,12 @@ public class MachineKitSoin : MonoBehaviour
     public GameObject kitSoin;
 
     // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    private void OnEnterTrigger2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("allo");
         if (collider.gameObject.tag == "Player")
         {
-            Instantiate(kitSoin, (Vector2)transform.position - new Vector2(0.25f, 0.25f), Quaternion.identity);
-            Debug.Log("allo");
+            Instantiate(kitSoin, transform.position - new Vector3(0, 0.934f, 1), Quaternion.identity);
         }
     }
 }
