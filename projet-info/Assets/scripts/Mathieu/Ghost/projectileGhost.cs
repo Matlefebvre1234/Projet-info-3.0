@@ -35,7 +35,7 @@ public class projectileGhost : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "murTransparent" && tempApresSpawn >= 0.1f && collision.gameObject.tag != "Lave") 
+        if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "murTransparent" && tempApresSpawn >= 0.1f && collision.gameObject.tag != "PiegeAuSol" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "AttackEnnemies") 
         {
 
             if(collision.gameObject.tag == "Player")

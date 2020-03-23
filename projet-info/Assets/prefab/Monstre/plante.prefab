@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -7350740347375385304}
   - component: {fileID: 7787995814455802788}
   - component: {fileID: -5939410474739558142}
+  - component: {fileID: -789613724665563164}
   m_Layer: 0
   m_Name: plante
   m_TagString: Enemy
@@ -183,7 +184,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   santeeMax: 100
   santee: 0
+  armure: 1
   barreSante: {fileID: 0}
+--- !u!114 &-789613724665563164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85124776774130177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8d71308364b647b5cdec8c41df80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulte: 1
 --- !u!1001 &85124777633091597
 PrefabInstance:
   m_ObjectHideFlags: 0

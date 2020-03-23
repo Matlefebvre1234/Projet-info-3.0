@@ -12,8 +12,9 @@ public class CreateurSalle : MonoBehaviour
     [SerializeField] GameObject[] listSalleBoss;
     public GameObject[] listPrefabMonstres;
     public GameObject[] spawnPoints;
-    
-                            
+    private int difficulteMonstre;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,15 +34,17 @@ public class CreateurSalle : MonoBehaviour
         {
             int nbRandom = Mathf.CeilToInt(Random.Range(0.1f, listPrefabMonstres.Length -1));
             int nbRandomSpawn = Mathf.CeilToInt(Random.Range(0.1f, spawnPoints.Length - 1));
-            int difficulteMonstre = listPrefabMonstres[nbRandom].GetComponent<DifficulteEnnemi>().GetDifficulte();
+            float nbRandomX = Random.Range(-0.5f, 0.5f);
+            float nbRandomY = Random.Range(-0.5f, 0.5f);
+             difficulteMonstre = listPrefabMonstres[nbRandom].GetComponent<DifficulteEnnemi>().GetDifficulte();
             if (difficulteMonstre <= compteurEnnemies)
             {
                 
-                Instantiate(listPrefabMonstres[nbRandom], spawnPoints[nbRandomSpawn].transform.position,Quaternion.identity);
+                Instantiate(listPrefabMonstres[nbRandom], spawnPoints[nbRandomSpawn].transform.position + new Vector3(nbRandomX,nbRandomY,0),Quaternion.identity);
                 compteurEnnemies -= difficulteMonstre;
             }
 
-        } while (compteurEnnemies > 0);
+        } while (compteurEnnemies > 0 && difficulteMonstre <= compteurEnnemies);
     }
 
     private void CreerSalle()
