@@ -32,4 +32,10 @@ public class GrilleMonstresMat : MonoBehaviour
     {
         return dimCell;
     }
+    public void DestroyGrid()
+    {
+
+        grid = null;
+
+    }
 }

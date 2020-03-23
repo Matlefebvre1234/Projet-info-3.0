@@ -8,11 +8,12 @@ public class Santé : MonoBehaviour
     public float santee;
     public float armure = 1;
     public BarreSantee barreSante;
+    private CreateurSalle createurSalle;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        createurSalle = FindObjectOfType<CreateurSalle>().GetComponent<CreateurSalle>();
         santee = santeeMax;
         if(barreSante != null)
         barreSante.SetSanteeMax(santee);
@@ -23,9 +24,13 @@ public class Santé : MonoBehaviour
     {
         if (santee <= 0)
         {
+            if (gameObject.tag != "Player")
+            {
+                createurSalle.EnnemiesTuer();
+            }
 
             Destroy(gameObject);
-        
+         
         }
     }
 

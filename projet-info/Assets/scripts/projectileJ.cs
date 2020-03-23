@@ -36,7 +36,8 @@ public class projectileJ : MonoBehaviour
             {
      
                 Santé sante = collision.gameObject.GetComponent<Santé>();
-                sante.attaque(dommage);          
+                if(sante !=null) sante.attaque(dommage);
+
             }
             if(collision.gameObject.tag.Equals("Demon"))
             {

@@ -23,6 +23,8 @@ TagManager:
   - PiegeAuSol
   - SceneLoader
   - Spawn
+  - Salle
+  - SpawnJoueur
   layers:
   - Default
   - TransparentFX
