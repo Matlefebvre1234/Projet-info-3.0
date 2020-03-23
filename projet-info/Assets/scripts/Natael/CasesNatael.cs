@@ -13,7 +13,7 @@ public class CasesNatael
     public int Hcost;
     public bool obstacle = false;
 
-    public CasesNatael NodePrecedente;
+    public CasesNatael casePrecedente;
 
     public CasesNatael(GrilleNatael grid1, int x1, int y1)
     {
