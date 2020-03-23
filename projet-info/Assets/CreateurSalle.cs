@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class CreateurSalle : MonoBehaviour
@@ -46,10 +47,10 @@ public class CreateurSalle : MonoBehaviour
         GameObject[] spawnPoints =  GameObject.FindGameObjectsWithTag("Spawn");
         do
         {
-            int nbRandom = Mathf.CeilToInt(Random.Range(0.1f, listPrefabMonstres.Length -1));
-            int nbRandomSpawn = Mathf.CeilToInt(Random.Range(0.1f, spawnPoints.Length - 1));
-            float nbRandomX = Random.Range(-0.5f, 0.5f);
-            float nbRandomY = Random.Range(-0.5f, 0.5f);
+            int nbRandom = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, listPrefabMonstres.Length -1));
+            int nbRandomSpawn = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, spawnPoints.Length - 1));
+            float nbRandomX = UnityEngine.Random.Range(-0.5f, 0.5f);
+            float nbRandomY = UnityEngine.Random.Range(-0.5f, 0.5f);
              difficulteMonstre = listPrefabMonstres[nbRandom].GetComponent<DifficulteEnnemi>().GetDifficulte();
             if (difficulteMonstre <= compteurEnnemies)
             {
@@ -62,13 +63,14 @@ public class CreateurSalle : MonoBehaviour
             }
 
         } while (compteurEnnemies > 0);
+        Array.Clear(spawnPoints, 0, spawnPoints.Length);
         AllEnnemySpawn = true;
     }
 
     private void CreerSalle()
     {
         
-        int nombreRandom = Mathf.CeilToInt(Random.Range(0.1f, listSalle.Length -1));
+        int nombreRandom = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, listSalle.Length -1));
         Instantiate(listSalle[nombreRandom]);
         spawnJoueur = GameObject.FindGameObjectWithTag("SpawnJoueur");
         Player.transform.position = spawnJoueur.transform.position;
