@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: -482422410674980161}
   - component: {fileID: 331179104}
   - component: {fileID: 7612197862756475474}
+  - component: {fileID: 945750384}
   m_Layer: 0
-  m_Name: player
+  m_Name: Joueur
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -3784076314297557909, guid: ad5eb540c292d984ea4eb1343e3e8a30,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -199,3 +200,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &945750384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568601779054897030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f1df23dc2c2b6408aa4365f443907b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  argentJoueur: 0
+  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
+    type: 3}

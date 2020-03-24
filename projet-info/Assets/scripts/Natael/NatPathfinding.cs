@@ -34,7 +34,8 @@ public class NatPathfinding
     // avec toute les valeurs nécéssaires
     public NatPathfinding(int largeur, int hauteur)
     {
-        grille = new GrilleNatael(largeur, hauteur, dimensionCase, origine);
+        grille = GameObject.FindObjectOfType<GrilleDynamique>().getGrid();
+        //grille = new GrilleNatael(largeur, hauteur, dimensionCase, origine);
     }
 
 

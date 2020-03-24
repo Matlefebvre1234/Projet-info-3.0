@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9202632832561759413}
   - component: {fileID: 674690663}
   - component: {fileID: 1401356491545266469}
+  - component: {fileID: 583250989855280016}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
@@ -200,3 +201,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulte: 3
+--- !u!114 &583250989855280016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202632832561759414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62daaa95e9f988478f5cef568899e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  montantArgent: 30
+  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
+    type: 3}

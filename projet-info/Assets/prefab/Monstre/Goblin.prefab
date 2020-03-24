@@ -585,7 +585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   montantArgent: 30
-  argentTexte: {fileID: 0}
+  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
+    type: 3}
 --- !u!114 &7554040872065097422
 MonoBehaviour:
   m_ObjectHideFlags: 0

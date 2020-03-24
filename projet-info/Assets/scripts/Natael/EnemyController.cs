@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour
     private List<CasesNatael> path;
 
     private float elapseTime = 0;
+    private float dimensionCase = 0;
 
     private int node = 0;
     private int randomTime = 0;
@@ -44,6 +45,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        dimensionCase = FindObjectOfType<GrilleDynamique>().getDimCell();
         pathfinding = new NatPathfinding(largeur, hauteur);
         player = GameObject.FindGameObjectWithTag("Player");
     }

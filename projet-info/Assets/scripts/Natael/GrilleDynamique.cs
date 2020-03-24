@@ -15,12 +15,6 @@ public class GrilleDynamique : MonoBehaviour
         grid = new GrilleNatael(largeur, hauteur, dimCell, origine);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public GrilleNatael getGrid()
     {
         if (grid == null)
@@ -34,5 +28,12 @@ public class GrilleDynamique : MonoBehaviour
     public float getDimCell()
     {
         return dimCell;
+    }
+
+    public void DestroyGrid()
+    {
+
+        grid = null;
+
     }
 }

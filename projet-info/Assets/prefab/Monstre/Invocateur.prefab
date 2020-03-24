@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 92040227}
   - component: {fileID: -7687723529079166343}
   - component: {fileID: -766793291959977256}
+  - component: {fileID: 356738381507472966}
   m_Layer: 0
   m_Name: Invocateur
   m_TagString: Enemy
@@ -203,3 +204,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulte: 5
+--- !u!114 &356738381507472966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736680147268650905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62daaa95e9f988478f5cef568899e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  montantArgent: 30
+  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
+    type: 3}
