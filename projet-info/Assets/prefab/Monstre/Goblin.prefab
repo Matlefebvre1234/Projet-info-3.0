@@ -294,6 +294,8 @@ GameObject:
   - component: {fileID: 2568601779959560499}
   - component: {fileID: 2568601779959560505}
   - component: {fileID: 8227810122539400034}
+  - component: {fileID: 7364293156039462941}
+  - component: {fileID: 7554040872065097422}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Enemy
@@ -308,7 +310,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2357106970460322381}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.226, y: 0.816, z: -1}
   m_LocalScale: {x: 1.2892, y: 1.4453, z: 1}
   m_Children:
@@ -458,8 +460,6 @@ MonoBehaviour:
   barricade: {fileID: 2777253171143086055, guid: 28ea0d96a37622b428ed623b5d54e4e2,
     type: 3}
   Mine: {fileID: 4219315139489888049, guid: 96e390fee440350489eb1cc369578238, type: 3}
-  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
-    type: 3}
 --- !u!114 &2568601779959560505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd6d66df7f0181419bbc4e107e21910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  santeeMax: 100
+  santeeMax: 200
   santee: 0
   armure: 1
   barreSante: {fileID: 299168498}
@@ -572,3 +572,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7364293156039462941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2357106970460322381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62daaa95e9f988478f5cef568899e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  montantArgent: 30
+  argentTexte: {fileID: 0}
+--- !u!114 &7554040872065097422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2357106970460322381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8d71308364b647b5cdec8c41df80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulte: 0
