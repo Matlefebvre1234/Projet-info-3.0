@@ -13,7 +13,10 @@ public class Santé : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        createurSalle = FindObjectOfType<CreateurSalle>().GetComponent<CreateurSalle>();
+        if (FindObjectOfType<CreateurSalle>() != null)
+        {
+            createurSalle = FindObjectOfType<CreateurSalle>().GetComponent<CreateurSalle>();
+        }
         santee = santeeMax;
         if(barreSante != null)
         barreSante.SetSanteeMax(santee);
