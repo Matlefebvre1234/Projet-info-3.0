@@ -44,11 +44,26 @@ public class CreateurSalle : MonoBehaviour
     {
         nbCompteurEnnemiesTotal = compteurDeSalleTotal;
         compteurEnnemies = nbCompteurEnnemiesTotal;
-        GameObject[] spawnPoints =  GameObject.FindGameObjectsWithTag("Spawn");
+
+
+        List<GameObject> spawnPoints = new List<GameObject>();
+        spawnPoints.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
+
+
+    
+        for (int i =0;i<spawnPoints.Count;i++)
+        {
+            Debug.Log(spawnPoints[i].gameObject.name);
+
+
+
+
+        }
+        Debug.Log(spawnPoints.Count);
         do
         {
             int nbRandom = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, listPrefabMonstres.Length -1));
-            int nbRandomSpawn = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, spawnPoints.Length - 1));
+            int nbRandomSpawn = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, spawnPoints.Count - 1));
             float nbRandomX = UnityEngine.Random.Range(-0.5f, 0.5f);
             float nbRandomY = UnityEngine.Random.Range(-0.5f, 0.5f);
              difficulteMonstre = listPrefabMonstres[nbRandom].GetComponent<DifficulteEnnemi>().GetDifficulte();
@@ -56,14 +71,20 @@ public class CreateurSalle : MonoBehaviour
             {
                 
                 Instantiate(listPrefabMonstres[nbRandom], spawnPoints[nbRandomSpawn].transform.position + new Vector3(nbRandomX,nbRandomY,0),Quaternion.identity);
-                Debug.Log(spawnPoints[nbRandomSpawn].transform.position);
+              //  Debug.Log(spawnPoints[nbRandomSpawn].transform.position);
                 compteurEnnemies -= difficulteMonstre;
                 nBEnnemiesTotal++;
 
             }
 
         } while (compteurEnnemies > 0);
-        Array.Clear(spawnPoints, 0, spawnPoints.Length);
+        spawnPoints.Clear();
+
+        GameObject[] spawn = GameObject.FindGameObjectsWithTag("Spawn");
+        foreach (GameObject s in spawn)
+            GameObject.Destroy(s);
+
+        Debug.Log(spawnPoints.Count);
         AllEnnemySpawn = true;
     }
 
@@ -85,6 +106,8 @@ public class CreateurSalle : MonoBehaviour
        
         compteurDeSalleTotal++;
         compteurDeSalle++;
+
+       
         GameObject salle = GameObject.FindGameObjectWithTag("Salle");
         FindObjectOfType<GrilleMonstresMat>().DestroyGrid();
         Destroy(salle.gameObject);
