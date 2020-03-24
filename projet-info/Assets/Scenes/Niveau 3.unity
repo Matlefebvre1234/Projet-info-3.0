@@ -1356,6 +1356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Salle4
       objectReference: {fileID: 0}
+    - target: {fileID: 3178056130598827953, guid: 4ac1587b028490b41af6d5194fac0bc5,
+        type: 3}
+      propertyPath: camera2
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5157092227960258850, guid: 4ac1587b028490b41af6d5194fac0bc5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1365,22 +1370,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157092228246254514, guid: 4ac1587b028490b41af6d5194fac0bc5,
+        type: 3}
+      propertyPath: camera2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5157092228246254515, guid: 4ac1587b028490b41af6d5194fac0bc5,
         type: 3}
       propertyPath: barreSante
       value: 
       objectReference: {fileID: 229819365}
-    - target: {fileID: 5157092228270454227, guid: 4ac1587b028490b41af6d5194fac0bc5,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5157092228270454227, guid: 4ac1587b028490b41af6d5194fac0bc5,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5157092228536179199, guid: 4ac1587b028490b41af6d5194fac0bc5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1389,11 +1389,6 @@ PrefabInstance:
     - target: {fileID: 5157092228536179199, guid: 4ac1587b028490b41af6d5194fac0bc5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5157092228573447518, guid: 4ac1587b028490b41af6d5194fac0bc5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

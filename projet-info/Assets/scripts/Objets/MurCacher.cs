@@ -7,6 +7,7 @@ public class MurCacher : MonoBehaviour
     public GameObject floor;
 
     public GameObject mur_Fog;
+    public GameObject mur_Fog2;
 
     public GameObject camera1;
     public GameObject camera2;
@@ -25,16 +26,16 @@ public class MurCacher : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Projectile")
-        {
-            mur_Fog.GetComponent<Santé>().attaque(5);
-
-            if (mur_Fog.GetComponent<Santé>().santee == 0)
-            {
-                floor.SetActive(true);
-                mur_Fog.gameObject.SetActive(false);
-            }
-        }
+        //if (collision.gameObject.tag == "Projectile")
+        //{
+        //    mur_Fog.GetComponent<Santé>().attaque(5);
+        //
+        //    if (mur_Fog.GetComponent<Santé>().santee == 0)
+        //    {
+        //        floor.SetActive(true);
+        //        mur_Fog.gameObject.SetActive(false);
+        //    }
+        //}
     }
 }
 

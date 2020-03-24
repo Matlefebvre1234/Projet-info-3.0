@@ -526,41 +526,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
-      propertyPath: spawnPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
-        type: 3}
-      propertyPath: nBEnnemiesTotal
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
-        type: 3}
-      propertyPath: listPrefabMonstres.Array.data[3]
-      value: 
-      objectReference: {fileID: 6454676510594641627, guid: 672b4e9974e59a44794446a61dfbe847,
-        type: 3}
-    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
-        type: 3}
-      propertyPath: listPrefabMonstres.Array.data[1]
-      value: 
-      objectReference: {fileID: 4736680147268650905, guid: 3bd449b9be49a8a40962362882109588,
-        type: 3}
-    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
-        type: 3}
-      propertyPath: listPrefabMonstres.Array.data[4]
-      value: 
-      objectReference: {fileID: 85124776774130177, guid: 0e69d93ccf64b474183fb292aee0c8b9,
-        type: 3}
-    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
-        type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1595838327}
     - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
-      propertyPath: nbCompteurEnnemiesTotal
-      value: 0
+      propertyPath: listPrefabMonstres.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
+        type: 3}
+      propertyPath: listPrefabMonstres.Array.data[5]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4966780291379068880, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
