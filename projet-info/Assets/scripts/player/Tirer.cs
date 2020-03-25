@@ -29,7 +29,6 @@ public class Tirer : MonoBehaviour
                 
                 tirer();
                 tempreload = 0;
-               // mousePos.setMousePosition(Input.mousePosition);
             }
           
             

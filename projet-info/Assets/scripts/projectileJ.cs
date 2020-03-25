@@ -7,10 +7,9 @@ public class projectileJ : MonoBehaviour
     Rigidbody2D MonRigidBody;
     BoxCollider2D moncollider;
     Vector2 mousposition;
-    Vector2 VecteurUnitaire;
+    public Vector2 VecteurUnitaire;
     public float speed = 200;
     private int dommage = 30;
-    public AIMouvement dommageDemon;
     private GameObject joueur;
 
     private void Start()
@@ -23,7 +22,6 @@ public class projectileJ : MonoBehaviour
         VecteurUnitaire = VecteurUnitaire.normalized;
         MonRigidBody = GetComponent<Rigidbody2D>();
         moncollider = GetComponent<BoxCollider2D>();
-
         MonRigidBody.AddForce(VecteurUnitaire * speed, ForceMode2D.Impulse);
     }
 

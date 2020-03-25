@@ -7754,6 +7754,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arme++
       objectReference: {fileID: 0}
+    - target: {fileID: 2688265985990435194, guid: f29b628544d95394eb139e05e732e64d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2688265985990435196, guid: f29b628544d95394eb139e05e732e64d,
         type: 3}
       propertyPath: m_LocalPosition.x
