@@ -17,7 +17,7 @@ public class PathfindingMathias
     public PathfindingMathias(int largeur, int hauteur)
     {
         Instance = this;
-        grille = new GridMathias(largeur, hauteur, 0.5f, Origine);
+        grille = GameObject.FindObjectOfType<GridMonstresMathias>().getGrid();
     }
 
     //Méthode qui créer le chemin optimal à suivre à l'aide de l'algorithme A*
