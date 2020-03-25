@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8888762944390445554}
   - component: {fileID: -5459092798125126850}
   - component: {fileID: -8059484772822861044}
+  - component: {fileID: 1121928774825890311}
   m_Layer: 0
   m_Name: FireDemon
   m_TagString: Demon
@@ -146,3 +147,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28198975, y: 0.34456402}
   m_EdgeRadius: 0
+--- !u!114 &1121928774825890311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8946217496486968241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62daaa95e9f988478f5cef568899e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  montantArgent: 30
+  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
+    type: 3}

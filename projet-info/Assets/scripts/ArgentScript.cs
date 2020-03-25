@@ -21,16 +21,19 @@ public class ArgentScript : MonoBehaviour
             argent += montantArgent;
             argentTexte.GetComponent<Text>().text = (argent.ToString());
 
-            Debug.Log("mort");
+            ////Permet de sauvegardé un float avec la clé Score int et le chiffre 30
+            PlayerPrefs.SetInt("Argent Joueur", argent);
+
         }
-        else if (transform.GetComponent<Santé>().santee == 0)
+        else if (transform.GetComponent<Santé>().santee <= 0)
         {
             int argent;
             argent = (int.Parse(argentTexte.GetComponent<Text>().text.ToString()));
             argent += montantArgent;
             argentTexte.GetComponent<Text>().text = (argent.ToString());
 
-            Debug.Log("mort");
+            ////Permet de sauvegardé un float avec la clé Score int et le chiffre 30
+            PlayerPrefs.SetInt("Argent Joueur", argent);
+        }
         }
     }
-}

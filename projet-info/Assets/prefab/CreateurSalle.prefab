@@ -43,17 +43,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30b0218af41d8c40bda9e32e1c05f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nbCompteurEnnemiesTotal: 0
   nBEnnemiesTotal: 0
   listSalle:
-  - {fileID: 0}
   - {fileID: 3351278289461407827, guid: 4ec282e2c193eef4697f932b4e9831cf, type: 3}
-  - {fileID: 6708960175209501870, guid: c6686c4151cc3764e810d19cc89a43a4, type: 3}
-  - {fileID: 5757060633713992827, guid: d1cbec90b88199441ae4cad29dc425ce, type: 3}
   - {fileID: 2785957152198676820, guid: 4ac1587b028490b41af6d5194fac0bc5, type: 3}
+  - {fileID: 1097669372014180454, guid: f6ae8b4bd777895418d65bad0ee1d6e3, type: 3}
   listSalleBoss:
   - {fileID: 1104329288659725580, guid: 282aa376b1891d341a7bc1092d3cdfe9, type: 3}
+  - {fileID: 6990308266291455171, guid: 070e5b6ff3a8f3f499246498a895e166, type: 3}
   listPrefabMonstres:
-  - {fileID: 0}
-  - {fileID: 1086786618993019752, guid: daf7cc5f7d5a611428e3d40f7d342420, type: 3}
-  - {fileID: 9202632832561759414, guid: 5e6b92a3eabfcda41903497c6f2388ce, type: 3}
+  - {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9, type: 3}
   - {fileID: 4736680147268650905, guid: 3bd449b9be49a8a40962362882109588, type: 3}
+  - {fileID: 9202632832561759414, guid: 5e6b92a3eabfcda41903497c6f2388ce, type: 3}
+  - {fileID: 6454676510594641627, guid: 672b4e9974e59a44794446a61dfbe847, type: 3}
+  - {fileID: 85124776774130177, guid: 0e69d93ccf64b474183fb292aee0c8b9, type: 3}
+  - {fileID: 8946217496486968241, guid: a9bb1bf330086d9439c788bf0b4de6f6, type: 3}
+  - {fileID: 1086786618993019752, guid: daf7cc5f7d5a611428e3d40f7d342420, type: 3}
+  Player: {fileID: 0}

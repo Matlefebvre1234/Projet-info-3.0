@@ -73,7 +73,7 @@ public class BloobSeul : MonoBehaviour
 
     private void SuivreChemin()
     {
-        Debug.Log(index);
+
         float distance = Vector2.Distance(transform.position, player.transform.position);
         if (chemin != null && distance > 0.55f)
         {
