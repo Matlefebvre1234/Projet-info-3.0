@@ -33,6 +33,10 @@ public class AIMouvement : MonoBehaviour
     private float distance;
     private Vector3 mousePosition;
     private Vector2 direction;
+    public LayerMask mask;
+    private bool entre = false;
+    private bool ok;
+    private int compteur;
 
     private float timer;
 
@@ -56,10 +60,8 @@ public class AIMouvement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        
-        
         grid.GetXY(transform.position, out int x, out int y);
         grid.GetXY(joueur.transform.position, out int x1, out int y1);
         projectile = GameObject.FindGameObjectsWithTag("Projectile");
@@ -90,7 +92,6 @@ public class AIMouvement : MonoBehaviour
     {
         esquiveX = 0f;
         esquiveY = 0f;
-        int compteur = 0;
         if (cheminVecteur != null)
         {
             if (!projectile.Length.Equals(0))
@@ -106,76 +107,74 @@ public class AIMouvement : MonoBehaviour
                     direction = heading / distance;
                     angleProj = Mathf.Atan2(distanceY, distanceX) * Mathf.Rad2Deg;
                     
-                    //Debug.Log(direction);
                     Debug.DrawRay(projectile[k].transform.position, mousePosition, Color.green);
-                    if (Physics2D.Raycast(projectile[k].transform.position, mousePosition, 1f))
+                    if (Physics2D.Raycast(projectile[k].transform.position, mousePosition, 1.5f, mask))
                     {
-                        
-                        //if (Mathf.Abs(distanceX) < 1.5f && Mathf.Abs(distanceY) < 1.5f)
+                        Debug.Log(angleProj);
+                        entre = true;
+                        if ((angleProj > -20 && angleProj < 20) || (angleProj > 160 && angleProj < -160))
                         {
-                            if ((angleProj > -20 && angleProj < 20) || (angleProj > 160 && angleProj < -160))
-                            {
-                                esquiveX = 0f;
-                                esquiveY = -2f;
-                            }
-                            else if ((angleProj > 70 && angleProj < 110) || (angleProj > -110 && angleProj < -70))
-                            {
-                                esquiveX = 2f;
-                                esquiveY = 0f;
-                            }
-                            else if (angleProj >= 20 && angleProj < 70)
-                            {
-                                esquiveX = 2f;
-                                esquiveY = -2f;
-                            }
-                            else if (angleProj >= 110 && angleProj <= 160)
-                            {
-                                esquiveX = 1.5f;
-                                esquiveY = 1.5f;
-                            }
-                            else if (angleProj > -160 && angleProj < -110)
-                            {
-                                esquiveX = -1.5f;
-                                esquiveY = 1.5f;
-                            }
-                            else if (angleProj >= -70 && angleProj < -20)
-                            {
-                                esquiveX = 1.5f;
-                                esquiveY = 1.5f;
-                            }
+                            esquiveX = 0f;
+                            esquiveY = -2f;
+                        }
+                        else if ((angleProj > 70 && angleProj < 110) || (angleProj > -110 && angleProj < -70))
+                        {
+                            esquiveX = 2f;
+                            esquiveY = 0f;
+                        }
+                        else if (angleProj >= 20 && angleProj < 70)
+                        {
+                            esquiveX = 2f;
+                            esquiveY = -2f;
+                        }
+                        else if (angleProj >= 110 && angleProj <= 160)
+                        {
+                            esquiveX = 1.5f;
+                            esquiveY = 1.5f;
+                        }
+                        else if (angleProj > -160 && angleProj < -110)
+                        {
+                            esquiveX = -1.5f;
+                            esquiveY = 1.5f;
+                        }
+                        else if (angleProj >= -70 && angleProj < -20)
+                        {
+                            esquiveX = 1.5f;
+                            esquiveY = 1.5f;
+                        }
+                        grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
+                        targetPosition = new Vector2(x + esquiveX, y + esquiveY);
+                        if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * (vitesse + 0.5f));
+                        }
+                        else
+                        {
+                            index++;
+                        }
 
+                    }
+                    else
+                    {
+                        entre = false;
+                        if (k < 1)
+                        {
                             grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
-                            targetPosition = new Vector2(x + esquiveX, y + esquiveY);
+                            targetPosition = new Vector2(x, y);
                             if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
                             {
-                                transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * (vitesse + 1));
+                                transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
                             }
                             else
                             {
                                 index++;
                             }
                         }
+                    }
                         
-
-                    }
-                    else
-                    {
-                        grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
-                        targetPosition = new Vector2(x, y);
-                        if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
-                        {
-                            transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * vitesse);
-                        }
-                        else
-                        {
-                            index++;
-                        }
-                    }
-
-
+                    
 
                 }
-                
             }
             else
             {
@@ -191,7 +190,6 @@ public class AIMouvement : MonoBehaviour
                 }
             }
 
-            
         }
             
     }
@@ -199,7 +197,7 @@ public class AIMouvement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.name.Equals("player")){
+        if(collision.collider.name.Equals("Joueur")){
             cheminVecteur = null;
             index = 0;
         }
@@ -207,19 +205,14 @@ public class AIMouvement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.name.Equals("player"))
+        if (collision.collider.name.Equals("Joueur"))
         {
             domage.attaque(20 * Time.deltaTime);
         }
     }
 
-    public void setMousePosition(Vector3 mp)
+    public void ProjDestroy()
     {
-        mousePosition = mp;
-    }
 
-    public Vector2 getMousePosition()
-    {
-        return mousePosition;
     }
 }

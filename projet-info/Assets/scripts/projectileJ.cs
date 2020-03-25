@@ -27,7 +27,6 @@ public class projectileJ : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        //Debug.Log(dommage);
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" && collision.gameObject.tag != "AttackEnnemies" && collision.gameObject.tag != "PlayerFoots")
         {
             if (collision.gameObject.tag == "Enemy")
@@ -39,7 +38,6 @@ public class projectileJ : MonoBehaviour
             }
             if(collision.gameObject.tag.Equals("Demon"))
             {
-                Debug.Log("hello");
                 Santé sante = collision.gameObject.GetComponent<Santé>();
                 sante.attaque(dommage);
             }
