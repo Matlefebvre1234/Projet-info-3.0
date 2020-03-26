@@ -13,7 +13,7 @@ public class AIMouvement : MonoBehaviour
     public SamPathfinding samPathfinding;
     public GameObject demon;
     public List<Vector3> cheminVecteur;
-    public int index;
+    private int index;
     public float vitesse = 2f;
     public Vector2 targetPosition;
 
@@ -29,14 +29,10 @@ public class AIMouvement : MonoBehaviour
     private float esquiveX = 0f;
     private float esquiveY = 0f;
     private float angleProj;
-    private Vector2 heading;
-    private float distance;
-    private Vector3 mousePosition;
-    private Vector2 direction;
+    private Vector3 direction;
+    private float dirX;
+    private float dirY;
     public LayerMask mask;
-    private bool entre = false;
-    private bool ok;
-    private int compteur;
 
     private float timer;
 
@@ -99,43 +95,96 @@ public class AIMouvement : MonoBehaviour
 
                 for (int k = 0; k < projectile.Length; k++)
                 {
-                    mousePosition = projectile[k].GetComponent<projectileJ>().VecteurUnitaire;
-                    distanceX = projectile[k].transform.position.x - transform.position.x;
-                    distanceY = projectile[k].transform.position.y - transform.position.y;
-                    heading = mousePosition - joueur.transform.position;
-                    distance = heading.magnitude;
-                    direction = heading / distance;
+                    direction = projectile[k].GetComponent<projectileJ>().VecteurUnitaire;
+                    dirX = direction.x;
+                    dirY = direction.y;
+                    distanceX = Mathf.Abs(projectile[k].transform.position.x - transform.position.x);
+                    distanceY = Mathf.Abs(projectile[k].transform.position.y - transform.position.y);
                     angleProj = Mathf.Atan2(distanceY, distanceX) * Mathf.Rad2Deg;
-                    
-                    Debug.DrawRay(projectile[k].transform.position, mousePosition, Color.green);
-                    if (Physics2D.Raycast(projectile[k].transform.position, mousePosition, 1.5f, mask) && ok == true)
+                    Debug.Log(direction);
+
+                    if(distanceX <= 1.5 && distanceY <= 1.5)
+                    //if (Physics2D.Raycast(projectile[k].transform.position, mousePosition, 1.5f, mask) && ok == true)
                     {
                         Debug.Log(angleProj);
-                        entre = true;
-                        if ((angleProj > -20 && angleProj < 20) || (angleProj > 160 && angleProj < -160))
+                        if ((angleProj > -20 && angleProj < 20))
                         {
-                            esquiveX = 0f;
-                            esquiveY = -2f;
-                        }
-                        else if ((angleProj > 70 && angleProj < 110) || (angleProj > -110 && angleProj < -70))
-                        {
-                            esquiveX = 2f;
-                            esquiveY = 0f;
+                            if ((dirX >= -1 && dirX < 0) && (dirY <= 1 && dirY > 0))
+                            {
+                                esquiveX = -1f;
+                                esquiveY = -1f;
+                            }
+                            else if ((dirX >= -1 && dirX < 0) && (dirY >= -1 && dirY < 0))
+                            {
+                                esquiveX = -1f;
+                                esquiveY = 1f;
+                            }
+                            else
+                            {
+                                esquiveX = 0f;
+                                esquiveY = -1f;
+                            }
                         }
                         else if (angleProj >= 20 && angleProj < 70)
                         {
+                            if ((dirX >= -1 && dirX < 0) && (dirY <= 1 && dirY > 0))
+                            {
+                                esquiveX = -1f;
+                                esquiveY = -1f;
+                            }
+                            else if(dirX == 0 && dirY == -1)
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 0f;
+                            }
+                            else if(dirX == -1 && dirY == 0)
+                            {
+                                esquiveX = 0f;
+                                esquiveY = -1f;
+                            }
+                            else
+                            {
+                                esquiveX = -1f;
+                                esquiveY = 1f;
+                            }
+                        }
+                        else if ((angleProj > 70 && angleProj < 110))
+                        {
                             esquiveX = 2f;
-                            esquiveY = -2f;
+                            esquiveY = 0f;
                         }
                         else if (angleProj >= 110 && angleProj <= 160)
                         {
                             esquiveX = 1.5f;
                             esquiveY = 1.5f;
                         }
+                        else if((angleProj > 160 || angleProj < -160))
+                        {
+                            if ((dirX <= 1 && dirX > 0) && (dirY <= 1 && dirY > 0))
+                            {
+                                esquiveX = 1f;
+                                esquiveY = -1f;
+                            }
+                            else if ((dirX <= 1 && dirX > 0) && (dirY >= -1 && dirY < 0))
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 1f;
+                            }
+                            else
+                            {
+                                esquiveX = 0f;
+                                esquiveY = 1f;
+                            }
+                        }
                         else if (angleProj > -160 && angleProj < -110)
                         {
                             esquiveX = -1.5f;
                             esquiveY = 1.5f;
+                        }
+                        else if((angleProj > -110 && angleProj < -70))
+                        {
+                            esquiveX = 2f;
+                            esquiveY = 0f;
                         }
                         else if (angleProj >= -70 && angleProj < -20)
                         {
@@ -159,8 +208,6 @@ public class AIMouvement : MonoBehaviour
                         
                         if (k < 1)
                         {
-                            
-                            entre = false;
                             grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
                             targetPosition = new Vector2(x, y);
                             if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
