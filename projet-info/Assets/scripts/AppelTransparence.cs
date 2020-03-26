@@ -11,21 +11,23 @@ public class AppelTransparence : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+   
+    private void OnTriggerStay2D(Collider2D collision)
     {
-       
-        if(collision.gameObject.tag != "Mur" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Lave")
+
+        if (collision.gameObject.tag != "Mur" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "PiegeAuSol")
         {
-            for (int i = 0; i < mur.Length; i++)
+
+            for (int i = 0; i < mur.Length - 1; i++)
             {
                 mur[i].transparenceTrue();
             }
         }
-       
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Mur" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Projectile")
+        if (collision.gameObject.tag != "Mur" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "PiegeAuSol")
         {
             for (int i = 0; i < mur.Length; i++)
             {
