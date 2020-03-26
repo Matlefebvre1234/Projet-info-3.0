@@ -9,6 +9,7 @@ public class BloobSeul : MonoBehaviour
     private matPathfinding pathfingRapprochement;
     private SpriteRenderer spriterenderer;
     private Animator animator;
+    public int dommage = 1;
     private Invocateur invocateur;
 
 
@@ -83,7 +84,7 @@ public class BloobSeul : MonoBehaviour
                 pathfingRapprochement.getGrid().GetWorldXY(new Vector2(chemin[index].x, chemin[index].y), out float x, out float y);
                 Vector2 targetPosition = new Vector2(x, y);
 
-                if (Vector2.Distance(transform.position, targetPosition) > 0.25f)
+                if (Vector2.Distance(transform.position, targetPosition) > 0.0001f)
                 {
 
                     transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
@@ -150,6 +151,15 @@ public class BloobSeul : MonoBehaviour
 
         invocateur = idInvocateur.GetComponent<Invocateur>();
 
+    }
+
+   
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+
+        if (collision.gameObject.tag == "Projectile") Destroy(gameObject);
+        if (collision.gameObject.tag == "Player") collision.gameObject.GetComponent<Santé>().attaque(dommage * Time.deltaTime);
     }
 
 

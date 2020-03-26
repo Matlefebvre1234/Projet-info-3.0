@@ -6,6 +6,7 @@ public class Bloob2 : MonoBehaviour
 {
     private float speed = 5f;
     public float speedInitial = 5f;
+    public int dommage = 1;
     private matPathfinding pathfingRapprochement;
     private SpriteRenderer spriterenderer;
     private Animator animator;
@@ -83,7 +84,7 @@ public class Bloob2 : MonoBehaviour
                 pathfingRapprochement.getGrid().GetWorldXY(new Vector2(chemin[index].x, chemin[index].y), out float x, out float y);
                 Vector2 targetPosition = new Vector2(x, y);
 
-                if (Vector2.Distance(transform.position, targetPosition) > 0.25f)
+                if (Vector2.Distance(transform.position, targetPosition) > 0.0001)
                 {
 
                     transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
@@ -152,8 +153,12 @@ public class Bloob2 : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
+
+
         if (collision.gameObject.tag == "Projectile") Destroy(gameObject);
+        if (collision.gameObject.tag == "Player") collision.gameObject.GetComponent<Santé>().attaque(dommage * Time.deltaTime);
     }
+
 }
