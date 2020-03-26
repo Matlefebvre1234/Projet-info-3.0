@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class BruitsDePas : MonoBehaviour
 {
-    CharacterController cc;
+    Rigidbody2D bC;
 
     // Start is called before the first frame update
     void Start()
     {
-        cc = GetComponent<CharacterController>();
+        bC = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(cc.isGrounded == true && cc.velocity.magnitude > 2f && GetComponent<AudioSource>().isPlaying == false)
+        if(bC.velocity.x != 0 && GetComponent<AudioSource>().isPlaying == false || bC.velocity.y != 0 && GetComponent<AudioSource>().isPlaying == false)
         {
             GetComponent<AudioSource>().Play();
+        }
+
+        if (bC.velocity.x == 0 && bC.velocity.y == 0)
+        {
+            GetComponent<AudioSource>().Stop();
         }
     }
 }
