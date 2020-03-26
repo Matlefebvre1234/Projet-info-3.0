@@ -108,7 +108,7 @@ public class AIMouvement : MonoBehaviour
                     angleProj = Mathf.Atan2(distanceY, distanceX) * Mathf.Rad2Deg;
                     
                     Debug.DrawRay(projectile[k].transform.position, mousePosition, Color.green);
-                    if (Physics2D.Raycast(projectile[k].transform.position, mousePosition, 1.5f, mask))
+                    if (Physics2D.Raycast(projectile[k].transform.position, mousePosition, 1.5f, mask) && ok == true)
                     {
                         Debug.Log(angleProj);
                         entre = true;
@@ -156,9 +156,11 @@ public class AIMouvement : MonoBehaviour
                     }
                     else
                     {
-                        entre = false;
+                        
                         if (k < 1)
                         {
+                            
+                            entre = false;
                             grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
                             targetPosition = new Vector2(x, y);
                             if (Vector2.Distance(transform.position, targetPosition) > 0.001f)
@@ -169,6 +171,7 @@ public class AIMouvement : MonoBehaviour
                             {
                                 index++;
                             }
+                            
                         }
                     }
                         
