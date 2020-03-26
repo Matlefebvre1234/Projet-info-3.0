@@ -24,6 +24,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void GameOver()
+    {
+        SceneManager.LoadScene(8);
+    }
+
     IEnumerator LoadNiveau(int levelIndex)
     {
         transition.SetTrigger("Commencer");

@@ -9,6 +9,7 @@ public class Santé : MonoBehaviour
     public float armure = 1;
     public BarreSantee barreSante;
     private CreateurSalle createurSalle;
+    private SceneLoader scene;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,10 @@ public class Santé : MonoBehaviour
         if (FindObjectOfType<CreateurSalle>() != null)
         {
             createurSalle = FindObjectOfType<CreateurSalle>().GetComponent<CreateurSalle>();
+        }
+        if (FindObjectOfType<SceneLoader>() != null)
+        {
+            scene = FindObjectOfType<SceneLoader>().GetComponent<SceneLoader>();
         }
         santee = santeeMax;
         if(barreSante != null)
@@ -31,9 +36,11 @@ public class Santé : MonoBehaviour
             {
                 createurSalle.EnnemiesTuer();
             }
-
+            else
+            {
+                scene.GameOver();
+            }
             Destroy(gameObject);
-         
         }
     }
 
@@ -42,8 +49,9 @@ public class Santé : MonoBehaviour
    
         santee = santee - (qteAttaque/armure);
         if (barreSante != null)
+        {
             barreSante.SetSantee(santee);
-        //Debug.Log(santee);
+        }
     }
 
     public bool IsDead (bool b)
