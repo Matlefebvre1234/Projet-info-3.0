@@ -74,7 +74,7 @@ public class Bloob2 : MonoBehaviour
 
     private void SuivreChemin()
     {
-        Debug.Log(index);
+
         float distance = Vector2.Distance(transform.position, player.transform.position);
         if (chemin != null && distance > 0.55f)
         {
@@ -157,8 +157,18 @@ public class Bloob2 : MonoBehaviour
     {
 
 
-        if (collision.gameObject.tag == "Projectile") Destroy(gameObject);
+        
         if (collision.gameObject.tag == "Player") collision.gameObject.GetComponent<Santé>().attaque(dommage * Time.deltaTime);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Projectile")
+        {
+            Destroy(gameObject);
+            invocateur.BloobMeure();
+        }
+        
+
     }
 
 }

@@ -18,7 +18,7 @@ public class AppelTransparence : MonoBehaviour
 
         if (collision.gameObject.tag != "Mur" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "PiegeAuSol")
         {
-            Debug.Log(mur.Count);
+    
             for (int i = 0; i < mur.Count; i++)
             {
                 mur[i].transparenceTrue();

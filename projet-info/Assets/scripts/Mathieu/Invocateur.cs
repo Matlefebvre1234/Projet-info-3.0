@@ -22,6 +22,7 @@ public class Invocateur : MonoBehaviour
     public float santeMax = 100f;
     private float sante;
     private float dimCell;
+    private bool isTakingDommage  = false;
 
 
 
@@ -91,10 +92,11 @@ public class Invocateur : MonoBehaviour
     {
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance <= (nbCaseDistance * dimCell ))
+        if (distance <= (nbCaseDistance * dimCell ) || isTakingDommage ==true)
         {
             
             cheminAtteint = false;
+            isTakingDommage =false;
             pathfinding.limiteDistance = 0;
             if (pathfinding.getGrid() == null) Debug.Log("null");
             pathfinding.getGrid().GetXY(transform.position, out int x1, out int y1);
@@ -172,9 +174,15 @@ public class Invocateur : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.tag == "Projectile")
+        {
+
+            isTakingDommage = true;
+            EloignerPlayer();
+
+        }
     }
 }
 

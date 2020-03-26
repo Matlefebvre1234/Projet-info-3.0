@@ -23,7 +23,8 @@ public class Ghost : MonoBehaviour
     private float tempRapprochement = 0f;
     private bool tireEffectuer = false;
     private float dimCell;
-
+    private bool isTakingDommage = false;
+    
 
 
     List<MatNode> chemin;
@@ -62,6 +63,11 @@ public class Ghost : MonoBehaviour
             timeBeforeReaload = 0;
         }
         if (rapprochement == true) RapprochementPlayer();
+
+
+        
+
+
 
 
     }
@@ -118,6 +124,12 @@ public class Ghost : MonoBehaviour
                         tempRapprochement = 0f;
                     }
                 }
+                else
+                {
+                    obstacle = false;
+                    break;
+                }
+
 
             }
 
@@ -166,7 +178,7 @@ public class Ghost : MonoBehaviour
 
     private bool TireArcher()
     {
-        bool obstacle = false;
+        bool PasObstacle = false;
 
         Vector2 VecteurUnitaire = (Vector2)player.transform.position - (Vector2)transform.position;
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, VecteurUnitaire);
@@ -175,9 +187,9 @@ public class Ghost : MonoBehaviour
 
         Debug.DrawRay(transform.position, VecteurUnitaire, Color.red, 5f);
 
-        obstacle = DetecterLigneDeMire(ref obstacle, hit, ref playerhit, obstacleHit);
+        PasObstacle = DetecterLigneDeMire(ref PasObstacle, hit, ref playerhit, obstacleHit);
 
-        if (obstacle == true)
+        if (PasObstacle == true)
         {
             animator.SetBool("attack", true);
             Instantiate(projectile, transform.position, Quaternion.identity);
@@ -192,7 +204,7 @@ public class Ghost : MonoBehaviour
 
     }
 
-    private  bool DetecterLigneDeMire(ref bool obstacle, RaycastHit2D[] hit, ref RaycastHit2D playerhit, List<RaycastHit2D> obstacleHit)
+    private  bool DetecterLigneDeMire(ref bool PasObstacle, RaycastHit2D[] hit, ref RaycastHit2D playerhit, List<RaycastHit2D> obstacleHit)
     {
         for (int i = 0; i < hit.Length; i++)
         {
@@ -220,17 +232,23 @@ public class Ghost : MonoBehaviour
             {
                 if (playerhit.distance < obstacleHit[k].distance)
                 {
-                    obstacle = true; 
+                    PasObstacle = true;
                 }
+                else
+                {
+                    PasObstacle = false;
+                    return false;
+                }
+               
             }
 
         }
         else
         {
-            obstacle = true;
+            PasObstacle = true;
         }
 
-        if (obstacle == true) return true;
+        if (PasObstacle == true) return true;
         else return false;
     }
 
@@ -238,10 +256,11 @@ public class Ghost : MonoBehaviour
     {
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance <= (nbCaseDistance * dimCell))
+        if (distance <= (nbCaseDistance * dimCell)  || isTakingDommage == true)
         {
             animator.SetBool("isWalking", true);
             cheminAtteint = false;
+            isTakingDommage = false;
             pathfinding.limiteDistance = 0;
             pathfinding.getGrid().GetXY(transform.position, out int x1, out int y1);
             pathfinding.getGrid().GetXY(player.transform.position, out int x2, out int y2);
@@ -276,7 +295,7 @@ public class Ghost : MonoBehaviour
                     animator.SetBool("isWalking", false);
                     index = 0;
                     cheminAtteint = true;
-
+                    isTakingDommage = false;
                     tempRapprochement += 1 * Time.deltaTime;
                     if (tempRapprochement >= 3f) rapprochement = false;
                     tempRapprochement = 0;
@@ -318,6 +337,17 @@ public class Ghost : MonoBehaviour
     private void stopAttackAnimation()
     {
         animator.SetBool("attack", false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Projectile")
+        {
+
+            isTakingDommage = true;
+            EloignerPlayer();
+            
+        }
     }
 
 }

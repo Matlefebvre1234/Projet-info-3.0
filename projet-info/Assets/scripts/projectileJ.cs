@@ -29,7 +29,7 @@ public class projectileJ : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" && collision.gameObject.tag != "AttackEnnemies" && collision.gameObject.tag != "PlayerFoots")
         {
-            Debug.Log(collision.gameObject.tag);
+
             if (collision.gameObject.tag == "Enemy")
             {
      
