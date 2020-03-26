@@ -5,6 +5,7 @@ using UnityEngine;
 public class BruitsDePas : MonoBehaviour
 {
     Rigidbody2D bC;
+    public AudioSource aS;
 
     // Start is called before the first frame update
     void Start()
@@ -15,14 +16,14 @@ public class BruitsDePas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(bC.velocity.x != 0 && GetComponent<AudioSource>().isPlaying == false || bC.velocity.y != 0 && GetComponent<AudioSource>().isPlaying == false)
+        if(bC.velocity.x != 0 && GetComponent<AudioSource>().isPlaying == false || bC.velocity.y != 0 && aS.isPlaying == false)
         {
-            GetComponent<AudioSource>().Play();
+            aS.Play();
         }
 
         if (bC.velocity.x == 0 && bC.velocity.y == 0)
         {
-            GetComponent<AudioSource>().Stop();
+            aS.Stop();
         }
     }
 }

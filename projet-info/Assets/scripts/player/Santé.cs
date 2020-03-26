@@ -8,6 +8,7 @@ public class Santé : MonoBehaviour
     public float santee;
     public float armure = 1;
     public BarreSantee barreSante;
+    public AudioSource aS;
     private CreateurSalle createurSalle;
     private SceneLoader scene;
 
@@ -51,6 +52,11 @@ public class Santé : MonoBehaviour
         if (barreSante != null)
         {
             barreSante.SetSantee(santee);
+        }
+
+        if (aS.isPlaying == false)
+        {
+            aS.Play();
         }
     }
 
