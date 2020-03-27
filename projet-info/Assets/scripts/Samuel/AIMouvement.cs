@@ -109,11 +109,13 @@ public class AIMouvement : MonoBehaviour
                         Debug.Log(angleProj);
                         if ((angleProj > -20 && angleProj < 20))
                         {
+                            //(-1,1)
                             if ((dirX >= -1 && dirX < 0) && (dirY <= 1 && dirY > 0))
                             {
                                 esquiveX = -1f;
                                 esquiveY = -1f;
                             }
+                            //(-1,-1)
                             else if ((dirX >= -1 && dirX < 0) && (dirY >= -1 && dirY < 0))
                             {
                                 esquiveX = -1f;
@@ -127,16 +129,19 @@ public class AIMouvement : MonoBehaviour
                         }
                         else if (angleProj >= 20 && angleProj < 70)
                         {
+                            //(-1,1)
                             if ((dirX >= -1 && dirX < 0) && (dirY <= 1 && dirY > 0))
                             {
                                 esquiveX = -1f;
                                 esquiveY = -1f;
                             }
+                            //(0,-1)
                             else if(dirX == 0 && dirY == -1)
                             {
-                                esquiveX = 1f;
+                                esquiveX = -1f;
                                 esquiveY = 0f;
                             }
+                            //(-1,0)
                             else if(dirX == -1 && dirY == 0)
                             {
                                 esquiveX = 0f;
@@ -150,21 +155,60 @@ public class AIMouvement : MonoBehaviour
                         }
                         else if ((angleProj > 70 && angleProj < 110))
                         {
-                            esquiveX = 2f;
-                            esquiveY = 0f;
+                            //(0,-1)
+                            if(dirX == 0 && dirY == -1)
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 0f;
+                            }
+                            //(-1,-1)
+                            else if(dirX >= -1 && dirX < 0 && dirY >= -1 && dirY < 0)
+                            {
+                                esquiveX = -1f;
+                                esquiveY = 1f;
+                            }
+                            //(1,-1)
+                            else if ((dirX <= 1 && dirX > 0) && (dirY >= -1 && dirY < 0))
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 1f;
+                            }
                         }
                         else if (angleProj >= 110 && angleProj <= 160)
                         {
-                            esquiveX = 1.5f;
-                            esquiveY = 1.5f;
+                            //(1,-1)
+                            if ((dirX >= 1 && dirX < 0) && (dirY <= -1 && dirY > 0))
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 1f;
+                            }
+                            //(0,-1)
+                            else if (dirX == 0 && dirY == -1)
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 0f;
+                            }
+                            //(1,0)
+                            else if (dirX == 1 && dirY == 0)
+                            {
+                                esquiveX = 0f;
+                                esquiveY = -1f;
+                            }
+                            else
+                            {
+                                esquiveX = -1f;
+                                esquiveY = -1f;
+                            }
                         }
                         else if((angleProj > 160 || angleProj < -160))
                         {
+                            //(1,1)
                             if ((dirX <= 1 && dirX > 0) && (dirY <= 1 && dirY > 0))
                             {
                                 esquiveX = 1f;
                                 esquiveY = -1f;
                             }
+                            //(1,-1)
                             else if ((dirX <= 1 && dirX > 0) && (dirY >= -1 && dirY < 0))
                             {
                                 esquiveX = 1f;
@@ -178,18 +222,76 @@ public class AIMouvement : MonoBehaviour
                         }
                         else if (angleProj > -160 && angleProj < -110)
                         {
-                            esquiveX = -1.5f;
-                            esquiveY = 1.5f;
+                            //(1,1)
+                            if ((dirX >= 1 && dirX < 0) && (dirY <= -1 && dirY > 0))
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 1f;
+                            }
+                            //(0,1)
+                            else if (dirX == 0 && dirY == 1)
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 0f;
+                            }
+                            //(1,0)
+                            else if (dirX == 1 && dirY == 0)
+                            {
+                                esquiveX = 0f;
+                                esquiveY = 1f;
+                            }
+                            else
+                            {
+                                esquiveX = -1f;
+                                esquiveY = -1f;
+                            }
                         }
                         else if((angleProj > -110 && angleProj < -70))
                         {
-                            esquiveX = 2f;
-                            esquiveY = 0f;
+                            //(0,1)
+                            if (dirX == 0 && dirY == 1)
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 0f;
+                            }
+                            //(-1,1)
+                            else if (dirX >= -1 && dirX < 0 && dirY >= 1 && dirY < 0)
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 1f;
+                            }
+                            //(1,1)
+                            else if ((dirX <= 1 && dirX > 0) && (dirY >= 1 && dirY < 0))
+                            {
+                                esquiveX = -1f;
+                                esquiveY = 1f;
+                            }
                         }
                         else if (angleProj >= -70 && angleProj < -20)
                         {
-                            esquiveX = 1.5f;
-                            esquiveY = 1.5f;
+                            //(-1,1)
+                            if ((dirX >= -1 && dirX < 0) && (dirY <= 1 && dirY > 0))
+                            {
+                                esquiveX = -1f;
+                                esquiveY = -1f;
+                            }
+                            //(0,1)
+                            if (dirX == 0 && dirY == 1)
+                            {
+                                esquiveX = -1f;
+                                esquiveY = 0f;
+                            }
+                            //(-1,0)
+                            else if (dirX == -1 && dirY == 0)
+                            {
+                                esquiveX = 0f;
+                                esquiveY = 1f;
+                            }
+                            else
+                            {
+                                esquiveX = 1f;
+                                esquiveY = 1f;
+                            }
                         }
                         grid.GetPositionMapXY(new Vector2(cheminVecteur[index].x, cheminVecteur[index].y), out float x, out float y);
                         targetPosition = new Vector2(x + esquiveX, y + esquiveY);
