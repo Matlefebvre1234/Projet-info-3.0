@@ -455,6 +455,18 @@ PrefabInstance:
       propertyPath: listPrefabMonstres.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
+        type: 3}
+      propertyPath: listSalle.Array.data[2]
+      value: 
+      objectReference: {fileID: 3351278289461407827, guid: 4ec282e2c193eef4697f932b4e9831cf,
+        type: 3}
+    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
+        type: 3}
+      propertyPath: listSalle.Array.data[0]
+      value: 
+      objectReference: {fileID: 1097669372014180454, guid: f6ae8b4bd777895418d65bad0ee1d6e3,
+        type: 3}
     - target: {fileID: 4966780291379068880, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
       propertyPath: m_LocalPosition.x

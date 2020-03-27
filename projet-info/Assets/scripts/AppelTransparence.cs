@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class AppelTransparence : MonoBehaviour
 {
-    murTransparent[] mur;
+   public List<murTransparent> mur;
+
     void Start()
     {
-         mur = FindObjectsOfType<murTransparent>();
+      
 
     }
 
@@ -17,8 +18,8 @@ public class AppelTransparence : MonoBehaviour
 
         if (collision.gameObject.tag != "Mur" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "PiegeAuSol")
         {
-
-            for (int i = 0; i < mur.Length - 1; i++)
+    
+            for (int i = 0; i < mur.Count; i++)
             {
                 mur[i].transparenceTrue();
             }
@@ -29,11 +30,20 @@ public class AppelTransparence : MonoBehaviour
     {
         if (collision.gameObject.tag != "Mur" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "PiegeAuSol")
         {
-            for (int i = 0; i < mur.Length; i++)
+            for (int i = 0; i < mur.Count; i++)
             {
                 mur[i].transparenceFalse();
             }
         }
             
+    }
+
+    private void OnDestroy()
+    {
+     
+
+        mur.Clear();
+        
+        mur = null;
     }
 }

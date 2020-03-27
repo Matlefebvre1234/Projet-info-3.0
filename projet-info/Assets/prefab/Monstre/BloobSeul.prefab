@@ -186,7 +186,7 @@ MonoBehaviour:
   santee: 0
   armure: 1
   barreSante: {fileID: 0}
-  aS: {fileID: -1990806321274093420}
+  aS: {fileID: -8805382378237082062}
 --- !u!114 &-8746416800044385382
 MonoBehaviour:
   m_ObjectHideFlags: 0

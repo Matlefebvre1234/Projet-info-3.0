@@ -21,6 +21,9 @@ public class CreateurSalle : MonoBehaviour
     private ChangementNiveau porte;
    
     private bool AllEnnemySpawn = false;
+    private bool chargement = false;
+    private bool changerSalle = false;
+    float tempChargement = 0f;
 
 
 
@@ -37,8 +40,13 @@ public class CreateurSalle : MonoBehaviour
 
     private void Update()
     {
-        if (nBEnnemiesTotal <= 0 && AllEnnemySpawn) porte.porteOuverte = true;
-      
+        if (nBEnnemiesTotal <= 0 && AllEnnemySpawn)
+        {
+          
+            porte.porteOuverte = true;
+        }
+
+     //   if (chargement ==true) tempChargement = tempChargement + 1 * Time.deltaTime;
     }
     private void SpawnEnnemies()
     {
@@ -51,14 +59,7 @@ public class CreateurSalle : MonoBehaviour
 
 
     
-        for (int i =0;i<spawnPoints.Count;i++)
-        {
-            Debug.Log(spawnPoints[i].gameObject.name);
-
-
-
-
-        }
+        
         Debug.Log(spawnPoints.Count);
         do
         {
@@ -107,13 +108,19 @@ public class CreateurSalle : MonoBehaviour
         compteurDeSalleTotal++;
         compteurDeSalle++;
 
-       
+
         GameObject salle = GameObject.FindGameObjectWithTag("Salle");
         FindObjectOfType<GrilleMonstresMat>().DestroyGrid();
+        murTransparent[] a = FindObjectsOfType<murTransparent>();
+        foreach (murTransparent s in a)
+            GameObject.Destroy(s);
+      
+        chargement = true;
         Destroy(salle.gameObject);
-        
+
         CreerSalle();
 
+     
     }
 
     public void EnnemiesTuer()
@@ -122,6 +129,7 @@ public class CreateurSalle : MonoBehaviour
 
 
     }
+
 
     
 }
