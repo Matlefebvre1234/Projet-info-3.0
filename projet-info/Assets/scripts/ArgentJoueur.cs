@@ -21,4 +21,15 @@ public class ArgentJoueur : MonoBehaviour
         argentTexte.GetComponent<Text>().text = (argentJoueur.ToString());
         PlayerPrefs.SetInt("Argent Joueur", argentJoueur);
     }
+
+    public int GetArgent()
+    {
+        return argentJoueur;
+        Debug.Log(argentJoueur);
+    }
+
+    public void Achat(int cout)
+    {
+        argentJoueur -= cout;
+    }
 }
