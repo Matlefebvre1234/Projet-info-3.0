@@ -11,28 +11,13 @@ public class ArgentJoueur : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(argentJoueur != 0)
-        {
-            argentJoueur = PlayerPrefs.GetInt("Argent Joueur");
-            argentTexte.GetComponent<Text>().text = (argentJoueur.ToString());
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Argent Joueur", 0);
-        }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+       argentJoueur = PlayerPrefs.GetInt("Argent Joueur");
+       argentTexte.GetComponent<Text>().text = (argentJoueur.ToString());     
     }
 
     public void ArgentJoueurs(int argent)
     {
         argentJoueur += argent;
-        Debug.Log("argent = " + argentJoueur);
         argentTexte.GetComponent<Text>().text = (argentJoueur.ToString());
         PlayerPrefs.SetInt("Argent Joueur", argentJoueur);
     }
