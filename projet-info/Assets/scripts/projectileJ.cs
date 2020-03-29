@@ -12,6 +12,8 @@ public class projectileJ : MonoBehaviour
     private int dommage = 30;
     private GameObject joueur;
 
+    public GameObject joueurPlayer;
+
     private void Start()
     {
         joueur = GameObject.FindGameObjectWithTag("Player");
@@ -36,11 +38,24 @@ public class projectileJ : MonoBehaviour
                 Santé sante = collision.gameObject.GetComponent<Santé>();
                 if(sante !=null) sante.attaque(dommage);
 
+                if(sante.santee <= 0)
+                {
+                    Debug.Log("mort");
+                    joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
+                }
+
             }
+
             if(collision.gameObject.tag.Equals("Demon"))
             {
+                Debug.Log("mort");
                 Santé sante = collision.gameObject.GetComponent<Santé>();
                 sante.attaque(dommage);
+
+                if (sante.santee <= 0)
+                {
+                    joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
+                }
             }
 
             Destroy(gameObject);

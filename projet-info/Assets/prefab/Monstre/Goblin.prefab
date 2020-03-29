@@ -582,14 +582,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2357106970460322381}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b62daaa95e9f988478f5cef568899e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   montantArgent: 30
-  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
-    type: 3}
+  joueur: {fileID: 0}
 --- !u!114 &7554040872065097422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d8d71308364b647b5cdec8c41df80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulte: 2
+  difficulte: 1
 --- !u!82 &-6387431597740998280
 AudioSource:
   m_ObjectHideFlags: 0

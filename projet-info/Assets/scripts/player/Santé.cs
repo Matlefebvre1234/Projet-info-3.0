@@ -64,6 +64,7 @@ public class Santé : MonoBehaviour
     {
         if (santee == 0)
         {
+
             b = true;
         }
         else 

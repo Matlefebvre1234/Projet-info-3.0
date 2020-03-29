@@ -158,14 +158,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8946217496486968241}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b62daaa95e9f988478f5cef568899e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   montantArgent: 30
-  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
-    type: 3}
+  joueur: {fileID: 0}
 --- !u!82 &-1455932837945630448
 AudioSource:
   m_ObjectHideFlags: 0

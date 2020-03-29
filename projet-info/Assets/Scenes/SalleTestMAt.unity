@@ -238,6 +238,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2304424058863111254, guid: 0b242436c3c4a57449df6155b03a5cf7,
+        type: 3}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2304424059355825384, guid: 0b242436c3c4a57449df6155b03a5cf7,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -334,6 +339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Salle3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757060633713992827, guid: d1cbec90b88199441ae4cad29dc425ce,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6917784575845489156, guid: d1cbec90b88199441ae4cad29dc425ce,
         type: 3}
@@ -604,6 +614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SalleShop
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304710233988132210, guid: 70ca5374534d85e4da96e384d99a6113,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3467246080516412173, guid: 70ca5374534d85e4da96e384d99a6113,
         type: 3}
