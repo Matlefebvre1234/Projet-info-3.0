@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d8d71308364b647b5cdec8c41df80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulte: 0
+  difficulte: 2
 --- !u!82 &-6387431597740998280
 AudioSource:
   m_ObjectHideFlags: 0
