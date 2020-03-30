@@ -1334,6 +1334,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
+      propertyPath: listSalle.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
+        type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1595838327}
@@ -1366,6 +1371,27 @@ PrefabInstance:
       propertyPath: listSalle.Array.data[1]
       value: 
       objectReference: {fileID: 2785957152198676820, guid: 4ac1587b028490b41af6d5194fac0bc5,
+        type: 3}
+    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
+        type: 3}
+      propertyPath: Mine
+      value: Mine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
+        type: 3}
+      propertyPath: barricade
+      value: Barricade
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
+        type: 3}
+      propertyPath: "fl\xE8che"
+      value: AttackEnnemies
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
+        type: 3}
+      propertyPath: listSalle.Array.data[3]
+      value: 
+      objectReference: {fileID: 7364482325733609381, guid: 470a8ab82ef596f47a661c7597b1e578,
         type: 3}
     - target: {fileID: 4966780291379068880, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
