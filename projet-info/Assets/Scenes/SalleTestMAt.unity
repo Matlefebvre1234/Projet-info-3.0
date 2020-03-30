@@ -517,7 +517,7 @@ PrefabInstance:
     - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
       propertyPath: listPrefabMonstres.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
@@ -528,7 +528,8 @@ PrefabInstance:
         type: 3}
       propertyPath: listPrefabMonstres.Array.data[6]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9,
+        type: 3}
     - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
       propertyPath: listPrefabMonstres.Array.data[5]
@@ -539,13 +540,19 @@ PrefabInstance:
         type: 3}
       propertyPath: listSalle.Array.data[2]
       value: 
-      objectReference: {fileID: 3351278289461407827, guid: 4ec282e2c193eef4697f932b4e9831cf,
+      objectReference: {fileID: 1097669372014180454, guid: f6ae8b4bd777895418d65bad0ee1d6e3,
         type: 3}
     - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
       propertyPath: listSalle.Array.data[0]
       value: 
-      objectReference: {fileID: 1097669372014180454, guid: f6ae8b4bd777895418d65bad0ee1d6e3,
+      objectReference: {fileID: 3351278289461407827, guid: 4ec282e2c193eef4697f932b4e9831cf,
+        type: 3}
+    - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
+        type: 3}
+      propertyPath: listSalle.Array.data[1]
+      value: 
+      objectReference: {fileID: 2785957152198676820, guid: 4ac1587b028490b41af6d5194fac0bc5,
         type: 3}
     - target: {fileID: 4966780291379068880, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}
