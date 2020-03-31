@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7529237719538101617}
   - component: {fileID: 6941061662487497263}
   - component: {fileID: -3729466318318859230}
+  - component: {fileID: -6317370217056719824}
   m_Layer: 0
   m_Name: Lave
   m_TagString: PiegeAuSol
@@ -157,7 +158,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9ebd12a5a63856446a5ca36f02ccee0b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.003
+  m_Volume: 0.03
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -241,3 +242,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6317370217056719824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197009857954531005}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa74f1a069382ea42ad465f65a6f2f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSrc: {fileID: -3729466318318859230}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2311914656413302338}
   - component: {fileID: -7792511390484804844}
   - component: {fileID: 4044262392259367605}
+  - component: {fileID: -9198209463610881502}
   m_Layer: 9
   m_Name: projectilJoueur
   m_TagString: Projectile
@@ -242,3 +243,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-9198209463610881502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6811189300781629962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa74f1a069382ea42ad465f65a6f2f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSrc: {fileID: 4044262392259367605}

@@ -16,9 +16,9 @@ public class AIMouvement : MonoBehaviour
     private int index;
     public float vitesse = 2f;
     public Vector2 targetPosition;
+    public int fireDommage = 20;
 
     public Vector3 posJoueur;
-    private Vector3 lastPosDemon;
 
     private GameObject[] projectile;
 
@@ -34,10 +34,11 @@ public class AIMouvement : MonoBehaviour
     private float dirY;
     public LayerMask mask;
 
-    private float timer;
-
     public float sante = 30f;
-    
+
+    //Animation
+    public Animator animator;
+    private Vector3 gd;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,6 @@ public class AIMouvement : MonoBehaviour
         posJoueur = new Vector3();
         posJoueur = joueur.transform.position;
         domage = joueur.GetComponent<Santé>();
-        lastPosDemon = transform.position;
     }
 
     // Update is called once per frame
@@ -61,6 +61,9 @@ public class AIMouvement : MonoBehaviour
         grid.GetXY(transform.position, out int x, out int y);
         grid.GetXY(joueur.transform.position, out int x1, out int y1);
         projectile = GameObject.FindGameObjectsWithTag("Projectile");
+
+        gd = (joueur.transform.position - transform.position).normalized;
+        anim(gd);
 
         List<SamNode> chemin = samPathfinding.TrouverChemin(x, y, x1, y1);
             if (chemin != null)
@@ -101,12 +104,9 @@ public class AIMouvement : MonoBehaviour
                     distanceX = Mathf.Abs(projectile[k].transform.position.x - transform.position.x);
                     distanceY = Mathf.Abs(projectile[k].transform.position.y - transform.position.y);
                     angleProj = Mathf.Atan2(distanceY, distanceX) * Mathf.Rad2Deg;
-                    Debug.Log(direction);
 
                     if(distanceX <= 1.5 && distanceY <= 1.5)
-                    //if (Physics2D.Raycast(projectile[k].transform.position, mousePosition, 1.5f, mask) && ok == true)
                     {
-                        Debug.Log(angleProj);
                         if ((angleProj > -20 && angleProj < 20))
                         {
                             //(-1,1)
@@ -359,12 +359,21 @@ public class AIMouvement : MonoBehaviour
     {
         if (collision.collider.name.Equals("Joueur"))
         {
-            domage.attaque(20 * Time.deltaTime);
+            Debug.Log("hello");
+            animator.SetTrigger("attaque");
+            domage.attaque(fireDommage * Time.deltaTime);
         }
     }
 
-    public void ProjDestroy()
+    private void anim(Vector3 dir)
     {
-
+        if(dir.x >= 0)
+        {
+            animator.SetTrigger("droit");
+        }
+        else
+        {
+            animator.SetTrigger("gauche");
+        }
     }
 }
