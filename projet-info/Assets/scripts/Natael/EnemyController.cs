@@ -110,12 +110,13 @@ public class EnemyController : MonoBehaviour
 
         if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
         {
-            transform.GetComponent<Santé>().santee = 0;
+            //transform.GetComponent<Santé>().santee = 0;
 
             explosion.PlayDelayed(0.3f);
             //Explosion du bonhomme
             animator.SetBool("collision_Joueur", true);
             //explosion.Play();
+            Debug.Log("explose");
         }
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur") )
@@ -123,6 +124,7 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("collision_Joueur", false);
             player.GetComponent<Santé>().attaque(15);
             transform.gameObject.SetActive(false);
+            Debug.Log("explose fini");
         }
 
         if (pathIsEnd == false)
