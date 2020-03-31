@@ -21,12 +21,11 @@ public class GridMathias : MonoBehaviour
     //Constructeur d'une gille qui reçoit une largeur, une hauteur, la dimension de ses différentes cases, ainsi que son origine
     public GridMathias(int n_largeur, int n_hauteur, float n_dimCell, Vector3 n_origine)
     {
-
         largeur = n_largeur;
         hauteur = n_hauteur;
         dimCell = n_dimCell;
         origine = n_origine;
-        listeCases = new CheminMathias[largeur, hauteur];
+        listeCases = new CheminMathias[n_largeur, n_hauteur];
 
         //Listes des différentes cases que l'intelligence artificielle ne peut traverser à cause d'obstacles
         listeObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
@@ -43,7 +42,7 @@ public class GridMathias : MonoBehaviour
         }
 
         //Toutes les cases où il y a un osbtacle que l'intelligence artificielle ne peut pas traverser vont être étiquetées
-        for(int i = 0; i < listeObstacles.Length; i++)
+        /*for(int i = 0; i < listeObstacles.Length; i++)
         {
             GetXY(listeObstacles[i].transform.position, out positionXObs, out positionYObs);
             CheminMathias obstacles = GetGridObject(positionXObs, positionYObs);
@@ -55,7 +54,7 @@ public class GridMathias : MonoBehaviour
             GetXY(listeLave[i].transform.position, out positionXObs, out positionYObs);
             CheminMathias lave = GetGridObject(positionXObs, positionYObs);
             lave.SetObstacleTrue();
-        }
+        }*/
     }
 
     //Méthode qui transforme une position en Vector3 en valeur de x et de y qui correspondent à la grille créée
@@ -68,7 +67,7 @@ public class GridMathias : MonoBehaviour
     //Getter qui retourne une case selon sa position en x et en y dans la grille
     public CheminMathias GetGridObject(int x, int y)
     {
-            return listeCases[x, y];
+        return listeCases[x, y];
     }
     
     //Getter qui retourne la largeur de la grille
