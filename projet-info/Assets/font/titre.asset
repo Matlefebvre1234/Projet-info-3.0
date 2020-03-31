@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: titre
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 0, g: 0.6460433, b: 1, a: 1}
-  topRight: {r: 0, g: 0.64705884, b: 1, a: 1}
-  bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-  bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  topLeft: {r: 0.9056604, g: 0.5086114, b: 0.13243146, a: 1}
+  topRight: {r: 0.9811321, g: 0.0076951543, b: 0, a: 1}
+  bottomLeft: {r: 0.8113208, g: 0.42479536, b: 0.057404764, a: 1}
+  bottomRight: {r: 1, g: 0, b: 0, a: 1}

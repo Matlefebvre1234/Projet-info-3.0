@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 7787995814455802788}
   - component: {fileID: -5939410474739558142}
   - component: {fileID: -789613724665563164}
-  - component: {fileID: 8868400458260929773}
   - component: {fileID: 3838183313076418540}
   - component: {fileID: 6699828100404219006}
   - component: {fileID: 8611795719479096911}
@@ -205,21 +204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulte: 1
---- !u!114 &8868400458260929773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85124776774130177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b62daaa95e9f988478f5cef568899e1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  montantArgent: 30
-  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
-    type: 3}
 --- !u!82 &3838183313076418540
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5,27 +5,31 @@ using UnityEngine;
 
 public class ArgentJoueur : MonoBehaviour
 {
-    public int argentJoueur;
+    public int argentJoueur = 0;
 
     public GameObject argentTexte;
     // Start is called before the first frame update
     void Start()
     {
-        ////Permet de sauvegardé un float avec la clé Score float et le chiffre 30
-        //PlayerPrefs.SetFloat("Score float", 30);
-        //
-        ////Permet de sauvegardé un float avec la clé Score int et le chiffre 30
-        //PlayerPrefs.SetInt("Score int", 30);
-        //
-        ////Permet de sauvegardé un float avec la clé Texte et le string test
-        //PlayerPrefs.SetString("Texte", "test");
-
-        argentTexte.GetComponent<Text>().text = (argentJoueur.ToString());
+       argentJoueur = PlayerPrefs.GetInt("Argent Joueur");
+       argentTexte.GetComponent<Text>().text = (argentJoueur.ToString());     
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ArgentJoueurs(int argent)
     {
-        argentJoueur = PlayerPrefs.GetInt("Argent Joueur");
+        argentJoueur += argent;
+        argentTexte.GetComponent<Text>().text = (argentJoueur.ToString());
+        PlayerPrefs.SetInt("Argent Joueur", argentJoueur);
+    }
+
+    public int GetArgent()
+    {
+        return argentJoueur;
+        Debug.Log(argentJoueur);
+    }
+
+    public void Achat(int cout)
+    {
+        argentJoueur -= cout;
     }
 }

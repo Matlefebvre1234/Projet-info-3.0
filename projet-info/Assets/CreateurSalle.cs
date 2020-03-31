@@ -16,6 +16,7 @@ public class CreateurSalle : MonoBehaviour
     private GameObject spawnJoueur;
     private int difficulteMonstre;
     public GameObject Player;
+    //private int compteurDeSalleTotal = 0;
     private int compteurDeSalleTotal = 1;
     private int compteurDeSalle = 1;
     private ChangementNiveau porte;
@@ -24,6 +25,12 @@ public class CreateurSalle : MonoBehaviour
     private bool chargement = false;
     private bool changerSalle = false;
     float tempChargement = 0f;
+
+    public string Mine;
+
+    public string barricade;
+
+    public string flèche;
 
 
 
@@ -46,6 +53,10 @@ public class CreateurSalle : MonoBehaviour
             porte.porteOuverte = true;
         }
 
+        //if(compteurDeSalle > listSalle.Length)
+        //{
+        //    compteurDeSalle = 0;
+        //}
      //   if (chargement ==true) tempChargement = tempChargement + 1 * Time.deltaTime;
     }
     private void SpawnEnnemies()
@@ -93,6 +104,7 @@ public class CreateurSalle : MonoBehaviour
     {
         
         int nombreRandom = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, listSalle.Length -1));
+        //Instantiate(listSalle[compteurDeSalle]);
         Instantiate(listSalle[nombreRandom]);
         spawnJoueur = GameObject.FindGameObjectWithTag("SpawnJoueur");
         Player.transform.position = spawnJoueur.transform.position;
@@ -108,6 +120,17 @@ public class CreateurSalle : MonoBehaviour
         compteurDeSalleTotal++;
         compteurDeSalle++;
 
+        GameObject[] mine = GameObject.FindGameObjectsWithTag("Mine");
+        foreach (GameObject enemy in mine)
+            GameObject.Destroy(enemy);
+
+        GameObject[] barricade = GameObject.FindGameObjectsWithTag("Barricade");
+        foreach (GameObject enemy in barricade)
+            GameObject.Destroy(enemy);
+
+        GameObject[] fleche = GameObject.FindGameObjectsWithTag("AttackEnnemies");
+        foreach (GameObject enemy in fleche)
+            GameObject.Destroy(enemy);
 
         GameObject salle = GameObject.FindGameObjectWithTag("Salle");
         FindObjectOfType<GrilleMonstresMat>().DestroyGrid();

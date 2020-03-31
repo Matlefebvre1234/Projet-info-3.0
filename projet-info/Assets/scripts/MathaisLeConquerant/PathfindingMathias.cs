@@ -14,7 +14,7 @@ public class PathfindingMathias
     public static PathfindingMathias Instance { get; private set; }
 
     //Constructeur
-    public PathfindingMathias(int largeur, int hauteur)
+    public PathfindingMathias()
     {
         Instance = this;
         grille = GameObject.FindObjectOfType<GridMonstresMathias>().getGrid();

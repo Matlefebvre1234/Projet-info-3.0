@@ -54,10 +54,15 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Projectile")
         {
-            transform.GetComponent<Santé>().attaque(5);
+            //transform.GetComponent<Santé>().attaque(5);
 
             JoueurMort = transform.GetComponent<Santé>().IsDead(JoueurMort);
         }
+
+        //if(transform.GetComponent<Santé>().santee == 0)
+        //{
+        //    //mort
+        //}
 
         if (collision.gameObject.tag == "Barricade" && collision.gameObject.tag == "Mine" && collision.gameObject.tag == "Lave")
         {
@@ -76,13 +81,12 @@ public class EnemyController : MonoBehaviour
     {
         float position = transform.position.x;
 
-        if (JoueurMort == true)
-        {
-            transform.GetComponent<Santé>().santee = 0;
-            
-            transform.gameObject.SetActive(false);
-            
-        }
+        //if (JoueurMort == true)
+        //{
+        //    transform.GetComponent<Santé>().santee = 0;
+        //    
+        //    transform.gameObject.SetActive(false);
+        //}
 
         if (position < prevLocation.x)
         {

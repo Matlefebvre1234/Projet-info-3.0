@@ -12,6 +12,8 @@ public class projectileJ : MonoBehaviour
     private int dommage = 30;
     private GameObject joueur;
 
+    public GameObject joueurPlayer;
+
     private void Start()
     {
         joueur = GameObject.FindGameObjectWithTag("Player");
@@ -27,7 +29,7 @@ public class projectileJ : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" && collision.gameObject.tag != "AttackEnnemies" && collision.gameObject.tag != "PlayerFoots")
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" && collision.gameObject.tag != "AttackEnnemies" && collision.gameObject.tag != "PlayerFoots" && collision.gameObject.tag != "Mine")
         {
 
             if (collision.gameObject.tag == "Enemy")
@@ -36,11 +38,24 @@ public class projectileJ : MonoBehaviour
                 Santé sante = collision.gameObject.GetComponent<Santé>();
                 if(sante !=null) sante.attaque(dommage);
 
+                if(sante.santee <= 0)
+                {
+                    Debug.Log("mort");
+                    joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
+                }
+
             }
+
             if(collision.gameObject.tag.Equals("Demon"))
             {
+                Debug.Log("mort");
                 Santé sante = collision.gameObject.GetComponent<Santé>();
                 sante.attaque(dommage);
+
+                if (sante.santee <= 0)
+                {
+                    joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
+                }
             }
 
             Destroy(gameObject);

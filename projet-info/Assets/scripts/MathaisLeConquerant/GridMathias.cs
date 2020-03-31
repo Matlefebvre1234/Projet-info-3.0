@@ -21,16 +21,15 @@ public class GridMathias : MonoBehaviour
     //Constructeur d'une gille qui reçoit une largeur, une hauteur, la dimension de ses différentes cases, ainsi que son origine
     public GridMathias(int n_largeur, int n_hauteur, float n_dimCell, Vector3 n_origine)
     {
-
         largeur = n_largeur;
         hauteur = n_hauteur;
         dimCell = n_dimCell;
         origine = n_origine;
-        listeCases = new CheminMathias[largeur, hauteur];
+        listeCases = new CheminMathias[n_largeur, n_hauteur];
 
         //Listes des différentes cases que l'intelligence artificielle ne peut traverser à cause d'obstacles
         listeObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        listeLave = GameObject.FindGameObjectsWithTag("Lave");
+        listeLave = GameObject.FindGameObjectsWithTag("PiegeAuSol");
 
         //Création de toutes les cases nécessaires pour couvrir toute la grille, il sera ainsi possible de stocker toutes les informations dont nous avons besoin dans chaque case de la grille
         for (int x = 0; x < listeCases.GetLength(0); x++)
@@ -68,7 +67,7 @@ public class GridMathias : MonoBehaviour
     //Getter qui retourne une case selon sa position en x et en y dans la grille
     public CheminMathias GetGridObject(int x, int y)
     {
-            return listeCases[x, y];
+        return listeCases[x, y];
     }
     
     //Getter qui retourne la largeur de la grille

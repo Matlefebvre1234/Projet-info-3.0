@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 1072801828922124678}
   - component: {fileID: 8007575070597778337}
   - component: {fileID: -8746416800044385382}
-  - component: {fileID: 436567510343067638}
   - component: {fileID: -8805382378237082062}
   - component: {fileID: -1990806321274093420}
   - component: {fileID: -3008309834106524277}
@@ -203,21 +202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedInitial: 1
   dommage: 10
---- !u!114 &436567510343067638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6454676510594641627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b62daaa95e9f988478f5cef568899e1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  montantArgent: 30
-  argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
-    type: 3}
 --- !u!82 &-8805382378237082062
 AudioSource:
   m_ObjectHideFlags: 0

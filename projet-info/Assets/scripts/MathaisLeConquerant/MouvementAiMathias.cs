@@ -9,8 +9,6 @@ public class MouvementAiMathias : MonoBehaviour
     private int x;
     private int y;
 
-    public int largeur = 22;
-    public int hauteur = 14;
     public float vitesse = 0.001f;
 
     private float distanceMaxParcourue;
@@ -51,12 +49,12 @@ public class MouvementAiMathias : MonoBehaviour
     void Start()
     {
         
-        pathfinding = new PathfindingMathias(largeur, hauteur);
+        pathfinding = new PathfindingMathias();
         joueur = new GameObject();
         joueur = GameObject.FindGameObjectWithTag("Player");
         positionJoueur = joueur.transform.position;
 
-        grille = new GridMathias(largeur, hauteur, dimCell, origine);
+        grille = GameObject.FindObjectOfType<GridMonstresMathias>().getGrid();
         index = 1;
         anim = GetComponent<Animator>();
         anim.SetFloat("Vitesse", 1);

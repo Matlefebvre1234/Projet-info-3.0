@@ -38,7 +38,7 @@ public class fleche : MonoBehaviour
         {
             if (collision.gameObject.tag == "Player")
             {
-                joueur.GetComponent<Santé>().attaque(30f);
+                joueur.GetComponent<Santé>().attaque(10f);
             }
             Destroy(gameObject);
         }

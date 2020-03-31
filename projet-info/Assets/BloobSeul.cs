@@ -21,6 +21,7 @@ public class BloobSeul : MonoBehaviour
 
     GameObject player;
     bool cheminAtteint = false;
+    int conteur = 0;
 
     void Start()
     {
@@ -41,6 +42,15 @@ public class BloobSeul : MonoBehaviour
         speed = speedInitial;
         speed = speed * Time.deltaTime;
         RapprochementPlayer();
+
+        //if(transform.GetComponent<Santé>().santee == 0)
+        //{
+        //    if(conteur == 500)
+        //    {
+        //        Destroy(gameObject);
+        //    }
+        //}
+        //conteur++;
     }
 
 
@@ -156,9 +166,13 @@ public class BloobSeul : MonoBehaviour
    
     private void OnTriggerStay2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.tag == "Projectile")
+        {
+            //transform.GetComponent<Santé>().santee = 0;
 
-        if (collision.gameObject.tag == "Projectile") Destroy(gameObject);
+            Destroy(gameObject);
+        }
+
         if (collision.gameObject.tag == "Player") collision.gameObject.GetComponent<Santé>().attaque(dommage * Time.deltaTime);
     }
 

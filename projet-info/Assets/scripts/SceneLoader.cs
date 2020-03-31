@@ -6,12 +6,16 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public Animator transition;
+
+    
   
     public void ChargerprochaineScene()
     {
         int sceneActuelle = SceneManager.GetActiveScene().buildIndex;
 
         StartCoroutine(LoadNiveau(sceneActuelle));
+
+        PlayerPrefs.SetInt("Argent Joueur", 0);
     }
 
     public void QuitterJeu()
@@ -31,6 +35,7 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadNiveau(int levelIndex)
     {
+        
         transition.SetTrigger("Commencer");
 
         yield return new WaitForSeconds(1f);
@@ -41,7 +46,6 @@ public class SceneLoader : MonoBehaviour
     public int GetNumeroSalle()
     {
         return SceneManager.GetActiveScene().buildIndex - 1;
-
     }
 
 
