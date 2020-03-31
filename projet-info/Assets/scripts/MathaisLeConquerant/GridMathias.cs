@@ -30,7 +30,7 @@ public class GridMathias : MonoBehaviour
 
         //Listes des différentes cases que l'intelligence artificielle ne peut traverser à cause d'obstacles
         listeObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        listeLave = GameObject.FindGameObjectsWithTag("Lave");
+        listeLave = GameObject.FindGameObjectsWithTag("PiegeAuSol");
 
         //Création de toutes les cases nécessaires pour couvrir toute la grille, il sera ainsi possible de stocker toutes les informations dont nous avons besoin dans chaque case de la grille
         for (int x = 0; x < listeCases.GetLength(0); x++)
