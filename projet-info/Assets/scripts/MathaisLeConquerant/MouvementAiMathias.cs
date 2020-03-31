@@ -54,7 +54,7 @@ public class MouvementAiMathias : MonoBehaviour
         joueur = GameObject.FindGameObjectWithTag("Player");
         positionJoueur = joueur.transform.position;
 
-        grille = GameObject.FindObjectOfType<GridMonstresMathias>().getGrid(); ;
+        grille = GameObject.FindObjectOfType<GridMonstresMathias>().getGrid();
         index = 1;
         anim = GetComponent<Animator>();
         anim.SetFloat("Vitesse", 1);
