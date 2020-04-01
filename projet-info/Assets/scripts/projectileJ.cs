@@ -38,10 +38,14 @@ public class projectileJ : MonoBehaviour
                 Santé sante = collision.gameObject.GetComponent<Santé>();
                 if(sante !=null) sante.attaque(dommage);
 
-                if(sante.santee <= 0)
+                if (sante != null)
+                {
+                     
+                    if (sante.santee <= 0)
                 {
                     Debug.Log("mort");
                     joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
+                }
                 }
 
             }

@@ -33,11 +33,11 @@ public class Santé : MonoBehaviour
     {
         if (santee <= 0)
         {
-            if (gameObject.tag != "Player")
+            if (gameObject.tag != "Player" && gameObject.GetComponent<InvocateurInvoque>() == null)
             {
                 createurSalle.EnnemiesTuer();
             }
-            else
+            else if(gameObject.tag == "Player")
             {
                 scene.GameOver();
             }
@@ -54,9 +54,12 @@ public class Santé : MonoBehaviour
             barreSante.SetSantee(santee);
         }
 
+        if (aS != null)
+        { 
         if (aS.isPlaying == false)
         {
             aS.Play();
+        }
         }
     }
 

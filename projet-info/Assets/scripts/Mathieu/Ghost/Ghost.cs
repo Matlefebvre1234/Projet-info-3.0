@@ -15,7 +15,7 @@ public class Ghost : MonoBehaviour
     private PathfindingInverse pathfinding;
     private matPathfinding pathfingRapprochement;
     private SpriteRenderer spriterenderer;
-    private Animator animator;
+    private Animator animatorGhost;
     public GameObject projectile;
     public float reloadTime = 0.5f;
     private float timeBeforeReaload = 0;
@@ -40,8 +40,8 @@ public class Ghost : MonoBehaviour
         pathfinding = new PathfindingInverse();
         pathfingRapprochement = new matPathfinding();
         spriterenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-        animator.SetBool("isWalking", false);
+        if (gameObject.GetComponent<BossInvocateur>() == null) animatorGhost = GetComponent<Animator>();
+        //animatorGhost.SetBool("isWalking", false);
         player = GameObject.FindGameObjectWithTag("Player");
    
     }
@@ -78,7 +78,7 @@ public class Ghost : MonoBehaviour
     {
 
         bool obstacle = false;
-        animator.SetBool("isWalking", true);
+      //  animatorGhost.SetBool("isWalking", true);
         Vector2 VecteurUnitaire = (Vector2)player.transform.position - (Vector2)transform.position;
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, VecteurUnitaire);
         RaycastHit2D playerhit = new RaycastHit2D();
@@ -191,7 +191,7 @@ public class Ghost : MonoBehaviour
 
         if (PasObstacle == true)
         {
-            animator.SetBool("attack", true);
+           // animatorGhost.SetBool("attack", true);
             Instantiate(projectile, transform.position, Quaternion.identity);
             
             return true;
@@ -258,7 +258,7 @@ public class Ghost : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.transform.position);
         if (distance <= (nbCaseDistance * dimCell)  || isTakingDommage == true)
         {
-            animator.SetBool("isWalking", true);
+           // animatorGhost.SetBool("isWalking", true);
             cheminAtteint = false;
             isTakingDommage = false;
             pathfinding.limiteDistance = 0;
@@ -292,7 +292,7 @@ public class Ghost : MonoBehaviour
                 if (index >= chemin.Count)
                 {
                     chemin = null;
-                    animator.SetBool("isWalking", false);
+                    //animatorGhost.SetBool("isWalking", false);
                     index = 0;
                     cheminAtteint = true;
                     isTakingDommage = false;
@@ -336,7 +336,7 @@ public class Ghost : MonoBehaviour
 
     private void stopAttackAnimation()
     {
-        animator.SetBool("attack", false);
+       // animatorGhost.SetBool("attack", false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -148,8 +148,9 @@ public class Bloob2 : MonoBehaviour
 
     public void setInvocateur(GameObject idInvocateur)
     {
-
+       
         invocateur = idInvocateur.GetComponent<Invocateur>();
+
 
     }
 

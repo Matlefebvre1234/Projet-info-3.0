@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VecteurUnitaire: {x: 0, y: 0}
-  speed: 4
+  speed: 5
   joueurPlayer: {fileID: 2568601779054897030, guid: c99d7fb6d3f65974898e72911ecf96e4,
     type: 3}
 --- !u!61 &-7792511390484804844

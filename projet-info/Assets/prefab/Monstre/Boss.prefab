@@ -12,9 +12,12 @@ GameObject:
   - component: {fileID: 4967871209221516710}
   - component: {fileID: -6828051115361031632}
   - component: {fileID: -4969199614137076261}
+  - component: {fileID: 1912633242716848490}
+  - component: {fileID: 8620555497053803001}
+  - component: {fileID: 4387767017286178392}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,3 +133,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1912633242716848490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4967871209221516709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c578e11b2502a5439acca68096e1859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nbCaseDistance: 16
+  speedInitial: 3
+  projectile: {fileID: 512506182707668497, guid: 9b301e67ee456624e856459911b1bc20,
+    type: 3}
+  reloadTime: 0.5
+--- !u!114 &8620555497053803001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4967871209221516709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74359a900fb90154b9a8bb0357b46dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TempTotalTransition: 10
+  energyShield: {fileID: 0}
+--- !u!114 &4387767017286178392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4967871209221516709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a73a3bf9230be468491c958433fa73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  reloadTime: 0.5
+  InvocateurInvoque: {fileID: 6587148250379735335, guid: 6e36e150356c8a941a11dea623283ae7,
+    type: 3}
+  nombreMaxInvocateur: 2
+  nombreInvocateurPresent: 0
+  spawnPoints: []
