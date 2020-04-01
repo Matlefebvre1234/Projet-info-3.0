@@ -7,18 +7,20 @@ public class CreateurSalle : MonoBehaviour
 
 {
 
-    public int nbCompteurEnnemiesTotal;
+    private int nbCompteurEnnemiesTotal;
     public int nBEnnemiesTotal = 0;
     private int compteurEnnemies = 0;
     [SerializeField] GameObject[] listSalle;
     [SerializeField] GameObject[] listSalleBoss;
+    [SerializeField] GameObject SalleShop;
+
     public GameObject[] listPrefabMonstres;
     private GameObject spawnJoueur;
     private int difficulteMonstre;
     public GameObject Player;
     //private int compteurDeSalleTotal = 0;
     private int compteurDeSalleTotal = 1;
-    private int compteurDeSalle = 1;
+    public int compteurDeSalle = 1;
     private ChangementNiveau porte;
    
     private bool AllEnnemySpawn = false;
@@ -49,15 +51,21 @@ public class CreateurSalle : MonoBehaviour
     {
         if (nBEnnemiesTotal <= 0 && AllEnnemySpawn)
         {
-          
+           
             porte.porteOuverte = true;
         }
 
-        //if(compteurDeSalle > listSalle.Length)
-        //{
-        //    compteurDeSalle = 0;
-        //}
-     //   if (chargement ==true) tempChargement = tempChargement + 1 * Time.deltaTime;
+       if(Input.GetKeyDown(KeyCode.K))
+        {
+            GameObject[] list = GameObject.FindGameObjectsWithTag("Enemy");
+            nBEnnemiesTotal = 0;
+            
+            for(int i =0;i< list.Length;i++)
+            {
+
+                Destroy(list[i].gameObject);
+            }
+}
     }
     private void SpawnEnnemies()
     {
@@ -71,7 +79,7 @@ public class CreateurSalle : MonoBehaviour
 
     
         
-        Debug.Log(spawnPoints.Count);
+      
         do
         {
             int nbRandom = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, listPrefabMonstres.Length -1));
@@ -96,25 +104,62 @@ public class CreateurSalle : MonoBehaviour
         foreach (GameObject s in spawn)
             GameObject.Destroy(s);
 
-        Debug.Log(spawnPoints.Count);
+
+
         AllEnnemySpawn = true;
     }
 
     private void CreerSalle()
     {
-        
-        int nombreRandom = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, listSalle.Length -1));
-        //Instantiate(listSalle[compteurDeSalle]);
-        Instantiate(listSalle[nombreRandom]);
+       
+  
+        Debug.Log("creer salle");
+        if(compteurDeSalle == 5)
+        {
+           
+
+            Instantiate(SalleShop);
+            nBEnnemiesTotal = 0;
+            AllEnnemySpawn = true;
+        }
+        else if( compteurDeSalle == 10)
+        {
+            
+            int n = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, listSalleBoss.Length - 1));
+            //Instantiate(listSalle[compteurDeSalle]);
+            Instantiate(listSalleBoss[n]);
+            nBEnnemiesTotal = 1;
+            AllEnnemySpawn = true;
+        }
+        else if (compteurDeSalle == 11)
+        {
+            
+            
+            Instantiate(SalleShop);
+            compteurDeSalle = 1;
+            nBEnnemiesTotal = 0;
+            AllEnnemySpawn = true;
+        }
+        else if(compteurDeSalle != 5 && compteurDeSalle != 10 && compteurDeSalle != 11  )
+        {
+            int nombreRandom = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, listSalle.Length - 1));
+            //Instantiate(listSalle[compteurDeSalle]);
+            Instantiate(listSalle[nombreRandom]);
+            SpawnEnnemies();
+        }
+     
+
         spawnJoueur = GameObject.FindGameObjectWithTag("SpawnJoueur");
         Player.transform.position = spawnJoueur.transform.position;
         porte = FindObjectOfType<ChangementNiveau>().GetComponent<ChangementNiveau>();
+        
 
 
-        SpawnEnnemies();
+
     }
     public void ProchainNiveau()
     {
+        Debug.Log("prochain niveau");
         AllEnnemySpawn = false;
        
         compteurDeSalleTotal++;

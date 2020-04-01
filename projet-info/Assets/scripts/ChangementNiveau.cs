@@ -7,6 +7,10 @@ public class ChangementNiveau : MonoBehaviour
 {
     public bool porteOuverte;
     private CreateurSalle createurSalle;
+    
+    private float porteTemps = 0f;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -15,10 +19,14 @@ public class ChangementNiveau : MonoBehaviour
         {
             createurSalle = FindObjectOfType<CreateurSalle>().GetComponent<CreateurSalle>();
         }
+
+   
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (porteOuverte) createurSalle.ProchainNiveau();
     }
+
+  
 }

@@ -54,6 +54,8 @@ MonoBehaviour:
   listSalleBoss:
   - {fileID: 1104329288659725580, guid: 282aa376b1891d341a7bc1092d3cdfe9, type: 3}
   - {fileID: 6990308266291455171, guid: 070e5b6ff3a8f3f499246498a895e166, type: 3}
+  SalleShop: {fileID: 2304710233988132210, guid: 70ca5374534d85e4da96e384d99a6113,
+    type: 3}
   listPrefabMonstres:
   - {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9, type: 3}
   - {fileID: 4736680147268650905, guid: 3bd449b9be49a8a40962362882109588, type: 3}
