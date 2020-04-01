@@ -17,6 +17,7 @@ public class AIMouvement : MonoBehaviour
     public float vitesse = 2f;
     public Vector2 targetPosition;
     public int fireDommage = 20;
+    private Vector3 lastPos;
 
     public Vector3 posJoueur;
 
@@ -53,6 +54,7 @@ public class AIMouvement : MonoBehaviour
         posJoueur = new Vector3();
         posJoueur = joueur.transform.position;
         domage = joueur.GetComponent<Santé>();
+        lastPos = transform.position;
     }
 
     // Update is called once per frame
@@ -63,7 +65,12 @@ public class AIMouvement : MonoBehaviour
         projectile = GameObject.FindGameObjectsWithTag("Projectile");
 
         gd = (joueur.transform.position - transform.position).normalized;
-        anim(gd);
+        if(lastPos != transform.position)
+        {
+            lastPos = transform.position;
+            anim(gd);
+        }
+        
 
         List<SamNode> chemin = samPathfinding.TrouverChemin(x, y, x1, y1);
             if (chemin != null)
