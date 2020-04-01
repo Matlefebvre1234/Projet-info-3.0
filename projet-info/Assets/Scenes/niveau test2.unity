@@ -326,8 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62daaa95e9f988478f5cef568899e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  montantArgent: 15
-  argentTexte: {fileID: 0}
 --- !u!1 &571630800
 GameObject:
   m_ObjectHideFlags: 0
