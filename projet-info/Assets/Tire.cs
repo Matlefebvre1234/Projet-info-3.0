@@ -24,7 +24,7 @@ public class Tire : MonoBehaviour
         {
             animator.SetBool("isFire", true);
             animator.SetTrigger("Fire");
-            //Debug.Log(transform.rotation.eulerAngles.z);
+
             if (transform.rotation.eulerAngles.z.Equals(90))
             {
                 Instantiate(fleche, transform.position, Quaternion.Euler(0f, 0f, 90f));

@@ -102,11 +102,13 @@ MonoBehaviour:
   cheminVecteur: []
   vitesse: 2
   targetPosition: {x: 0, y: 0}
+  fireDommage: 20
   posJoueur: {x: 0, y: 0, z: 0}
   mask:
     serializedVersion: 2
     m_Bits: 0
   sante: 30
+  animator: {fileID: 0}
 --- !u!114 &-5459092798125126850
 MonoBehaviour:
   m_ObjectHideFlags: 0

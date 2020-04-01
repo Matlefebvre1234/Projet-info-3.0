@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Grid
+public class Grid : MonoBehaviour
 {
 
-    private int largeur;
-    private int hauteur;
+    public int largeur;
+    public int hauteur;
     private Vector3 origine;
-    private float dimCell;
+    public float dimCell;
     private SamNode[,] listNode;
     private GameObject[] obstacle;
     private GameObject[] tour;

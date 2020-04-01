@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GridMonstresMathias : MonoBehaviour
 {
-    public int hauteur = 14;
-    public int largeur = 22;
+    public int hauteur;
+    public int largeur;
     public float dimentions = 0.5f;
     public static Vector3 origine = new Vector3(8, 1);
     static GridMathias grille;

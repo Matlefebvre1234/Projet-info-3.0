@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: -789613724665563164}
   - component: {fileID: 3838183313076418540}
   - component: {fileID: 6699828100404219006}
+  - component: {fileID: 8611795719479096911}
+  - component: {fileID: 2082076312959605560}
   m_Layer: 0
   m_Name: plante
   m_TagString: Enemy
@@ -394,6 +396,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8611795719479096911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85124776774130177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa74f1a069382ea42ad465f65a6f2f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSrc: {fileID: 3838183313076418540}
+--- !u!114 &2082076312959605560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85124776774130177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa74f1a069382ea42ad465f65a6f2f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSrc: {fileID: 6699828100404219006}
 --- !u!1001 &85124777633091597
 PrefabInstance:
   m_ObjectHideFlags: 0

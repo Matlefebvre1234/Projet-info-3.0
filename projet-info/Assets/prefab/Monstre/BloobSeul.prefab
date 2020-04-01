@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: -8746416800044385382}
   - component: {fileID: -8805382378237082062}
   - component: {fileID: -1990806321274093420}
+  - component: {fileID: -3008309834106524277}
+  - component: {fileID: 508990133503293151}
   m_Layer: 0
   m_Name: BloobSeul
   m_TagString: Enemy
@@ -392,3 +394,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3008309834106524277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454676510594641627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa74f1a069382ea42ad465f65a6f2f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSrc: {fileID: -8805382378237082062}
+--- !u!114 &508990133503293151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454676510594641627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa74f1a069382ea42ad465f65a6f2f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSrc: {fileID: -1990806321274093420}

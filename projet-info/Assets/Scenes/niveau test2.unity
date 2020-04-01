@@ -326,8 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62daaa95e9f988478f5cef568899e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  montantArgent: 15
-  argentTexte: {fileID: 0}
 --- !u!1 &571630800
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +532,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1099437604}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &793557954
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793557953}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2f8914a92ec6d264e9c0352b88f00c33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &793557959
 Rigidbody2D:
   serializedVersion: 4
@@ -654,6 +671,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5459092798125126850, guid: a9bb1bf330086d9439c788bf0b4de6f6,
+        type: 3}
+      propertyPath: santee
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4086382197090020001, guid: a9bb1bf330086d9439c788bf0b4de6f6,
         type: 3}
       propertyPath: m_SortingOrder
@@ -662,7 +684,7 @@ PrefabInstance:
     - target: {fileID: 4915480746151337054, guid: a9bb1bf330086d9439c788bf0b4de6f6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.61
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4915480746151337054, guid: a9bb1bf330086d9439c788bf0b4de6f6,
         type: 3}
@@ -719,6 +741,11 @@ PrefabInstance:
       propertyPath: mask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 8888762944390445554, guid: a9bb1bf330086d9439c788bf0b4de6f6,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 793557954}
     - target: {fileID: 8946217496486968241, guid: a9bb1bf330086d9439c788bf0b4de6f6,
         type: 3}
       propertyPath: m_Name
@@ -799,7 +826,7 @@ PrefabInstance:
     - target: {fileID: 2568601779054897033, guid: c99d7fb6d3f65974898e72911ecf96e4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.22
+      value: 12.54
       objectReference: {fileID: 0}
     - target: {fileID: 2568601779054897033, guid: c99d7fb6d3f65974898e72911ecf96e4,
         type: 3}
