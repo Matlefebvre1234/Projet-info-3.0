@@ -238,6 +238,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2304424057771203923, guid: 0b242436c3c4a57449df6155b03a5cf7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2304424058863111254, guid: 0b242436c3c4a57449df6155b03a5cf7,
         type: 3}
       propertyPath: m_Text
@@ -1252,6 +1257,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CreateurSalle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171364604941401486, guid: 16e91abb2d52efc4b87affee0e4a6853,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4430874226810861966, guid: 16e91abb2d52efc4b87affee0e4a6853,
         type: 3}

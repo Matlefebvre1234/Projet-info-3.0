@@ -19,7 +19,6 @@ public class EffetSonores : MonoBehaviour
     {
         audioSrc.volume = effetsVol;
         PlayerPrefs.SetFloat("effetsSonores", effetsVol);
-       // Debug.Log(effetsVol);
     }
 
     public void SetVolume(float vol)
