@@ -209,9 +209,9 @@ public class EnemyController : MonoBehaviour
                     if (obstacle == false)
                     {
                         int x = Random.Range(0, 10);
-                        if (x < 3 || x > 7)
+                        if (x < 4 || x > 6)
                         {
-                            if (x == 0 || x == 4 || x == 10)
+                            if (x == 0 || x == 4 || x == 6 || x == 8 || x == 10)
                             {
                                 Instantiate(Mine, transform.position, Quaternion.identity);
                             }
