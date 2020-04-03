@@ -461,7 +461,7 @@ MonoBehaviour:
   speed: 0.01
   animator: {fileID: 2568601779959560500}
   explosion: {fileID: 8227810122539400034}
-  barricade: {fileID: 2777253171143086055, guid: 28ea0d96a37622b428ed623b5d54e4e2,
+  barricade: {fileID: 3468437022814260918, guid: 2a5b870bf66861e48b6d4521def3e71c,
     type: 3}
   Mine: {fileID: 4219315139489888049, guid: 96e390fee440350489eb1cc369578238, type: 3}
 --- !u!114 &2568601779959560505
