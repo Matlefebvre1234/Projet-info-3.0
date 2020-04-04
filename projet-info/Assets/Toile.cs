@@ -16,7 +16,7 @@ public class Toile : MonoBehaviour
         if(collision.tag == "Player")
         {
             mouv.vitesseJoueur = mouv.vitesseJoueur / division;
-        }        
+        }         
     }
 
     private void OnTriggerExit2D(Collider2D collision)
