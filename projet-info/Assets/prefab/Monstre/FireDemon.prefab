@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: -5459092798125126850}
   - component: {fileID: -8059484772822861044}
   - component: {fileID: -1455932837945630448}
-  m_Layer: 0
+  - component: {fileID: 793557959}
+  - component: {fileID: 793557954}
+  m_Layer: 10
   m_Name: FireDemon
   m_TagString: Demon
   m_Icon: {fileID: 0}
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: dcae63d554b214343a33a83768feef05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -106,9 +108,9 @@ MonoBehaviour:
   posJoueur: {x: 0, y: 0, z: 0}
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   sante: 30
-  animator: {fileID: 0}
+  animator: {fileID: 793557954}
 --- !u!114 &-5459092798125126850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   santeeMax: 100
-  santee: 0
+  santee: 60
   armure: 1
   barreSante: {fileID: 0}
   aS: {fileID: -1455932837945630448}
@@ -136,7 +138,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.015643328, y: -0.031286873}
@@ -248,3 +250,43 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &793557959
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8946217496486968241}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!95 &793557954
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8946217496486968241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2f8914a92ec6d264e9c0352b88f00c33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

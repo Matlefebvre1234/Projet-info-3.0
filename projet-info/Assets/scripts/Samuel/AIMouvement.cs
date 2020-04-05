@@ -65,7 +65,7 @@ public class AIMouvement : MonoBehaviour
         projectile = GameObject.FindGameObjectsWithTag("Projectile");
 
         gd = (joueur.transform.position - transform.position).normalized;
-        if(lastPos != transform.position)
+        //if(lastPos != transform.position)
         {
             lastPos = transform.position;
             anim(gd);
@@ -374,13 +374,19 @@ public class AIMouvement : MonoBehaviour
 
     private void anim(Vector3 dir)
     {
-        if(dir.x >= 0)
+        if(dir.x > 0)
         {
             animator.SetTrigger("droit");
+            animator.SetTrigger("walking");
+        }
+        else if(dir.x < 0)
+        {
+            animator.SetTrigger("gauche");
+            animator.SetTrigger("walking");
         }
         else
         {
-            animator.SetTrigger("gauche");
+            animator.SetTrigger("aucun");
         }
     }
 }
