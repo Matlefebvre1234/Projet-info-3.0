@@ -51,11 +51,11 @@ public class CanvasPrincipal : MonoBehaviour
     {
         if(GameIsPaused)
         {
-            GameIsPaused = false;
+            Resume();
         }
         else
         {
-            GameIsPaused = true;
+            Pause();
         }
         
     }

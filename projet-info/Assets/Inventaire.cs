@@ -40,6 +40,14 @@ public class Inventaire : MonoBehaviour
                 Pause();
             }
         }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //GameIsPaused = true;
+
+            //Resume();
+        }
+
+       
     }
 
     public void Resume()
