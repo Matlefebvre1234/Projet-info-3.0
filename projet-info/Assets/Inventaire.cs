@@ -21,12 +21,14 @@ public class Inventaire : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        argentTexte.gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("Argent Joueur").ToString();
+        //argentTexte.gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("Argent Joueur").ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
+        argentTexte.gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("Argent Joueur").ToString();
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (GameIsPaused)
