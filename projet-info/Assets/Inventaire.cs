@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,7 +28,7 @@ public class Inventaire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        argentTexte.gameObject.GetComponent<Text>().text = PlayerPrefs.GetInt("Argent Joueur").ToString();
+        argentTexte.gameObject.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("Argent Joueur").ToString();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

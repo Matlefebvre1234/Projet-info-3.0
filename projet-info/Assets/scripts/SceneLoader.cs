@@ -33,6 +33,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(8);
     }
 
+    public void Inventaire()
+    {
+        SceneManager.LoadScene(9);
+    }
+
     IEnumerator LoadNiveau(int levelIndex)
     {
         
