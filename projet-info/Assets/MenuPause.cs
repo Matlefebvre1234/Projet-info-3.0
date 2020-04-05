@@ -11,10 +11,12 @@ public class MenuPause : MonoBehaviour
 
     public GameObject MenuPauseUI;
 
+    public GameObject MenuInventaire;
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && MenuInventaire.activeSelf == false)
         {
             if(GameIsPaused)
             {
@@ -49,7 +51,7 @@ public class MenuPause : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        SceneManager.LoadScene(nomMenu);
+        //SceneManager.LoadScene(nomMenu);
     }
 
     public void QuitterJeu()

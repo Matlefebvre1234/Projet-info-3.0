@@ -169,8 +169,8 @@ public class CreateurSalle : MonoBehaviour
         foreach (GameObject enemy in mine)
             GameObject.Destroy(enemy);
 
-        GameObject[] barricade = GameObject.FindGameObjectsWithTag("Barricade");
-        foreach (GameObject enemy in barricade)
+        GameObject[] toile = GameObject.FindGameObjectsWithTag("PiegeAuSol");
+        foreach (GameObject enemy in toile)
             GameObject.Destroy(enemy);
 
         GameObject[] fleche = GameObject.FindGameObjectsWithTag("AttackEnnemies");
