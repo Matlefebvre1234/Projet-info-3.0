@@ -119,7 +119,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e80f7f32659ef5e41ae3ed04efd8bc46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f1df23dc2c2b6408aa4365f443907b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  argentJoueur: 0
+  argentJoueur: 480
   argentTexte: {fileID: 4065652973847753328, guid: 9f752ff81e9e05e4e8489afa47a88774,
     type: 3}
 --- !u!82 &3445069153961576737
