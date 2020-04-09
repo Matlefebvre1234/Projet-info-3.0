@@ -170,11 +170,15 @@ MonoBehaviour:
   joueur: {fileID: 0}
   demon: {fileID: 0}
   cheminVecteur: []
-  index: 0
   vitesse: 2
   targetPosition: {x: 0, y: 0}
+  fireDommage: 20
   posJoueur: {x: 0, y: 0, z: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   sante: 30
+  animator: {fileID: 0}
 --- !u!50 &123012288
 Rigidbody2D:
   serializedVersion: 4
@@ -1273,6 +1277,7 @@ MonoBehaviour:
   santee: 0
   armure: 1
   barreSante: {fileID: 0}
+  aS: {fileID: 0}
 --- !u!1 &2115686553
 GameObject:
   m_ObjectHideFlags: 0

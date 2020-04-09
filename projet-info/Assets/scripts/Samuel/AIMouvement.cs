@@ -46,7 +46,6 @@ public class AIMouvement : MonoBehaviour
     {
         grid = new Grid(largeur, hauteur, dimCell, origine);
         samPathfinding = new SamPathfinding(largeur, hauteur, dimCell, origine);
-        demon = GameObject.FindGameObjectWithTag("Demon");
         joueur = GameObject.FindGameObjectWithTag("Player");
         cheminVecteur = new List<Vector3>();
         index = 0;
