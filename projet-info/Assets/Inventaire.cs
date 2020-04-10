@@ -9,13 +9,30 @@ public class Inventaire : MonoBehaviour
 
     public static bool GameIsPaused = false;
 
-    public GameObject nomObjet1;
-    public GameObject nomObjet2;
-    public GameObject nomObjet3;
-
     public GameObject argentTexte;
 
     Text txt;
+
+    //Stop all sounds
+    private AudioSource[] allAudioSources;
+
+    void StopAllAudio()
+    {
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach (AudioSource audioS in allAudioSources)
+        {
+            audioS.Stop();
+        }
+    }
+
+    void PlaypAllAudio()
+    {
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach (AudioSource audioS in allAudioSources)
+        {
+            audioS.Play();
+        }
+    }
 
     public GameObject MenuInventaireUI;
 
