@@ -25,7 +25,10 @@ public class ChangementNiveau : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (porteOuverte) createurSalle.ProchainNiveau();
+        if (porteOuverte && collider.tag == "Player")
+        {
+            createurSalle.ProchainNiveau();
+        }
     }
 
   
