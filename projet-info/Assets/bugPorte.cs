@@ -8,6 +8,7 @@ public class bugPorte : MonoBehaviour
     private float temp =0f;
     public ChangementNiveau porte;
 
+
   
     // Update is called once per frame
     void Update()

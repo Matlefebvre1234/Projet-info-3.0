@@ -13,6 +13,8 @@ public class MenuPause : MonoBehaviour
 
     public GameObject MenuInventaire;
 
+    public GameObject createurSalle;
+
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +34,7 @@ public class MenuPause : MonoBehaviour
     public void Resume()
     {
         MenuPauseUI.SetActive(false);
+        createurSalle.SetActive(true);
 
         Time.timeScale = 1f;
 
@@ -41,6 +44,7 @@ public class MenuPause : MonoBehaviour
     void Pause()
     {
         MenuPauseUI.SetActive(true);
+        createurSalle.SetActive(false);
 
         Time.timeScale = 0f;
 
@@ -51,8 +55,9 @@ public class MenuPause : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        //SceneManager.LoadScene(nomMenu);
+        SceneManager.LoadScene(nomMenu);
     }
+
 
     public void QuitterJeu()
     {

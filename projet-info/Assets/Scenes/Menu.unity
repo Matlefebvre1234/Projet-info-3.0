@@ -4119,6 +4119,7 @@ MonoBehaviour:
   panelOption: {fileID: 88782185}
   menuInventaire: {fileID: 1862400379}
   menuPrincipal: {fileID: 1796619267}
+  menuObjet: {fileID: 563945880}
 --- !u!1 &1862400379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3548937000591268145, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d,
