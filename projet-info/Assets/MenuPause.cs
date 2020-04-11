@@ -16,7 +16,7 @@ public class MenuPause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && MenuInventaire.activeSelf == false)
+        if(Input.GetKeyDown(KeyCode.Escape) /*&& MenuInventaire.activeSelf == false*/)
         {
             if(GameIsPaused)
             {
@@ -59,4 +59,13 @@ public class MenuPause : MonoBehaviour
         Application.Quit();
     }
 
+    public void BoutonPause()
+    {
+        Pause();
+    }
+
+    public void Option()
+    {
+
+    }
 }

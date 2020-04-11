@@ -5,9 +5,7 @@ using UnityEngine;
 public class CanvasPrincipal : MonoBehaviour
 {
     public GameObject sacDos;
-
     public static bool GameIsPaused = false;
-
     public GameObject MenuInventaireUI;
 
     // Start is called before the first frame update
