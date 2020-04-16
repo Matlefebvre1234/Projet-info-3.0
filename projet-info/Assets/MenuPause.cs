@@ -10,15 +10,14 @@ public class MenuPause : MonoBehaviour
     public string nomMenu;
 
     public GameObject MenuPauseUI;
-
     public GameObject MenuInventaire;
-
     public GameObject createurSalle;
+    public GameObject paneauOption;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) /*&& MenuInventaire.activeSelf == false*/)
+        if(Input.GetKeyDown(KeyCode.Escape) && MenuInventaire.activeSelf == false)
         {
             if(GameIsPaused)
             {
@@ -33,12 +32,12 @@ public class MenuPause : MonoBehaviour
 
     public void Resume()
     {
-        MenuPauseUI.SetActive(false);
-        createurSalle.SetActive(true);
+            MenuPauseUI.SetActive(false);
+            createurSalle.SetActive(true);
 
-        Time.timeScale = 1f;
+            Time.timeScale = 1f;
 
-        GameIsPaused = false;
+            GameIsPaused = false;
     }
 
     void Pause()
@@ -71,6 +70,7 @@ public class MenuPause : MonoBehaviour
 
     public void Option()
     {
+        paneauOption.SetActive(true);
 
     }
 }
