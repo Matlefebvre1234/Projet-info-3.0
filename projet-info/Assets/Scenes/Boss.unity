@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -322,11 +322,15 @@ MonoBehaviour:
   joueur: {fileID: 0}
   demon: {fileID: 0}
   cheminVecteur: []
-  index: 0
   vitesse: 2
   targetPosition: {x: 0, y: 0}
+  fireDommage: 20
   posJoueur: {x: 0, y: 0, z: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   sante: 30
+  animator: {fileID: 0}
 --- !u!50 &181604713
 Rigidbody2D:
   serializedVersion: 4
@@ -676,6 +680,7 @@ MonoBehaviour:
   santee: 0
   armure: 1
   barreSante: {fileID: 0}
+  aS: {fileID: 0}
 --- !u!1001 &1251861349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1156,5 +1161,15 @@ PrefabInstance:
       propertyPath: barreSante
       value: 
       objectReference: {fileID: 831571605}
+    - target: {fileID: 7951187529289861231, guid: 282aa376b1891d341a7bc1092d3cdfe9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951187529289861231, guid: 282aa376b1891d341a7bc1092d3cdfe9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 282aa376b1891d341a7bc1092d3cdfe9, type: 3}
