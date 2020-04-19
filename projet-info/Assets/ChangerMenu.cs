@@ -37,13 +37,13 @@ public class ChangerMenu : MonoBehaviour
         {
             panelOption.SetActive(true);
             gameObject.SetActive(false);
-            createurSalle.SetActive(false);
+            //createurSalle.SetActive(false);
         }
         else
         {
             panelOption.SetActive(false);
             gameObject.SetActive(true);
-            createurSalle.SetActive(true);
+            //createurSalle.SetActive(true);
         }
 
 
@@ -55,13 +55,13 @@ public class ChangerMenu : MonoBehaviour
         {
             menuInventaire.SetActive(true);
             menuPrincipal.SetActive(false);
-            createurSalle.SetActive(false);
+            //createurSalle.SetActive(false);
         }
         else
         {
             menuInventaire.SetActive(false);
             menuPrincipal.SetActive(true);
-            createurSalle.SetActive(true);
+            //createurSalle.SetActive(true);
 
         }
     }
@@ -72,13 +72,13 @@ public class ChangerMenu : MonoBehaviour
         {
             menuObjet.SetActive(true);
             menuPrincipal.SetActive(false);
-            createurSalle.SetActive(false);
+            //createurSalle.SetActive(false);
         }
         else
         {
             menuObjet.SetActive(false);
             menuPrincipal.SetActive(true);
-            createurSalle.SetActive(true);
+            //createurSalle.SetActive(true);
         }
 
 

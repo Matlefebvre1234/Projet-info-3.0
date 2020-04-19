@@ -33,7 +33,7 @@ public class MenuPause : MonoBehaviour
     public void Resume()
     {
             MenuPauseUI.SetActive(false);
-            createurSalle.SetActive(true);
+            //createurSalle.SetActive(true);
 
             Time.timeScale = 1f;
 
@@ -43,7 +43,7 @@ public class MenuPause : MonoBehaviour
     void Pause()
     {
         MenuPauseUI.SetActive(true);
-        createurSalle.SetActive(false);
+        //createurSalle.SetActive(false);
 
         Time.timeScale = 0f;
 
@@ -71,6 +71,5 @@ public class MenuPause : MonoBehaviour
     public void Option()
     {
         paneauOption.SetActive(true);
-
     }
 }
