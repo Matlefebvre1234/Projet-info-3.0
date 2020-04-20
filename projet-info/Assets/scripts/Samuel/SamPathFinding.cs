@@ -12,19 +12,22 @@ public class SamPathfinding
     private List<SamNode> listeOuverte;
     private List<SamNode> listeFerme;
 
-    public SamPathfinding(int largeur, int hauteur, float dimCell, Vector3 origine)
+    public static SamPathfinding Instance { get; private set; }
+
+    public SamPathfinding()
     {
-        grid = new Grid(largeur, hauteur, dimCell, origine);
+        Instance = this;
+        grid = GameObject.FindObjectOfType<GridDemon>().getGrid();
     }
 
     public List<SamNode> TrouverChemin(int debutX, int debutY, int finX, int finY)
     {
         SamNode caseDebut = grid.GetGridObject(debutX, debutY);
         SamNode caseFin = grid.GetGridObject(finX, finY);
+        Debug.Log(caseFin);
 
         listeOuverte = new List<SamNode> { caseDebut };
         listeFerme = new List<SamNode>();
-        
 
         for (int x = 0; x < grid.GetLargueur(); x++)
         {
@@ -181,6 +184,7 @@ public class SamPathfinding
     
     private int CalculDistance(SamNode a, SamNode b)
     {
+        Debug.Log(b.x);
         int distanceX = Mathf.Abs(a.x - b.x);
         int distanceY = Mathf.Abs(a.y - b.y);
         int restant = Mathf.Abs(distanceX - distanceY);

@@ -326,9 +326,6 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0}
   fireDommage: 20
   posJoueur: {x: 0, y: 0, z: 0}
-  mask:
-    serializedVersion: 2
-    m_Bits: 0
   sante: 30
   animator: {fileID: 0}
 --- !u!50 &181604713
@@ -1173,3 +1170,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 282aa376b1891d341a7bc1092d3cdfe9, type: 3}
+--- !u!1 &1104329288434306571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8661770228963446686, guid: 282aa376b1891d341a7bc1092d3cdfe9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1104329288434306570}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1104329288434306572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104329288434306571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f01daf7d00c194da9626b5284eaeb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hauteur: 27
+  largeur: 42
+  dimentions: 0.5

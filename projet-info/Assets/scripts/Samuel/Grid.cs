@@ -9,25 +9,22 @@ public class Grid : MonoBehaviour
 
     public int largeur;
     public int hauteur;
-    private Vector3 origine;
-    public float dimCell;
+    private Vector3 origine = new Vector3(8,1);
+    public float dimCell = 0.5f;
     private SamNode[,] listNode;
     private GameObject[] obstacle;
     private GameObject[] tour;
     private GameObject[] lave;
-
-    public Grid(int n_largeur, int n_hauteur, float n_dimCell, Vector3 n_origine)
+    
+    public Grid(int m_hauteur, int m_largeur)
     {
-        largeur = n_largeur;
-        hauteur = n_hauteur;
-        dimCell = n_dimCell;
-        origine = n_origine;
-        listNode = new SamNode[largeur, hauteur];
-
-
         obstacle = GameObject.FindGameObjectsWithTag("Obstacle");
         tour = GameObject.FindGameObjectsWithTag("Tour");
         lave = GameObject.FindGameObjectsWithTag("Lave");
+        largeur = m_largeur;
+        hauteur = m_hauteur;
+
+        listNode = new SamNode[largeur, hauteur];
 
         for (int x = 0; x < listNode.GetLength(0); x++)
         {

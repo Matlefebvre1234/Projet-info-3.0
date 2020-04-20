@@ -5,7 +5,7 @@ using UnityEngine;
 //Represente une case dans la grille
 public class SamNode
 {
-    private Grid grid;
+    private GridDemon grid;
     public int x;
     public int y;
 
@@ -18,7 +18,7 @@ public class SamNode
 
     public bool obstacle;
 
-    public SamNode(Grid m_grid, int m_x, int m_y)
+    public SamNode(GridDemon m_grid, int m_x, int m_y)
     {
         grid = m_grid;
         x = m_x;

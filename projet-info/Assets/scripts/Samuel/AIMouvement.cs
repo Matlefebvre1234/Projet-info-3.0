@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class AIMouvement : MonoBehaviour
 {
-    private int hauteur = 14;
-    private int largeur = 22;
-    private float dimCell = 0.5f;
-    private Vector3 origine = new Vector3(8, 1);
     private Grid grid;
     public GameObject joueur;
     public SamPathfinding samPathfinding;
@@ -33,8 +29,6 @@ public class AIMouvement : MonoBehaviour
     private Vector3 direction;
     private float dirX;
     private float dirY;
-    public LayerMask mask;
-
     public float sante = 30f;
 
     //Animation
@@ -44,15 +38,15 @@ public class AIMouvement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        grid = new Grid(largeur, hauteur, dimCell, origine);
-        samPathfinding = new SamPathfinding(largeur, hauteur, dimCell, origine);
+        grid = GameObject.FindObjectOfType<GridDemon>().getGrid();
+        samPathfinding = new SamPathfinding();
         joueur = GameObject.FindGameObjectWithTag("Player");
         cheminVecteur = new List<Vector3>();
         index = 0;
         cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
         posJoueur = new Vector3();
         posJoueur = joueur.transform.position;
-        domage = joueur.GetComponent<Santé>();
+        domage = joueur.transform.GetComponent<Santé>();
         lastPos = transform.position;
     }
 
@@ -72,25 +66,25 @@ public class AIMouvement : MonoBehaviour
         
 
         List<SamNode> chemin = samPathfinding.TrouverChemin(x, y, x1, y1);
-            if (chemin != null)
+        if (chemin != null)
+        {
+            for (int i = 0; i < chemin.Count - 1; i++)
             {
-                for (int i = 0; i < chemin.Count - 1; i++)
-                {
-                    //Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * dimCell + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 5f);
-                }
+                //Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * dimCell + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 5f);
             }
+        }
 
-            if (grid.GetVector(posJoueur) != grid.GetVector(joueur.transform.position))
-            {
-                cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
-                posJoueur = joueur.transform.position;
-                index = 1;
-                Mouvement();
-            }
-            else
-            {
-                Mouvement();
-            }
+        if (grid.GetVector(posJoueur) != grid.GetVector(joueur.transform.position))
+        {
+            cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
+            posJoueur = joueur.transform.position;
+            index = 1;
+            Mouvement();
+        }
+        else
+        {
+            Mouvement();
+        }
     }
 
     private void Mouvement()
@@ -365,7 +359,6 @@ public class AIMouvement : MonoBehaviour
     {
         if (collision.collider.name.Equals("Joueur"))
         {
-            Debug.Log("hello");
             animator.SetTrigger("attaque");
             domage.attaque(fireDommage * Time.deltaTime);
         }
