@@ -5493,7 +5493,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridSam
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2773108787291744660, guid: 3dbe402d22806ec4c8f5bc8666162ec7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3dbe402d22806ec4c8f5bc8666162ec7, type: 3}
 --- !u!4 &6779420516111237962 stripped
 Transform:

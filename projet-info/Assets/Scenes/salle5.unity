@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -382,3 +382,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6ae8b4bd777895418d65bad0ee1d6e3, type: 3}
+--- !u!1 &2052787026813359980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4542797650897612608, guid: f6ae8b4bd777895418d65bad0ee1d6e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2052787026813359979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2052787026813359981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052787026813359980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f01daf7d00c194da9626b5284eaeb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hauteur: 19
+  largeur: 27
+  dimentions: 0.5
