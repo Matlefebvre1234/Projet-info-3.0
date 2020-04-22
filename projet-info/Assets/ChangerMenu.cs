@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ChangerMenu : MonoBehaviour
 {
-   public GameObject panelOption;
-   public GameObject menuInventaire;
+    public GameObject panelOption;
+    public GameObject menuInventaire;
     public GameObject menuPrincipal;
     public GameObject menuObjet;
     public GameObject createurSalle;
