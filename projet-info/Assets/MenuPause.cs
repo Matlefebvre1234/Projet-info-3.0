@@ -59,11 +59,12 @@ public class MenuPause : MonoBehaviour
         SceneManager.LoadScene(nomMenu);
     }
 
-    public void RetourInventaire()
+    public void Retour()
     {
         if (MenuPauseUI.activeSelf.Equals(true))
         {
             MenuInventaire.SetActive(false);
+            paneauOption.SetActive(false);
         }
         else
         {
