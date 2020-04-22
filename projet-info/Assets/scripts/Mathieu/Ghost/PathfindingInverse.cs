@@ -71,15 +71,16 @@ public class PathfindingInverse
 
     }
 
-
+    //Trouve le chemin le éloigner entre un noeud de départ et le noeuds d'arrivé
     public List<MatNode> FindPath(int startX, int startY, int endX, int endY)
     {
-        MatNode startNode = grid.GetGridObject(startX, startY);
-        MatNode endNode = grid.GetGridObject(endX, endY);
+        MatNode startNode = grid.GetGridObject(startX, startY);//noeud de départ
+        MatNode endNode = grid.GetGridObject(endX, endY); //noeud de d'arriver
 
         openList = new List<MatNode> { startNode };
         closeList = new List<MatNode>();
 
+        //Initialisation de tous les noeuds
         for (int x = 0; x < grid.GetLargueur(); x++)
         {
             for (int y = 0; y < grid.GetHauteur(); y++)
@@ -97,9 +98,10 @@ public class PathfindingInverse
         startNode.Hcost = CalculerLaDistanceEntreNode(startNode, endNode);
         startNode.CalculerFcost();
 
+        //Algorithme 
         while (openList.Count > 0)
         {
-            MatNode NodeActuelle = CalculerPlusGrandHcost(openList);
+            MatNode NodeActuelle = CalculerPlusGrandHcost(openList); // Noeud avec le plus grand H de l'openList
             limiteDistance++;
 
             if (limiteDistance >= Random.Range(35f,50f)) return CalculerCheminDeNode(NodeActuelle); //fin de la recherche
@@ -109,8 +111,10 @@ public class PathfindingInverse
             openList.Remove(NodeActuelle);
             closeList.Add(NodeActuelle);
 
+            //Pour chaque noeud autour du noeud actuelle
             foreach (MatNode nodeVoisine in GetNodeVoisin(NodeActuelle))
             {
+                //Vérifie si le noeud voisin est dans la close list ou un obstacle
                 if (closeList.Contains(nodeVoisine)) continue;
                 if (nodeVoisine.obstacle == true)
                 {
@@ -118,7 +122,7 @@ public class PathfindingInverse
                     continue;
                 }
 
-
+                //Recalculer les Variables F ,G ,H pour chaque noeud voisin 
                 int tempGcost = NodeActuelle.Gcost + CalculerLaDistanceEntreNode(NodeActuelle, nodeVoisine);
                 if (tempGcost < nodeVoisine.Gcost)
                 {

@@ -7,17 +7,15 @@ public class matPathfinding
     private const int COUT_MOUVEMENT_DROIT = 10;
     private const int COUT_MOUVEMENT_DIAGONAL = 14;
 
-
-    public float dimCell = 0.5f;
-    private Vector3 origine = new Vector3(8, 1);
-    private MatGrid grid;
+    //Initialisation des variable
+    public float dimCell = 0.5f;  //Dimension de chaque case de la grille
+    private Vector3 origine = new Vector3(8, 1); //décalage par rapport à l'origine
+    private MatGrid grid; //grille de noeuds
     private List<MatNode> openList;
     private List<MatNode> closeList;
-    private int n_largeur = 22;
-    private int n_hauteur = 14;
-    
 
 
+    //constructeur
     public matPathfinding()
     {
 
@@ -25,14 +23,16 @@ public class matPathfinding
 
     }
 
+    //Trouve le chemin le plus court entre un noeud de départ et le noeuds d'arrivé
     public List<MatNode> FindPath(int startX,int startY,int endX,int endY)
     {
-        MatNode startNode = grid.GetGridObject(startX, startY);
-        MatNode endNode = grid.GetGridObject(endX, endY);
+        MatNode startNode = grid.GetGridObject(startX, startY); //noeud de départ
+        MatNode endNode = grid.GetGridObject(endX, endY); // noeud d'Arrivé
 
         openList = new List<MatNode> { startNode };
         closeList = new List<MatNode>();
 
+        //Initialisation de tous les noeuds
         for(int x =0;x < grid.GetLargueur();x++)
         {
             for(int y =0;y<grid.GetHauteur(); y++)
@@ -49,26 +49,20 @@ public class matPathfinding
         startNode.Hcost = CalculerLaDistanceEntreNode(startNode, endNode);
         startNode.CalculerFcost();
 
+        //Algorithme 
         while (openList.Count > 0)
         {
-            //Debug.Log(openList.Count);
+            MatNode NodeActuelle = CalculerLowerFcost(openList); // Noeud avec le plus petit F de l'openList
 
-            MatNode NodeActuelle = CalculerLowerFcost(openList);
+            if (NodeActuelle == endNode) return CalculerPathNode(endNode); //fin de la recherche 
 
-            //Debug.Log(NodeActuelle.x + ", " + NodeActuelle.y);
-
-            if (NodeActuelle == endNode) return CalculerPathNode(endNode); //fin de la recherche
-
-          
-            
                 openList.Remove(NodeActuelle);
                 closeList.Add(NodeActuelle);
 
+            //Pour chaque noeud autour du noeud actuelle
             foreach (MatNode nodeVoisine in GetNodeVoisin(NodeActuelle))
             {
-
-                
-
+                //Vérifie si le noeud voisin est dans la close list ou un obstacle
                 if (closeList.Contains(nodeVoisine)) continue;
                 if(nodeVoisine.obstacle == true)
                 {
@@ -76,6 +70,7 @@ public class matPathfinding
                     continue;
                 }
 
+                //Recalculer les Variables F ,G ,H pour chaque noeud voisin 
                 int tempGcost = NodeActuelle.Gcost + CalculerLaDistanceEntreNode(NodeActuelle, nodeVoisine);
                 if (tempGcost < nodeVoisine.Gcost)
                 {
@@ -97,31 +92,31 @@ public class matPathfinding
         return null;
     }
 
-
+    //Obtenir tous les noeuds autour du noeud actuelle
     private List<MatNode> GetNodeVoisin(MatNode nodeActuelle)
     {
         List<MatNode> neighbourList = new List<MatNode>();
         if (nodeActuelle.x - 1 >= 0)
         {
-            // Left
+            // gauche
             neighbourList.Add(grid.GetGridObject(nodeActuelle.x - 1, nodeActuelle.y));
-            // Left Down
+            // gauche en bas
             if (nodeActuelle.y - 1 >= 0) neighbourList.Add(grid.GetGridObject(nodeActuelle.x - 1, nodeActuelle.y - 1));
-            // Left Up
+            // gauche en haut
             if (nodeActuelle.y + 1 < grid.GetHauteur()) neighbourList.Add(grid.GetGridObject(nodeActuelle.x - 1, nodeActuelle.y + 1));
         }
         if (nodeActuelle.x + 1 < grid.GetLargueur())
         {
-            // Right
+            // droite
             neighbourList.Add(grid.GetGridObject(nodeActuelle.x + 1, nodeActuelle.y));
-            // Right Down
+            // droite bas
             if (nodeActuelle.y - 1 >= 0) neighbourList.Add(grid.GetGridObject(nodeActuelle.x + 1, nodeActuelle.y - 1));
-            // Right Up
+            // droite haut
             if (nodeActuelle.y + 1 < grid.GetHauteur()) neighbourList.Add(grid.GetGridObject(nodeActuelle.x + 1, nodeActuelle.y + 1));
         }
-        // Down
+        // bas
         if (nodeActuelle.y - 1 >= 0) neighbourList.Add(grid.GetGridObject(nodeActuelle.x, nodeActuelle.y - 1));
-        // Up
+        // haut
         if (nodeActuelle.y + 1 < grid.GetHauteur()) neighbourList.Add(grid.GetGridObject(nodeActuelle.x, nodeActuelle.y + 1));
 
         return neighbourList;
@@ -129,6 +124,7 @@ public class matPathfinding
 
     }
 
+    //Retourne le chemin le plus court
     public List<MatNode> CalculerPathNode(MatNode endNode)
     {
         List<MatNode> chemin = new List<MatNode>();
@@ -145,6 +141,7 @@ public class matPathfinding
     
     }
 
+    //Calcul la distance entre les noeuds (H)
     private int CalculerLaDistanceEntreNode(MatNode a, MatNode b)
     {
         int DistanceX = Mathf.Abs(a.x - b.x);
@@ -152,24 +149,20 @@ public class matPathfinding
         int restant = Mathf.Abs(DistanceX - DistanceY);
         return COUT_MOUVEMENT_DIAGONAL * Mathf.Min(DistanceX, DistanceY) + COUT_MOUVEMENT_DROIT * restant;
     }
-
+    
+    //retourne le noeud de l'openlist avec le plus petit F
     private MatNode CalculerLowerFcost(List<MatNode> listNode)
     {
         MatNode lowerFCostNode = listNode[0];
-        //Debug.Log(lowerFCostNode.Fcost);
 
         for (int i = 0; i < listNode.Count; i++)
         {
             if (listNode[i].Fcost < lowerFCostNode.Fcost)
             {
-                //Debug.Log(listNode[i].Fcost);
-                //Debug.Log(lowerFCostNode.Fcost);
                 lowerFCostNode = listNode[i];
             }
         
         }
-
-        //Debug.Log(lowerFCostNode.x + ", " + lowerFCostNode.y);
 
         return lowerFCostNode;
     }
