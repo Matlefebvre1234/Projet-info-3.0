@@ -64,7 +64,7 @@ public class EnemyController : MonoBehaviour
         //    //mort
         //}
 
-        if (collision.gameObject.tag == "Barricade" && collision.gameObject.tag == "Mine" && collision.gameObject.tag == "Lave")
+        if (collision.gameObject.tag == "Barricade" && collision.gameObject.tag == "Mine" && collision.gameObject.tag == "PiegeAuSol")
         {
             obstacle = true;
             //Debug.Log("obstacle = true");
