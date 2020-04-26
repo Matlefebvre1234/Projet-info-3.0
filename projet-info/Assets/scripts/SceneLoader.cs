@@ -30,7 +30,7 @@ public class SceneLoader : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene("GameOver");
     }
 
     public void Inventaire()
