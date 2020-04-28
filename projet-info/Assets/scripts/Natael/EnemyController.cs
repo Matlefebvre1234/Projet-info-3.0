@@ -97,6 +97,8 @@ public class EnemyController : MonoBehaviour
             explosion.PlayDelayed(0.3f);
             //Explosion du bonhomme
             animator.SetBool("collision_Joueur", true);
+            transform.GetComponent<Santé>().IsDead(true);
+            transform.GetComponent<Santé>().santee = 0;
             Debug.Log("explose");
 
             player.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
@@ -106,8 +108,6 @@ public class EnemyController : MonoBehaviour
         {
             animator.SetBool("collision_Joueur", false);
             player.GetComponent<Santé>().attaque(15);
-            transform.GetComponent<Santé>().IsDead(true);
-            transform.GetComponent<Santé>().santee = 0;
             Debug.Log("explose fini");
             Destroy(gameObject);
         }
