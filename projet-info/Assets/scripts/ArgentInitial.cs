@@ -6,8 +6,14 @@ using UnityEngine;
 
 public class ArgentInitial : MonoBehaviour
 {
+
+    public void Start()
+    {
+        
+    }
+
     public void Update()
     {
-        transform.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("Argent Joueur").ToString();
+        transform.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("Argent Joueur Skin").ToString();
     }
 }

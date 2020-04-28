@@ -15,7 +15,7 @@ public class SceneLoader : MonoBehaviour
 
         StartCoroutine(LoadNiveau(sceneActuelle));
 
-        //PlayerPrefs.SetInt("Argent Joueur", 0);
+        PlayerPrefs.SetInt("Argent Joueur", 0);
     }
 
     public void QuitterJeu()
