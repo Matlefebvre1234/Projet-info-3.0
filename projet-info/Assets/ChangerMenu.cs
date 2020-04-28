@@ -9,7 +9,9 @@ public class ChangerMenu : MonoBehaviour
     public GameObject menuPrincipal;
     public GameObject menuObjet;
     public GameObject createurSalle;
-
+    public GameObject menuInfo;
+    public GameObject menuCommande;
+    public GameObject menuBestiaire;
     public static bool GameIsPaused = false;
 
     private void Update()
@@ -78,6 +80,58 @@ public class ChangerMenu : MonoBehaviour
         {
             menuObjet.SetActive(false);
             menuPrincipal.SetActive(true);
+            //createurSalle.SetActive(true);
+        }
+
+
+    }
+
+    public void changerMenuInfo()
+    {
+        if (!menuInfo.activeSelf)
+        {
+            menuInfo.SetActive(true);
+            menuPrincipal.SetActive(false);
+            //createurSalle.SetActive(false);
+        }
+        else
+        {
+            menuInfo.SetActive(false);
+            menuPrincipal.SetActive(true);
+            //createurSalle.SetActive(true);
+        }
+
+
+    }
+    public void changerMenuCommande()
+    {
+        if (!menuCommande.activeSelf)
+        {
+            menuCommande.SetActive(true);
+            menuInfo.SetActive(false);
+            //createurSalle.SetActive(false);
+        }
+        else
+        {
+            menuCommande.SetActive(false);
+            menuInfo.SetActive(true);
+            //createurSalle.SetActive(true);
+        }
+
+
+    }
+    public void changerMenuBestiaire()
+    {
+        if (!menuBestiaire.activeSelf)
+        {
+            menuBestiaire.SetActive(true);
+            menuInfo.SetActive(false);
+            //createurSalle.SetActive(false);
+        }
+        else
+        {
+            menuBestiaire.SetActive(false);
+            menuInfo.SetActive(true);
             //createurSalle.SetActive(true);
         }
 
