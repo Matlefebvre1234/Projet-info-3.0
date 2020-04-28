@@ -25,6 +25,8 @@ TagManager:
   - Spawn
   - Salle
   - SpawnJoueur
+  - EnergyShield
+  - Lance-Flamme
   layers:
   - Default
   - TransparentFX

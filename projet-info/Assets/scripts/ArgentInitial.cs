@@ -1,11 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ArgentInitial : MonoBehaviour
 {
-    public void ArgentZero()
+
+    public void Start()
     {
-        PlayerPrefs.SetInt("Argent Joueur", 0);
+        
+    }
+
+    public void Update()
+    {
+        transform.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("Argent Joueur Skin").ToString();
     }
 }

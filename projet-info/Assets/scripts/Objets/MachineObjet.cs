@@ -26,6 +26,8 @@ public class MachineObjet : MonoBehaviour
 
             argent = argent - cout;
 
+            Debug.Log("argent machine = " + argent);
+
             PlayerPrefs.SetInt("Argent Joueur", argent);
         }
     }

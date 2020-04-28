@@ -207,6 +207,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1308856843396996448, guid: 0b242436c3c4a57449df6155b03a5cf7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2184357569999021329, guid: 0b242436c3c4a57449df6155b03a5cf7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -406,6 +411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265256676581583828, guid: 0b242436c3c4a57449df6155b03a5cf7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b242436c3c4a57449df6155b03a5cf7, type: 3}
@@ -1367,6 +1377,14 @@ PrefabInstance:
       propertyPath: barreSante
       value: 
       objectReference: {fileID: 1465145845}
+    - target: {fileID: 945750384, guid: c99d7fb6d3f65974898e72911ecf96e4, type: 3}
+      propertyPath: argentJoueur
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 945750384, guid: c99d7fb6d3f65974898e72911ecf96e4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2568601779054897030, guid: c99d7fb6d3f65974898e72911ecf96e4,
         type: 3}
       propertyPath: m_Name
