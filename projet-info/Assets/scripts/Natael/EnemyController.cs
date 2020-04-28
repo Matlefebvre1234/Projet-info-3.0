@@ -22,7 +22,6 @@ public class EnemyController : MonoBehaviour
 
     public GameObject barricade;
     public GameObject Mine;
-    //public GameObject argentTexte;
 
     private NatPathfinding pathfinding;
     private List<CasesNatael> path;
@@ -54,25 +53,17 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Projectile")
         {
-            //transform.GetComponent<Santé>().attaque(5);
-
             JoueurMort = transform.GetComponent<Santé>().IsDead(JoueurMort);
         }
 
-        //if(transform.GetComponent<Santé>().santee == 0)
-        //{
-        //    //mort
-        //}
 
         if (collision.gameObject.tag == "Barricade" && collision.gameObject.tag == "Mine" && collision.gameObject.tag == "PiegeAuSol")
         {
             obstacle = true;
-            //Debug.Log("obstacle = true");
         }
         else
         {
             obstacle = false;
-            //Debug.Log("obstacle = false");
         }
     }
     Vector3 prevLocation = Vector3.zero;
@@ -80,13 +71,6 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         float position = transform.position.x;
-
-        //if (JoueurMort == true)
-        //{
-        //    transform.GetComponent<Santé>().santee = 0;
-        //    
-        //    transform.gameObject.SetActive(false);
-        //}
 
         if (position < prevLocation.x)
         {
@@ -110,21 +94,22 @@ public class EnemyController : MonoBehaviour
 
         if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
         {
-            //transform.GetComponent<Santé>().santee = 0;
-
             explosion.PlayDelayed(0.3f);
             //Explosion du bonhomme
             animator.SetBool("collision_Joueur", true);
-            //explosion.Play();
             Debug.Log("explose");
+
+            player.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
         }
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur") )
         {
             animator.SetBool("collision_Joueur", false);
             player.GetComponent<Santé>().attaque(15);
-            transform.gameObject.SetActive(false);
+            transform.GetComponent<Santé>().IsDead(true);
+            transform.GetComponent<Santé>().santee = 0;
             Debug.Log("explose fini");
+            Destroy(gameObject);
         }
 
         if (pathIsEnd == false)
