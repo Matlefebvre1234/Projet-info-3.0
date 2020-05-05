@@ -73,6 +73,13 @@ public class MenuPause : MonoBehaviour
         }
     }
 
+    public void RetourObjets()
+    {
+        menuObjet.SetActive(false);
+        MenuPauseUI.SetActive(true);
+    }
+
+
     public void Inventaire()
     {
         MenuInventaire.SetActive(true);
@@ -82,6 +89,7 @@ public class MenuPause : MonoBehaviour
     public void Objet()
     {
         menuObjet.SetActive(true);
+        MenuInventaire.SetActive(false);
     }
 
     public void QuitterJeu()
@@ -97,5 +105,6 @@ public class MenuPause : MonoBehaviour
     public void Option()
     {
         paneauOption.SetActive(true);
+        MenuInventaire.SetActive(false);
     }
 }
