@@ -8,42 +8,62 @@ public class DifficulteScript : MonoBehaviour
 
     public Toggle isFacile;
     public Toggle isMoyen;
-    public Toggle isDifficulte;
+    public Toggle isDifficile;
+
+    GameObject facile;
+    GameObject moyen;
+    GameObject difficile;
 
     public int niveauDifficulte;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (isFacile.isOn)
-        {
-            niveauDifficulte = 1;            
-        }
-        else if (isMoyen.isOn)
-        {
-            niveauDifficulte = 2;
-        }
-        else if (isDifficulte.isOn)
-        {
-            niveauDifficulte = 3;
-        }
+        facile = GameObject.Find("Facile");
+        moyen = GameObject.Find("Moyen");
+        difficile = GameObject.Find("Difficile");
 
-        PlayerPrefs.SetInt("Niveau Difficulté", niveauDifficulte);
+        PlayerPrefs.SetInt("Niveau Difficulté", 1);
     }
 
     private void Update()
     {
+        if (isFacile.isOn || isMoyen.isOn || isDifficile.isOn)
+        {
+            
+        }
+        else
+        {
+            Debug.Log("null");
+            if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+            {
+                facile.GetComponent<Toggle>().isOn = true;
+            }
+            else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+            {
+                moyen.GetComponent<Toggle>().isOn = true;
+            }
+            else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+            {
+                difficile.GetComponent<Toggle>().isOn = true;
+            }
+        }
+
+
         if (isFacile.isOn)
         {
             niveauDifficulte = 1;
+            //Debug.Log("Niveau = " + niveauDifficulte);
         }
         else if (isMoyen.isOn)
         {
             niveauDifficulte = 2;
+           //Debug.Log("Niveau = " + niveauDifficulte);
         }
-        else if (isDifficulte.isOn)
+        else if (isDifficile.isOn)
         {
             niveauDifficulte = 3;
+            //Debug.Log("Niveau = " + niveauDifficulte);
         }
         PlayerPrefs.SetInt("Niveau Difficulté", niveauDifficulte);
     }

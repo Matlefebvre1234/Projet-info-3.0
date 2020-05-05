@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 93138125}
   - component: {fileID: 93138126}
   m_Layer: 5
-  m_Name: Toggle (2)
+  m_Name: Difficile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFacile: {fileID: 318280211}
   isMoyen: {fileID: 446973210}
-  isDifficulte: {fileID: 93138126}
+  isDifficile: {fileID: 93138126}
   niveauDifficulte: 1
 --- !u!1001 &115533709
 PrefabInstance:
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 318280211}
   - component: {fileID: 318280212}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Facile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -774,7 +774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFacile: {fileID: 0}
   isMoyen: {fileID: 0}
-  isDifficulte: {fileID: 0}
+  isDifficile: {fileID: 0}
   niveauDifficulte: 0
 --- !u!1 &446973208
 GameObject:
@@ -787,7 +787,7 @@ GameObject:
   - component: {fileID: 446973209}
   - component: {fileID: 446973210}
   m_Layer: 5
-  m_Name: Toggle (1)
+  m_Name: Moyen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFacile: {fileID: 0}
   isMoyen: {fileID: 0}
-  isDifficulte: {fileID: 0}
+  isDifficile: {fileID: 0}
   niveauDifficulte: 0
 --- !u!1 &915304409
 GameObject:

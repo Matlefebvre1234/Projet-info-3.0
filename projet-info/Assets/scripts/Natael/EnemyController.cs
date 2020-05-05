@@ -52,18 +52,21 @@ public class EnemyController : MonoBehaviour
             speed = 0.02f;
             transform.GetComponent<Santé>().santeeMax = 100;
             rangeAttaquePlayer = 4;
+            Debug.Log("Niveau = " + niveauDifficulte);
         }
         else if(niveauDifficulte == 2)
         {
             speed = 0.04f;
             transform.GetComponent<Santé>().santeeMax = 150;
             rangeAttaquePlayer = 5;
+            Debug.Log("Niveau = " + niveauDifficulte);
         }
         else if (niveauDifficulte == 3)
         {
             speed = 0.06f;
             transform.GetComponent<Santé>().santeeMax = 200;
             rangeAttaquePlayer = 6;
+            Debug.Log("Niveau = " + niveauDifficulte);
         }
 
         dimensionCase = FindObjectOfType<GrilleDynamique>().getDimCell();
@@ -92,6 +95,30 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        niveauDifficulte = PlayerPrefs.GetInt("Niveau Difficulté");
+
+        if (niveauDifficulte == 1)
+        {
+            speed = 0.02f;
+            transform.GetComponent<Santé>().santeeMax = 100;
+            rangeAttaquePlayer = 4;
+            Debug.Log("Niveau = " + niveauDifficulte);
+        }
+        else if (niveauDifficulte == 2)
+        {
+            speed = 0.04f;
+            transform.GetComponent<Santé>().santeeMax = 150;
+            rangeAttaquePlayer = 5;
+            Debug.Log("Niveau = " + niveauDifficulte);
+        }
+        else if (niveauDifficulte == 3)
+        {
+            speed = 0.06f;
+            transform.GetComponent<Santé>().santeeMax = 200;
+            rangeAttaquePlayer = 6;
+            Debug.Log("Niveau = " + niveauDifficulte);
+        }
+
         float position = transform.position.x;
 
         if (position < prevLocation.x)
@@ -163,6 +190,8 @@ public class EnemyController : MonoBehaviour
                 conteur = 0;
             }
         }
+
+
     }
 
     public void bougerRandom()
@@ -215,17 +244,49 @@ public class EnemyController : MonoBehaviour
 
                     if (obstacle == false)
                     {
-                        int x = Random.Range(0, 10);
-                        if (x < 4 || x > 6)
+                        if (niveauDifficulte == 1)
                         {
-                            if (x == 0 || x == 4 || x == 6 || x == 8 || x == 10)
+                            int x = Random.Range(0, 10);
+                            if (x < 3 || x > 7)
                             {
-                                Instantiate(Mine, transform.position, Quaternion.identity);
+                                if (x == 0 || x == 4 || x == 6 || x == 8 || x == 10)
+                                {
+                                    Instantiate(Mine, transform.position, Quaternion.identity);
+                                }
+                                else
+                                {
+                                    Instantiate(barricade, transform.position, Quaternion.identity);
+                                }
                             }
-                            else
+                        }
+                        if (niveauDifficulte == 2)
+                        {
+                            int x = Random.Range(0, 10);
+                            if (x < 4 || x > 5)
                             {
-                                Instantiate(barricade, transform.position, Quaternion.identity);
+                                if (x == 0 || x == 4 || x == 6 || x == 8 || x == 10)
+                                {
+                                    Instantiate(Mine, transform.position, Quaternion.identity);
+                                }
+                                else
+                                {
+                                    Instantiate(barricade, transform.position, Quaternion.identity);
+                                }
                             }
+                        }
+                        if (niveauDifficulte == 3)
+                        {
+                            int x = Random.Range(0, 10);
+                            
+                                if (x <= 4 || x >= 5)
+                                {
+                                    Instantiate(Mine, transform.position, Quaternion.identity);
+                                }
+                                else
+                                {
+                                    Instantiate(barricade, transform.position, Quaternion.identity);
+                                }
+                            
                         }
                     }
                 }
