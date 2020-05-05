@@ -34,6 +34,7 @@ public class EnemyController : MonoBehaviour
     private int randomx;
     private int randomy;
     private float conteur = 0f;
+    private float niveauDifficulte;
 
     private bool bougerConstruit = false;
     private bool pathIsEnd = false;
@@ -44,6 +45,27 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        niveauDifficulte = PlayerPrefs.GetInt("Niveau Difficulté");
+
+        if(niveauDifficulte == 1)
+        {
+            speed = 0.02f;
+            transform.GetComponent<Santé>().santeeMax = 100;
+            rangeAttaquePlayer = 4;
+        }
+        else if(niveauDifficulte == 2)
+        {
+            speed = 0.04f;
+            transform.GetComponent<Santé>().santeeMax = 150;
+            rangeAttaquePlayer = 5;
+        }
+        else if (niveauDifficulte == 3)
+        {
+            speed = 0.06f;
+            transform.GetComponent<Santé>().santeeMax = 200;
+            rangeAttaquePlayer = 6;
+        }
+
         dimensionCase = FindObjectOfType<GrilleDynamique>().getDimCell();
         pathfinding = new NatPathfinding(largeur, hauteur);
         player = GameObject.FindGameObjectWithTag("Player");

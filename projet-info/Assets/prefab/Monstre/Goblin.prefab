@@ -458,6 +458,7 @@ MonoBehaviour:
   rangeMouvement: 5
   argentDonner: 0
   raycastMaxDistance: 10
+  niveauDifficulte: 1
   speed: 0.01
   animator: {fileID: 2568601779959560500}
   explosion: {fileID: 8227810122539400034}
