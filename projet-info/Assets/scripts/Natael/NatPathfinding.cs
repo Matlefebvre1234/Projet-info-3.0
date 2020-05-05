@@ -25,7 +25,7 @@ public class NatPathfinding
     /*public int Fcost;*/
 
     // Il est la valeur qui estime grossièrement le coût 
-    // pour se rendre au point finale (valeur Heuristique).
+    // pour se rendre au point final (valeur Heuristique).
     // Donc, il calcule le coût comme s'il n'y avait pas d'obstacles
     /*public int Hcost;*/
 

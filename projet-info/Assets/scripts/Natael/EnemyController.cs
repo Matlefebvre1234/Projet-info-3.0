@@ -116,7 +116,7 @@ public class EnemyController : MonoBehaviour
         {
             if (elapseTime == randomTime && animator.GetBool("collision_Joueur") == false)
             {
-                bougerRadom();
+                bougerRandom();
             }
 
             elapseTime += 1 * Time.deltaTime;
@@ -143,7 +143,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void bougerRadom()
+    public void bougerRandom()
     {
             pathfinding.getGrid().GetXY(transform.position, out int x, out int y);
 

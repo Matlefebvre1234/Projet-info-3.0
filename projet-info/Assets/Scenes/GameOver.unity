@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -987,6 +987,8 @@ GameObject:
   - component: {fileID: 726741913}
   - component: {fileID: 726741915}
   - component: {fileID: 726741914}
+  - component: {fileID: 726741916}
+  - component: {fileID: 726741917}
   m_Layer: 5
   m_Name: pieces (1)
   m_TagString: Untagged
@@ -1133,6 +1135,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726741912}
   m_CullTransparentMesh: 0
+--- !u!114 &726741916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726741912}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926e305889e404189c09fbc80a6baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &726741917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726741912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b28e27e9ff85748889641e6736ae2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &779453373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1346,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelOption: {fileID: 0}
+  menuInventaire: {fileID: 0}
+  menuPrincipal: {fileID: 0}
+  menuObjet: {fileID: 0}
+  createurSalle: {fileID: 0}
+  menuInfo: {fileID: 0}
+  menuCommande: {fileID: 0}
+  menuBestiaire: {fileID: 0}
 --- !u!1 &1350422298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,8 +1866,8 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
+  - {fileID: 652793429}
   - {fileID: 625930130}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
