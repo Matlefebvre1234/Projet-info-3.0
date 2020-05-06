@@ -15,9 +15,13 @@ public class CreateurSalle : MonoBehaviour
     [SerializeField] GameObject SalleShop;
 
     public GameObject[] listPrefabMonstres;
+
     private GameObject spawnJoueur;
     private int difficulteMonstre;
+
     public GameObject Player;
+    public GameObject mana;
+
     //private int compteurDeSalleTotal = 0;
     private int compteurDeSalleTotal = 1;
     public int compteurDeSalle = 1;
@@ -67,19 +71,25 @@ public class CreateurSalle : MonoBehaviour
             }
 }
     }
+    public void SpawnerMana()
+    {
+        List<GameObject> spawnPoints = new List<GameObject>();
+        spawnPoints.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
+
+        float nbRandomX = UnityEngine.Random.Range(-0.5f, 0.5f);
+        float nbRandomY = UnityEngine.Random.Range(-0.5f, 0.5f);
+
+        Instantiate(mana, spawnPoints[UnityEngine.Random.Range(1, 2)].transform.position + new Vector3(nbRandomX, nbRandomY, 0), Quaternion.identity);
+    }
+
     private void SpawnEnnemies()
     {
         nbCompteurEnnemiesTotal = compteurDeSalleTotal;
         compteurEnnemies = nbCompteurEnnemiesTotal;
 
-
         List<GameObject> spawnPoints = new List<GameObject>();
         spawnPoints.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
-
-
-    
-        
-      
+              
         do
         {
             int nbRandom = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, listPrefabMonstres.Length -1));

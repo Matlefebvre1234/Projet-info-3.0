@@ -29,7 +29,9 @@ public class projectileJ : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" && collision.gameObject.tag != "AttackEnnemies" && collision.gameObject.tag != "PlayerFoots" && collision.gameObject.tag != "Mine" && collision.tag != "Lance-Flamme")
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" 
+            && collision.gameObject.tag != "AttackEnnemies" && collision.gameObject.tag != "PlayerFoots" && collision.gameObject.tag != "Mine"
+            && collision.tag != "Lance-Flamme" && collision.tag != "small_mana" && collision.tag != "EnergyShield")
         {
 
             if (collision.gameObject.tag == "Enemy")

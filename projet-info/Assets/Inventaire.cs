@@ -47,23 +47,23 @@ public class Inventaire : MonoBehaviour
     {
         argentTexte.gameObject.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("Argent Joueur").ToString();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (GameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //GameIsPaused = true;
-
-            //Resume();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (GameIsPaused)
+        //    {
+        //        Resume();
+        //    }
+        //    else
+        //    {
+        //        Pause();
+        //    }
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    //GameIsPaused = true;
+        //
+        //    //Resume();
+        //}
 
        
     }

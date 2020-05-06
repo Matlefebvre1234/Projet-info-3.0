@@ -19,8 +19,15 @@ public class ChangementNiveau : MonoBehaviour
         {
             createurSalle = FindObjectOfType<CreateurSalle>().GetComponent<CreateurSalle>();
         }
+    }
 
-   
+    private void Update()
+    {
+        if(porteOuverte)
+        {
+            //Faire apparaitre mana
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
