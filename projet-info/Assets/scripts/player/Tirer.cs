@@ -16,6 +16,7 @@ public class Tirer : MonoBehaviour
 
     GameObject player;
 
+    public Vector3 grosseur = new Vector3(0.5f, 0.5f, 1f);
 
     private void Start()
     {
@@ -40,24 +41,28 @@ public class Tirer : MonoBehaviour
                 if(tirePuissant < 1.5f)
                 {
                     dommage = PlayerPrefs.GetInt("dommage projectile");
+                    grosseur = new Vector3(0.5f, 0.5f, 1f);
                 }
                 else if (tirePuissant >= 1.5f && tirePuissant < 2.0f && PlayerPrefs.GetInt("Mana") >= 7)
                 {
                     dommage = (int) (1.5f * PlayerPrefs.GetInt("dommage projectile"));
                     PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 7);
                     player.GetComponent<Mana>().SetManaJoueur(-7);
+                    grosseur = new Vector3(0.60f, 0.60f, 1f);
                 }
                 else if(tirePuissant >= 2.0f && tirePuissant < 3.0f && PlayerPrefs.GetInt("Mana") >= 15)
                 {
                     dommage = (int)(1.75f * PlayerPrefs.GetInt("dommage projectile"));
                     PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 15);
                     player.GetComponent<Mana>().SetManaJoueur(-15);
+                    grosseur = new Vector3(0.70f, 0.70f, 1f);
                 }
                 else if (tirePuissant >= 3.0f && PlayerPrefs.GetInt("Mana") >= 20)
                 {
                     dommage = (2 * PlayerPrefs.GetInt("dommage projectile"));
                     PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 20);
                     player.GetComponent<Mana>().SetManaJoueur(-20);
+                    grosseur = new Vector3(0.80f, 0.80f, 1f);
                 }
 
                 tirer();
@@ -75,7 +80,10 @@ public class Tirer : MonoBehaviour
     }
     public void StopAttackAnimation()
     {
-        Instantiate(projectile, (Vector2)transform.position - new Vector2(0,0.15f), Quaternion.identity);
+        GameObject medium;
+
+        medium = Instantiate(projectile, (Vector2)transform.position - new Vector2(0,0.15f), Quaternion.identity);
+        medium.transform.localScale = grosseur;
         ani.SetBool("isAttacking", false);
 
 
@@ -90,6 +98,11 @@ public class Tirer : MonoBehaviour
     public int GetDommage()
     {
         return dommage;
+    }
+
+    public Vector3 GetGrosseur()
+    {
+        return grosseur;
     }
 
     public void AmeliorationReloadTime(float anneau)

@@ -10,6 +10,7 @@ public class projectileJ : MonoBehaviour
     public Vector2 VecteurUnitaire;
     public float speed = 200;
     private int dommage = 30;
+    //public Vector3 grosseur = new Vector3(0.5f, 0.5f, 1f);
     private GameObject joueur;
 
     public GameObject joueurPlayer;
@@ -30,6 +31,7 @@ public class projectileJ : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) 
     {
         dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
+        //grosseur = joueur.transform.GetComponent<Tirer>().GetGrosseur();
 
 
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" 
