@@ -29,7 +29,6 @@ public class BarreMana : MonoBehaviour
 
     public void SetMana(float mana)
     {
-        Debug.Log("set mana = " + mana);
         slider.value = mana;
         couleur.color = gradient.Evaluate(slider.normalizedValue);
     }

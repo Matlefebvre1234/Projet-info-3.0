@@ -52,21 +52,18 @@ public class EnemyController : MonoBehaviour
             speed = 0.02f;
             transform.GetComponent<Santé>().santeeMax = 100;
             rangeAttaquePlayer = 4;
-            Debug.Log("Niveau = " + niveauDifficulte);
         }
         else if(niveauDifficulte == 2)
         {
             speed = 0.04f;
             transform.GetComponent<Santé>().santeeMax = 150;
             rangeAttaquePlayer = 5;
-            Debug.Log("Niveau = " + niveauDifficulte);
         }
         else if (niveauDifficulte == 3)
         {
             speed = 0.06f;
             transform.GetComponent<Santé>().santeeMax = 200;
             rangeAttaquePlayer = 6;
-            Debug.Log("Niveau = " + niveauDifficulte);
         }
 
         dimensionCase = FindObjectOfType<GrilleDynamique>().getDimCell();
@@ -102,21 +99,18 @@ public class EnemyController : MonoBehaviour
             speed = 0.02f;
             transform.GetComponent<Santé>().santeeMax = 100;
             rangeAttaquePlayer = 4;
-            Debug.Log("Niveau = " + niveauDifficulte);
         }
         else if (niveauDifficulte == 2)
         {
             speed = 0.04f;
             transform.GetComponent<Santé>().santeeMax = 150;
             rangeAttaquePlayer = 5;
-            Debug.Log("Niveau = " + niveauDifficulte);
         }
         else if (niveauDifficulte == 3)
         {
             speed = 0.06f;
             transform.GetComponent<Santé>().santeeMax = 200;
             rangeAttaquePlayer = 6;
-            Debug.Log("Niveau = " + niveauDifficulte);
         }
 
         float position = transform.position.x;
@@ -148,7 +142,6 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("collision_Joueur", true);
             transform.GetComponent<Santé>().IsDead(true);
             transform.GetComponent<Santé>().santee = 0;
-            Debug.Log("explose");
 
             player.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
         }
@@ -157,7 +150,6 @@ public class EnemyController : MonoBehaviour
         {
             animator.SetBool("collision_Joueur", false);
             player.GetComponent<Santé>().attaque(15);
-            Debug.Log("explose fini");
             Destroy(gameObject);
         }
 

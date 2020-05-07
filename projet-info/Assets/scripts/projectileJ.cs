@@ -29,6 +29,9 @@ public class projectileJ : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
+        dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
+
+
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" 
             && collision.gameObject.tag != "AttackEnnemies" && collision.gameObject.tag != "PlayerFoots" && collision.gameObject.tag != "Mine"
             && collision.tag != "Lance-Flamme" && collision.tag != "mana_small" && collision.tag != "mana_medium" && collision.tag != "EnergyShield")

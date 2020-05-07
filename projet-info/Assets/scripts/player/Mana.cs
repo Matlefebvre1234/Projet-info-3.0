@@ -63,7 +63,7 @@ public class Mana : MonoBehaviour
             {
                 manaJeu = manaMax;
             }
-            Debug.Log("Mana setter");
+
             barreMana.SetMana(PlayerPrefs.GetInt("Mana"));
         }
         

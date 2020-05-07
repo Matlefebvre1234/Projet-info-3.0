@@ -83,7 +83,6 @@ public class CreateurSalle : MonoBehaviour
           int nbRandomSpawn = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, spawnPoints.Count - 1));
 
           int nbRandom = UnityEngine.Random.Range(0, listePrefabMana.Length+1);
-          Debug.Log("random avant = " + nbRandom);
           if (nbRandom > listePrefabMana.Length)
           {
               nbRandom = 1;
@@ -92,7 +91,6 @@ public class CreateurSalle : MonoBehaviour
           {
               nbRandom = 0;
           }
-          Debug.Log("random après= " + nbRandom);
           float nbRandomX = UnityEngine.Random.Range(-0.5f, 0.5f);
           float nbRandomY = UnityEngine.Random.Range(-0.5f, 0.5f);
 
