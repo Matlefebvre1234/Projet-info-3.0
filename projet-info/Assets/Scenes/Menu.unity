@@ -11130,6 +11130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1796619268}
   - component: {fileID: 1796619269}
+  - component: {fileID: 1796619270}
   m_Layer: 0
   m_Name: PaneauPrinciplal
   m_TagString: Untagged
@@ -11177,6 +11178,18 @@ MonoBehaviour:
   menuInfo: {fileID: 131112954}
   menuCommande: {fileID: 1424073331273073699}
   menuBestiaire: {fileID: 318529480}
+--- !u!114 &1796619270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796619267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96f3e006e3870a43820175ea3e121c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1848431419
 GameObject:
   m_ObjectHideFlags: 0
