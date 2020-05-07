@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5863,6 +5863,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room
       objectReference: {fileID: 0}
+    - target: {fileID: 6848764985584261738, guid: 79a324b92ae38444dbd171f5ae55a605,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6948565058358772896, guid: 79a324b92ae38444dbd171f5ae55a605,
         type: 3}
       propertyPath: m_Color.r
@@ -6224,6 +6229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Niveau
+      objectReference: {fileID: 0}
+    - target: {fileID: 38117244857208394, guid: 0c1e0a4d5493fec48bb5e1841fe21b9a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 38117244857208395, guid: 0c1e0a4d5493fec48bb5e1841fe21b9a,
         type: 3}
@@ -7281,6 +7291,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineArmure
       objectReference: {fileID: 0}
+    - target: {fileID: 5183715206919740092, guid: 47ec95cadff0b3e42aeb7b83dad7461a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5404407253283723892, guid: 47ec95cadff0b3e42aeb7b83dad7461a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7354,6 +7369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cout
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600197819070266572, guid: db5e50813aa19c14da27b4b8980ea147,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3600197819070266573, guid: db5e50813aa19c14da27b4b8980ea147,
         type: 3}
@@ -7473,6 +7493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859113743385311074, guid: 9423318311f75da459c1f28c8adddd4c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5656144174349762927, guid: 9423318311f75da459c1f28c8adddd4c,
         type: 3}

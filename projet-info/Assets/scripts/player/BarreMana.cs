@@ -16,18 +16,20 @@ public class BarreMana : MonoBehaviour
 
     public void SetManaMin(float mana)
     {
-        slider.maxValue = mana;
         slider.value = mana;
 
         couleur.color = gradient.Evaluate(1f);
     }
 
+    public void SetManaMax(int mana)
+    {
+        slider.maxValue = mana;
+    }
+
+
     public void SetMana(float mana)
     {
-        //Color color = Color.Lerp(color1, color2, t);
-        //t += Time.deltaTime / duration;
-        //Camera.main.backgroundColor = color;
-
+        Debug.Log("set mana = " + mana);
         slider.value = mana;
         couleur.color = gradient.Evaluate(slider.normalizedValue);
     }

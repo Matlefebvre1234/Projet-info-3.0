@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitesseJoueur: 3
   targetPlayer: {fileID: 2568601779054897033}
+  shieldd: {fileID: 4225611229478418192, guid: 47400aada1889fc4896e6a9ef1e937cb, type: 3}
   shield: {fileID: 4225611229478418194, guid: 47400aada1889fc4896e6a9ef1e937cb, type: 3}
 --- !u!114 &4043787066388671141
 MonoBehaviour:

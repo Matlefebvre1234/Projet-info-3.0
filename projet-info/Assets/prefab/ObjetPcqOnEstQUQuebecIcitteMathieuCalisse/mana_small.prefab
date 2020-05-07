@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 1415650580806727855}
   - component: {fileID: 4276812767516625955}
   m_Layer: 0
-  m_Name: small_mana
-  m_TagString: Untagged
+  m_Name: mana_small
+  m_TagString: mana_small
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3005276573437641698, guid: 677b4b8cb19fbce41a9d162d9ccead28,
+  m_Sprite: {fileID: 4195002272261577765, guid: 9b6e42ee96151a243ad14ff4e776c812,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mana : MonoBehaviour
 {
-    public float manaMax = 0;
+    public int manaMax = 0;
     public float manaJeu = 0;
 
     public BarreMana barreMana;
@@ -13,10 +13,6 @@ public class Mana : MonoBehaviour
     {
         PlayerPrefs.SetInt("Mana", 0);
         manaJeu = 0;
-        if(barreMana != null)
-        {
-            barreMana.SetManaMin(manaJeu);
-        }
 
         if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
         {
@@ -29,6 +25,12 @@ public class Mana : MonoBehaviour
         else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
         {
             manaMax = 100;
+        }
+
+        if (barreMana != null)
+        {
+            barreMana.SetManaMin(manaJeu);
+            barreMana.SetManaMax(manaMax);
         }
     }
 
@@ -57,10 +59,11 @@ public class Mana : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") + mana);
             }
-            else if (mana > manaMax)
+            if (mana > manaMax)
             {
                 manaJeu = manaMax;
             }
+            Debug.Log("Mana setter");
             barreMana.SetMana(PlayerPrefs.GetInt("Mana"));
         }
         

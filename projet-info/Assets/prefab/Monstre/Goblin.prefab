@@ -406,7 +406,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2357106970460322381}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -458,7 +458,6 @@ MonoBehaviour:
   rangeMouvement: 5
   argentDonner: 0
   raycastMaxDistance: 10
-  niveauDifficulte: 1
   speed: 0.01
   animator: {fileID: 2568601779959560500}
   explosion: {fileID: 8227810122539400034}

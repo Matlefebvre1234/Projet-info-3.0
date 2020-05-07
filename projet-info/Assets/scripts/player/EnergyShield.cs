@@ -9,6 +9,8 @@ public class EnergyShield : MonoBehaviour
 
 
     private int vieShield = 0;
+    private bool active;
+    public float reflectivePower = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -32,54 +34,27 @@ public class EnergyShield : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //lookDirection = (targetPlayer.position).normalized;
-        //transform.Translate(lookDirection * Time.deltaTime * speed);
-        //
-        //if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetInt("Mana") >= 100)
-        //{
-        //    Debug.Log("Shield");
-        //    Instantiate(shield, targetPlayer.position, Quaternion.identity);           
-        //
-        //    PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana")-100);
-        //    //player.GetComponent<BarreMana>().SetMana(PlayerPrefs.GetInt("Mana"));
-        //}
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (vieShield > 0)
         {
-            Debug.Log("vie shield = " + vieShield);
+            active = true;
+
             if (collision.gameObject.tag == "AttackEnnemies" || collision.gameObject.tag == "Fleche" || collision.gameObject.tag == "mine" || collision.gameObject.tag == "Lance-Flamme")
             {
-                Debug.Log("collide shield");
-
                 vieShield -= 20;
 
                 transform.GetComponent<Santé>().santee = vieShield;
 
-                Destroy(collision.gameObject);
+                if (collision.gameObject.tag == "Lance-Flamme")
+                {
+                    //Don't Destroy
+                }
+                else
+                {
+                    Destroy(collision.gameObject);
+                }
             }
         }
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Debug.Log("collide shield");
-    //    if(vieShield > 0)
-    //    {
-    //        if (collision.gameObject.tag == "AttackEnnemies" && collision.gameObject.tag == "Fleche" && collision.gameObject.tag == "mine" && collision.gameObject.tag == "Lance-Flamme")
-    //        {
-    //            vieShield -= 20;
-    //
-    //            transform.GetComponent<Santé>().santee = vieShield;
-    //
-    //            Destroy(collision.gameObject);
-    //        }
-    //    }
-    //    
-    //}
 }

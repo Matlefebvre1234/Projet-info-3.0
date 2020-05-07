@@ -15,12 +15,12 @@ public class CreateurSalle : MonoBehaviour
     [SerializeField] GameObject SalleShop;
 
     public GameObject[] listPrefabMonstres;
+    public GameObject[] listePrefabMana;
 
     private GameObject spawnJoueur;
     private int difficulteMonstre;
 
     public GameObject Player;
-    public GameObject mana;
 
     //private int compteurDeSalleTotal = 0;
     private int compteurDeSalleTotal = 1;
@@ -39,7 +39,7 @@ public class CreateurSalle : MonoBehaviour
     public string flèche;
 
 
-
+    bool manaPoper = false;
 
 
     // Start is called before the first frame update
@@ -57,7 +57,8 @@ public class CreateurSalle : MonoBehaviour
         {
            
             porte.porteOuverte = true;
-        }
+            
+            }
 
        if(Input.GetKeyDown(KeyCode.K))
         {
@@ -71,15 +72,33 @@ public class CreateurSalle : MonoBehaviour
             }
 }
     }
-    public void SpawnerMana()
+    private void SpawnerMana(int nbPotions)
     {
         List<GameObject> spawnPoints = new List<GameObject>();
         spawnPoints.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
 
-        float nbRandomX = UnityEngine.Random.Range(-0.5f, 0.5f);
-        float nbRandomY = UnityEngine.Random.Range(-0.5f, 0.5f);
+        for (int i = 0; i < nbPotions; i++)
+        {
+            
+          int nbRandomSpawn = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, spawnPoints.Count - 1));
 
-        Instantiate(mana, spawnPoints[UnityEngine.Random.Range(1, 2)].transform.position + new Vector3(nbRandomX, nbRandomY, 0), Quaternion.identity);
+          int nbRandom = UnityEngine.Random.Range(0, listePrefabMana.Length+1);
+          Debug.Log("random avant = " + nbRandom);
+          if (nbRandom > listePrefabMana.Length)
+          {
+              nbRandom = 1;
+          }
+          else
+          {
+              nbRandom = 0;
+          }
+          Debug.Log("random après= " + nbRandom);
+          float nbRandomX = UnityEngine.Random.Range(-0.5f, 0.5f);
+          float nbRandomY = UnityEngine.Random.Range(-0.5f, 0.5f);
+
+        
+        Instantiate(listePrefabMana[nbRandom], spawnPoints[nbRandomSpawn].transform.position + new Vector3(nbRandomX, nbRandomY, 0), Quaternion.identity);
+        }
     }
 
     private void SpawnEnnemies()
@@ -155,7 +174,20 @@ public class CreateurSalle : MonoBehaviour
             int nombreRandom = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, listSalle.Length - 1));
             //Instantiate(listSalle[compteurDeSalle]);
             Instantiate(listSalle[nombreRandom]);
+            if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+            {
+                SpawnerMana(3);
+            }
+            else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+            {
+                SpawnerMana(2);
+            }
+            else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+            {
+                SpawnerMana(1);
+            }
             SpawnEnnemies();
+            manaPoper = false;
         }
      
 

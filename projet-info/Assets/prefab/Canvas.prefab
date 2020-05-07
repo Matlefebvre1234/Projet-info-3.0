@@ -99,22 +99,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 143741819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4693b4044b20e664b876e05cceb8d549, type: 3}
+  m_Script: {fileID: 11500000, guid: 7af60ee4f28678a4c873be59f13254f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 143741822}
   gradient:
     serializedVersion: 2
-    key0: {r: 0.8018868, g: 0.14751692, b: 0.14751692, a: 1}
-    key1: {r: 0.7169812, g: 0.69242036, b: 0, a: 1}
-    key2: {r: 0.06563723, g: 0.5566038, b: 0.10340392, a: 0}
+    key0: {r: 0, g: 0.8023877, b: 1, a: 1}
+    key1: {r: 0.032395888, g: 0.44026634, b: 0.9811321, a: 1}
+    key2: {r: 0, g: 0.21829796, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 17348
-    ctime1: 35852
+    ctime0: 15806
+    ctime1: 41634
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 28720
+    atime1: 65535
     atime2: 0
     atime3: 0
     atime4: 0
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 1793791383}
   - component: {fileID: 1793791382}
   m_Layer: 5
-  m_Name: Sante
+  m_Name: Mana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1404,6 +1404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065652973847753330, guid: 9f752ff81e9e05e4e8489afa47a88774,
+        type: 3}
+      propertyPath: m_Text
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f752ff81e9e05e4e8489afa47a88774, type: 3}

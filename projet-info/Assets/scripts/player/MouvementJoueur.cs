@@ -18,8 +18,10 @@ public class MouvementJoueur : MonoBehaviour
     Transform target;
     public Transform shieldd;
 
-    float speed = 10.0f;
+    float speed = 100.0f;
     public GameObject shield;
+    GameObject shieldClone;
+    public BarreMana barreMana;
 
 
     // Start is called before the first frame update
@@ -33,6 +35,7 @@ public class MouvementJoueur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         deplacementX = Input.GetAxis("Horizontal");
          deplacementY = Input.GetAxis("Vertical");
         if (deplacementX != 0 || deplacementY != 0) ani.SetBool("isRunning", true);
@@ -40,21 +43,28 @@ public class MouvementJoueur : MonoBehaviour
         if (deplacementX > 0) sprite.flipX = true;
         if (deplacementX < 0) sprite.flipX = false;
 
-        //lookDirection = (targetPlayer.position).normalized;
-        //shield.transform.Translate(lookDirection * Time.deltaTime * speed);
-
+        // Permet de générer un shield de magie qui protège !
         target = GameObject.FindWithTag("Player").transform;
-
-        //move towards the player
-        shieldd.position += shieldd.forward * speed * Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetInt("Mana") >= 100)
         {
-            Debug.Log("Shield");
-            Instantiate(shield, targetPlayer.position, Quaternion.identity);
+            if (shieldClone != null)
+            {
+                //Nothing
+            }
+            else
+            {
+                shieldClone = Instantiate(shield, target.position, Quaternion.identity);
 
-            PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 100);
-            //player.GetComponent<BarreMana>().SetMana(PlayerPrefs.GetInt("Mana"));
+
+                PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 100);
+                barreMana.GetComponent<BarreMana>().SetMana(PlayerPrefs.GetInt("Mana"));
+            }
+        }       
+
+        if (shieldClone != null)
+        {
+            shieldClone.transform.position = Vector2.MoveTowards(shieldClone.transform.position, target.position, speed * Time.deltaTime);
         }
 
     }

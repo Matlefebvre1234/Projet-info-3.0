@@ -27,6 +27,8 @@ TagManager:
   - SpawnJoueur
   - EnergyShield
   - Lance-Flamme
+  - mana_small
+  - mana_medium
   layers:
   - Default
   - TransparentFX

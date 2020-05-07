@@ -43,17 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30b0218af41d8c40bda9e32e1c05f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbCompteurEnnemiesTotal: 0
   nBEnnemiesTotal: 0
   listSalle:
   - {fileID: 3351278289461407827, guid: 4ec282e2c193eef4697f932b4e9831cf, type: 3}
   - {fileID: 2785957152198676820, guid: 4ac1587b028490b41af6d5194fac0bc5, type: 3}
   - {fileID: 1097669372014180454, guid: f6ae8b4bd777895418d65bad0ee1d6e3, type: 3}
+  - {fileID: 1292843906152563180, guid: 4484cd10dfd2e234e92816a6bbcae971, type: 3}
   - {fileID: 7364482325733609381, guid: 470a8ab82ef596f47a661c7597b1e578, type: 3}
   - {fileID: 5315569473925337014, guid: cee11e548ac343a4a80575a7baeccc89, type: 3}
   listSalleBoss:
   - {fileID: 1104329288659725580, guid: 282aa376b1891d341a7bc1092d3cdfe9, type: 3}
-  - {fileID: 6990308266291455171, guid: 070e5b6ff3a8f3f499246498a895e166, type: 3}
+  - {fileID: 1104329288659725580, guid: 282aa376b1891d341a7bc1092d3cdfe9, type: 3}
   SalleShop: {fileID: 2304710233988132210, guid: 70ca5374534d85e4da96e384d99a6113,
     type: 3}
   listPrefabMonstres:
@@ -64,7 +64,12 @@ MonoBehaviour:
   - {fileID: 85124776774130177, guid: 0e69d93ccf64b474183fb292aee0c8b9, type: 3}
   - {fileID: 1086786618993019752, guid: daf7cc5f7d5a611428e3d40f7d342420, type: 3}
   - {fileID: 2357106970460322381, guid: 3783175fadc0b484387027c6fd0f5ff9, type: 3}
+  - {fileID: 8946217496486968241, guid: a9bb1bf330086d9439c788bf0b4de6f6, type: 3}
+  listePrefabMana:
+  - {fileID: 5898616203289967806, guid: 56b8ca0548393ff4c9826119b79c1ef7, type: 3}
+  - {fileID: 7478907052321711444, guid: 37cb348e5f67da044a8cb531c788a7e3, type: 3}
   Player: {fileID: 0}
+  compteurDeSalle: 1
   Mine: Mine
   barricade: Barricade
   "fl\xE8che": AttackEnnemies
