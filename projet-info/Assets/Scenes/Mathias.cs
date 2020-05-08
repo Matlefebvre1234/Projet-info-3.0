@@ -8,7 +8,7 @@ public class Mathias : MonoBehaviour
     void Start()
     {
         Debug.Log(Fonction2(135));
-    }
+    } 
 
     // Update is called once per frame
     void Update()

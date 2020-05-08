@@ -74,7 +74,31 @@ public class CreateurSalle : MonoBehaviour
 
     private void Update()
     {
-        Player.GetComponent<Renderer>().material.color = new Color(0,0,0);
+        if (PlayerPrefs.GetInt("Skin choisit") == 0)
+        {
+            //Aucune Couleur
+            Player.GetComponent<Renderer>().material.color = Color.clear;
+        }
+        else if (PlayerPrefs.GetInt("Skin choisit") == 1)
+        {
+            //Rouge
+            Player.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1);
+        }
+        else if (PlayerPrefs.GetInt("Skin choisit") == 2)
+        {
+            //Turqoise
+            Player.GetComponent<Renderer>().material.color = new Color(0, 1, 1, 1);
+        }
+        else if (PlayerPrefs.GetInt("SSkin choisitkin") == 3)
+        {
+            //Jaune
+            Player.GetComponent<Renderer>().material.color = new Color(1, 0.92f, 0.016f, 1);
+        }
+        else if (PlayerPrefs.GetInt("Skin choisit") == 4)
+        {
+            //Vert
+            Player.GetComponent<Renderer>().material.color = new Color(0, 1, 0, 1);
+        }
 
         if (nBEnnemiesTotal <= 0 && AllEnnemySpawn)
         {
@@ -239,8 +263,17 @@ public class CreateurSalle : MonoBehaviour
         foreach (GameObject enemy in fleche)
             GameObject.Destroy(enemy);
 
+        GameObject[] mana_small = GameObject.FindGameObjectsWithTag("mana_small");
+        foreach (GameObject enemy in mana_small)
+            GameObject.Destroy(enemy);
+
+        GameObject[] mana_medium = GameObject.FindGameObjectsWithTag("mana_medium");
+        foreach (GameObject enemy in mana_medium)
+            GameObject.Destroy(enemy);
+
         GameObject salle = GameObject.FindGameObjectWithTag("Salle");
         FindObjectOfType<GrilleMonstresMat>().DestroyGrid();
+
         murTransparent[] a = FindObjectsOfType<murTransparent>();
         foreach (murTransparent s in a)
             GameObject.Destroy(s);

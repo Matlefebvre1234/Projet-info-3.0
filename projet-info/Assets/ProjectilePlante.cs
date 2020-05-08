@@ -37,21 +37,11 @@ public class ProjectilePlante : MonoBehaviour
     {
         if ((collision.gameObject.tag == "Mur"|| collision.gameObject.tag == "Player") && tempApresSpawn >= 0.1f)
         {
-
             if (collision.gameObject.tag == "Player")
             {
                 player.GetComponent<Santé>().attaque(dommage);
-
             }
-
-
-
-
-
             Destroy(gameObject);
         }
-
-
-
     }
 }

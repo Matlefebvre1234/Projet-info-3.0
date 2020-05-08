@@ -17,7 +17,7 @@ public class PotionManaSmall : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            player.GetComponent<Mana>().SetManaJoueur(20);
+            player.GetComponent<Mana>().SetManaJoueur(10);
             Destroy(transform.gameObject);
         }
     }
