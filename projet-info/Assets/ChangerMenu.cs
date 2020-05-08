@@ -12,6 +12,7 @@ public class ChangerMenu : MonoBehaviour
     public GameObject menuInfo;
     public GameObject menuCommande;
     public GameObject menuBestiaire;
+    public GameObject menuSkin;
     public static bool GameIsPaused = false;
 
     private void Update()
@@ -79,6 +80,22 @@ public class ChangerMenu : MonoBehaviour
         else
         {
             menuObjet.SetActive(false);
+            menuInventaire.SetActive(true);
+            //createurSalle.SetActive(true);
+        }
+    }
+
+    public void changerMenuSkin()
+    {
+        if (!menuSkin.activeSelf)
+        {
+            menuSkin.SetActive(true);
+            menuInventaire.SetActive(false);
+            //createurSalle.SetActive(false);
+        }
+        else
+        {
+            menuSkin.SetActive(false);
             menuInventaire.SetActive(true);
             //createurSalle.SetActive(true);
         }

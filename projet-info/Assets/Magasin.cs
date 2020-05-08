@@ -12,6 +12,10 @@ public class Magasin : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("Skin", 0);
+        PlayerPrefs.SetInt("Skin_1", 0);
+        PlayerPrefs.SetInt("Skin_2", 0);
+        PlayerPrefs.SetInt("Skin_3", 0);
+        PlayerPrefs.SetInt("Skin_4", 0);
         PlayerPrefs.SetInt("Niveau", 1);
         PlayerPrefs.SetInt("Sort Ultime", 0);
     }
@@ -39,35 +43,38 @@ public class Magasin : MonoBehaviour
     {
         if (button.name == "Skin_1")
         {
-            if (PlayerPrefs.GetInt("Argent Joueur Skin") >= 1000)
+            if (PlayerPrefs.GetInt("Argent Joueur Skin") >= 1000 && PlayerPrefs.GetInt("Skin_1") != 1)
             {
+                //Rouge
                 Debug.Log("Skin_1");
-                PlayerPrefs.SetInt("Skin", 1);
+                PlayerPrefs.SetInt("Skin_1", 1);
                 PlayerPrefs.SetInt("Argent Joueur Skin", PlayerPrefs.GetInt("Argent Joueur Skin") - 1000);
             }
         }
         else if (button.name == "Skin_2")
         {
-            if (PlayerPrefs.GetInt("Argent Joueur Skin") >= 1000)
+            if (PlayerPrefs.GetInt("Argent Joueur Skin") >= 1000 && PlayerPrefs.GetInt("Skin_2") != 1)
             {
-                PlayerPrefs.SetInt("Skin", 2);
+                //Turquoise
+                PlayerPrefs.SetInt("Skin_2", 1);
                 PlayerPrefs.SetInt("Argent Joueur Skin", PlayerPrefs.GetInt("Argent Joueur Skin") - 1000);
             }
-
         }
         else if (button.name == "Skin_3")
         {
-            if (PlayerPrefs.GetInt("Argent Joueur Skin") >= 1000)
+            //Jaune
+            if (PlayerPrefs.GetInt("Argent Joueur Skin") >= 1000 && PlayerPrefs.GetInt("Skin_3") !=1)
             {
-                PlayerPrefs.SetInt("Skin", 3);
+                PlayerPrefs.SetInt("Skin_3", 1);
                 PlayerPrefs.SetInt("Argent Joueur Skin", PlayerPrefs.GetInt("Argent Joueur Skin") - 1000);
             }
         }
         else if (button.name == "Skin_4")
         {
-            if (PlayerPrefs.GetInt("Argent Joueur Skin") >= 1000)
+            //Vert Foncé
+            if (PlayerPrefs.GetInt("Argent Joueur Skin") >= 1000 && PlayerPrefs.GetInt("Skin_4") != 1)
             {
-                PlayerPrefs.SetInt("Skin", 4);
+                PlayerPrefs.SetInt("Skin_4", 1);
                 PlayerPrefs.SetInt("Argent Joueur Skin", PlayerPrefs.GetInt("Argent Joueur Skin") - 1000);
             }
         }

@@ -23,9 +23,36 @@ public class Santé : MonoBehaviour
         {
             scene = FindObjectOfType<SceneLoader>().GetComponent<SceneLoader>();
         }
-        santee = santeeMax;
-        if(barreSante != null)
-        barreSante.SetSanteeMax(santee);
+        if(PlayerPrefs.GetInt("Niveau") == 1)
+        {
+            santee = santeeMax;
+            if (barreSante != null)
+                barreSante.SetSanteeMax(santee);
+        }
+        else if (PlayerPrefs.GetInt("Niveau") == 2)
+        {
+            santee = santeeMax+50;
+        }
+        else if (PlayerPrefs.GetInt("Niveau") == 3)
+        {
+            santee = santeeMax + 75;
+        }
+        else if (PlayerPrefs.GetInt("Niveau") == 4)
+        {
+            santee = santeeMax + 100;
+        }
+        else if (PlayerPrefs.GetInt("Niveau") == 5)
+        {
+            santee = santeeMax + 125;
+        }
+        else if (PlayerPrefs.GetInt("Niveau") == 6)
+        {
+            santee = santeeMax + 150;            
+        }
+
+        if (barreSante != null)
+            barreSante.SetSanteeMax(santee);
+
     }
 
     // Update is called once per frame
