@@ -73,17 +73,15 @@ public class ChangerMenu : MonoBehaviour
         if (!menuObjet.activeSelf)
         {
             menuObjet.SetActive(true);
-            menuPrincipal.SetActive(false);
+            menuInventaire.SetActive(false);
             //createurSalle.SetActive(false);
         }
         else
         {
             menuObjet.SetActive(false);
-            menuPrincipal.SetActive(true);
+            menuInventaire.SetActive(true);
             //createurSalle.SetActive(true);
         }
-
-
     }
 
     public void changerMenuInfo()

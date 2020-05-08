@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Magasin : MonoBehaviour
 {
+    public GameObject menuMagasin;
+    public GameObject menuInventaire;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -12,6 +15,25 @@ public class Magasin : MonoBehaviour
         PlayerPrefs.SetInt("Niveau", 1);
         PlayerPrefs.SetInt("Sort Ultime", 0);
     }
+
+    public void changerMenuInventaire()
+    {
+        if (!menuMagasin.activeSelf)
+        {
+            menuMagasin.SetActive(true);
+            menuInventaire.SetActive(false);
+            //createurSalle.SetActive(false);
+        }
+        else
+        {
+            menuMagasin.SetActive(false);
+            menuInventaire.SetActive(true);
+            //createurSalle.SetActive(true);
+
+        }
+    }
+
+
 
     public void OnClicked(Button button)
     {
