@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CasesNatael
+public class CasesNatael : MonoBehaviour
 {
     private GrilleNatael grid;
 
