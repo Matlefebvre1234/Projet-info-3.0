@@ -29,6 +29,7 @@ TagManager:
   - Lance-Flamme
   - mana_small
   - mana_medium
+  - EnergyShieldBoss
   layers:
   - Default
   - TransparentFX
