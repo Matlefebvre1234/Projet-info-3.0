@@ -48,7 +48,19 @@ public class MouvementAiMathias : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+        {
+            transform.gameObject.GetComponent<Santé>().santeeMax = 100;
+        }
+        else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+        {
+            transform.gameObject.GetComponent<Santé>().santeeMax = 125;
+        }
+        else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+        {
+            transform.gameObject.GetComponent<Santé>().santeeMax = 150;
+        }
+
         pathfinding = new PathfindingMathias();
         joueur = new GameObject();
         joueur = GameObject.FindGameObjectWithTag("Player");
@@ -79,7 +91,19 @@ public class MouvementAiMathias : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            joueur.transform.GetComponent<Santé>().attaque(0.5f);
+            if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+            {
+                joueur.transform.GetComponent<Santé>().attaque(0.5f);
+            }
+            else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+            {
+                joueur.transform.GetComponent<Santé>().attaque(0.6f);
+            }
+            else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+            {
+                joueur.transform.GetComponent<Santé>().attaque(0.7f);
+            }
+
         }
         anim.SetFloat("Vitesse", 0);
     }

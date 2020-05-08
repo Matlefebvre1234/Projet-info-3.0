@@ -46,6 +46,25 @@ public class Invocateur : MonoBehaviour
         speed = speed * Time.deltaTime;
         player = GameObject.FindGameObjectWithTag("Player");
 
+        if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+        {
+            nombreMaxBloobs = 5;
+            speed = speed * Time.deltaTime;
+            transform.gameObject.GetComponent<Santé>().santeeMax = 100;
+        }
+        else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+        {
+            nombreMaxBloobs = 6;
+            speed = 1.25f*speed * Time.deltaTime;
+            transform.gameObject.GetComponent<Santé>().santeeMax = 125;
+        }
+        else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+        {
+            nombreMaxBloobs = 7;
+            speed = 1.5f*speed * Time.deltaTime;
+            transform.gameObject.GetComponent<Santé>().santeeMax = 150;
+        }
+
     }
 
 
