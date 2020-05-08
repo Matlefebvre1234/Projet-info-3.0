@@ -14,27 +14,27 @@ public class DifficulteScript : MonoBehaviour
     GameObject moyen;
     GameObject difficile;
 
-    public int niveauDifficulte;
+    private int niveauDifficulte = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        facile = GameObject.Find("Facile");
-        moyen = GameObject.Find("Moyen");
-        difficile = GameObject.Find("Difficile");
+        facile = isFacile.gameObject;
+        moyen = isMoyen.gameObject;
+        difficile = isDifficile.gameObject;
 
-        PlayerPrefs.SetInt("Niveau Difficulté", 1);
+        PlayerPrefs.SetInt("Niveau Difficulté", PlayerPrefs.GetInt("Niveau Difficulté"));
+        
     }
 
     private void Update()
     {
         if (isFacile.isOn || isMoyen.isOn || isDifficile.isOn)
         {
-            
+            //Nothing
         }
         else
         {
-            Debug.Log("null");
             if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
             {
                 facile.GetComponent<Toggle>().isOn = true;
@@ -53,18 +53,19 @@ public class DifficulteScript : MonoBehaviour
         if (isFacile.isOn)
         {
             niveauDifficulte = 1;
-            //Debug.Log("Niveau = " + niveauDifficulte);
+            facile.GetComponent<Toggle>().isOn = true;
         }
         else if (isMoyen.isOn)
         {
             niveauDifficulte = 2;
-           //Debug.Log("Niveau = " + niveauDifficulte);
+            moyen.GetComponent<Toggle>().isOn = true;
         }
         else if (isDifficile.isOn)
         {
             niveauDifficulte = 3;
-            //Debug.Log("Niveau = " + niveauDifficulte);
+            difficile.GetComponent<Toggle>().isOn = true;
         }
         PlayerPrefs.SetInt("Niveau Difficulté", niveauDifficulte);
+
     }
 }

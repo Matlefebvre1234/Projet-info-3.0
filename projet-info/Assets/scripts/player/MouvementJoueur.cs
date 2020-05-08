@@ -46,6 +46,7 @@ public class MouvementJoueur : MonoBehaviour
         // Permet de générer un shield de magie qui protège !
         target = GameObject.FindWithTag("Player").transform;
 
+        
         if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetInt("Mana") >= 100)
         {
             if (shieldClone != null)

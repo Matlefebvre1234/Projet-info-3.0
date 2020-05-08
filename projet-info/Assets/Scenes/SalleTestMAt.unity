@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -303,7 +303,6 @@ MonoBehaviour:
   isFacile: {fileID: 318280211}
   isMoyen: {fileID: 446973210}
   isDifficile: {fileID: 93138126}
-  niveauDifficulte: 1
 --- !u!1001 &115533709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -820,7 +819,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!114 &318280212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +835,6 @@ MonoBehaviour:
   isFacile: {fileID: 0}
   isMoyen: {fileID: 0}
   isDifficile: {fileID: 0}
-  niveauDifficulte: 0
 --- !u!1 &446973208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,15 +1713,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837946432}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 353853d9a95ebf246b5ce15ebb8fd2a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFacile: {fileID: 0}
-  isMoyen: {fileID: 0}
-  isDifficile: {fileID: 0}
-  niveauDifficulte: 0
+  isFacile: {fileID: 318280211}
+  isMoyen: {fileID: 446973210}
+  isDifficile: {fileID: 93138126}
 --- !u!1 &915304409
 GameObject:
   m_ObjectHideFlags: 0
