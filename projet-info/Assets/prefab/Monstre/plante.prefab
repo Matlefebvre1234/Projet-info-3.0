@@ -14,15 +14,13 @@ GameObject:
   - component: {fileID: 7250184942145801139}
   - component: {fileID: -7350740347375385304}
   - component: {fileID: 7787995814455802788}
-  - component: {fileID: -5939410474739558142}
-  - component: {fileID: -789613724665563164}
   - component: {fileID: 3838183313076418540}
   - component: {fileID: 6699828100404219006}
   - component: {fileID: 8611795719479096911}
   - component: {fileID: 2082076312959605560}
   m_Layer: 0
   m_Name: plante
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -9031027573037896040, guid: 62ab901a4a602b04bba4f35b26f490b7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -174,36 +172,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-5939410474739558142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85124776774130177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd6d66df7f0181419bbc4e107e21910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  santeeMax: 100
-  santee: 0
-  armure: 1
-  barreSante: {fileID: 0}
-  aS: {fileID: 6699828100404219006}
---- !u!114 &-789613724665563164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85124776774130177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d8d71308364b647b5cdec8c41df80e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  difficulte: 1
 --- !u!82 &3838183313076418540
 AudioSource:
   m_ObjectHideFlags: 0

@@ -288,6 +288,7 @@ public class CreateurSalle : MonoBehaviour
 
     public void EnnemiesTuer()
     {
+        
         nBEnnemiesTotal--;
 
 
