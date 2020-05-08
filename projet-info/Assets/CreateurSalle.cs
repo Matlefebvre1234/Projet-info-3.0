@@ -271,6 +271,12 @@ public class CreateurSalle : MonoBehaviour
         foreach (GameObject enemy in mana_medium)
             GameObject.Destroy(enemy);
 
+        Bloob2[] bloob = FindObjectsOfType<Bloob2>();
+        foreach (Bloob2 enemy in bloob)
+            GameObject.Destroy(enemy.gameObject);
+
+
+
         GameObject salle = GameObject.FindGameObjectWithTag("Salle");
         FindObjectOfType<GrilleMonstresMat>().DestroyGrid();
 

@@ -163,7 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TempTotalTransition: 10
-  energyShield: {fileID: 0}
+  energyShield: {fileID: 4225611229478418194, guid: 47400aada1889fc4896e6a9ef1e937cb,
+    type: 3}
 --- !u!114 &4387767017286178392
 MonoBehaviour:
   m_ObjectHideFlags: 0
