@@ -14,18 +14,22 @@ public class MenuPause : MonoBehaviour
     public GameObject createurSalle;
     public GameObject paneauOption;
     public GameObject menuObjet;
+    private EffetSonores effetSonore;
 
     // Update is called once per frame
     void Update()
     {
+        effetSonore = GetComponent<EffetSonores>();
         if(Input.GetKeyDown(KeyCode.Escape) && MenuInventaire.activeSelf == false)
         {
             if(GameIsPaused)
             {
+                effetSonore.audioSrc.Play();
                 Resume();
             }
             else
             {
+                effetSonore.audioSrc.Stop();
                 Pause();
             }
         }
@@ -35,8 +39,6 @@ public class MenuPause : MonoBehaviour
     {
         MenuPauseUI.SetActive(false);
 
-        //createurSalle.SetActive(true);
-
         Time.timeScale = 1f;
 
         GameIsPaused = false;
@@ -45,7 +47,6 @@ public class MenuPause : MonoBehaviour
     void Pause()
     {
         MenuPauseUI.SetActive(true);
-        //createurSalle.SetActive(false);
 
         Time.timeScale = 0f;
 

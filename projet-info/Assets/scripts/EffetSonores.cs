@@ -10,8 +10,11 @@ public class EffetSonores : MonoBehaviour
 
     private void Start()
     {
-        effetsVol = audioSrc.volume;
-        effetsVol = PlayerPrefs.GetFloat("effetsSonores");
+        if (!audioSrc.isPlaying.Equals(true))
+        {
+            effetsVol = audioSrc.volume;
+            effetsVol = PlayerPrefs.GetFloat("effetsSonores");
+        }
     }
 
     // Update is called once per frame

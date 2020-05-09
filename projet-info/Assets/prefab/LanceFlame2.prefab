@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8926201652695462828}
   - component: {fileID: 1662906614165293511}
   - component: {fileID: 7659553545201635576}
+  - component: {fileID: 7677585449416966975}
   m_Layer: 0
   m_Name: LanceFlame2
   m_TagString: Lance-Flamme
@@ -128,7 +129,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fa3f899ea40f73042a3f369bcf757803, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.005
+  m_Volume: 0.0005
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -238,3 +239,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7677585449416966975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588490300970029336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa74f1a069382ea42ad465f65a6f2f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSrc: {fileID: 1662906614165293511}
