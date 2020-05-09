@@ -13567,7 +13567,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6800724704576337041}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188962158286872349}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa74f1a069382ea42ad465f65a6f2f09, type: 3}
   m_Name: 
@@ -14820,6 +14820,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusiqueBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 6060800396754856940, guid: e057e72694803af4c883b6d8337b6a8b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060800396754856941, guid: e057e72694803af4c883b6d8337b6a8b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6060800396754856943, guid: e057e72694803af4c883b6d8337b6a8b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14896,6 +14906,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5683839455600634752, guid: 0b8bbe9e65f5307498b121dbdfd31aee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683839455600634753, guid: 0b8bbe9e65f5307498b121dbdfd31aee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5683839455600634754, guid: 0b8bbe9e65f5307498b121dbdfd31aee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14951,10 +14971,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5683839455600634755, guid: 0b8bbe9e65f5307498b121dbdfd31aee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5683839455600634764, guid: 0b8bbe9e65f5307498b121dbdfd31aee,
         type: 3}
       propertyPath: m_Name
       value: MusiqueBackground_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683839455600634764, guid: 0b8bbe9e65f5307498b121dbdfd31aee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6181320650032648025, guid: 0b8bbe9e65f5307498b121dbdfd31aee,
         type: 3}

@@ -185,7 +185,6 @@ public class CreateurSalle : MonoBehaviour
 
     private void CreerSalle()
     {
-       
   
         Debug.Log("creer salle");
         if(compteurDeSalle == 5)
