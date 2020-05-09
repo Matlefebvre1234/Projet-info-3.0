@@ -20,7 +20,7 @@ public class ArgentJoueur : MonoBehaviour
 
     public void ArgentJoueurs(int argent)
     {
-        argentJoueur = 0;
+        int argentJoueur;
         argentJoueur = argent + PlayerPrefs.GetInt("Argent Joueur");
         argentTexte.GetComponent<Text>().text = (argentJoueur.ToString());
         PlayerPrefs.SetInt("Argent Joueur", argentJoueur);

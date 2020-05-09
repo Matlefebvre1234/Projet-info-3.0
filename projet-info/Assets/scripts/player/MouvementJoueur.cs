@@ -30,6 +30,10 @@ public class MouvementJoueur : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         ani = GetComponent<Animator>();
         mrb = GetComponent<Rigidbody2D>();
+        if(PlayerPrefs.GetInt("Skin choisit") == 1)
+        {
+            //Rouge
+        }
     }
 
     // Update is called once per frame
@@ -77,6 +81,32 @@ public class MouvementJoueur : MonoBehaviour
         if (shieldClone != null)
         {
             shieldClone.transform.position = Vector2.MoveTowards(shieldClone.transform.position, target.position, speed * Time.deltaTime);
+        }
+
+        if (PlayerPrefs.GetInt("Skin choisit") == 0)
+        {
+            //Aucune Couleur
+            transform.gameObject.GetComponent<SpriteRenderer>().color = Color.clear;
+        }
+        else if (PlayerPrefs.GetInt("Skin choisit") == 1)
+        {
+            //Rouge
+            transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+        }
+        else if (PlayerPrefs.GetInt("Skin choisit") == 2)
+        {
+            //Turqoise
+            transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 1, 1);
+        }
+        else if (PlayerPrefs.GetInt("Skin choisit") == 3)
+        {
+            //Jaune
+            transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.92f, 0.016f, 1);
+        }
+        else if (PlayerPrefs.GetInt("Skin choisit") == 4)
+        {
+            //Vert
+            transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
         }
 
     }

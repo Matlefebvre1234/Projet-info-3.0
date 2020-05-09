@@ -44,62 +44,12 @@ public class CreateurSalle : MonoBehaviour
     {
         
         CreerSalle();
-        if(PlayerPrefs.GetInt("Skin choisit") == 0)
-        {
-            //Aucune Couleur
-            Player.GetComponent<Renderer>().material.color = Color.clear;
-        }
-        else if(PlayerPrefs.GetInt("Skin choisit") == 1)
-        {
-            //Rouge
-            Player.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1);
-        }
-        else if (PlayerPrefs.GetInt("Skin choisit") == 2)
-        {
-            //Turqoise
-            Player.GetComponent<Renderer>().material.color = new Color(0, 1, 1, 1);
-        }
-        else if (PlayerPrefs.GetInt("SSkin choisitkin") == 3)
-        {
-            //Jaune
-            Player.GetComponent<Renderer>().material.color = new Color(1, 0.92f, 0.016f, 1);
-        }
-        else if (PlayerPrefs.GetInt("Skin choisit") == 4)
-        {
-            //Vert
-            Player.GetComponent<Renderer>().material.color = new Color(0, 1, 0, 1);
-        }
+        
 
     }
 
     private void Update()
     {
-        if (PlayerPrefs.GetInt("Skin choisit") == 0)
-        {
-            //Aucune Couleur
-            Player.GetComponent<Renderer>().material.color = Color.clear;
-        }
-        else if (PlayerPrefs.GetInt("Skin choisit") == 1)
-        {
-            //Rouge
-            Player.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1);
-        }
-        else if (PlayerPrefs.GetInt("Skin choisit") == 2)
-        {
-            //Turqoise
-            Player.GetComponent<Renderer>().material.color = new Color(0, 1, 1, 1);
-        }
-        else if (PlayerPrefs.GetInt("SSkin choisitkin") == 3)
-        {
-            //Jaune
-            Player.GetComponent<Renderer>().material.color = new Color(1, 0.92f, 0.016f, 1);
-        }
-        else if (PlayerPrefs.GetInt("Skin choisit") == 4)
-        {
-            //Vert
-            Player.GetComponent<Renderer>().material.color = new Color(0, 1, 0, 1);
-        }
-
         if (nBEnnemiesTotal <= 0 && AllEnnemySpawn)
         {
            
