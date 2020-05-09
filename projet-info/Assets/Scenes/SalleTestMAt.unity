@@ -657,18 +657,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183254522}
   m_CullTransparentMesh: 0
---- !u!1 &238549148 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3548937000591268145, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d,
-    type: 3}
-  m_PrefabInstance: {fileID: 786300989}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &238549150 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3548937000591268150, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d,
-    type: 3}
-  m_PrefabInstance: {fileID: 786300989}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &188304682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -738,6 +726,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e057e72694803af4c883b6d8337b6a8b, type: 3}
+--- !u!1 &238549148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3548937000591268145, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d,
+    type: 3}
+  m_PrefabInstance: {fileID: 786300989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &238549150 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3548937000591268150, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d,
+    type: 3}
+  m_PrefabInstance: {fileID: 786300989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &285440415
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 188304682}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa74f1a069382ea42ad465f65a6f2f09, type: 3}
   m_Name: 
@@ -4274,8 +4274,6 @@ MonoBehaviour:
   boutonSkin_4: {fileID: 986736773}
   boutonNiveau: {fileID: 1305529608}
   boutonSortUltime: {fileID: 1938730205}
-  argentTexte: {fileID: 1100180329}
-  MenuInventaireUI: {fileID: 1505202010}
 --- !u!114 &1793791382 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1793791382, guid: 0b242436c3c4a57449df6155b03a5cf7,
@@ -6476,12 +6474,11 @@ PrefabInstance:
     - target: {fileID: 1210234358, guid: f147f19ca2a13ad45b9b9d90d7facf94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1774538867}
+      objectReference: {fileID: 1774538859}
     - target: {fileID: 1210234358, guid: f147f19ca2a13ad45b9b9d90d7facf94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changerMenuObjets
+      value: RetourObjets
       objectReference: {fileID: 0}
-      objectReference: {fileID: 1774538859}
     - target: {fileID: 1210234358, guid: f147f19ca2a13ad45b9b9d90d7facf94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RetourObjets
