@@ -85,31 +85,26 @@ public class MouvementJoueur : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Skin choisit") == 0)
         {
-            Debug.Log("Aucune couleur");
             //Aucune Couleur
             transform.gameObject.GetComponent<SpriteRenderer>().color = Color.clear;
         }
         else if (PlayerPrefs.GetInt("Skin choisit") == 1)
         {
-            Debug.Log("Rouge");
             //Rouge
             transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
         }
         else if (PlayerPrefs.GetInt("Skin choisit") == 2)
         {
-            Debug.Log("Turquoise");
             //Turqoise
             transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 1, 1);
         }
         else if (PlayerPrefs.GetInt("Skin choisit") == 3)
         {
-            Debug.Log("Jaune");
             //Jaune
             transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.92f, 0.016f, 1);
         }
         else if (PlayerPrefs.GetInt("Skin choisit") == 4)
         {
-            Debug.Log("Vert");
             //Vert
             transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
         }

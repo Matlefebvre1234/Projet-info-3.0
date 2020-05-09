@@ -8,6 +8,13 @@ public class Magasin : MonoBehaviour
     public GameObject menuMagasin;
     public GameObject menuInventaire;
 
+    public Button boutonSkin_1;
+    public Button boutonSkin_2;
+    public Button boutonSkin_3;
+    public Button boutonSkin_4;
+    public Button boutonNiveau;
+    public Button boutonSortUltime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +25,70 @@ public class Magasin : MonoBehaviour
         //PlayerPrefs.SetInt("Skin_4", 0);
         //PlayerPrefs.SetInt("Niveau", 1);
         //PlayerPrefs.SetInt("Sort Ultime", 0);
+
+        boutonSkin_1.interactable = true;
+        boutonSkin_2.interactable = true;
+        boutonSkin_3.interactable = true;
+        boutonSkin_4.interactable = true;
+        boutonNiveau.interactable = true;
+        boutonSortUltime.interactable = true;
+    }
+
+    private void Update()
+    {
+        if(PlayerPrefs.GetInt("Skin_1") == 1 && PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
+        {
+            boutonSkin_1.interactable = false;
+        }
+        else
+        {
+            boutonSkin_1.interactable = true;
+        }
+
+        if (PlayerPrefs.GetInt("Skin_2") == 1 && PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
+        {
+            boutonSkin_2.interactable = false;
+        }
+        else
+        {
+            boutonSkin_2.interactable = true;
+        }
+
+        if (PlayerPrefs.GetInt("Skin_3") == 1 && PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
+        {
+            boutonSkin_3.interactable = false;
+        }
+        else
+        {
+            boutonSkin_3.interactable = true;
+        }
+
+        if (PlayerPrefs.GetInt("Skin_4") == 1 && PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
+        {
+            boutonSkin_4.interactable = false;
+        }
+        else
+        {
+            boutonSkin_4.interactable = true;
+        }
+
+        if (PlayerPrefs.GetInt("Niveau") >= 6 && PlayerPrefs.GetInt("Argent Joueur Skin") < 5000)
+        {
+            boutonNiveau.interactable = false;
+        }
+        else
+        {
+            boutonNiveau.interactable = true;
+        }
+
+        if (PlayerPrefs.GetInt("Sort Ultime") == 1 && PlayerPrefs.GetInt("Argent Joueur Skin") < 1000000)
+        {
+            boutonSortUltime.interactable = false;
+        }
+        else
+        {
+            boutonSortUltime.interactable = true;
+        }
     }
 
     public void changerMenuInventaire()
