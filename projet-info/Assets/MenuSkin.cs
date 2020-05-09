@@ -13,7 +13,7 @@ public class MenuSkin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("Skin choisit", 0);
+        //PlayerPrefs.SetInt("Skin choisit", 0);
         BoutonSkin_1.interactable = false;
         BoutonSkin_2.interactable = false;
         BoutonSkin_3.interactable = false;
@@ -27,15 +27,15 @@ public class MenuSkin : MonoBehaviour
         {
             BoutonSkin_1.interactable = true;
         }
-     else if (PlayerPrefs.GetInt("Skin_2") == 1)
+     if (PlayerPrefs.GetInt("Skin_2") == 1)
         {
             BoutonSkin_2.interactable = true;
         }
-     else if (PlayerPrefs.GetInt("Skin_3") == 1)
+     if (PlayerPrefs.GetInt("Skin_3") == 1)
         {
             BoutonSkin_3.interactable = true;
         }
-     else if (PlayerPrefs.GetInt("Skin_4") == 1)
+     if (PlayerPrefs.GetInt("Skin_4") == 1)
         {
             BoutonSkin_4.interactable = true;
         }

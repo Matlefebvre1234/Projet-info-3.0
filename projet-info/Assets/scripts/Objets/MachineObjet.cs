@@ -7,6 +7,7 @@ public class MachineObjet : MonoBehaviour
     public int cout;
     public GameObject objet;
     private GameObject joueur;
+    public bool dialogue = false;
 
     int argent;
 
@@ -18,17 +19,32 @@ public class MachineObjet : MonoBehaviour
         argent = PlayerPrefs.GetInt("Argent Joueur");
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    void Update()
     {
-        if (collider.gameObject.tag == "Player" && joueur.GetComponent<ArgentJoueur>().GetArgent() > cout)
+        if (Input.GetKeyDown("e") && dialogue == true)
         {
-            Instantiate(objet, transform.position - new Vector3(0, 0.934f, 1), Quaternion.identity);
+            dialogue = false;
+            Instantiate(objet, transform.position - new Vector3(0, 0.934f, 0), Quaternion.identity);
 
             argent = argent - cout;
 
-            Debug.Log("argent machine = " + argent);
-
             PlayerPrefs.SetInt("Argent Joueur", argent);
+        }
+
+        if (Input.GetKeyDown("q") && dialogue == true)
+        {
+            dialogue = false;
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        
+        if (collider.gameObject.tag == "Player" && joueur.GetComponent<ArgentJoueur>().GetArgent() >= cout)
+        {
+            FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+            dialogue = true;
         }
     }
 }

@@ -44,62 +44,12 @@ public class CreateurSalle : MonoBehaviour
     {
         
         CreerSalle();
-        if(PlayerPrefs.GetInt("Skin choisit") == 0)
-        {
-            //Aucune Couleur
-            Player.GetComponent<Renderer>().material.color = Color.clear;
-        }
-        else if(PlayerPrefs.GetInt("Skin choisit") == 1)
-        {
-            //Rouge
-            Player.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1);
-        }
-        else if (PlayerPrefs.GetInt("Skin choisit") == 2)
-        {
-            //Turqoise
-            Player.GetComponent<Renderer>().material.color = new Color(0, 1, 1, 1);
-        }
-        else if (PlayerPrefs.GetInt("SSkin choisitkin") == 3)
-        {
-            //Jaune
-            Player.GetComponent<Renderer>().material.color = new Color(1, 0.92f, 0.016f, 1);
-        }
-        else if (PlayerPrefs.GetInt("Skin choisit") == 4)
-        {
-            //Vert
-            Player.GetComponent<Renderer>().material.color = new Color(0, 1, 0, 1);
-        }
+        
 
     }
 
     private void Update()
     {
-        if (PlayerPrefs.GetInt("Skin choisit") == 0)
-        {
-            //Aucune Couleur
-            Player.GetComponent<Renderer>().material.color = Color.clear;
-        }
-        else if (PlayerPrefs.GetInt("Skin choisit") == 1)
-        {
-            //Rouge
-            Player.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1);
-        }
-        else if (PlayerPrefs.GetInt("Skin choisit") == 2)
-        {
-            //Turqoise
-            Player.GetComponent<Renderer>().material.color = new Color(0, 1, 1, 1);
-        }
-        else if (PlayerPrefs.GetInt("SSkin choisitkin") == 3)
-        {
-            //Jaune
-            Player.GetComponent<Renderer>().material.color = new Color(1, 0.92f, 0.016f, 1);
-        }
-        else if (PlayerPrefs.GetInt("Skin choisit") == 4)
-        {
-            //Vert
-            Player.GetComponent<Renderer>().material.color = new Color(0, 1, 0, 1);
-        }
-
         if (nBEnnemiesTotal <= 0 && AllEnnemySpawn)
         {
            
@@ -185,7 +135,6 @@ public class CreateurSalle : MonoBehaviour
 
     private void CreerSalle()
     {
-       
   
         Debug.Log("creer salle");
         if(compteurDeSalle == 5)
@@ -270,6 +219,12 @@ public class CreateurSalle : MonoBehaviour
         GameObject[] mana_medium = GameObject.FindGameObjectsWithTag("mana_medium");
         foreach (GameObject enemy in mana_medium)
             GameObject.Destroy(enemy);
+
+        Bloob2[] bloob = FindObjectsOfType<Bloob2>();
+        foreach (Bloob2 enemy in bloob)
+            GameObject.Destroy(enemy.gameObject);
+
+
 
         GameObject salle = GameObject.FindGameObjectWithTag("Salle");
         FindObjectOfType<GrilleMonstresMat>().DestroyGrid();
