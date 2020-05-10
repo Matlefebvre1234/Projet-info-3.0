@@ -55,13 +55,19 @@ public class Mana : MonoBehaviour
     {
         if(barreMana != null)
         {
+            if(mana <= 0)
+            {
+                manaJeu = 0;
+                PlayerPrefs.SetInt("Mana", 0);
+            }
             if (manaJeu < manaMax)
             {
                 PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") + mana);
             }
-            if (mana > manaMax)
+            if ((mana + manaJeu) > manaMax)
             {
                 manaJeu = manaMax;
+                PlayerPrefs.SetInt("Mana", manaMax);
             }
 
             barreMana.SetMana(PlayerPrefs.GetInt("Mana"));

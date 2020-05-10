@@ -19,6 +19,7 @@ public class projectileJ : MonoBehaviour
     {
         joueur = GameObject.FindGameObjectWithTag("Player");
         dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
+        //dommage = PlayerPrefs.GetInt("dommage projectile");
         mousposition = Input.mousePosition;
         mousposition = Camera.main.ScreenToWorldPoint(mousposition);
         VecteurUnitaire = mousposition - (Vector2)transform.position;
@@ -43,7 +44,10 @@ public class projectileJ : MonoBehaviour
             {
      
                 Santé sante = collision.gameObject.GetComponent<Santé>();
-                if(sante !=null) sante.attaque(dommage);
+                if(sante !=null) 
+                sante.attaque(dommage);
+
+                Debug.Log("dommage = " + dommage);
 
                 if (sante != null)
                 {
@@ -73,6 +77,8 @@ public class projectileJ : MonoBehaviour
                 
                 Santé sante = collision.gameObject.GetComponent<Santé>();
                 sante.attaque(dommage);
+
+                Debug.Log("dommage = " + dommage);
 
                 if (sante.santee <= 0)
                 {
