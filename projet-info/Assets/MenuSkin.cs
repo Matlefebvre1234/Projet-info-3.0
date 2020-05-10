@@ -47,15 +47,15 @@ public class MenuSkin : MonoBehaviour
         {
             PlayerPrefs.SetInt("Skin choisit", 1);
         }
-        else if (button.name == "Skin_2")
+        if (button.name == "Skin_2")
         {
             PlayerPrefs.SetInt("Skin choisit", 2);
         }
-        else if(button.name == "Skin_3")
+        if(button.name == "Skin_3")
         {
             PlayerPrefs.SetInt("Skin choisit", 3);
         }
-        else if(button.name == "Skin_4")
+        if(button.name == "Skin_4")
         {
             PlayerPrefs.SetInt("Skin choisit", 4);
         }

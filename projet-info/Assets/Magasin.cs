@@ -36,7 +36,7 @@ public class Magasin : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerPrefs.GetInt("Skin_1") == 1 && PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
+        if(PlayerPrefs.GetInt("Skin_1") == 1 || PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
         {
             boutonSkin_1.interactable = false;
         }
@@ -45,7 +45,7 @@ public class Magasin : MonoBehaviour
             boutonSkin_1.interactable = true;
         }
 
-        if (PlayerPrefs.GetInt("Skin_2") == 1 && PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
+        if (PlayerPrefs.GetInt("Skin_2") == 1 || PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
         {
             boutonSkin_2.interactable = false;
         }
@@ -54,7 +54,7 @@ public class Magasin : MonoBehaviour
             boutonSkin_2.interactable = true;
         }
 
-        if (PlayerPrefs.GetInt("Skin_3") == 1 && PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
+        if (PlayerPrefs.GetInt("Skin_3") == 1 || PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
         {
             boutonSkin_3.interactable = false;
         }
@@ -63,7 +63,7 @@ public class Magasin : MonoBehaviour
             boutonSkin_3.interactable = true;
         }
 
-        if (PlayerPrefs.GetInt("Skin_4") == 1 && PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
+        if (PlayerPrefs.GetInt("Skin_4") == 1 || PlayerPrefs.GetInt("Argent Joueur Skin") < 1000)
         {
             boutonSkin_4.interactable = false;
         }
@@ -72,7 +72,7 @@ public class Magasin : MonoBehaviour
             boutonSkin_4.interactable = true;
         }
 
-        if (PlayerPrefs.GetInt("Niveau") >= 6 && PlayerPrefs.GetInt("Argent Joueur Skin") < 5000)
+        if (PlayerPrefs.GetInt("Niveau") >= 6 || PlayerPrefs.GetInt("Argent Joueur Skin") < 5000)
         {
             boutonNiveau.interactable = false;
         }
@@ -81,7 +81,7 @@ public class Magasin : MonoBehaviour
             boutonNiveau.interactable = true;
         }
 
-        if (PlayerPrefs.GetInt("Sort Ultime") == 1 && PlayerPrefs.GetInt("Argent Joueur Skin") < 1000000)
+        if (PlayerPrefs.GetInt("Sort Ultime") == 1 || PlayerPrefs.GetInt("Argent Joueur Skin") < 1000000)
         {
             boutonSortUltime.interactable = false;
         }
