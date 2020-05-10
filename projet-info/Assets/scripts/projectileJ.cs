@@ -56,17 +56,16 @@ public class projectileJ : MonoBehaviour
                 {
                     if(PlayerPrefs.GetInt("Niveau Difficulté") == 1)
                         {
-                            joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(10);
+                            joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(20);
                         }
                     else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
                         {
-                            joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(20);
+                            joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(25);
                         }
                     else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
                         {
                             joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
                         }
-
                     }
                 }
 
@@ -84,11 +83,11 @@ public class projectileJ : MonoBehaviour
                 {
                     if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
                     {
-                        joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(10);
+                        joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(20);
                     }
                     else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
                     {
-                        joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(20);
+                        joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(25);
                     }
                     else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
                     {

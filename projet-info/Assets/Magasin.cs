@@ -162,11 +162,10 @@ public class Magasin : MonoBehaviour
         }
         else if (button.name == "SortUltime" && PlayerPrefs.GetInt("Sort Ultime") != 1)
         {
-            if (PlayerPrefs.GetInt("Argent Joueur Skin") >= 1000000)
+            if (PlayerPrefs.GetInt("Argent Joueur Skin") >= 100000)
             {
-                Debug.Log("sort ultime");
                 PlayerPrefs.SetInt("Sort Ultime", 1);
-                PlayerPrefs.SetInt("Argent Joueur Skin", PlayerPrefs.GetInt("Argent Joueur Skin") - 1000000);
+                PlayerPrefs.SetInt("Argent Joueur Skin", PlayerPrefs.GetInt("Argent Joueur Skin") - 100000);
             }
         }
         
