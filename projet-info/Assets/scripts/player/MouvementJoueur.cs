@@ -50,11 +50,11 @@ public class MouvementJoueur : MonoBehaviour
         // Permet de générer un shield de magie qui protège !
         target = GameObject.FindWithTag("Player").transform;
 
-        //if(Input.GetKeyDown(KeyCode.P))
-        //{
-        //    PlayerPrefs.SetInt("Argent Joueur Skin", 1000000000);
-        //    PlayerPrefs.SetInt("Argent Joueur", 1000000000);
-        //}
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerPrefs.SetInt("Argent Joueur Skin", 10000000);
+            PlayerPrefs.SetInt("Argent Joueur", 10000000);
+        }
         //if (Input.GetKeyDown(KeyCode.L))
         //{
         //    PlayerPrefs.SetInt("Argent Joueur Skin", 0);
@@ -86,7 +86,7 @@ public class MouvementJoueur : MonoBehaviour
         if (PlayerPrefs.GetInt("Skin choisit") == 0)
         {
             //Aucune Couleur
-            transform.gameObject.GetComponent<SpriteRenderer>().color = Color.clear;
+            transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(0,0,0,0);
         }
         else if (PlayerPrefs.GetInt("Skin choisit") == 1)
         {
