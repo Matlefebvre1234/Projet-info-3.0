@@ -12,9 +12,17 @@ public class GrilleNatael
     private Vector3 origine;
     private float TileDimension;
     private CasesNatael[,] listeDeNode;
+    private GameObject[] obstacle;
+    private GameObject[] tour;
+    private GameObject[] lave;
+
+    int positionXObs;
+    int positionYObs;
 
     private GameObject[] listeObstacle;
     private GameObject[] listeObstacle2;
+
+    private List<GameObject> colliderList;
 
     // Permet de savoir si une case dans la map n'est pas accesible
     public GrilleNatael(int width, int height, float TileDimension, Vector3 VecteurOrigine)
@@ -25,38 +33,54 @@ public class GrilleNatael
         origine = VecteurOrigine;
         listeDeNode = new CasesNatael[largeurMap, hauteurMap];
 
+        obstacle = GameObject.FindGameObjectsWithTag("Obstacle");
+        tour = GameObject.FindGameObjectsWithTag("Tour");
+        lave = GameObject.FindGameObjectsWithTag("Lave");
 
-        listeObstacle = GameObject.FindGameObjectsWithTag("Obstacle");
-        listeObstacle2 = GameObject.FindGameObjectsWithTag("Lave");
-
-        for (int w = 0; w < listeDeNode.GetLength(0); w++)
+        //Listes des différentes cases que l'intelligence artificielle ne peut traverser à cause d'obstacles
+        for (int x = 0; x < listeDeNode.GetLength(0); x++)
         {
-            for (int e = 0; e < listeDeNode.GetLength(1); e++)
+            for (int y = 0; y < listeDeNode.GetLength(1); y++)
             {
-        
-                listeDeNode[w, e] = new CasesNatael(w, e);
-        
-                for (int i = 0; i < listeObstacle.Length; i++)
+                listeDeNode[x, y] = new CasesNatael(x, y);
+
+
+                for (int i = 0; i < obstacle.Length; i++)
                 {
-                    GetXY(listeObstacle[i].transform.position, out int x, out int y);
-                    if (w == x & e == y)
+                    GetXY(obstacle[i].transform.position, out int x1, out int y1);
+
+                    if (x1 == x && y1 == y)
                     {
-                        listeDeNode[x, y].obstacle = true;
-        
+                        listeDeNode[x, y].SetObstacle(true);
+                    }
+                }
+                for (int k = 0; k < tour.Length; k++)
+                {
+                    GetXY(tour[k].transform.position, out int x1, out int y1);
+
+                    if (x1 == x && y1 == y)
+                    {
+                        listeDeNode[x, y].SetObstacle(true);
+                    }
+                }
+                for (int j = 0; j < lave.Length; j++)
+                {
+                    GetXY(lave[j].transform.position, out int x1, out int y1);
+
+                    if (x1 == x && y1 == y)
+                    {
+                        listeDeNode[x, y].SetObstacle(true);
                     }
                 }
 
-                for (int i = 0; i < listeObstacle2.Length; i++)
-                {
-                    GetXY(listeObstacle2[i].transform.position, out int x, out int y);
-                    if (w == x & e == y)
-                    {
-                        listeDeNode[x, y].obstacle = true;
-
-                    }
-                }
             }
+
         }
+    }
+
+    public CasesNatael GetGridObject(int x, int y)
+    {
+        return listeDeNode[x, y];
     }
 
     // Permet d'avoir la position de l'objet visé dans la map décentré

@@ -120,7 +120,7 @@ public class NatPathfinding
 
                 // Permet de vérifier si la case voisine est un obstacle
                 // et si c'est le cas, la rajouter dans la liste fermée
-                if (casesVoisine.obstacle == true)
+                if (casesVoisine.GetObstacle() == true)
                 {
                     ListePointsDejaVue.Add(casesVoisine);
                     continue;

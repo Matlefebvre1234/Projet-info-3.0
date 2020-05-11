@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8a31bc3b8fa04409c2d140660f191f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hauteur: 14
-  largeur: 22
+  hauteur: 19
+  largeur: 27
   dimCell: 0.5

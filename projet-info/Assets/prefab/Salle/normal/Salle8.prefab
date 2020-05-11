@@ -1724,16 +1724,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7536005108182575212, guid: b64445afc4331f042a71a4e5bc486d11,
-        type: 3}
-      propertyPath: hauteur
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 7536005108182575212, guid: b64445afc4331f042a71a4e5bc486d11,
-        type: 3}
-      propertyPath: largeur
-      value: 27
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b64445afc4331f042a71a4e5bc486d11, type: 3}
 --- !u!4 &2784598971905481819 stripped
@@ -3217,6 +3207,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: obstacle bleu (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767260531755368483, guid: da01c2076ad90d34bb9cbb11227d97e3,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da01c2076ad90d34bb9cbb11227d97e3, type: 3}

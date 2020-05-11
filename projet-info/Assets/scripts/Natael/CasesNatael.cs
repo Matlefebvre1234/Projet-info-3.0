@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 public class CasesNatael : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class CasesNatael : MonoBehaviour
     public int Gcost;
     public int Fcost;
     public int Hcost;
-    public bool obstacle = false;
+    public Boolean obstacle = false;
 
     public CasesNatael casePrecedente;
 
@@ -27,7 +29,18 @@ public class CasesNatael : MonoBehaviour
         grid = null;
         x = x1;
         y = y1;
+    }
 
+    //Setter pour la position en x de la case
+    public void SetX(int x)
+    {
+        this.x = x;
+    }
+
+    //Setter pour la position en y de la case
+    public void SetY(int y)
+    {
+        this.y = y;
     }
 
     public void CalculerFcost()
@@ -35,8 +48,13 @@ public class CasesNatael : MonoBehaviour
         Fcost = Gcost + Hcost;
     }
 
-    public void SetObastacle(bool choix)
+    public void SetObstacle(bool obs)
     {
-        obstacle = choix;
+        obstacle = obs;
+    }
+
+    public bool GetObstacle()
+    {
+        return obstacle;
     }
 }
