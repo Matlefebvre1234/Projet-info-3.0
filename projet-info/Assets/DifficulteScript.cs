@@ -24,16 +24,44 @@ public class DifficulteScript : MonoBehaviour
         difficile = isDifficile.gameObject;
 
         PlayerPrefs.SetInt("Niveau Difficulté", PlayerPrefs.GetInt("Niveau Difficulté"));
+
+        if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+        {
+            facile.GetComponent<Toggle>().isOn = true;
+        }
+        else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+        {
+            moyen.GetComponent<Toggle>().isOn = true;
+        }
+        else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+        {
+            difficile.GetComponent<Toggle>().isOn = true;
+        }
+    }
+
+    public void Reset()
+    {
+        Debug.Log("difficulté = " + PlayerPrefs.GetInt("Niveau Difficulté"));
+        if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+        {
+            facile.GetComponent<Toggle>().isOn = true;
+        }
+        else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+        {
+            moyen.GetComponent<Toggle>().isOn = true;
+        }
+        else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+        {
+            difficile.GetComponent<Toggle>().isOn = true;
+        }
+
         
     }
 
+
     private void Update()
     {
-        if (isFacile.isOn || isMoyen.isOn || isDifficile.isOn)
-        {
-            //Nothing
-        }
-        else
+        if (isFacile.isOn == false && isMoyen.isOn == false && isDifficile.isOn == false)
         {
             if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
             {
@@ -65,6 +93,7 @@ public class DifficulteScript : MonoBehaviour
             niveauDifficulte = 3;
             difficile.GetComponent<Toggle>().isOn = true;
         }
+
         PlayerPrefs.SetInt("Niveau Difficulté", niveauDifficulte);
 
     }

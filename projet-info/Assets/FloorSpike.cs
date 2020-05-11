@@ -15,43 +15,52 @@ public class FloorSpike : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(ouvert)
+        if(PlayerPrefs.GetInt("Niveau Diffculté") == 1)
         {
-            if (collision.gameObject.tag == "PlayerFoots")
-            {
-                santecomp.attaque(dommage);
-            }
-                
-
-
+            dommage = 5;
+        }
+        else if (PlayerPrefs.GetInt("Niveau Diffculté") == 2)
+        {
+            dommage = 7;
+        }
+        else if (PlayerPrefs.GetInt("Niveau Diffculté") == 3)
+        {
+            dommage = 10;
         }
     }
 
-   
-
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (ouvert)
         {
-
             if (collision.gameObject.tag == "PlayerFoots")
             {
-                santecomp.attaque(dommage);
+                santecomp.attaque(dommage * Time.deltaTime);
             }
-
-
-
         }
     }
 
-
-
-
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(ouvert)
+    //    {
+    //        if (collision.gameObject.tag == "PlayerFoots")
+    //        {
+    //            santecomp.attaque(dommage);
+    //        }             
+    //    }
+    //}   
+    //
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (ouvert)
+    //    {
+    //        if (collision.gameObject.tag == "PlayerFoots")
+    //        {
+    //            santecomp.attaque(dommage);
+    //        }
+    //    }
+    //}
 
 
     public void setOuvert()

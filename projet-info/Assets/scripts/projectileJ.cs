@@ -19,6 +19,7 @@ public class projectileJ : MonoBehaviour
     {
         joueur = GameObject.FindGameObjectWithTag("Player");
         dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
+        //dommage = PlayerPrefs.GetInt("dommage projectile");
         mousposition = Input.mousePosition;
         mousposition = Camera.main.ScreenToWorldPoint(mousposition);
         VecteurUnitaire = mousposition - (Vector2)transform.position;
@@ -43,25 +44,27 @@ public class projectileJ : MonoBehaviour
             {
      
                 Santé sante = collision.gameObject.GetComponent<Santé>();
-                if(sante !=null) sante.attaque(dommage);
+                if(sante !=null) 
+                sante.attaque(dommage);
 
                 if (sante != null)
                 {
-                     
+
                     if (sante.santee <= 0)
-                {
-                    if(PlayerPrefs.GetInt("Niveau Difficulté") == 1)
-                        {
-                            joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(10);
-                        }
-                    else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
-                        {
-                            joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(20);
-                        }
-                    else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
-                        {
-                            joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
-                        }
+                    {
+                       if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+                       {
+                           joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(20);
+                       }
+                       else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+                       {
+                           joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(25);
+                       }
+                       else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+                       {
+                           joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
+                       }
+                        
 
                     }
                 }
@@ -74,19 +77,21 @@ public class projectileJ : MonoBehaviour
                 Santé sante = collision.gameObject.GetComponent<Santé>();
                 sante.attaque(dommage);
 
+                Debug.Log("dommage = " + dommage);
+
                 if (sante.santee <= 0)
                 {
                     if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
                     {
-                        joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(10);
+                        joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(25);
                     }
                     else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
                     {
-                        joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(20);
+                        joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
                     }
                     else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
                     {
-                        joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
+                        joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(35);
                     }
                 }
             }

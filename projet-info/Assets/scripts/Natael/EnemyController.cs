@@ -79,7 +79,8 @@ public class EnemyController : MonoBehaviour
         }
 
 
-        if (collision.gameObject.tag == "Barricade" && collision.gameObject.tag == "Mine" && collision.gameObject.tag == "PiegeAuSol")
+        if (collision.gameObject.tag == "Barricade" || collision.gameObject.tag == "Mine" 
+            || collision.gameObject.tag == "PiegeAuSol" || collision.gameObject.tag == "Lave" || collision.gameObject.tag == "Obstacle")
         {
             obstacle = true;
         }
@@ -92,27 +93,6 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        //niveauDifficulte = PlayerPrefs.GetInt("Niveau Difficulté");
-        //
-        //if (niveauDifficulte == 1)
-        //{
-        //    speed = 0.02f;
-        //    transform.GetComponent<Santé>().santeeMax = 100;
-        //    rangeAttaquePlayer = 4;
-        //}
-        //else if (niveauDifficulte == 2)
-        //{
-        //    speed = 0.04f;
-        //    transform.GetComponent<Santé>().santeeMax = 150;
-        //    rangeAttaquePlayer = 5;
-        //}
-        //else if (niveauDifficulte == 3)
-        //{
-        //    speed = 0.06f;
-        //    transform.GetComponent<Santé>().santeeMax = 200;
-        //    rangeAttaquePlayer = 6;
-        //}
-
         float position = transform.position.x;
 
         if (position < prevLocation.x)
@@ -280,6 +260,7 @@ public class EnemyController : MonoBehaviour
                                 }
                             
                         }
+                        obstacle = false;
                     }
                 }
             }

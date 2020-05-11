@@ -52,13 +52,8 @@ public class MouvementJoueur : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.P))
         {
-            PlayerPrefs.SetInt("Argent Joueur Skin", 1000000000);
-            PlayerPrefs.SetInt("Argent Joueur", 1000000000);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            PlayerPrefs.SetInt("Argent Joueur Skin", 0);
-            PlayerPrefs.SetInt("Argent Joueur", 0);
+            PlayerPrefs.SetInt("Argent Joueur Skin", 10000000);
+            PlayerPrefs.SetInt("Argent Joueur", 10000000);
         }
 
 
@@ -87,6 +82,7 @@ public class MouvementJoueur : MonoBehaviour
         {
             //Aucune Couleur
             transform.gameObject.GetComponent<SpriteRenderer>().color = Color.clear;
+            transform.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
         else if (PlayerPrefs.GetInt("Skin choisit") == 1)
         {

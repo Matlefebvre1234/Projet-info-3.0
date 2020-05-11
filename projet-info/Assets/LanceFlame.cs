@@ -22,7 +22,14 @@ public class LanceFlame : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            joueur.GetComponent<Santé>().attaque(10f);
+            if(PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+            joueur.GetComponent<Santé>().attaque(5f);
+
+            if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+                joueur.GetComponent<Santé>().attaque(7.5f);
+
+            if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+                joueur.GetComponent<Santé>().attaque(10f);
         }
     }
 }
