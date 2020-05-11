@@ -11,7 +11,7 @@ public class Mana : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("Mana", 0);
+        PlayerPrefs.SetFloat("Mana", 0);
         manaJeu = 0;
 
         if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
@@ -55,22 +55,25 @@ public class Mana : MonoBehaviour
     {
         if(barreMana != null)
         {
-            if(mana <= 0)
+            if((manaJeu + mana) <= 0)
             {
                 manaJeu = 0;
-                PlayerPrefs.SetInt("Mana", 0);
+                PlayerPrefs.SetFloat("Mana", 0);
             }
-            if (manaJeu < manaMax)
+            else if ((manaJeu + mana) < manaMax)
             {
-                PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") + mana);
+                manaJeu = manaJeu + mana;
+                PlayerPrefs.SetFloat("Mana", manaJeu);
             }
-            if ((mana + manaJeu) > manaMax)
+            else if ((mana + manaJeu) >= manaMax)
             {
                 manaJeu = manaMax;
-                PlayerPrefs.SetInt("Mana", manaMax);
+               PlayerPrefs.SetFloat("Mana", manaMax);
             }
 
-            barreMana.SetMana(PlayerPrefs.GetInt("Mana"));
+            barreMana.SetMana(manaJeu);
+
+            Debug.Log("mana = " + PlayerPrefs.GetFloat("Mana"));
         }
         
     }

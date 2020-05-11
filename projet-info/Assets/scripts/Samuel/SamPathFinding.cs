@@ -24,7 +24,7 @@ public class SamPathfinding
     {
         SamNode caseDebut = grid.GetGridObject(debutX, debutY);
         SamNode caseFin = grid.GetGridObject(finX, finY);
-        Debug.Log(caseFin);
+        //Debug.Log(caseFin);
 
         listeOuverte = new List<SamNode> { caseDebut };
         listeFerme = new List<SamNode>();

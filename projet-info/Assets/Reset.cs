@@ -28,7 +28,7 @@ public class Reset : MonoBehaviour
         PlayerPrefs.SetInt("Skin_2", 0);
         PlayerPrefs.SetInt("Skin_3", 0);
         PlayerPrefs.SetInt("Skin_4", 0);
-        PlayerPrefs.SetInt("Mana", 0);
+        PlayerPrefs.SetFloat("Mana", 0);
         PlayerPrefs.SetInt("Niveau", 1);
         PlayerPrefs.SetInt("Skin choisit", 0);
         PlayerPrefs.SetInt("Sort Ultime", 0);

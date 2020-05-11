@@ -71,6 +71,7 @@ public class CreateurSalle : MonoBehaviour
     }
     private void SpawnerMana(int nbPotions)
     {
+        int nbRandom = 0;
         List<GameObject> spawnPoints = new List<GameObject>();
         spawnPoints.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
 
@@ -79,14 +80,27 @@ public class CreateurSalle : MonoBehaviour
             
           int nbRandomSpawn = Mathf.CeilToInt(UnityEngine.Random.Range(0.1f, spawnPoints.Count - 1));
 
-          int nbRandom = UnityEngine.Random.Range(0, listePrefabMana.Length+1);
-          if (nbRandom > listePrefabMana.Length)
+            if(PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+            {
+                nbRandom = UnityEngine.Random.Range(0, listePrefabMana.Length + 3);
+            }
+            if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+            {
+                nbRandom = UnityEngine.Random.Range(0, listePrefabMana.Length + 2);
+            }
+            if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+            {
+                nbRandom = UnityEngine.Random.Range(0, listePrefabMana.Length + 1);
+            }
+            if (nbRandom > listePrefabMana.Length)
           {
+                Debug.Log("mana = medium");
               nbRandom = 1;
           }
           else
           {
-              nbRandom = 0;
+                Debug.Log("mana = small");
+                nbRandom = 0;
           }
           float nbRandomX = UnityEngine.Random.Range(-0.5f, 0.5f);
           float nbRandomY = UnityEngine.Random.Range(-0.5f, 0.5f);

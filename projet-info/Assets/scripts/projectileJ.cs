@@ -47,44 +47,24 @@ public class projectileJ : MonoBehaviour
                 if(sante !=null) 
                 sante.attaque(dommage);
 
-                Debug.Log("dommage = " + dommage);
-
                 if (sante != null)
                 {
 
                     if (sante.santee <= 0)
                     {
-                        if (collision.gameObject.tag == "Goblin")
-                        { 
-                        if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
-                        {
-                            joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(25);
-                        }
-                        else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
-                        {
-                            joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
-                        }
-                        else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
-                        {
-                            joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(35);
-                        }
-                        }
-
-                        if (collision.gameObject.tag == "Enemy")
-                        {
-                            if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
-                            {
-                                joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(20);
-                            }
-                            else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
-                            {
-                                joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(25);
-                            }
-                            else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
-                            {
-                                joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
-                            }
-                        }
+                       if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
+                       {
+                           joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(20);
+                       }
+                       else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
+                       {
+                           joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(25);
+                       }
+                       else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
+                       {
+                           joueurPlayer.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
+                       }
+                        
 
                     }
                 }

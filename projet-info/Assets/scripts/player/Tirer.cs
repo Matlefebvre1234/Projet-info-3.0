@@ -39,35 +39,35 @@ public class Tirer : MonoBehaviour
         {           
             if (tempreload >= reloadTime)
             {
-                if(tirePuissant < 1.5f)
+                if(tirePuissant < 1.5f || PlayerPrefs.GetFloat("Mana") < 7)
                 {
                     dommage = 30;
                     grosseur = new Vector3(0.5f, 0.5f, 1f);
                     couleurProjectile = new Color(0, 1, 1, 1);
                 }
-                else if (tirePuissant >= 1.5f && tirePuissant < 2.0f && PlayerPrefs.GetInt("Mana") >= 7)
+                else if (tirePuissant >= 1.5f && tirePuissant < 2.0f && PlayerPrefs.GetFloat("Mana") >= 7)
                 {
                     //Vert
                     dommage = (int) (1.5f * PlayerPrefs.GetInt("dommage projectile"));
-                    PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 7);
+                    //PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 7);
                     player.GetComponent<Mana>().SetManaJoueur(-7);
                     grosseur = new Vector3(0.60f, 0.60f, 1f);
                     couleurProjectile = new Color(0,1,0,1);
                 }
-                else if(tirePuissant >= 2.0f && tirePuissant < 3.0f && PlayerPrefs.GetInt("Mana") >= 15)
+                else if(tirePuissant >= 2.0f && tirePuissant < 3.0f && PlayerPrefs.GetFloat("Mana") >= 15)
                 {
                     //Jaune
                     dommage = (int)(1.75f * PlayerPrefs.GetInt("dommage projectile"));
-                    PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 15);
+                    //PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 15);
                     player.GetComponent<Mana>().SetManaJoueur(-15);
                     grosseur = new Vector3(0.70f, 0.70f, 1f);
                     couleurProjectile = new Color(1, 0.92f, 0.016f, 1);
                 }
-                else if (tirePuissant >= 3.0f && PlayerPrefs.GetInt("Mana") >= 20)
+                else if (tirePuissant >= 3.0f && PlayerPrefs.GetFloat("Mana") >= 20)
                 {
                     //Rouge
                     dommage = (2 * PlayerPrefs.GetInt("dommage projectile"));
-                    PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 20);
+                    //PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 20);
                     player.GetComponent<Mana>().SetManaJoueur(-20);
                     grosseur = new Vector3(0.80f, 0.80f, 1f);
                     couleurProjectile = new Color(1, 0, 0, 1);
