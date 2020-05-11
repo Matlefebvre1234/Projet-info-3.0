@@ -122,6 +122,7 @@ public class NatPathfinding
                 // et si c'est le cas, la rajouter dans la liste fermée
                 if (casesVoisine.GetObstacle() == true)
                 {
+                    Debug.Log("obstacle");
                     ListePointsDejaVue.Add(casesVoisine);
                     continue;
                 }

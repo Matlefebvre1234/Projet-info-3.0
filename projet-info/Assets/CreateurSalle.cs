@@ -94,12 +94,10 @@ public class CreateurSalle : MonoBehaviour
             }
             if (nbRandom > listePrefabMana.Length)
           {
-                Debug.Log("mana = medium");
               nbRandom = 1;
           }
           else
           {
-                Debug.Log("mana = small");
                 nbRandom = 0;
           }
           float nbRandomX = UnityEngine.Random.Range(-0.5f, 0.5f);

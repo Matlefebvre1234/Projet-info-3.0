@@ -79,7 +79,8 @@ public class EnemyController : MonoBehaviour
         }
 
 
-        if (collision.gameObject.tag == "Barricade" && collision.gameObject.tag == "Mine" && collision.gameObject.tag == "PiegeAuSol")
+        if (collision.gameObject.tag == "Barricade" || collision.gameObject.tag == "Mine" 
+            || collision.gameObject.tag == "PiegeAuSol" || collision.gameObject.tag == "Lave" || collision.gameObject.tag == "Obstacle")
         {
             obstacle = true;
         }
@@ -259,6 +260,7 @@ public class EnemyController : MonoBehaviour
                                 }
                             
                         }
+                        obstacle = false;
                     }
                 }
             }

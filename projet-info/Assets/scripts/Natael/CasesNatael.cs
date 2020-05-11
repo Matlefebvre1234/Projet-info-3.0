@@ -13,7 +13,7 @@ public class CasesNatael : MonoBehaviour
     public int Gcost;
     public int Fcost;
     public int Hcost;
-    public Boolean obstacle = false;
+    public bool obstacle;
 
     public CasesNatael casePrecedente;
 
@@ -22,13 +22,14 @@ public class CasesNatael : MonoBehaviour
         grid = grid1;
         x = x1;
         y = y1;
-
+        obstacle = false;
     }
     public CasesNatael(int x1, int y1)
     {
         grid = null;
         x = x1;
         y = y1;
+        obstacle = false;
     }
 
     //Setter pour la position en x de la case

@@ -78,11 +78,6 @@ public class GrilleNatael
         }
     }
 
-    public CasesNatael GetGridObject(int x, int y)
-    {
-        return listeDeNode[x, y];
-    }
-
     // Permet d'avoir la position de l'objet visé dans la map décentré
     public void GetXY(Vector3 position, out int x, out int y)
     {
