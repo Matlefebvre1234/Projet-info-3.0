@@ -91,7 +91,7 @@ public class AIMouvement : MonoBehaviour
     {
         esquiveX = 0f;
         esquiveY = 0f;
-        if (cheminVecteur != null)
+        if (cheminVecteur != null && index < cheminVecteur.Count)
         {
             if (!projectile.Length.Equals(0))
             {
@@ -345,19 +345,9 @@ public class AIMouvement : MonoBehaviour
         }
             
     }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        if(collision.collider.name.Equals("Joueur")){
-            cheminVecteur = null;
-            index = 0;
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.name.Equals("Joueur"))
+        if (collider.gameObject.tag == "Player")
         {
             animator.SetTrigger("attaque");
             domage.attaque(fireDommage * Time.deltaTime);

@@ -24,7 +24,6 @@ public class SamPathfinding
     {
         SamNode caseDebut = grid.GetGridObject(debutX, debutY);
         SamNode caseFin = grid.GetGridObject(finX, finY);
-        Debug.Log(caseFin);
 
         listeOuverte = new List<SamNode> { caseDebut };
         listeFerme = new List<SamNode>();
@@ -184,7 +183,6 @@ public class SamPathfinding
     
     private int CalculDistance(SamNode a, SamNode b)
     {
-        Debug.Log(b.x);
         int distanceX = Mathf.Abs(a.x - b.x);
         int distanceY = Mathf.Abs(a.y - b.y);
         int restant = Mathf.Abs(distanceX - distanceY);
