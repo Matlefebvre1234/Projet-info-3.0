@@ -27,23 +27,21 @@ public class DifficulteScript : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
         {
-            Debug.Log("facile");
             facile.GetComponent<Toggle>().isOn = true;
         }
         else if (PlayerPrefs.GetInt("Niveau Difficulté") == 2)
         {
-            Debug.Log("moyen");
             moyen.GetComponent<Toggle>().isOn = true;
         }
         else if (PlayerPrefs.GetInt("Niveau Difficulté") == 3)
         {
-            Debug.Log("difficulté");
             difficile.GetComponent<Toggle>().isOn = true;
         }
     }
 
     public void Reset()
     {
+        Debug.Log("difficulté = " + PlayerPrefs.GetInt("Niveau Difficulté"));
         if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
         {
             facile.GetComponent<Toggle>().isOn = true;
@@ -56,6 +54,8 @@ public class DifficulteScript : MonoBehaviour
         {
             difficile.GetComponent<Toggle>().isOn = true;
         }
+
+        
     }
 
 
