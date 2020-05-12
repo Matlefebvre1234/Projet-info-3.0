@@ -4410,7 +4410,7 @@ PrefabInstance:
     - target: {fileID: 8057857479924706890, guid: 7a882707262cd2c4cbfc388a428b47bf,
         type: 3}
       propertyPath: cout
-      value: 150
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a882707262cd2c4cbfc388a428b47bf, type: 3}

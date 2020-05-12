@@ -56,7 +56,7 @@ public class MouvementJoueur : MonoBehaviour
             PlayerPrefs.SetInt("Argent Joueur", 10000000);
         }
 
-        Debug.Log("Mana = " + PlayerPrefs.GetFloat("Mana"));
+        //Debug.Log("Mana = " + PlayerPrefs.GetFloat("Mana"));
             if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetFloat("Mana") >= 100)
             {
             if (shieldClone != null)
