@@ -6,9 +6,14 @@ using UnityEngine.UI;
 public class Reset : MonoBehaviour
 {
     public DifficulteScript difficulté;
+    public Musique musique;
+    public EffetSonores effetSonore;
     public GameObject verification;
     //public Button oui;
     //public Button non;
+
+    public Slider sliderMusique;
+    public Slider sliderEffetSonore;
 
     bool choix = false;
 
@@ -35,6 +40,14 @@ public class Reset : MonoBehaviour
             PlayerPrefs.SetInt("Niveau", 1);
             PlayerPrefs.SetInt("Skin choisit", 0);
             PlayerPrefs.SetInt("Sort Ultime", 0);
+            PlayerPrefs.SetFloat("effetsSonores", 1);
+            PlayerPrefs.SetFloat("Musique", 1);
+
+            musique.SetVolume(1);
+            effetSonore.SetVolume(1);
+
+            sliderMusique.value = 1;
+            sliderEffetSonore.value = 1;
 
             difficulté.Reset();
 
