@@ -31,7 +31,10 @@ public class projectileJ : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
+        //dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
+        dommage = PlayerPrefs.GetInt("dommage projectile");
+        Debug.Log("Dommage = " + dommage);
+        Debug.Log("Dommage = " + collision.gameObject.tag);
         //grosseur = joueur.transform.GetComponent<Tirer>().GetGrosseur();
 
 

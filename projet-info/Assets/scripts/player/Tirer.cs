@@ -48,7 +48,7 @@ public class Tirer : MonoBehaviour
                 else if (tirePuissant >= 1.5f && tirePuissant < 2.0f && PlayerPrefs.GetFloat("Mana") >= 7)
                 {
                     //Vert
-                    dommage = (int) (1.5f * PlayerPrefs.GetInt("dommage projectile"));
+                    dommage = (int) (1.5f * 30);
                     //PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 7);
                     player.GetComponent<Mana>().SetManaJoueur(-7);
                     grosseur = new Vector3(0.60f, 0.60f, 1f);
@@ -57,7 +57,7 @@ public class Tirer : MonoBehaviour
                 else if(tirePuissant >= 2.0f && tirePuissant < 3.0f && PlayerPrefs.GetFloat("Mana") >= 15)
                 {
                     //Jaune
-                    dommage = (int)(1.75f * PlayerPrefs.GetInt("dommage projectile"));
+                    dommage = (int)(1.75f * 30);
                     //PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 15);
                     player.GetComponent<Mana>().SetManaJoueur(-15);
                     grosseur = new Vector3(0.70f, 0.70f, 1f);
@@ -66,7 +66,7 @@ public class Tirer : MonoBehaviour
                 else if (tirePuissant >= 3.0f && PlayerPrefs.GetFloat("Mana") >= 20)
                 {
                     //Rouge
-                    dommage = (2 * PlayerPrefs.GetInt("dommage projectile"));
+                    dommage = (2 * 30);
                     //PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 20);
                     player.GetComponent<Mana>().SetManaJoueur(-20);
                     grosseur = new Vector3(0.80f, 0.80f, 1f);
