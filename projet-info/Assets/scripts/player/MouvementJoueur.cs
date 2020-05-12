@@ -56,20 +56,21 @@ public class MouvementJoueur : MonoBehaviour
             PlayerPrefs.SetInt("Argent Joueur", 10000000);
         }
 
-
-            if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetInt("Mana") >= 100)
-        {
+        Debug.Log("Mana = " + PlayerPrefs.GetFloat("Mana"));
+            if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetFloat("Mana") >= 100)
+            {
             if (shieldClone != null)
             {
                 //Nothing
             }
             else
             {
+                Debug.Log("Shield activer");
                 shieldClone = Instantiate(shield, target.position, Quaternion.identity);
 
 
-                PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 100);
-                barreMana.GetComponent<BarreMana>().SetMana(PlayerPrefs.GetInt("Mana"));
+                PlayerPrefs.SetFloat("Mana", PlayerPrefs.GetFloat("Mana") - 100);
+                barreMana.GetComponent<BarreMana>().SetMana(PlayerPrefs.GetFloat("Mana"));
             }
         }       
 
