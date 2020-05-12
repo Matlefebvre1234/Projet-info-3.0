@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5511215478814433350}
   - component: {fileID: 5183715206919740092}
   - component: {fileID: 4841598909515580752}
+  - component: {fileID: 382026349892673536}
   m_Layer: 0
   m_Name: MachineArmure
   m_TagString: Untagged
@@ -143,5 +144,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f76e2186d73b194986719293ff84a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cout: 150
+  cout: 100
   objet: {fileID: 1140715826235732963, guid: 66dc20c104e1e1447b554dd79a18ec1b, type: 3}
+  dialogue: 0
+--- !u!114 &382026349892673536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419466080006094670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645892a2c4a468b4499dfea14908aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    nom: Machine Armure
+    phrases:
+    - "Voulez-vous acheter l'item pour 150 pi\xE8ces?\n\nE pour confirmer\n\nQ pour
+      annuler"
+  achat: 0

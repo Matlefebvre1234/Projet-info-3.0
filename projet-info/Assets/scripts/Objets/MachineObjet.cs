@@ -41,8 +41,7 @@ public class MachineObjet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
-    {
-   
+    {   
         if (collider.gameObject.tag == "Player" && PlayerPrefs.GetInt("Argent Joueur") >= cout)
         {
             if (FindObjectOfType<DialogueTrigger>().GetAchat() == false)

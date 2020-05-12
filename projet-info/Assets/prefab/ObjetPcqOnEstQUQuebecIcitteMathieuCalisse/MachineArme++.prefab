@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4070882879234930030}
   - component: {fileID: 2445918706984067150}
   - component: {fileID: 1334279527472035858}
+  - component: {fileID: 1089427067981279307}
   m_Layer: 0
   m_Name: MachineArme++
   m_TagString: Untagged
@@ -46,8 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f76e2186d73b194986719293ff84a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cout: 150
+  cout: 100
   objet: {fileID: 2688265985990435194, guid: f29b628544d95394eb139e05e732e64d, type: 3}
+  dialogue: 0
 --- !u!50 &4070882879234930030
 Rigidbody2D:
   serializedVersion: 4
@@ -145,3 +147,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1089427067981279307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367904293374189932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645892a2c4a468b4499dfea14908aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    nom: Machine Arme
+    phrases:
+    - "Voulez-vous acheter l'item pour 150 pi\xE8ces?\n\nE pour confirmer\n\nQ pour
+      annuler"
+  achat: 0

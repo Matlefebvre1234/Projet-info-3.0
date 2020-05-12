@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7509020006308363666}
   - component: {fileID: 3859113743385311074}
   - component: {fileID: 942969139592398450}
+  - component: {fileID: 3804614310065345952}
   m_Layer: 0
   m_Name: MachineAnneau
   m_TagString: Untagged
@@ -143,5 +144,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f76e2186d73b194986719293ff84a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cout: 150
+  cout: 100
   objet: {fileID: 5145619308826306367, guid: 84c6eae1eb386f2448b227f083cbd285, type: 3}
+  dialogue: 0
+--- !u!114 &3804614310065345952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5656144174349762927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645892a2c4a468b4499dfea14908aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    nom: Machine Anneau
+    phrases:
+    - "Voulez-vous acheter l'item pour 150 pi\xE8ces?\n\nE pour confirmer\n\nQ pour
+      annuler"
+  achat: 0

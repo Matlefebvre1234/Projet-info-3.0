@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3600197819070266575}
   - component: {fileID: 3600197819070266574}
   - component: {fileID: 3600197819070266569}
+  - component: {fileID: 3276595018339107972}
   m_Layer: 0
   m_Name: MachineBottes
   m_TagString: Untagged
@@ -143,5 +144,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f76e2186d73b194986719293ff84a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cout: 150
+  cout: 100
   objet: {fileID: 4217989569628776269, guid: c5c8239b20b858848a1cad6be7421916, type: 3}
+  dialogue: 0
+--- !u!114 &3276595018339107972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3600197819070266568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645892a2c4a468b4499dfea14908aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    nom: Machine Bottes
+    phrases:
+    - "Voulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE pour confirmer\n\nQ pour
+      annuler"
+  achat: 0
