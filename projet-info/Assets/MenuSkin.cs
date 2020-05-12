@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MenuSkin : MonoBehaviour
 {
+    public Button BoutonSkin_0;
     public Button BoutonSkin_1;
     public Button BoutonSkin_2;
     public Button BoutonSkin_3;
@@ -14,6 +15,7 @@ public class MenuSkin : MonoBehaviour
     void Start()
     {
         //PlayerPrefs.SetInt("Skin choisit", 0);
+        BoutonSkin_0.interactable = false;
         BoutonSkin_1.interactable = false;
         BoutonSkin_2.interactable = false;
         BoutonSkin_3.interactable = false;
@@ -23,7 +25,10 @@ public class MenuSkin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if(PlayerPrefs.GetInt("Skin_1") == 1)
+        
+        BoutonSkin_0.interactable = true;
+        
+        if (PlayerPrefs.GetInt("Skin_1") == 1)
         {
             BoutonSkin_1.interactable = true;
         }
@@ -43,6 +48,10 @@ public class MenuSkin : MonoBehaviour
 
     public void OnClicked(Button button)
     {
+        if(button.name == "Skin_0")
+        {
+            PlayerPrefs.SetInt("Skin choisit", 0);
+        }
         if (button.name == "Skin_1")
         {
             PlayerPrefs.SetInt("Skin choisit", 1);
