@@ -42,6 +42,7 @@ public class Reset : MonoBehaviour
             PlayerPrefs.SetInt("Sort Ultime", 0);
             PlayerPrefs.SetFloat("effetsSonores", 1);
             PlayerPrefs.SetFloat("Musique", 1);
+            PlayerPrefs.SetInt("Sort Ultime Choisit", 0);
 
             musique.SetVolume(1);
             effetSonore.SetVolume(1);

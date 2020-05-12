@@ -10,6 +10,9 @@ public class MenuSkin : MonoBehaviour
     public Button BoutonSkin_2;
     public Button BoutonSkin_3;
     public Button BoutonSkin_4;
+    public Button BoutonSort_Ultime_oui;
+    public Button BoutonSort_Ultime_non;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,9 @@ public class MenuSkin : MonoBehaviour
         BoutonSkin_2.interactable = false;
         BoutonSkin_3.interactable = false;
         BoutonSkin_4.interactable = false;
+        BoutonSort_Ultime_oui.interactable = false;
+        BoutonSort_Ultime_non.interactable = false;
+        PlayerPrefs.SetInt("Sort Ultime Choisit", 0);
     }
 
     // Update is called once per frame
@@ -44,6 +50,11 @@ public class MenuSkin : MonoBehaviour
         {
             BoutonSkin_4.interactable = true;
         }
+     if(PlayerPrefs.GetInt("Sort Ultime") == 1)
+        {
+            BoutonSort_Ultime_oui.interactable = true;
+            BoutonSort_Ultime_non.interactable = true;
+        }
     }
 
     public void OnClicked(Button button)
@@ -67,6 +78,16 @@ public class MenuSkin : MonoBehaviour
         if(button.name == "Skin_4")
         {
             PlayerPrefs.SetInt("Skin choisit", 4);
+        }
+        if(button.name == "Sort_Ultime oui")
+        {
+            Debug.Log("Sort ultime = ok");
+            PlayerPrefs.SetInt("Sort Ultime Choisit", 1);
+        }
+        if (button.name == "Sort_Ultime non")
+        {
+            Debug.Log("Sort ultime = non");
+            PlayerPrefs.SetInt("Sort Ultime Choisit", 0);
         }
     }
 }

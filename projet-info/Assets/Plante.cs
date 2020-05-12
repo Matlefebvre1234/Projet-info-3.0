@@ -38,7 +38,11 @@ public class Plante : MonoBehaviour
         if(collision.gameObject.tag =="Projectile")
         {
             hitCount++;
-            if(hitCount ==3)
+            if(PlayerPrefs.GetInt("Sort Ultime") == 1)
+            {
+                Destroy(gameObject);
+            }
+            else if(hitCount == 3)
             {
                 Destroy(gameObject);
 

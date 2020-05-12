@@ -42,6 +42,7 @@ public class EnemyController : MonoBehaviour
     private bool JoueurMort = false;
 
     GameObject player;
+    float time;
 
     void Start()
     {
@@ -94,6 +95,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         float position = transform.position.x;
+        time = time * Time.deltaTime;
 
         if (position < prevLocation.x)
         {
@@ -120,17 +122,20 @@ public class EnemyController : MonoBehaviour
             explosion.PlayDelayed(0.3f);
             //Explosion du bonhomme
             animator.SetBool("collision_Joueur", true);
-            transform.GetComponent<Santé>().IsDead(true);
-            transform.GetComponent<Santé>().santee = 0;
+            time = 0;
+            Debug.Log("time  = " + time);
 
             player.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
         }
 
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur") )
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
         {
             animator.SetBool("collision_Joueur", false);
-            player.GetComponent<Santé>().attaque(15);
-            Destroy(gameObject);
+            if(time <= 10f)
+            {
+                player.GetComponent<Santé>().attaque(15);
+                Destroy(gameObject);
+            }
         }
 
         if (pathIsEnd == false)

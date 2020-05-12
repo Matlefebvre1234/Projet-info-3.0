@@ -31,11 +31,7 @@ public class projectileJ : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        //dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
         dommage = PlayerPrefs.GetInt("dommage projectile");
-        Debug.Log("Dommage = " + dommage);
-        Debug.Log("Dommage = " + collision.gameObject.tag);
-        //grosseur = joueur.transform.GetComponent<Tirer>().GetGrosseur();
 
 
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" 
@@ -47,6 +43,11 @@ public class projectileJ : MonoBehaviour
             {
      
                 Santé sante = collision.gameObject.GetComponent<Santé>();
+                    
+                if(PlayerPrefs.GetInt("Sort Ultime Choisit") == 1)
+                {
+                    dommage = 1000;
+                }
                 if(sante !=null) 
                 sante.attaque(dommage);
 
