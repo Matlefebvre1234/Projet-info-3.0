@@ -30,6 +30,12 @@ TagManager:
   - mana_small
   - mana_medium
   - EnergyShieldBoss
+  - Machine Soin
+  - Machine Arme
+  - Machine Armure
+  - Machine Bottes
+  - Machine Anneau
+  - Machine Botttes
   layers:
   - Default
   - TransparentFX

@@ -7,8 +7,9 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public bool achat;
 
-    public void TriggerDialogue()
+    public void TriggerDialogue(Dialogue dialogue_e)
     {
+        dialogue = dialogue_e;
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 

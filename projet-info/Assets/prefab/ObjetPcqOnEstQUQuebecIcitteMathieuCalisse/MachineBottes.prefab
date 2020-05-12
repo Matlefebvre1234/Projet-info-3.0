@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 3600197819070266575}
   - component: {fileID: 3600197819070266574}
   - component: {fileID: 3600197819070266569}
-  - component: {fileID: 3276595018339107972}
+  - component: {fileID: 5882704533251849773}
   m_Layer: 0
   m_Name: MachineBottes
-  m_TagString: Untagged
+  m_TagString: Machine Botttes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,8 +146,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cout: 100
   objet: {fileID: 4217989569628776269, guid: c5c8239b20b858848a1cad6be7421916, type: 3}
-  dialogue: 0
---- !u!114 &3276595018339107972
+  dialogue_e: 0
+  machineSoin: {fileID: 0}
+  machineArmure: {fileID: 0}
+  machineArme: {fileID: 0}
+  machineAnneau: {fileID: 0}
+  machineBottes: {fileID: 5882704533251849773}
+--- !u!114 &5882704533251849773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

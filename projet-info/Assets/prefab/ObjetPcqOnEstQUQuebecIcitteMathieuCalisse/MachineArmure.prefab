@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 382026349892673536}
   m_Layer: 0
   m_Name: MachineArmure
-  m_TagString: Untagged
+  m_TagString: Machine Armure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cout: 100
   objet: {fileID: 1140715826235732963, guid: 66dc20c104e1e1447b554dd79a18ec1b, type: 3}
-  dialogue: 0
+  dialogue_e: 0
+  machineSoin: {fileID: 0}
+  machineArmure: {fileID: 382026349892673536}
+  machineArme: {fileID: 0}
+  machineAnneau: {fileID: 0}
+  machineBottes: {fileID: 0}
 --- !u!114 &382026349892673536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +167,6 @@ MonoBehaviour:
   dialogue:
     nom: Machine Armure
     phrases:
-    - "Voulez-vous acheter l'item pour 150 pi\xE8ces?\n\nE pour confirmer\n\nQ pour
+    - "Voulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE pour confirmer\n\nQ pour
       annuler"
   achat: 0

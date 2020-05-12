@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4893012406045795215}
   m_Layer: 0
   m_Name: MachineKitSoin
-  m_TagString: Untagged
+  m_TagString: Machine Soin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 675a7ade36735fe4daebe763ad735972, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -146,7 +146,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cout: 100
   objet: {fileID: 3756485723673694624, guid: d33e13b0f5c620e4899b1e1a425d36e9, type: 3}
-  dialogue: 0
+  dialogue_e: 0
+  machineSoin: {fileID: 4893012406045795215}
+  machineArmure: {fileID: 0}
+  machineArme: {fileID: 0}
+  machineAnneau: {fileID: 0}
+  machineBottes: {fileID: 0}
 --- !u!114 &4893012406045795215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +167,6 @@ MonoBehaviour:
   dialogue:
     nom: Machine Soin
     phrases:
-    - "Voulez-vous acheter l'item pour 150 pi\xE8ces?\n\nE pour confirmer\n\nQ pour
+    - "Voulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE pour confirmer\n\nQ pour
       annuler"
   achat: 0

@@ -49,6 +49,5 @@ public class DialogueManager : MonoBehaviour
     {
         textDialogue.text = null;
         textNom.text = null;
-        Debug.Log("fin dialogue");
     }
 }
