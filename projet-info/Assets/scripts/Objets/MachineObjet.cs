@@ -29,22 +29,28 @@ public class MachineObjet : MonoBehaviour
             argent = argent - cout;
 
             PlayerPrefs.SetInt("Argent Joueur", argent);
+            FindObjectOfType<DialogueTrigger>().SetAchat(false);
         }
 
         if (Input.GetKeyDown("q") && dialogue == true)
         {
             dialogue = false;
+            FindObjectOfType<DialogueTrigger>().SetAchat(false);
         }
 
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(PlayerPrefs.GetInt("Argent Joueur"));   
+   
         if (collider.gameObject.tag == "Player" && PlayerPrefs.GetInt("Argent Joueur") >= cout)
         {
-            FindObjectOfType<DialogueTrigger>().TriggerDialogue();
-            dialogue = true;
+            if (FindObjectOfType<DialogueTrigger>().GetAchat() == false)
+            {
+                FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+                FindObjectOfType<DialogueTrigger>().SetAchat(true);
+                dialogue = true;
+            }
         }
     }
 }

@@ -27,6 +27,8 @@ public class ArgentJoueur : MonoBehaviour
         PlayerPrefs.SetInt("Argent Joueur Skin", PlayerPrefs.GetInt("Argent Joueur Skin") + argent);
     }
 
+
+
     public int GetArgent()
     {
         return argentJoueur;
