@@ -40,8 +40,8 @@ public class MachineObjet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        
-        if (collider.gameObject.tag == "Player" && joueur.GetComponent<ArgentJoueur>().GetArgent() >= cout)
+        Debug.Log(PlayerPrefs.GetInt("ArgentJoueur"));   
+        if (collider.gameObject.tag == "Player" && PlayerPrefs.GetInt("ArgentJoueur") >= cout)
         {
             FindObjectOfType<DialogueTrigger>().TriggerDialogue();
             dialogue = true;
