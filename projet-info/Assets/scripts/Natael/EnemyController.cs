@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour
 
     GameObject player;
     float time;
+    bool dommage = false;
 
     void Start()
     {
@@ -71,7 +72,7 @@ public class EnemyController : MonoBehaviour
         dimensionCase = FindObjectOfType<GrilleDynamique>().getDimCell();
         pathfinding = new NatPathfinding(largeur, hauteur);
         player = GameObject.FindGameObjectWithTag("Player");
-        
+        dommage = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -124,6 +125,7 @@ public class EnemyController : MonoBehaviour
             explosion.PlayDelayed(0.3f);
             //Explosion du bonhomme
             animator.SetBool("collision_Joueur", true);
+            
             time = 0;
             Debug.Log("time  = " + time);
 
@@ -132,15 +134,20 @@ public class EnemyController : MonoBehaviour
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
         {
+            this.gameObject.GetComponent<Santé>().santee = 0;
+            this.gameObject.GetComponent<Santé>().IsDead(true);
+            mourir.GetComponent<CreateurSalle>().EnnemiesTuer();
             animator.SetBool("collision_Joueur", false);
-            //mourir.GetComponent<CreateurSalle>().EnnemiesTuer();
 
-            if (time <= 19f)
+            if (time <= 25f)
             {
-                time = 0;
-                player.GetComponent<Santé>().attaque(15);               
-                Destroy(gameObject);
-                
+                if(dommage == false)
+                {
+                    player.GetComponent<Santé>().attaque(15);
+                    dommage = true;
+                    Destroy(gameObject);
+                }
+
             }
         }
 
