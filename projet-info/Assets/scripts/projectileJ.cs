@@ -19,7 +19,6 @@ public class projectileJ : MonoBehaviour
     {
         joueur = GameObject.FindGameObjectWithTag("Player");
         dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
-        //dommage = PlayerPrefs.GetInt("dommage projectile");
         mousposition = Input.mousePosition;
         mousposition = Camera.main.ScreenToWorldPoint(mousposition);
         VecteurUnitaire = mousposition - (Vector2)transform.position;
@@ -99,10 +98,7 @@ public class projectileJ : MonoBehaviour
                     }
                 }
             }
-
             Destroy(gameObject);
-
-
         }
        
     }

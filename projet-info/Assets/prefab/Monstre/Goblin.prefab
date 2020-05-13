@@ -464,6 +464,7 @@ MonoBehaviour:
   barricade: {fileID: 3468437022814260918, guid: 2a5b870bf66861e48b6d4521def3e71c,
     type: 3}
   Mine: {fileID: 4219315139489888049, guid: 96e390fee440350489eb1cc369578238, type: 3}
+  mourir: {fileID: 1171364604941401486, guid: 16e91abb2d52efc4b87affee0e4a6853, type: 3}
 --- !u!114 &2568601779959560505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,6 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSrc: {fileID: 8227810122539400034}
+  effetsVol: 1
 --- !u!114 &2665297899389977348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,6 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSrc: {fileID: -6387431597740998280}
+  effetsVol: 1
 --- !u!114 &8798021602155566844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,3 +824,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSrc: {fileID: 568201449087499370}
+  effetsVol: 1

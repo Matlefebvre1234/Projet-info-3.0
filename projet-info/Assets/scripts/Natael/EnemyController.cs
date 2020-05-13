@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject barricade;
     public GameObject Mine;
+    public GameObject mourir;
 
     private NatPathfinding pathfinding;
     private List<CasesNatael> path;
@@ -70,6 +71,7 @@ public class EnemyController : MonoBehaviour
         dimensionCase = FindObjectOfType<GrilleDynamique>().getDimCell();
         pathfinding = new NatPathfinding(largeur, hauteur);
         player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -131,10 +133,14 @@ public class EnemyController : MonoBehaviour
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
         {
             animator.SetBool("collision_Joueur", false);
-            if(time <= 10f)
+            //mourir.GetComponent<CreateurSalle>().EnnemiesTuer();
+
+            if (time <= 27f)
             {
-                player.GetComponent<Santé>().attaque(15);
+                time = 0;
+                player.GetComponent<Santé>().attaque(15);               
                 Destroy(gameObject);
+                
             }
         }
 
