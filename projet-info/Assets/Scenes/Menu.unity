@@ -1071,7 +1071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 101.16388, y: 70.09801}
+  m_AnchoredPosition: {x: 101.16388, y: 82}
   m_SizeDelta: {x: 1368.4, y: 94.167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111719608
@@ -2238,7 +2238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &318529481
 Transform:
   m_ObjectHideFlags: 0
@@ -2686,8 +2686,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 129.10007}
-  m_SizeDelta: {x: 100, y: 1043.5}
+  m_AnchoredPosition: {x: 0.0000076293945, y: 129.1}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &400150225
 MonoBehaviour:
@@ -11670,7 +11670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 101.3, y: -30}
+  m_AnchoredPosition: {x: 119, y: -8}
   m_SizeDelta: {x: 1210.3, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1952308402
@@ -11691,7 +11691,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Je n'apparait qu'une fois dans le jeu
+  m_text: "Je suis une salle tricolore (bleu, rouge, vert) simple et compos\xE9 d'objets
+    verticale"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11761,12 +11762,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1952308402}
-    characterCount: 37
+    characterCount: 84
     spriteCount: 0
-    spaceCount: 6
-    wordCount: 7
+    spaceCount: 12
+    wordCount: 13
     linkCount: 0
-    lineCount: 1
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
