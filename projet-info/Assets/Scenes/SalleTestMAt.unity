@@ -521,6 +521,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3421088663216541656, guid: 0b242436c3c4a57449df6155b03a5cf7,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3421088663216541659, guid: 0b242436c3c4a57449df6155b03a5cf7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 253.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3421088663216541659, guid: 0b242436c3c4a57449df6155b03a5cf7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 86.4
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 143741821, guid: 0b242436c3c4a57449df6155b03a5cf7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b242436c3c4a57449df6155b03a5cf7, type: 3}

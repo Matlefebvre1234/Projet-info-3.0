@@ -36,6 +36,8 @@ TagManager:
   - Machine Bottes
   - Machine Anneau
   - Machine Botttes
+  - Mur Fog Salle6
+  - Collider Camera
   layers:
   - Default
   - TransparentFX

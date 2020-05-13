@@ -8,34 +8,41 @@ public class MurCacher : MonoBehaviour
 
     public GameObject mur_Fog;
     public GameObject mur_Fog2;
+    public GameObject mur_Fog_salle6;
 
-    public GameObject camera1;
-    public GameObject camera2;
+    public GameObject colliderSalle;
+    public GameObject[] listCollider;
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
+    int compteur;
+    bool briser = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "Projectile")
-        //{
-        //    mur_Fog.GetComponent<Santé>().attaque(5);
-        //
-        //    if (mur_Fog.GetComponent<Santé>().santee == 0)
-        //    {
-        //        floor.SetActive(true);
-        //        mur_Fog.gameObject.SetActive(false);
-        //    }
-        //}
+        if(collision.gameObject.tag == "Projectile" && briser == false && PlayerPrefs.GetInt("Enemy mort") == 1)
+        {
+            Debug.Log("mur = collide");
+            compteur++;
+            if (compteur >= 2)
+            {
+                floor.SetActive(true);
+                mur_Fog.gameObject.SetActive(false);
+                mur_Fog2.gameObject.SetActive(false);
+                mur_Fog_salle6.gameObject.SetActive(false);
+                colliderSalle.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+                for (int i = 0; i < listCollider.Length; i++)
+                {
+                    listCollider[i].gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
+                }
+
+                compteur = 0;
+                briser = true;
+            }            
+        }
+        
     }
 }
 

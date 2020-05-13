@@ -52,10 +52,10 @@ public class CreateurSalle : MonoBehaviour
     {
         if (nBEnnemiesTotal <= 0 && AllEnnemySpawn)
         {
-           
+            PlayerPrefs.SetInt("Enemy mort", 1);
             porte.porteOuverte = true;
             
-            }
+        }
 
        if(Input.GetKeyDown(KeyCode.K))
         {
@@ -148,7 +148,6 @@ public class CreateurSalle : MonoBehaviour
     private void CreerSalle()
     {
   
-        Debug.Log("creer salle");
         if(compteurDeSalle == 5)
         {
            
@@ -206,9 +205,9 @@ public class CreateurSalle : MonoBehaviour
     }
     public void ProchainNiveau()
     {
-        Debug.Log("prochain niveau");
         AllEnnemySpawn = false;
-       
+        PlayerPrefs.SetInt("Enemy mort", 1);
+
         compteurDeSalleTotal++;
         compteurDeSalle++;
 

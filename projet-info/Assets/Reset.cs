@@ -43,6 +43,10 @@ public class Reset : MonoBehaviour
             PlayerPrefs.SetFloat("effetsSonores", 1);
             PlayerPrefs.SetFloat("Musique", 1);
             PlayerPrefs.SetInt("Sort Ultime Choisit", 0);
+            PlayerPrefs.SetInt("Easter Eggs_1", 0);
+            PlayerPrefs.SetInt("Easter Eggs_2", 0);
+            PlayerPrefs.SetInt("Easter Eggs_3", 0);
+
 
             musique.SetVolume(1);
             effetSonore.SetVolume(1);

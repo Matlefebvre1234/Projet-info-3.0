@@ -10,30 +10,80 @@ public class Coffre : MonoBehaviour
     private bool coffreOuvert;
     private bool coffreFermer;
 
+    public string nomCoffre;
+
+    GameObject Player;
+
     // Start is called before the first frame update
     void Start()
     {
         coffreOuvert = false;
         coffreFermer = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-     
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (coffreOuvert == false)
+        if (collision.tag == "Player")
         {
-            coffreAnimerPlein.SetBool("coffre", true);
-            coffreOuvert = true;
-        }
+            if (coffreOuvert == false)
+            {
+                if (nomCoffre == "Easter Eggs_1")
+                {
+                    if (PlayerPrefs.GetInt("Easter Eggs_1") == 0)
+                    {
+                        PlayerPrefs.SetInt("Argent Joueur", PlayerPrefs.GetInt("Argent Joueur") + 10000);
+                        Player.GetComponent<Mana>().SetManaJoueur(200);
+                        Player.GetComponent<Santé>().SetSantee(300, 300);
+                        PlayerPrefs.SetInt("Easter Eggs_1", 1);
+                        coffreAnimerPlein.SetBool("coffre", true);
+                        coffreOuvert = true;
+                    }
+                    else
+                    {
+                        coffreAnimerVide.SetBool("coffre vide", true);
+                    }
 
-        if (coffreOuvert == true)
-        {
-            coffreAnimerVide.SetBool("coffre vide", true);
+                }
+                if (nomCoffre == "Easter Eggs_2")
+                {
+                    if (PlayerPrefs.GetInt("Easter Eggs_2") == 0)
+                    {
+                        PlayerPrefs.SetInt("Argent Joueur", PlayerPrefs.GetInt("Argent Joueur") + 10000);
+                        Player.GetComponent<Mana>().SetManaJoueur(200);
+                        Player.GetComponent<Santé>().SetSantee(300, 300);
+                        PlayerPrefs.SetInt("Easter Eggs_2", 1);
+                        coffreAnimerPlein.SetBool("coffre", true);
+                        coffreOuvert = true;
+                    }
+                    else
+                    {
+                        coffreAnimerVide.SetBool("coffre vide", true);
+                    }
+                }
+                if (nomCoffre == "Easter Eggs_3")
+                {
+                    if (PlayerPrefs.GetInt("Easter Eggs_3") == 0)
+                    {
+                        PlayerPrefs.SetInt("Argent Joueur", PlayerPrefs.GetInt("Argent Joueur") + 10000);
+                        Player.GetComponent<Mana>().SetManaJoueur(200);
+                        Player.GetComponent<Santé>().SetSantee(300, 300);
+                        PlayerPrefs.SetInt("Easter Eggs_3", 1);
+                        coffreAnimerPlein.SetBool("coffre", true);
+                        coffreOuvert = true;
+                    }
+                    else
+                    {
+                        coffreAnimerVide.SetBool("coffre vide", true);
+                    }
+                }
+
+            }
+
+            if (coffreOuvert == true)
+            {
+                coffreAnimerVide.SetBool("coffre vide", true);
+            }
         }
     }
 

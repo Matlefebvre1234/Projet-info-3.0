@@ -136,4 +136,11 @@ public class Santé : MonoBehaviour
         }
             barreSante.SetSantee(santee);
     }
+
+    public void SetSantee(int santeeMax_1, int santee_1)
+    {
+        santeeMax = santeeMax_1;
+        santee = santee_1;
+        barreSante.SetSantee(santee);
+    }
 }
