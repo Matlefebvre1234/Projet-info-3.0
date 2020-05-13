@@ -19,7 +19,6 @@ public class projectileJ : MonoBehaviour
     {
         joueur = GameObject.FindGameObjectWithTag("Player");
         dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
-        //dommage = PlayerPrefs.GetInt("dommage projectile");
         mousposition = Input.mousePosition;
         mousposition = Camera.main.ScreenToWorldPoint(mousposition);
         VecteurUnitaire = mousposition - (Vector2)transform.position;
@@ -32,6 +31,7 @@ public class projectileJ : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) 
     {
         dommage = PlayerPrefs.GetInt("dommage projectile");
+        Debug.Log("dommage = " + dommage);
 
 
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" 
@@ -99,10 +99,7 @@ public class projectileJ : MonoBehaviour
                     }
                 }
             }
-
             Destroy(gameObject);
-
-
         }
        
     }
