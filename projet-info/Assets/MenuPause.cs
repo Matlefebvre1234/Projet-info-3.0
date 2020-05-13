@@ -28,7 +28,7 @@ public class MenuPause : MonoBehaviour
             }
             else
             {
-                effetSonore.GetComponent<EffetSonores>().audioSrc.Stop();
+                //effetSonore.GetComponent<EffetSonores>().audioSrc.Stop();
                 Pause();
             }
         }
