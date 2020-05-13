@@ -52,16 +52,15 @@ public class AIMouvement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grid.GetXY(transform.position, out int x, out int y);
-        grid.GetXY(joueur.transform.position, out int x1, out int y1);
+        //grid.GetXY(transform.position, out int x, out int y);
+        //grid.GetXY(joueur.transform.position, out int x1, out int y1);
         projectile = GameObject.FindGameObjectsWithTag("Projectile");
 
+        //Animation
         gd = (joueur.transform.position - transform.position).normalized;
-        anim(gd);
+        Anim(gd);
 
-        //List<SamNode> chemin = samPathfinding.TrouverChemin(x, y, x1, y1);
-
-        //Tracer le chemin
+        //Tracer le chemin (visualisation)
         /*if (chemin != null)
         {
             for (int i = 0; i < chemin.Count - 1; i++)
@@ -316,7 +315,6 @@ public class AIMouvement : MonoBehaviour
                             {
                                 index++;
                             }
-                            
                         }
                     }
                         
@@ -341,6 +339,8 @@ public class AIMouvement : MonoBehaviour
         }
             
     }
+
+    //Attaque
     private void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
@@ -350,7 +350,8 @@ public class AIMouvement : MonoBehaviour
         }
     }
 
-    private void anim(Vector3 dir)
+    //Animation
+    private void Anim(Vector3 dir)
     {
         if(dir.x > 0)
         {
