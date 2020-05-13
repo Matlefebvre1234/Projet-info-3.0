@@ -31,6 +31,7 @@ public class projectileJ : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) 
     {
         dommage = PlayerPrefs.GetInt("dommage projectile");
+        Debug.Log("dommage = " + dommage);
 
 
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "murTransparent" && collision.gameObject.tag != "PiegeAuSol" 
