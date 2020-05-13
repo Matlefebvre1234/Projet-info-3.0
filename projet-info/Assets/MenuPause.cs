@@ -14,22 +14,21 @@ public class MenuPause : MonoBehaviour
     public GameObject createurSalle;
     public GameObject paneauOption;
     public GameObject menuObjet;
-    private EffetSonores effetSonore;
+    public GameObject effetSonore;
+    public GameObject magasin;
 
     // Update is called once per frame
     void Update()
     {
-        effetSonore = GetComponent<EffetSonores>();
-        if(Input.GetKeyDown(KeyCode.Escape) && MenuInventaire.activeSelf == false)
+        if(Input.GetKeyDown(KeyCode.Escape) && MenuInventaire.activeSelf == false && paneauOption.activeSelf == false && menuObjet.activeSelf == false)
         {
             if(GameIsPaused)
             {
-                effetSonore.audioSrc.Play();
                 Resume();
             }
             else
             {
-                effetSonore.audioSrc.Stop();
+                effetSonore.GetComponent<EffetSonores>().audioSrc.Stop();
                 Pause();
             }
         }
@@ -77,7 +76,7 @@ public class MenuPause : MonoBehaviour
     public void RetourObjets()
     {
         menuObjet.SetActive(false);
-        MenuPauseUI.SetActive(true);
+        MenuInventaire.SetActive(true);
     }
 
 
@@ -106,6 +105,12 @@ public class MenuPause : MonoBehaviour
     public void Option()
     {
         paneauOption.SetActive(true);
+        MenuInventaire.SetActive(false);
+    }
+
+    public void Magasin()
+    {
+        magasin.SetActive(true);
         MenuInventaire.SetActive(false);
     }
 }

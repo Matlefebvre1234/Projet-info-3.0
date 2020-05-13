@@ -5,7 +5,7 @@ using UnityEngine;
 public class EffetSonores : MonoBehaviour
 {
     public AudioSource audioSrc;
-    private float effetsVol = 1f;
+    public float effetsVol = 1f;
     
 
     private void Start()

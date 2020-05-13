@@ -13,14 +13,17 @@ public class ChangerMenu : MonoBehaviour
     public GameObject menuCommande;
     public GameObject menuBestiaire;
     public GameObject menuSkin;
+    public GameObject effetSonores;
     public static bool GameIsPaused = false;
 
     private void Update()
     {
-        if (GameIsPaused)
-        {
-            Resume();
-        }
+            if (GameIsPaused)
+            {
+                effetSonores.GetComponent<EffetSonores>().audioSrc.Play();
+                Resume();
+            }
+        
     }
     
     public void Resume()
@@ -33,6 +36,8 @@ public class ChangerMenu : MonoBehaviour
     
         GameIsPaused = false;
     }
+
+   
     
     public void changerMenuOption()
     {

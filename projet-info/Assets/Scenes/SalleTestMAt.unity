@@ -305,6 +305,12 @@ MonoBehaviour:
   isFacile: {fileID: 318280211}
   isMoyen: {fileID: 446973210}
   isDifficile: {fileID: 93138126}
+--- !u!1 &97155459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6060800396754856929, guid: e057e72694803af4c883b6d8337b6a8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 188304682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &115533709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -401,6 +407,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1774538859}
+    - target: {fileID: 2184357569999021329, guid: 0b242436c3c4a57449df6155b03a5cf7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BoutonPause
+      objectReference: {fileID: 0}
     - target: {fileID: 2304424057771203919, guid: 0b242436c3c4a57449df6155b03a5cf7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -843,6 +854,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MusiqueBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060800396754856940, guid: e057e72694803af4c883b6d8337b6a8b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060800396754856941, guid: e057e72694803af4c883b6d8337b6a8b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6060800396754856943, guid: e057e72694803af4c883b6d8337b6a8b,
         type: 3}
@@ -2682,8 +2703,8 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 188304682}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_GameObject: {fileID: 97155459}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa74f1a069382ea42ad465f65a6f2f09, type: 3}
   m_Name: 
@@ -2694,7 +2715,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 188304682}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 97155459}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 781024a7cb44eef41a17cf5ba2674ff3, type: 3}
@@ -2924,26 +2945,26 @@ PrefabInstance:
     - target: {fileID: 1573597418, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1774538867}
+      objectReference: {fileID: 1774538859}
     - target: {fileID: 1573597418, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changerMenuInventaire
+      value: Retour
       objectReference: {fileID: 0}
     - target: {fileID: 1955199776, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1774538868}
+      objectReference: {fileID: 1774538859}
     - target: {fileID: 1955199776, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changerMenuInventaire
+      value: Magasin
       objectReference: {fileID: 0}
     - target: {fileID: 2088661900, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1774538867}
+      objectReference: {fileID: 1774538859}
     - target: {fileID: 2088661900, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changerMenuObjets
+      value: Objet
       objectReference: {fileID: 0}
     - target: {fileID: 2088661901, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d, type: 3}
       propertyPath: m_Color.a
@@ -2953,6 +2974,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548937000099213193, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -82.000244
       objectReference: {fileID: 0}
     - target: {fileID: 3548937000591268145, guid: 3b3b6b48eb134b44eb8ee8ef41b9149d,
         type: 3}
@@ -5289,13 +5315,12 @@ GameObject:
   - component: {fileID: 1774538862}
   - component: {fileID: 1774538861}
   - component: {fileID: 1774538860}
-  - component: {fileID: 1774538859}
   - component: {fileID: 1774538864}
   - component: {fileID: 1774538865}
-  - component: {fileID: 1774538866}
   - component: {fileID: 1774538867}
   - component: {fileID: 1774538868}
   - component: {fileID: 1774538869}
+  - component: {fileID: 1774538859}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5315,12 +5340,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8c3fdbd3a798440b859525768a2440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomMenu: Menu
+  nomMenu: 
   MenuPauseUI: {fileID: 500609522}
   MenuInventaire: {fileID: 238549148}
   createurSalle: {fileID: 0}
   paneauOption: {fileID: 93934921}
   menuObjet: {fileID: 1099445786}
+  effetSonore: {fileID: 97155459}
+  magasin: {fileID: 706752965}
 --- !u!114 &1774538860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5435,24 +5462,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   argentTexte: {fileID: 1369728411}
   MenuInventaireUI: {fileID: 238549148}
---- !u!114 &1774538866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774538858}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f8c3fdbd3a798440b859525768a2440, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nomMenu: 
-  MenuPauseUI: {fileID: 0}
-  MenuInventaire: {fileID: 0}
-  createurSalle: {fileID: 0}
-  paneauOption: {fileID: 0}
-  menuObjet: {fileID: 0}
 --- !u!114 &1774538867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5460,7 +5469,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774538858}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff4a669c29a2ad746b89e2a8231aa5eb, type: 3}
   m_Name: 
@@ -5474,6 +5483,7 @@ MonoBehaviour:
   menuCommande: {fileID: 0}
   menuBestiaire: {fileID: 0}
   menuSkin: {fileID: 390517817}
+  effetSonores: {fileID: 97155459}
 --- !u!114 &1774538868
 MonoBehaviour:
   m_ObjectHideFlags: 0
