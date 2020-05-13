@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 9
   m_Sprite: {fileID: -758494661758547124, guid: e586606cff18a2b4ea2d4dd5d9419c4d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -277,3 +277,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSrc: {fileID: 6011376410839731367}
+  effetsVol: 1
