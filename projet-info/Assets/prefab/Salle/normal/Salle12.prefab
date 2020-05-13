@@ -307,8 +307,9 @@ MonoBehaviour:
   floor: {fileID: 0}
   mur_Fog: {fileID: 0}
   mur_Fog2: {fileID: 0}
-  camera1: {fileID: 0}
-  camera2: {fileID: 0}
+  mur_Fog_salle6: {fileID: 0}
+  colliderSalle: {fileID: 0}
+  listCollider: []
 --- !u!1 &4202023228737502443
 GameObject:
   m_ObjectHideFlags: 0

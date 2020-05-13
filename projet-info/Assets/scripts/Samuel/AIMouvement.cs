@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class AIMouvement : MonoBehaviour
 {
+    //PathFinding
     private Grid grid;
     public GameObject joueur;
+    public Vector3 posJoueur;
     public SamPathfinding samPathfinding;
-    public GameObject demon;
     public List<Vector3> cheminVecteur;
     private int index;
     public float vitesse = 2f;
     public Vector2 targetPosition;
+
+    //Santé et dommage
+    private Santé dommage;
     public int fireDommage = 20;
-    private Vector3 lastPos;
+    public float sante = 30f;
 
-    public Vector3 posJoueur;
-
+    //Esquive
     private GameObject[] projectile;
-
-    private Santé domage;
-
+    private Vector3 direction;
     private float distanceX = 0f;
     private float distanceY = 0f;
     private float esquiveX = 0f;
     private float esquiveY = 0f;
     private float angleProj;
-    private Vector3 direction;
     private float dirX;
     private float dirY;
-    public float sante = 30f;
+    
 
     //Animation
     public Animator animator;
@@ -39,40 +39,35 @@ public class AIMouvement : MonoBehaviour
     void Start()
     {
         grid = GameObject.FindObjectOfType<GridDemon>().getGrid();
-        samPathfinding = new SamPathfinding();
         joueur = GameObject.FindGameObjectWithTag("Player");
+        posJoueur = new Vector3();
+        samPathfinding = new SamPathfinding();
         cheminVecteur = new List<Vector3>();
         index = 0;
-        cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
-        posJoueur = new Vector3();
         posJoueur = joueur.transform.position;
-        domage = joueur.transform.GetComponent<Santé>();
-        lastPos = transform.position;
+        dommage = joueur.transform.GetComponent<Santé>();
+        cheminVecteur = samPathfinding.TrouverChemin(transform.position, joueur.transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        grid.GetXY(transform.position, out int x, out int y);
-        grid.GetXY(joueur.transform.position, out int x1, out int y1);
+        //grid.GetXY(transform.position, out int x, out int y);
+        //grid.GetXY(joueur.transform.position, out int x1, out int y1);
         projectile = GameObject.FindGameObjectsWithTag("Projectile");
 
+        //Animation
         gd = (joueur.transform.position - transform.position).normalized;
-        //if(lastPos != transform.position)
-        {
-            lastPos = transform.position;
-            anim(gd);
-        }
-        
+        Anim(gd);
 
-        List<SamNode> chemin = samPathfinding.TrouverChemin(x, y, x1, y1);
-        if (chemin != null)
+        //Tracer le chemin (visualisation)
+        /*if (chemin != null)
         {
             for (int i = 0; i < chemin.Count - 1; i++)
             {
-                //Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * dimCell + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 5f);
+                Debug.DrawLine(new Vector3(chemin[i].x, chemin[i].y) * dimCell + Vector3.one * 0.25f + new Vector3(4, 0.5f), new Vector3(chemin[i + 1].x, chemin[i + 1].y) * 0.5f + Vector3.one * 0.25f + new Vector3(4, 0.5f), Color.green, 5f);
             }
-        }
+        }*/
 
         if (grid.GetVector(posJoueur) != grid.GetVector(joueur.transform.position))
         {
@@ -320,7 +315,6 @@ public class AIMouvement : MonoBehaviour
                             {
                                 index++;
                             }
-                            
                         }
                     }
                         
@@ -345,16 +339,19 @@ public class AIMouvement : MonoBehaviour
         }
             
     }
+
+    //Attaque
     private void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
         {
             animator.SetTrigger("attaque");
-            domage.attaque(fireDommage * Time.deltaTime);
+            dommage.attaque(fireDommage * Time.deltaTime);
         }
     }
 
-    private void anim(Vector3 dir)
+    //Animation
+    private void Anim(Vector3 dir)
     {
         if(dir.x > 0)
         {
