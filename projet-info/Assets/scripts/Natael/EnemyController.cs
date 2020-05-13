@@ -135,7 +135,7 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("collision_Joueur", false);
             //mourir.GetComponent<CreateurSalle>().EnnemiesTuer();
 
-            if (time <= 27f)
+            if (time <= 19f)
             {
                 time = 0;
                 player.GetComponent<Santé>().attaque(15);               
