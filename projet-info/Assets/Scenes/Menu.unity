@@ -13914,6 +13914,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Zero
       objectReference: {fileID: 0}
+    - target: {fileID: 940252825, guid: e33dcbac34b977845bba4733d5bb6ff7, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013838003, guid: e33dcbac34b977845bba4733d5bb6ff7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013838003, guid: e33dcbac34b977845bba4733d5bb6ff7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1266290638, guid: e33dcbac34b977845bba4733d5bb6ff7, type: 3}
       propertyPath: m_Enabled
       value: 1

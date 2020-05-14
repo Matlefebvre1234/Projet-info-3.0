@@ -52,6 +52,7 @@ public class CreateurSalle : MonoBehaviour
     {
         if (nBEnnemiesTotal <= 0 && AllEnnemySpawn)
         {
+            Debug.Log("Ennemie = 0");
             PlayerPrefs.SetInt("Enemy mort", 1);
             porte.porteOuverte = true;
             
@@ -254,12 +255,7 @@ public class CreateurSalle : MonoBehaviour
 
     public void EnnemiesTuer()
     {
-        
+        Debug.Log("Ennemie tuer = --");
         nBEnnemiesTotal--;
-
-
-    }
-
-
-    
+    }    
 }

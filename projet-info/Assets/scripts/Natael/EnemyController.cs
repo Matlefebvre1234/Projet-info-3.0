@@ -134,8 +134,8 @@ public class EnemyController : MonoBehaviour
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
         {
-            this.gameObject.GetComponent<Santé>().santee = 0;
-            this.gameObject.GetComponent<Santé>().IsDead(true);
+            //this.gameObject.GetComponent<Santé>().santee = 0;
+            //this.gameObject.GetComponent<Santé>().IsDead(true);
             mourir.GetComponent<CreateurSalle>().EnnemiesTuer();
             animator.SetBool("collision_Joueur", false);
 
