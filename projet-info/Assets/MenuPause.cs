@@ -14,8 +14,14 @@ public class MenuPause : MonoBehaviour
     public GameObject createurSalle;
     public GameObject paneauOption;
     public GameObject menuObjet;
-    public GameObject effetSonore;
+    //AudioSource effetSonore;
     public GameObject magasin;
+
+    private void Start()
+    {
+        //effetSonore = GameObject.FindObjectOfType<AudioSource>();
+        //effetSonore = GameObject.FindGameObjectWithTag("Musique");
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,10 +31,11 @@ public class MenuPause : MonoBehaviour
             if(GameIsPaused)
             {
                 Resume();
+                //effetSonore.volume = 1;
             }
             else
             {
-                //effetSonore.GetComponent<EffetSonores>().audioSrc.Stop();
+                //effetSonore.volume = 0;
                 Pause();
             }
         }
