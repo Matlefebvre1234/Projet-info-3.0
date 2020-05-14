@@ -60,7 +60,7 @@ public class BossInvocateur : MonoBehaviour
             InvocateurDead = true;
             ghostScript.enabled = true;
             invocateurScript.enabled = false;
-            GameObject temp =GameObject.FindGameObjectWithTag("EnergyShield");
+            GameObject temp =GameObject.FindGameObjectWithTag("EnergyShieldBoss");
             if (temp != null) Destroy(temp);
             invocateurScript.resetScript();
         }
