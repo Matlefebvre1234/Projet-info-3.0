@@ -855,16 +855,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusiqueBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 6060800396754856929, guid: e057e72694803af4c883b6d8337b6a8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060800396754856929, guid: e057e72694803af4c883b6d8337b6a8b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Musique
+      objectReference: {fileID: 0}
     - target: {fileID: 6060800396754856940, guid: e057e72694803af4c883b6d8337b6a8b,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6060800396754856941, guid: e057e72694803af4c883b6d8337b6a8b,
+      propertyPath: sliderEffetSonore
+      value: 
+      objectReference: {fileID: 1877136594588527613}
+    - target: {fileID: 6060800396754856942, guid: e057e72694803af4c883b6d8337b6a8b,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: sliderMusique
+      value: 
+      objectReference: {fileID: 1877136595536381389}
     - target: {fileID: 6060800396754856943, guid: e057e72694803af4c883b6d8337b6a8b,
         type: 3}
       propertyPath: m_LocalPosition.x
