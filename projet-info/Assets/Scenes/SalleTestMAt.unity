@@ -1710,7 +1710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &500609523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5340,13 +5340,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8c3fdbd3a798440b859525768a2440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomMenu: 
+  nomMenu: Menu
   MenuPauseUI: {fileID: 500609522}
   MenuInventaire: {fileID: 238549148}
   createurSalle: {fileID: 0}
   paneauOption: {fileID: 93934921}
   menuObjet: {fileID: 1099445786}
-  effetSonore: {fileID: 97155459}
   magasin: {fileID: 706752965}
 --- !u!114 &1774538860
 MonoBehaviour:
