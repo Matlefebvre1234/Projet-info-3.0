@@ -11,10 +11,10 @@ public class GridMathias : MonoBehaviour
     private float dimCell;
     private Vector3 positionJoueur;
     private positionJoueur posJ = new positionJoueur();
-    private CheminMathias[,] listeCases;
+    private Case[,] listeCases;
     private GameObject[] listeObstacles;
     private GameObject[] listeLave;
-    public List<CheminMathias> positionsObstacles;
+    public List<Case> positionsObstacles;
     int positionXObs;
     int positionYObs;
 
@@ -25,7 +25,7 @@ public class GridMathias : MonoBehaviour
         hauteur = n_hauteur;
         dimCell = n_dimCell;
         origine = n_origine;
-        listeCases = new CheminMathias[n_largeur, n_hauteur];
+        listeCases = new Case[n_largeur, n_hauteur];
 
         //Listes des différentes cases que l'intelligence artificielle ne peut traverser à cause d'obstacles
         listeObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
@@ -36,7 +36,7 @@ public class GridMathias : MonoBehaviour
         {
             for (int y = 0; y < listeCases.GetLength(1); y++)
             {
-                listeCases[x, y] = new CheminMathias(x, y);
+                listeCases[x, y] = new Case(x, y);
             }
 
         }
@@ -45,14 +45,14 @@ public class GridMathias : MonoBehaviour
         for(int i = 0; i < listeObstacles.Length; i++)
         {
             GetXY(listeObstacles[i].transform.position, out positionXObs, out positionYObs);
-            CheminMathias obstacles = GetGridObject(positionXObs, positionYObs);
+            Case obstacles = GetGridObject(positionXObs, positionYObs);
             obstacles.SetObstacleTrue();
         }
 
         for (int i = 0; i < listeLave.Length; i++)
         {
             GetXY(listeLave[i].transform.position, out positionXObs, out positionYObs);
-            CheminMathias lave = GetGridObject(positionXObs, positionYObs);
+            Case lave = GetGridObject(positionXObs, positionYObs);
             lave.SetObstacleTrue();
         }
     }
@@ -65,7 +65,7 @@ public class GridMathias : MonoBehaviour
     }
 
     //Getter qui retourne une case selon sa position en x et en y dans la grille
-    public CheminMathias GetGridObject(int x, int y)
+    public Case GetGridObject(int x, int y)
     {
         return listeCases[x, y];
     }

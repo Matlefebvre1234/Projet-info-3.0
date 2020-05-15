@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheminMathias
+public class Case
 {
     private GridMathias grille;
     public int positionX;
@@ -15,10 +15,10 @@ public class CheminMathias
 
     public Boolean obstacle = false;
 
-    public CheminMathias casePrecedente;
+    public Case casePrecedente;
 
     //Constructeur avec une grille
-    public CheminMathias(GridMathias n_grille, int n_x, int n_y)
+    public Case(GridMathias n_grille, int n_x, int n_y)
     {
         grille = n_grille;
         positionX = n_x;
@@ -26,7 +26,7 @@ public class CheminMathias
     }
 
     //Constructeur sans grille
-    public CheminMathias(int n_x, int n_y)
+    public Case(int n_x, int n_y)
     {
         grille = null;
         positionX = n_x;

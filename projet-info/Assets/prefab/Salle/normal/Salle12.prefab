@@ -2713,6 +2713,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle Rouge
       objectReference: {fileID: 0}
+    - target: {fileID: 4460690648232702144, guid: 0b07c567f82a4de478c09a214a2e3221,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5470901194314130025, guid: 0b07c567f82a4de478c09a214a2e3221, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b07c567f82a4de478c09a214a2e3221, type: 3}
@@ -4312,6 +4317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obstacle Rouge (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460690648232702144, guid: 0b07c567f82a4de478c09a214a2e3221,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5470901194314130025, guid: 0b07c567f82a4de478c09a214a2e3221, type: 3}
@@ -8037,6 +8047,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obstacle Rouge (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460690648232702144, guid: 0b07c567f82a4de478c09a214a2e3221,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5470901194314130025, guid: 0b07c567f82a4de478c09a214a2e3221, type: 3}

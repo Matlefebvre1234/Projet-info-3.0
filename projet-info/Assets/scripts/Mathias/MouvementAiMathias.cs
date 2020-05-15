@@ -5,31 +5,26 @@ using UnityEngine;
 public class MouvementAiMathias : MonoBehaviour
 {
 
-    private PathfindingMathias pathfinding;
+    private AEtoileMathias pathfinding;
     private int x;
     private int y;
 
-    public float vitesse = 0.001f;
-
-    private float distanceMaxParcourue;
-
     private GameObject joueur;
-    private GameObject ennemi;
 
     private Vector3 positionJoueur = new Vector3();
 
     private float tempsProchaineAction = 0.0f;
     public float periode = 0.1f;
 
-    private List<CheminMathias> chemin;
+    private List<Case> chemin;
 
-    private int index = 1;
+    private int caseChemin = 1;
 
-    private int posX;
-    private int posY;
+    private int xJ;
+    private int yJ;
 
-    private float x1;
-    private float y1;
+    private float xTemp;
+    private float yTemp;
 
     private int xE;
     private int yE;
@@ -48,6 +43,7 @@ public class MouvementAiMathias : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Sert aux changements de difficulté
         if(PlayerPrefs.GetInt("Niveau Difficulté") == 1)
         {
             transform.gameObject.GetComponent<Santé>().santeeMax = 100;
@@ -61,13 +57,12 @@ public class MouvementAiMathias : MonoBehaviour
             transform.gameObject.GetComponent<Santé>().santeeMax = 150;
         }
 
-        pathfinding = new PathfindingMathias();
+        pathfinding = new AEtoileMathias();
         joueur = new GameObject();
         joueur = GameObject.FindGameObjectWithTag("Player");
         positionJoueur = joueur.transform.position;
 
         grille = GameObject.FindObjectOfType<GridMonstresMathias>().getGrid();
-        index = 1;
         anim = GetComponent<Animator>();
         anim.SetFloat("Vitesse", 1);
     }
@@ -75,22 +70,23 @@ public class MouvementAiMathias : MonoBehaviour
     void Update()
     {
         grille.GetXY(transform.position, out xE, out yE);
-        grille.GetXY(positionJoueur, out posX, out posY);
+        grille.GetXY(positionJoueur, out xJ, out yJ);
         positionJoueur = joueur.transform.position;
-        pathfinding.GetGrid().GetXY(positionJoueur, out x, out y);
 
-        chemin = pathfinding.Chemin(xE, yE, posX, posY);
-            if (fin == false)
-            {
-                tempsProchaineAction += periode;
-                Mouvement();
-            }
+        chemin = pathfinding.Chemin(xE, yE, xJ, yJ);
+
+        //Si le chemin n'est pas terminé, l'ennemi bouge
+        if (fin == false)
+        {
+           Mouvement();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
         {
+            //L'ennemi fait plus ou moins de dégâts dépendemment de la difficulté
             if (PlayerPrefs.GetInt("Niveau Difficulté") == 1)
             {
                 joueur.transform.GetComponent<Santé>().attaque(0.5f);
@@ -108,21 +104,25 @@ public class MouvementAiMathias : MonoBehaviour
         anim.SetFloat("Vitesse", 0);
     }
 
+    //Fonction qui permet à l'ennemi de bouger
     private void Mouvement()
     {
 
         if (chemin != null)
         {
-            if(index >= 0 && index < chemin.Count)
-            {
-                Vector2 ajout = new Vector2(chemin[index].positionX, chemin[index].positionY);
-                pathfinding.GetGrid().GetWorldXY(ajout, out x1, out y1);
-                Vector2 destination = new Vector2(x1, y1);
+                Vector2 ajout = new Vector2(chemin[caseChemin].positionX, chemin[caseChemin].positionY);
+                pathfinding.GetGrid().GetWorldXY(ajout, out xTemp, out yTemp);
+                Vector2 destination = new Vector2(xTemp, yTemp);
 
                 if (Vector2.Distance(transform.position, destination) > 0.01f)
                 {
                     transform.position = Vector2.MoveTowards(transform.position, destination, 2.0f*Time.deltaTime);
                 }
+
+            else
+            {
+                caseChemin++;
+                fin = true;
             }
         }
 

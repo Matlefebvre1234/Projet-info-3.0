@@ -2,39 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathfindingMathias
+public class AEtoileMathias
 {
     private const int MOUVEMENT_SUR_AXE = 10;
     private const int MOUVEMENT_DIAGONAL = 14;
     private GridMathias grille;
-    private List<CheminMathias> listeOuverte;
-    private List<CheminMathias> listeFermee;
-    private Vector3 Origine = new Vector3(8, 1);
+    private List<Case> listeOuverte;
+    private List<Case> listeFermee;
+    private Vector3 origine = new Vector3(8, 1);
 
-    public static PathfindingMathias Instance { get; private set; }
+    public static AEtoileMathias Instance { get; private set; }
 
     //Constructeur
-    public PathfindingMathias()
+    public AEtoileMathias()
     {
         Instance = this;
         grille = GameObject.FindObjectOfType<GridMonstresMathias>().getGrid();
     }
 
     //Méthode qui créer le chemin optimal à suivre à l'aide de l'algorithme A*
-    public List<CheminMathias> Chemin(int debutX, int debutY, int finX, int finY)
+    public List<Case> Chemin(int debutX, int debutY, int finX, int finY)
     {
-        CheminMathias caseDebut = grille.GetGridObject(debutX, debutY);
-        CheminMathias caseFin = grille.GetGridObject(finX, finY);
+        Case caseDebut = grille.GetGridObject(debutX, debutY);
+        Case caseFin = grille.GetGridObject(finX, finY);
 
-        listeOuverte = new List<CheminMathias>() { caseDebut };
-        listeFermee = new List<CheminMathias>();
+        listeOuverte = new List<Case>() { caseDebut };
+        listeFermee = new List<Case>();
 
         //Création de toutes les cases présentes dans la grille, on donne une valeur maximum à valeurG afin qu'aucune case ne soit viable pour le chemin
         for (int x = 0; x < grille.GetLargueur(); x++)
         {
             for (int y = 0; y < grille.GetHauteur(); y++)
             {
-                CheminMathias casesGrille = grille.GetGridObject(x, y);
+                Case casesGrille = grille.GetGridObject(x, y);
                 casesGrille.valeurG = int.MaxValue;
                 casesGrille.CalculerF();
                 casesGrille.casePrecedente = null;
@@ -49,7 +49,7 @@ public class PathfindingMathias
         //On cherche la case qui a la valeurF la plus basse dans la listeOuverte afin de trouver la prochaine case du chemin
         while (listeOuverte.Count > 0)
         {
-            CheminMathias caseActuelle = FPlusBas(listeOuverte);
+            Case caseActuelle = FPlusBas(listeOuverte);
 
             //Si la case avec la valeurF la plus basse est la dernière, on calcule le chemin avec toutes les cases trouvées
             if (caseActuelle == caseFin)
@@ -62,7 +62,7 @@ public class PathfindingMathias
             listeFermee.Add(caseActuelle);
 
             //On cherche les cases voisines à la case trouvée, afin de trouver la prochaine case du chemin
-            foreach (CheminMathias caseVoisine in GetListeVoisins(caseActuelle))
+            foreach (Case caseVoisine in GetListeVoisins(caseActuelle))
             {
                 if (listeFermee.Contains(caseVoisine))
                 {
@@ -90,10 +90,10 @@ public class PathfindingMathias
     }
 
     //Vérification des cases autour de la case sélectionnée
-    private List<CheminMathias> GetListeVoisins(CheminMathias caseActuelle)
+    private List<Case> GetListeVoisins(Case caseActuelle)
     {
 
-        List<CheminMathias> listeVoisins = new List<CheminMathias>();
+        List<Case> listeVoisins = new List<Case>();
 
         if (caseActuelle.positionX - 1 >= 0 && grille.GetGridObject(caseActuelle.positionX - 1, caseActuelle.positionY).GetObstacle() == false)
         {
@@ -142,16 +142,18 @@ public class PathfindingMathias
         return listeVoisins;
     }
 
-    public CheminMathias GetCase(int x, int y)
+    //Getter pour une case
+    public Case GetCase(int x, int y)
     {
         return grille.GetGridObject(x, y);
     }
 
-    private List<CheminMathias> CalculerChemin(CheminMathias caseFin)
+    //Méthode qui rassemble toutes les cases sélectionnées et qui construit le chemin à suivre
+    public List<Case> CalculerChemin(Case caseFin)
     {
-        List<CheminMathias> chemin = new List<CheminMathias>();
+        List<Case> chemin = new List<Case>();
         chemin.Add(caseFin);
-        CheminMathias temp = caseFin;
+        Case temp = caseFin;
 
         while (temp.casePrecedente != null)
         {
@@ -165,7 +167,8 @@ public class PathfindingMathias
 
     }
 
-    private int CalculerH(CheminMathias pt1, CheminMathias pt2)
+    //Méthode pour calculer la valeur H
+    private int CalculerH(Case pt1, Case pt2)
     {
 
         int d_x = Mathf.Abs(pt1.positionX - pt2.positionX);
@@ -176,9 +179,10 @@ public class PathfindingMathias
         return coutFinal;
     }
 
-    private CheminMathias FPlusBas(List<CheminMathias> listeChemin)
+    //Méthode pour trouver la case qui a la valeurF la plus basse dans une liste
+    private Case FPlusBas(List<Case> listeChemin)
     {
-        CheminMathias fBas = listeChemin[0];
+        Case fBas = listeChemin[0];
 
         for(int i = 0; i < listeChemin.Count; i++)
         {
@@ -190,39 +194,6 @@ public class PathfindingMathias
         }
 
         return fBas;
-    }
-
-    public List<Vector3> TrouverChemin(Vector3 debut, Vector3 fin)
-    {
-        int debutX;
-        int debutY;
-
-        int finX;
-        int finY;
-
-        grille.GetXY(debut, out debutX, out debutY);
-        grille.GetXY(fin, out finX, out finY);
-
-        List<CheminMathias> chemin = Chemin(debutX, debutY, finX, finY);
-
-        if(chemin == null)
-        {
-            return null;
-        }
-
-        else
-        {
-            List<Vector3> cheminVectors = new List<Vector3>();
-
-            foreach (CheminMathias pathnode in chemin)
-            {
-                Vector3 ajout = new Vector3(pathnode.positionX, pathnode.positionY);
-                Vector3 ajout2 = new Vector3(4, 0.5f);
-                cheminVectors.Add(ajout * grille.GetDimCell() + Vector3.one * 0.25f + ajout2);
-            }
-
-            return cheminVectors;
-        }
     }
 
     //Getter qui retourne la grille utilisée

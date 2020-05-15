@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DrawLine : MonoBehaviour
 {
-    private PathfindingMathias pathfinding;
+    private AEtoileMathias pathfinding;
     private int x;
     private int y;
 
