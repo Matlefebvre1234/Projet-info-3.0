@@ -149,7 +149,7 @@ public class AEtoileMathias
     }
 
     //Méthode qui rassemble toutes les cases sélectionnées et qui construit le chemin à suivre
-    public List<Case> CalculerChemin(Case caseFin)
+    private List<Case> CalculerChemin(Case caseFin)
     {
         List<Case> chemin = new List<Case>();
         chemin.Add(caseFin);
@@ -195,6 +195,7 @@ public class AEtoileMathias
 
         return fBas;
     }
+
 
     //Getter qui retourne la grille utilisée
     public GridMathias GetGrid()
