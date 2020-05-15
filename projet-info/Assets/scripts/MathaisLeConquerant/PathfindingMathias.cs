@@ -46,7 +46,7 @@ public class PathfindingMathias
         caseDebut.valeurH = CalculerH(caseDebut, caseFin);
         caseDebut.CalculerF();
 
-        //On cherche la case qui a la valeurF la plus basse dans la listeOuverte afin de trouver la prochaine casedu chemin
+        //On cherche la case qui a la valeurF la plus basse dans la listeOuverte afin de trouver la prochaine case du chemin
         while (listeOuverte.Count > 0)
         {
             CheminMathias caseActuelle = FPlusBas(listeOuverte);
@@ -61,7 +61,7 @@ public class PathfindingMathias
             listeOuverte.Remove(caseActuelle);
             listeFermee.Add(caseActuelle);
 
-            //On cherche les cases voisines à la case trouvée, afin de 
+            //On cherche les cases voisines à la case trouvée, afin de trouver la prochaine case du chemin
             foreach (CheminMathias caseVoisine in GetListeVoisins(caseActuelle))
             {
                 if (listeFermee.Contains(caseVoisine))

@@ -515,7 +515,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5108348519673031317}
-    characterCount: 9
+    characterCount: 7
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -726,8 +726,8 @@ RectTransform:
   m_Father: {fileID: 2028822187407029852}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.49376}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2181,7 +2181,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.0000076293945, y: 158.20001}
-  m_SizeDelta: {x: 100, y: 625}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &4104686230135435443
 MonoBehaviour:
@@ -3134,7 +3134,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Skin '
+  m_text: Habit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ffef94cf6be28a4691b0be6c4a97084, type: 2}
   m_sharedMaterial: {fileID: 2087111374872932055, guid: 8ffef94cf6be28a4691b0be6c4a97084,
@@ -3206,7 +3206,7 @@ MonoBehaviour:
     textComponent: {fileID: 2162258731945173381}
     characterCount: 5
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 0
     wordCount: 1
     linkCount: 0
     lineCount: 1
@@ -6093,7 +6093,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Skin '
+  m_text: 'Habit
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ffef94cf6be28a4691b0be6c4a97084, type: 2}
   m_sharedMaterial: {fileID: 2087111374872932055, guid: 8ffef94cf6be28a4691b0be6c4a97084,
@@ -6163,7 +6165,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 4969713088029480400}
-    characterCount: 5
+    characterCount: 6
     spriteCount: 0
     spaceCount: 1
     wordCount: 1
@@ -6249,7 +6251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Skin '
+  m_text: Habit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ffef94cf6be28a4691b0be6c4a97084, type: 2}
   m_sharedMaterial: {fileID: 2087111374872932055, guid: 8ffef94cf6be28a4691b0be6c4a97084,
@@ -6321,7 +6323,7 @@ MonoBehaviour:
     textComponent: {fileID: 2066157128407009449}
     characterCount: 5
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 0
     wordCount: 1
     linkCount: 0
     lineCount: 1
@@ -6405,7 +6407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Skin '
+  m_text: Habit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ffef94cf6be28a4691b0be6c4a97084, type: 2}
   m_sharedMaterial: {fileID: 2087111374872932055, guid: 8ffef94cf6be28a4691b0be6c4a97084,
@@ -6477,7 +6479,7 @@ MonoBehaviour:
     textComponent: {fileID: 6491117875988480501}
     characterCount: 5
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 0
     wordCount: 1
     linkCount: 0
     lineCount: 1
@@ -6826,7 +6828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8437284062683696635
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7271,7 +7273,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5283324876858900422}
-    characterCount: 14
+    characterCount: 13
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
