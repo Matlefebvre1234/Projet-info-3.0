@@ -45,6 +45,7 @@ public class EnemyController : MonoBehaviour
     GameObject player;
     float time;
     bool dommage = false;
+    int compteur_mort = 0;
 
     void Start()
     {
@@ -73,6 +74,7 @@ public class EnemyController : MonoBehaviour
         pathfinding = new NatPathfinding(largeur, hauteur);
         player = GameObject.FindGameObjectWithTag("Player");
         dommage = false;
+        compteur_mort = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -123,32 +125,34 @@ public class EnemyController : MonoBehaviour
         if (rangeAttaque < 1 && animator.GetBool("collision_Joueur") == false)
         {
             explosion.PlayDelayed(0.3f);
-            //Explosion du bonhomme
             animator.SetBool("collision_Joueur", true);
-            
+            if(compteur_mort == 0)
+            {
+                //mourir.GetComponent<CreateurSalle>().EnnemiesTuer();
+                compteur_mort = 1;
+            }
             time = 0;
             Debug.Log("time  = " + time);
-
-            player.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
+            
         }
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Explosion_Joueur"))
         {
-            //this.gameObject.GetComponent<Santé>().santee = 0;
-            //this.gameObject.GetComponent<Santé>().IsDead(true);
-            mourir.GetComponent<CreateurSalle>().EnnemiesTuer();
+            this.gameObject.GetComponent<Santé>().santee = 0;
+            this.gameObject.GetComponent<Santé>().IsDead(true);
             animator.SetBool("collision_Joueur", false);
 
-            if (time <= 25f)
-            {
+            //if (time >= 3f)
+            //{
                 if(dommage == false)
                 {
+                    player.transform.gameObject.GetComponent<ArgentJoueur>().ArgentJoueurs(30);
                     player.GetComponent<Santé>().attaque(15);
                     dommage = true;
-                    Destroy(gameObject);
+                    //Destroy(gameObject);
                 }
 
-            }
+            //}
         }
 
         if (pathIsEnd == false)

@@ -3763,7 +3763,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: '
+
+'
 --- !u!1 &4703124117473230536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,7 +3865,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!1 &5746744181983504955
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,12 +4339,18 @@ PrefabInstance:
     - target: {fileID: 4893012406045795215, guid: 7a882707262cd2c4cbfc388a428b47bf,
         type: 3}
       propertyPath: dialogue.phrases.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4893012406045795215, guid: 7a882707262cd2c4cbfc388a428b47bf,
         type: 3}
       propertyPath: dialogue.nom
-      value: 
+      value: Machine Soin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893012406045795215, guid: 7a882707262cd2c4cbfc388a428b47bf,
+        type: 3}
+      propertyPath: dialogue.phrases.Array.data[0]
+      value: "Voulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE pour confirmer\n\nQ
+        pour annuler"
       objectReference: {fileID: 0}
     - target: {fileID: 8057857479924706890, guid: 7a882707262cd2c4cbfc388a428b47bf,
         type: 3}

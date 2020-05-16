@@ -146,11 +146,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cout: 100
   objet: {fileID: 5145619308826306367, guid: 84c6eae1eb386f2448b227f083cbd285, type: 3}
-  dialogue_e: 0
+  dialogue_e_Soin: 0
+  dialogue_e_Armure: 0
+  dialogue_e_Anneau: 0
+  dialogue_e_Bottes: 0
+  dialogue_e_Arme: 0
   machineSoin: {fileID: 0}
   machineArmure: {fileID: 0}
   machineArme: {fileID: 0}
-  machineAnneau: {fileID: 3804614310065345952}
+  machineAnneau: {fileID: 0}
   machineBottes: {fileID: 0}
 --- !u!114 &3804614310065345952
 MonoBehaviour:

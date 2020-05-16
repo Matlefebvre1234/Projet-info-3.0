@@ -52,8 +52,8 @@ public class MouvementJoueur : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.P))
         {
-            PlayerPrefs.SetInt("Argent Joueur Skin", 10000000);
-            PlayerPrefs.SetInt("Argent Joueur", 10000000);
+            PlayerPrefs.SetInt("Argent Joueur Skin", 100000);
+            PlayerPrefs.SetInt("Argent Joueur", 100000);
         }
 
         //Debug.Log("Mana = " + PlayerPrefs.GetFloat("Mana"));

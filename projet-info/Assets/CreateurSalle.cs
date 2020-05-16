@@ -42,7 +42,7 @@ public class CreateurSalle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        nBEnnemiesTotal = 0;
         CreerSalle();
         
 
@@ -50,9 +50,9 @@ public class CreateurSalle : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Ennemie total = " + nBEnnemiesTotal);
         if (nBEnnemiesTotal <= 0 && AllEnnemySpawn)
-        {
-            Debug.Log("Ennemie = 0");
+        {            
             PlayerPrefs.SetInt("Enemy mort", 1);
             porte.porteOuverte = true;
             
