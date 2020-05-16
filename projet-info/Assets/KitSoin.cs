@@ -5,7 +5,7 @@ using UnityEngine;
 public class KitSoin : MonoBehaviour
 {
     private GameObject joueur;
-    public float regeneration = 20f;
+    public float regeneration = 50f;
 
     // Start is called before the first frame update
     void Start()

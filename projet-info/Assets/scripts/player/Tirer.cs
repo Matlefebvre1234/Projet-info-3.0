@@ -99,7 +99,8 @@ public class Tirer : MonoBehaviour
 
     public void AmeliorationAttaque(int attaque)
     {
-        dommage = attaque;
+        if(dommage + attaque <= 150)
+        dommage += attaque;
         PlayerPrefs.SetInt("dommage projectile", dommage);
     }
 
@@ -115,7 +116,8 @@ public class Tirer : MonoBehaviour
 
     public void AmeliorationReloadTime(float anneau)
     {
-        reloadTime = anneau;
+        if (reloadTime - anneau >= 0.1) ;
+        reloadTime -= anneau;
     }
 
     public void flipSprite()

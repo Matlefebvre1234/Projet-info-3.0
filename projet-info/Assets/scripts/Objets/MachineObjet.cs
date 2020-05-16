@@ -18,6 +18,8 @@ public class MachineObjet : MonoBehaviour
     public DialogueTrigger machineArme;
     public DialogueTrigger machineAnneau;
     public DialogueTrigger machineBottes;
+    public GameObject nom;
+    public GameObject text;
 
 
     int argent;
@@ -254,4 +256,30 @@ public class MachineObjet : MonoBehaviour
             
         }
     }
-}
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+     
+       
+           
+            
+            PlayerPrefs.SetInt("dialogue_e_Bottes", 0);
+            PlayerPrefs.SetInt("dialogue_e_Armure", 0);
+            PlayerPrefs.SetInt("dialogue_e_Anneau", 0);
+            PlayerPrefs.SetInt("dialogue_e_Arme", 0);
+            PlayerPrefs.SetInt("dialogue_e_Soin", 0);
+
+            dialogue_e_Bottes = false;
+            dialogue_e_Armure = false;
+            dialogue_e_Arme = false;
+            dialogue_e_Anneau = false;
+            dialogue_e_Soin = false;
+        DialogueTrigger t = FindObjectOfType<DialogueTrigger>();
+        t.SetAchat(false);
+
+        FindObjectOfType<DialogueManager>().FinDialogue();
+        
+
+    }
+    }
+

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Arme : MonoBehaviour
 {
-    public int attaque = 60;
+    public int attaque = 45;
     private GameObject joueur;
 
     // Start is called before the first frame update

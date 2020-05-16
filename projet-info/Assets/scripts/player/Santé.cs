@@ -117,7 +117,8 @@ public class Santé : MonoBehaviour
 
     public void Armure(float protection)
     {
-        armure = protection;
+        if(armure + protection <= 10) armure += protection;
+
     }
 
     public void KitSoin(float regeneration)

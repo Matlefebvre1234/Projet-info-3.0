@@ -128,7 +128,8 @@ public class MouvementJoueur : MonoBehaviour
 
     public void PlusVitesse(float plusVitesse)
     {
-        vitesseJoueur = plusVitesse;
+        if (vitesseJoueur + plusVitesse <= 7)
+        vitesseJoueur += plusVitesse;
     }
 
 }

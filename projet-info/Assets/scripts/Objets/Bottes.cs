@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bottes : MonoBehaviour
 {
     private GameObject joueur;
-    public int vitesse = 5;
+    public int vitesse = 1;
 
     // Start is called before the first frame update
     void Start()

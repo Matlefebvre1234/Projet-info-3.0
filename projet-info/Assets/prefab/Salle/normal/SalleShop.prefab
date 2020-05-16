@@ -9988,6 +9988,11 @@ PrefabInstance:
       value: "Machine Armure\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
         pour confirmer\n\nQ pour annuler"
       objectReference: {fileID: 0}
+    - target: {fileID: 382026349892673536, guid: 47ec95cadff0b3e42aeb7b83dad7461a,
+        type: 3}
+      propertyPath: achat
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1419466080006094670, guid: 47ec95cadff0b3e42aeb7b83dad7461a,
         type: 3}
       propertyPath: m_Name

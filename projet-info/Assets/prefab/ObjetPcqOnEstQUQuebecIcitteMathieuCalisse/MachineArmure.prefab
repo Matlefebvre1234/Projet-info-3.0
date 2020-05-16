@@ -69,7 +69,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.12610735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -80,7 +80,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.2522146}
   m_EdgeRadius: 0
 --- !u!212 &5183715206919740092
 SpriteRenderer:
@@ -146,7 +146,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cout: 100
   objet: {fileID: 1140715826235732963, guid: 66dc20c104e1e1447b554dd79a18ec1b, type: 3}
-  dialogue_e: 0
+  dialogue_e_Soin: 0
+  dialogue_e_Armure: 0
+  dialogue_e_Anneau: 0
+  dialogue_e_Bottes: 0
+  dialogue_e_Arme: 0
   machineSoin: {fileID: 0}
   machineArmure: {fileID: 382026349892673536}
   machineArme: {fileID: 0}
