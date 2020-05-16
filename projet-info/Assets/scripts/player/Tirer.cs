@@ -16,11 +16,21 @@ public class Tirer : MonoBehaviour
 
     GameObject player;
     Color couleurProjectile;
+    float vitesse;
+
+    Rigidbody2D mrb;
+    float deplacementX;
+    float deplacementY;
+
+    public float vitesseBalle = 1;
 
     public Vector3 grosseur = new Vector3(0.5f, 0.5f, 1f);
 
     private void Start()
     {
+        dommage = 30;
+        vitesseBalle = 1;
+        mrb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         PlayerPrefs.SetInt("dommage projectile", dommage);
@@ -28,6 +38,9 @@ public class Tirer : MonoBehaviour
     }
     private void Update()
     {
+        deplacementX = Input.GetAxis("Horizontal");
+        deplacementY = Input.GetAxis("Vertical");
+
         flipSprite();
         tempreload += 1 * Time.deltaTime;
         
@@ -80,6 +93,10 @@ public class Tirer : MonoBehaviour
        
     }
 
+    //private void FixedUpdate()
+    //{
+    //    mrb.velocity = new Vector2(deplacementX * vitesseBalle, deplacementY * vitesseBalle);
+    //}
     private void tirer()
     {
         ani.SetBool("isAttacking", true);
@@ -92,9 +109,11 @@ public class Tirer : MonoBehaviour
         medium = Instantiate(projectile, (Vector2)transform.position - new Vector2(0,0.15f), Quaternion.identity);
         medium.transform.localScale = grosseur;
         medium.transform.GetComponent<SpriteRenderer>().color = couleurProjectile;
+        //medium.GetComponent<Rigidbody2D>().velocity = new Vector2(deplacementX * vitesseBalle, deplacementY * vitesseBalle);
+        //medium.GetComponent<Rigidbody2D>().AddForce(medium.transform.forward * (4000 * 1000));
+        //medium.transform.Translate(Vector3.forward * 5 * 100);
+        Debug.Log("Vitesse = " + vitesseBalle);
         ani.SetBool("isAttacking", false);
-
-
     }
 
     public void AmeliorationAttaque(int attaque)
@@ -118,6 +137,11 @@ public class Tirer : MonoBehaviour
     {
         if (reloadTime - anneau >= 0.1) ;
         reloadTime -= anneau;
+    }
+
+    public void AmeliorationVitesse(float vitesse)
+    {
+        vitesseBalle += vitesse;
     }
 
     public void flipSprite()
