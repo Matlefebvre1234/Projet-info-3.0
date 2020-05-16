@@ -3763,9 +3763,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: 
 --- !u!1 &4703124117473230536
 GameObject:
   m_ObjectHideFlags: 0
@@ -4349,8 +4347,8 @@ PrefabInstance:
     - target: {fileID: 4893012406045795215, guid: 7a882707262cd2c4cbfc388a428b47bf,
         type: 3}
       propertyPath: dialogue.phrases.Array.data[0]
-      value: "Voulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE pour confirmer\n\nQ
-        pour annuler"
+      value: "Machine Soin\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
+        pour confirmer\n\nQ pour annuler"
       objectReference: {fileID: 0}
     - target: {fileID: 8057857479924706890, guid: 7a882707262cd2c4cbfc388a428b47bf,
         type: 3}
@@ -4426,6 +4424,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089427067981279307, guid: 74abe1c85b8246841be7451d939110ae,
+        type: 3}
+      propertyPath: dialogue.phrases.Array.data[0]
+      value: "Machine Arme\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
+        pour confirmer\n\nQ pour annuler"
       objectReference: {fileID: 0}
     - target: {fileID: 1367904293374189932, guid: 74abe1c85b8246841be7451d939110ae,
         type: 3}
@@ -9978,6 +9982,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3467246080516412173}
     m_Modifications:
+    - target: {fileID: 382026349892673536, guid: 47ec95cadff0b3e42aeb7b83dad7461a,
+        type: 3}
+      propertyPath: dialogue.phrases.Array.data[0]
+      value: "Machine Armure\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
+        pour confirmer\n\nQ pour annuler"
+      objectReference: {fileID: 0}
     - target: {fileID: 1419466080006094670, guid: 47ec95cadff0b3e42aeb7b83dad7461a,
         type: 3}
       propertyPath: m_Name
@@ -10210,6 +10220,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5882704533251849773, guid: db5e50813aa19c14da27b4b8980ea147,
+        type: 3}
+      propertyPath: dialogue.phrases.Array.data[0]
+      value: "Machine Bottes\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
+        pour confirmer\n\nQ pour annuler"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db5e50813aa19c14da27b4b8980ea147, type: 3}
 --- !u!4 &2886626735962121989 stripped
@@ -10367,6 +10383,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1089427067981279307, guid: 74abe1c85b8246841be7451d939110ae,
+        type: 3}
+      propertyPath: dialogue.phrases.Array.data[0]
+      value: "Machine Arme\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
+        pour confirmer\n\nQ pour annuler"
+      objectReference: {fileID: 0}
     - target: {fileID: 1367904293374189932, guid: 74abe1c85b8246841be7451d939110ae,
         type: 3}
       propertyPath: m_Name
@@ -10468,6 +10490,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3804614310065345952, guid: 9423318311f75da459c1f28c8adddd4c,
+        type: 3}
+      propertyPath: dialogue.phrases.Array.data[0]
+      value: "Machine Anneau\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
+        pour confirmer\n\nQ pour annuler"
       objectReference: {fileID: 0}
     - target: {fileID: 5656144174349762927, guid: 9423318311f75da459c1f28c8adddd4c,
         type: 3}
@@ -10795,6 +10823,12 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.nom
       value: Machine Soin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893012406045795215, guid: 7a882707262cd2c4cbfc388a428b47bf,
+        type: 3}
+      propertyPath: dialogue.phrases.Array.data[0]
+      value: "Machine Soin\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
+        pour confirmer\n\nQ pour annuler"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a882707262cd2c4cbfc388a428b47bf, type: 3}
@@ -11258,6 +11292,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3804614310065345952, guid: 9423318311f75da459c1f28c8adddd4c,
+        type: 3}
+      propertyPath: dialogue.phrases.Array.data[0]
+      value: "Machine Anneau\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
+        pour confirmer\n\nQ pour annuler"
+      objectReference: {fileID: 0}
     - target: {fileID: 5656144174349762927, guid: 9423318311f75da459c1f28c8adddd4c,
         type: 3}
       propertyPath: m_Name
@@ -11359,6 +11399,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882704533251849773, guid: db5e50813aa19c14da27b4b8980ea147,
+        type: 3}
+      propertyPath: dialogue.phrases.Array.data[0]
+      value: "Machine Bottes\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
+        pour confirmer\n\nQ pour annuler"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db5e50813aa19c14da27b4b8980ea147, type: 3}
@@ -11537,6 +11583,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3467246080516412173}
     m_Modifications:
+    - target: {fileID: 382026349892673536, guid: 47ec95cadff0b3e42aeb7b83dad7461a,
+        type: 3}
+      propertyPath: dialogue.phrases.Array.data[0]
+      value: "Machine Armure\n\nVoulez-vous acheter l'item pour 100 pi\xE8ces?\n\nE
+        pour confirmer\n\nQ pour annuler"
+      objectReference: {fileID: 0}
     - target: {fileID: 1419466080006094670, guid: 47ec95cadff0b3e42aeb7b83dad7461a,
         type: 3}
       propertyPath: m_Name

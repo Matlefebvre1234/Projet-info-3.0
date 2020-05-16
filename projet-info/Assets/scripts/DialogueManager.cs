@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
         phrases = new Queue<string>();
         phrases.Clear();
         textNom.text = dialogue.nom;
+        Debug.Log("Dialogue  = " + dialogue.nom);
 
         foreach (string phrase in dialogue.phrases)
         {
