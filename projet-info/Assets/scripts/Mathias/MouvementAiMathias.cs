@@ -121,7 +121,6 @@ public class MouvementAiMathias : MonoBehaviour
 
             else
             {
-                caseChemin++;
                 fin = true;
             }
         }
