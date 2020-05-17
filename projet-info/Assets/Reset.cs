@@ -46,6 +46,8 @@ public class Reset : MonoBehaviour
             PlayerPrefs.SetInt("Easter Eggs_1", 0);
             PlayerPrefs.SetInt("Easter Eggs_2", 0);
             PlayerPrefs.SetInt("Easter Eggs_3", 0);
+            PlayerPrefs.SetInt("Meilleur Score", 0);
+            PlayerPrefs.SetInt("Score", -1);
 
 
             musique.SetVolume(1);

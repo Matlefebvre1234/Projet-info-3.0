@@ -42,15 +42,14 @@ public class CreateurSalle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("Score", -1);  
         nBEnnemiesTotal = 0;
         CreerSalle();
-        
 
     }
 
     private void Update()
     {
-        Debug.Log("Ennemie total = " + nBEnnemiesTotal);
         if (nBEnnemiesTotal <= 0 && AllEnnemySpawn)
         {            
             PlayerPrefs.SetInt("Enemy mort", 1);
@@ -68,7 +67,11 @@ public class CreateurSalle : MonoBehaviour
 
                 Destroy(list[i].gameObject);
             }
-}
+        }
+       if(PlayerPrefs.GetInt("Meilleur Score") < PlayerPrefs.GetInt("Score"))
+        {
+            PlayerPrefs.SetInt("Meilleur Score", PlayerPrefs.GetInt("Score"));
+        }
     }
     private void SpawnerMana(int nbPotions)
     {
@@ -199,10 +202,7 @@ public class CreateurSalle : MonoBehaviour
         spawnJoueur = GameObject.FindGameObjectWithTag("SpawnJoueur");
         Player.transform.position = spawnJoueur.transform.position;
         porte = FindObjectOfType<ChangementNiveau>().GetComponent<ChangementNiveau>();
-        
-
-
-
+        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + 1);
     }
     public void ProchainNiveau()
     {
