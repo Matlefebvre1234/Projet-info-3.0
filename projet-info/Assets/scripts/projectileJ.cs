@@ -14,10 +14,13 @@ public class projectileJ : MonoBehaviour
     private GameObject joueur;
 
     public GameObject joueurPlayer;
-
+    public Tirer tirerScript;
     private void Start()
     {
         joueur = GameObject.FindGameObjectWithTag("Player");
+        tirerScript = FindObjectOfType<Tirer>();
+        float calculvitesse = speed + (12.0f * (0.5f - tirerScript.reloadTime));
+
         dommage = joueur.transform.GetComponent<Tirer>().GetDommage();
         mousposition = Input.mousePosition;
         mousposition = Camera.main.ScreenToWorldPoint(mousposition);
@@ -25,7 +28,7 @@ public class projectileJ : MonoBehaviour
         VecteurUnitaire = VecteurUnitaire.normalized;
         MonRigidBody = GetComponent<Rigidbody2D>();
         moncollider = GetComponent<BoxCollider2D>();
-        MonRigidBody.AddForce(VecteurUnitaire * speed, ForceMode2D.Impulse);
+        MonRigidBody.AddForce(VecteurUnitaire * calculvitesse , ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) 
