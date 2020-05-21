@@ -20,9 +20,8 @@ public class MurCacher : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Projectile" && briser == false && PlayerPrefs.GetInt("Enemy mort") == 1)
+        if(collision.gameObject.tag == "Projectile" && this.gameObject.tag == "Mur Fog Salle6" && briser == false && PlayerPrefs.GetInt("Enemy mort") == 1)
         {
-            Debug.Log("mur = collide");
             compteur++;
             if (compteur >= 2)
             {
